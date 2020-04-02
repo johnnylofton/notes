@@ -1,0 +1,3326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Google Cloud - Notes</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Google Cloud Notes", url: "#_top", children: [
+              {title: "1. Course Info", url: "#1-course-info" },
+              {title: "2. Certification Intro", url: "#2-certification-intro" },
+              {title: "3. Intro to Google Cloud Platform (GCP)", url: "#3-intro-to-google-cloud-platform-gcp" },
+              {title: "4. Intro to GCP Products/Services", url: "#4-intro-to-gcp-productsservices" },
+              {title: "6. Account Setup", url: "#6-account-setup" },
+              {title: "7. Cloud Shell and Data Flows", url: "#7-cloud-shell-and-data-flows" },
+              {title: "8. Basic Services", url: "#8-basic-services" },
+              {title: "9. Basic Services Challenge Lab", url: "#9-basic-services-challenge-lab" },
+              {title: "10. Scaling", url: "#10-scaling" },
+              {title: "11. Security", url: "#11-security" },
+              {title: "12. Networking", url: "#12-networking" },
+              {title: "13. GKE Introduction: Google Kubernetes Engine", url: "#13-gke-introduction-google-kubernetes-engine" },
+              {title: "14. Kubernetes Course Introduction", url: "#14-kubernetes-course-introduction" },
+              {title: "15. Kubernetes Big Picture", url: "#15-kubernetes-big-picture" },
+              {title: "16. Kubernetes Application Architecture", url: "#16-kubernetes-application-architecture" },
+              {title: "17. Kubernetes Networking", url: "#17-kubernetes-networking" },
+              {title: "18. Kubernetes Storage", url: "#18-kubernetes-storage" },
+              {title: "19. From Code to Kubernetes", url: "#19-from-code-to-kubernetes" },
+              {title: "20. Kubernetes Deployments", url: "#20-kubernetes-deployments" },
+              {title: "21. Kubernetes Auto-scaling Apps", url: "#21-kubernetes-auto-scaling-apps" },
+              {title: "22. Kubernetes Security", url: "#22-kubernetes-security" },
+              {title: "23. More Kubernetes Stuff", url: "#23-more-kubernetes-stuff" },
+              {title: "25. GAE: Google App Engine", url: "#25-gae-google-app-engine" },
+              {title: "26. Services Breadth", url: "#26-services-breadth" },
+              {title: "27. System of Services", url: "#27-system-of-services" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../mern/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mern/" class="btn btn-xs btn-link">
+        MERN
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="google-cloud-notes">Google Cloud Notes</h1>
+<p>Based on Udemy Course <a href="https://www.udemy.com/google-certified-associate-cloud-engineer">Google Certified Associate Cloud Engineer Collection</a></p>
+<h2 id="1-course-info">1. Course Info</h2>
+<h3 id="course-introduction">Course Introduction</h3>
+<ul>
+<li>Getting certified on Cloud Platforms opens doors.<ul>
+<li>In demand</li>
+</ul>
+</li>
+<li>Contains what students need to pass exams and start utilizing the cloud in the real world.</li>
+<li>Kubernetes essential part of Google Cloud<ul>
+<li>Deep Dive course available</li>
+</ul>
+</li>
+<li>This course is a combination of:<ul>
+<li>Google Certified Associate Cloud Engineer</li>
+<li>Introduction to Google Cloud Platform</li>
+<li>Kubernetes Deep Dive</li>
+</ul>
+</li>
+</ul>
+<h3 id="making-comparisons">Making Comparisons</h3>
+<ul>
+<li>AWS seems to make new services for anything requested</li>
+<li>Google ACE is more broad, although similar.<ul>
+<li>Focus on data flows here.</li>
+</ul>
+</li>
+<li>ACE has more focus on running systems and command line access.</li>
+<li>PSA has more focus on business analysis and trade-offs</li>
+<li>Overall need to understand how things work at a fairly deep level and need to have built things hands on.<ul>
+<li>Challenge labs to test your skills on your own.</li>
+</ul>
+</li>
+<li>By end of course will have learned:<ul>
+<li>Kubernetes</li>
+<li>How Google Cloud is set up and it's main services.</li>
+<li>How to use it through web console and command line.</li>
+</ul>
+</li>
+</ul>
+<h3 id="course-outline-student-background">Course Outline &amp; Student Background</h3>
+<ul>
+<li>
+<p>Aim to answer</p>
+<ul>
+<li>How do I properly set up my Google Cloud Platform (GCP) account and projects?</li>
+<li>How do I set up and use the various GCP services?</li>
+<li>How can I build a GCP system I have designed?</li>
+<li>How can I get certified as a GCP Associate Cloud Engineer?</li>
+</ul>
+</li>
+<li>
+<p>Course Structure</p>
+</li>
+<li>Certification/GCP Overview</li>
+<li>GCP Account Setup (Hands-On)</li>
+<li>GCP Services (Hands-On)</li>
+<li>
+<p>Breadth &amp; Exam Prep</p>
+</li>
+<li>
+<p>Prerequisities</p>
+<ul>
+<li>Certification Exam has no prerequisite</li>
+<li>Credit card for GCP account (will not be charged if stay in trial)</li>
+<li>Computer to connect to GCP and VMs<ul>
+<li>MacOS, Windows, Linux, Chromebook, etc. are all fine.</li>
+<li>Mobile phone will not work.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Considerations</p>
+<ul>
+<li>Similar certification system to AWS</li>
+<li>Learn about mental models<ul>
+<li>Learn how to learn more effectively</li>
+</ul>
+</li>
+<li>No AWS experience required.<ul>
+<li>Not for GCP</li>
+<li>Not for course</li>
+<li>Not for exam</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-certification-intro">2. Certification Intro</h2>
+<h3 id="exam-guide-blueprint">Exam Guide (Blueprint)</h3>
+<ul>
+<li>Google's statement of what's most important<ul>
+<li>To a person wanting to pass the exam</li>
+<li>To a person working in the field as a Cloud Engineer</li>
+</ul>
+</li>
+<li>
+<p>Defines scope</p>
+<ul>
+<li>Of role</li>
+<li>Of exam</li>
+<li>Of course</li>
+</ul>
+</li>
+<li>
+<p><a href="https://cloud.google.com/certification/guides/cloud-engineer/">From Google</a>:</p>
+</li>
+</ul>
+<blockquote>
+<p>An Associate Cloud Engineer deploys applications, monitors operations of multiple projects, and maintains enterprise solutions to ensure that they meet target performance metrics. This individual has experience working with public clouds and on-premises solutions. They are able to use Google Cloud Console and the command-line interface to perform common platform-based tasks to maintain one or more deployed solutions that leverage Google-managed or self-managed services on Google Cloud.</p>
+</blockquote>
+<ul>
+<li>
+<p>Exam Sections (or "Domains")</p>
+</li>
+<li>
+<p>Setting up a cloud solution environment</p>
+<ol>
+<li>Setting up cloud projects and accounts</li>
+<li>Managing billing configuration</li>
+<li>Installing and configuring the command line interface (CLI)</li>
+</ol>
+</li>
+<li>Planning and configuring a cloud solution<ol>
+<li>Planning and estimating GCP product using the Pricing Calculator</li>
+<li>Planning and configuring compute resources</li>
+<li>Planning and configuring data storage options</li>
+<li>Planning and configuring network resource</li>
+</ol>
+</li>
+<li>Deploying and implementing a cloud solution<ol>
+<li>Deploying and implementing Compute Engine resources</li>
+<li>Deploying and implementing Kubernetes Engine resources</li>
+<li>Deploying and implementing App Enging and Cloud Functions resources</li>
+<li>Deploying and implementing data solutions</li>
+<li>Deploying and implementing networking resources.</li>
+</ol>
+</li>
+<li>Ensuring successful operation of a cloud solution<ol>
+<li>Managing Compute Engine resources</li>
+<li>Managing Kubernetes Engine resources</li>
+<li>Managing App Enging and Cloud Functions resources</li>
+<li>Managing data solutions</li>
+<li>Managing networking resources.</li>
+<li>Monitoring and logging</li>
+</ol>
+</li>
+<li>Configuring access and security<ol>
+<li>Managing Identity and Access Management (IAM)</li>
+<li>Managing service accounts</li>
+<li>Viewing audit logs for project and managed services</li>
+</ol>
+</li>
+</ul>
+<h2 id="3-intro-to-google-cloud-platform-gcp">3. Intro to Google Cloud Platform (GCP)</h2>
+<h3 id="gcp-context">GCP Context</h3>
+<ul>
+<li>AWS is the far-and-away market leader</li>
+<li>What's the right cloud for you?<ul>
+<li>Might use multiple</li>
+</ul>
+</li>
+<li>Google is all about Big Data; huge scale</li>
+<li><a href="https://en.wikipedia.org/wiki/Google_data_centers#Software">Google's Tools</a></li>
+<li>"Google is such a developer-focused cloud"</li>
+<li>History of GCP<ul>
+<li>Built by Googlers for Google</li>
+<li>Not original for Enterprise</li>
+</ul>
+</li>
+<li>Purchased some services<ul>
+<li>Leaks in abstractions more evident</li>
+</ul>
+</li>
+<li>Catch-up to AWS<ul>
+<li>Some functionality missing</li>
+<li>Avoided some mistakes</li>
+<li>More willing to be "a cloud" that you use, not just "the cloud" that you use.</li>
+</ul>
+</li>
+</ul>
+<h3 id="gcp-design-and-structure">GCP Design and Structure</h3>
+<ul>
+<li>Global</li>
+<li>Secure</li>
+<li>Huge Scale</li>
+<li>Developers</li>
+</ul>
+<h4 id="physical-infastructure">Physical Infastructure</h4>
+<ul>
+<li>vCPU</li>
+<li>Physical server</li>
+<li>Rack</li>
+<li>Data center (building)</li>
+<li>Zone</li>
+<li>Region</li>
+<li>Multi-Region</li>
+<li>Private global network</li>
+</ul>
+<h4 id="network-ingress-and-egress">Network Ingress and Egress</h4>
+<ul>
+<li>Normal network: Routes via Internet to edge location closest to <em>destination</em></li>
+<li>Google: Routes so traffic enters from Internet at edge closest to <em>source</em><ul>
+<li>Enables very interesting scenarios</li>
+<li>Single global IP address can load balance worldwide</li>
+<li>Sidesteps many DNS issues</li>
+</ul>
+</li>
+<li>Can now opt for "normal" network routing to reduce price (and functionality)</li>
+</ul>
+<h4 id="pricing">Pricing</h4>
+<ul>
+<li>Provisioned<ul>
+<li>"Make sure you're ready to handle X"</li>
+</ul>
+</li>
+<li>Usage<ul>
+<li>"Handle <em>whatever</em> I use and carge me for that"</li>
+</ul>
+</li>
+<li>Network traffic<ul>
+<li>Free on the way in (ingress)</li>
+<li>Charged on the way out (egress), by GBs used</li>
+<li>Egress to GCP services sometimes free<ul>
+<li>Depends on the destination service</li>
+<li>Depends on the location of that service</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="security">Security</h4>
+<ul>
+<li>Separation of duties and physical security</li>
+<li>Absolutely everything always encrypted at rest</li>
+<li>Strong key and identity management</li>
+<li>Network encryption<ul>
+<li>All control info encrypted</li>
+<li>All WAN traffic to be encrypted automatically</li>
+<li>Moving towards encrypting all local traffic within data centers</li>
+</ul>
+</li>
+<li>Distrust the network, anyway<ul>
+<li>BeyondCorp</li>
+</ul>
+</li>
+<li><a href="https://cloud.google.com/security/security-design">Google Security Design</a></li>
+</ul>
+<h4 id="scale-and-automation">Scale and Automation</h4>
+<ul>
+<li>Scale must be unbounded</li>
+<li>Devs don't want to answer pages</li>
+</ul>
+<h4 id="resource-quotas-soft-limits">Resource Quotas (Soft Limits)</h4>
+<ul>
+<li>Scope<ul>
+<li>Regional</li>
+<li>Global</li>
+</ul>
+</li>
+<li>Changes<ul>
+<li>Automatic</li>
+<li>By request<ul>
+<li>Response in 24-48h</li>
+<li>May be refused</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Queryable<ul>
+<li><code>gcloud compute project-info describe --project myprojectid</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="organizations">Organizations</h4>
+<ul>
+<li>Projects are similar to AWS accounts</li>
+<li>Projects own resources</li>
+<li>Resources can be shared with other projects</li>
+<li>Projects can be grouped and controlled in a hierarchy</li>
+</ul>
+<h2 id="4-intro-to-gcp-productsservices">4. Intro to GCP Products/Services</h2>
+<h3 id="how-to-cheat">How to Cheat</h3>
+<p><img alt="gcloud-cheatsheet" src="../img/DarkPoster-medres.png" title="gcloud-cheatsheet" /></p>
+<h3 id="productsservices-as-building-blocks">Products/Services as Building Blocks</h3>
+<ul>
+<li>Categories</li>
+<li>Data flow</li>
+<li>Compute, Storage, Networking centrally important</li>
+</ul>
+<h4 id="cloud-deployment-manager">Cloud Deployment Manager</h4>
+<ul>
+<li>All pieces needed included in template</li>
+<li>Can customize</li>
+</ul>
+<h4 id="gcp-marketplace">GCP Marketplace</h4>
+<ul>
+<li>aka Cloud Launcher</li>
+<li>A partner and open-source marketplace</li>
+<li>Buying completed things</li>
+</ul>
+<h3 id="key-building-blocks">Key Building Blocks</h3>
+<ul>
+<li>Compute Engine<ul>
+<li>Most relatable Google cloud product<ul>
+<li>Like computers from the store</li>
+<li>Spin up and use, as much as needed</li>
+<li>Build almost anything with it</li>
+<li>By the second</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cloud function<ul>
+<li>Key building block of serverless systems</li>
+<li>By the 10th of a second</li>
+<li>Many event types</li>
+</ul>
+</li>
+<li>Cloud storage<ul>
+<li>Serverless product</li>
+<li>Most pure product</li>
+<li>Storage and Serving</li>
+</ul>
+</li>
+<li>Nearline &amp; Coldline are variants of cloud storage</li>
+<li>Persistent Disk<ul>
+<li>Block storage, similar to harddrive</li>
+<li>Only goes with compute engine.</li>
+</ul>
+</li>
+<li>Cloud Filestore<ul>
+<li>Neither object based nor block based</li>
+<li>File based</li>
+</ul>
+</li>
+<li>Kubernetes Engine<ul>
+<li>Alleviate management burden with Compute Engine</li>
+<li>Load Balancers</li>
+</ul>
+</li>
+<li>Cloud TPU<ul>
+<li>Specialized hardware for machine learning</li>
+<li>TensorFlow processing</li>
+</ul>
+</li>
+<li>Many ML products<ul>
+<li>AutoML, etc</li>
+</ul>
+</li>
+<li>Data and Analytics Products</li>
+<li>Networking<ul>
+<li>Virutal private cloud</li>
+<li>Dedicated Interconnect</li>
+<li>Cloud NAT</li>
+<li>Cloud load balancing</li>
+<li>Cloud DNS</li>
+<li>etc</li>
+</ul>
+</li>
+<li>Management Tools<ul>
+<li>Stackdriver</li>
+</ul>
+</li>
+<li>Identity and Security Products<ul>
+<li>Cloud Identity</li>
+<li>Cloud IAM</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-account-setup">6. Account Setup</h2>
+<h3 id="free-tier-gcp-accounts">Free-Tier GCP Accounts</h3>
+<ul>
+<li><a href="https://cloud.google.com/free/">Google Cloud Platform Free Tier</a><ul>
+<li>Billing account that does not get charged<ul>
+<li>Must be manually upgraded to a paying account</li>
+<li>Still requires credit card, for verification</li>
+</ul>
+</li>
+<li>$300 USD credit that can last 12 months<ul>
+<li>"When your trial ends, your account will be paused and you'll have the option to upgrade to a paid account."</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Business Accounts not eligible for free trial</li>
+<li><a href="https://cloud.google.com/free/docs/gcp-free-tier#limitations">Free Trial Restrictions</a><ul>
+<li>No more than 8 vCPUs (total simultaneous)</li>
+<li>No GPUs (video card chips)</li>
+<li>No TPUs (custom chips for TensorFlow)</li>
+<li>No Quota increases</li>
+<li>No cryptomining allowed</li>
+<li>No SLAs</li>
+<li>No premium OS licenses (e.g. Windows)</li>
+<li>No Cloud Launcher products with extra usage fees</li>
+</ul>
+</li>
+<li><a href="https://cloud.google.com/free/docs/gcp-free-tier">Always Free</a><ul>
+<li>"Always Free usage does not count against your free trial credits"</li>
+<li>Last beyond end of free trial</li>
+<li>Full details at <a href="https://cloud.google.com/free/docs/always-free-usage-limits">Free Tier Limits</a></li>
+<li>Compute Highlights<ul>
+<li>24h/day of f1-micro runtime, in most US regions, only</li>
+<li>28h/day of App Engine runtime, in North America</li>
+<li>2M/month of Cloud Functions invocations (with runtime/size limits)</li>
+</ul>
+</li>
+<li>Storage Highlights<ul>
+<li>Storage averaged over the month</li>
+<li>5 GB of Regional Cloud Storage, including some operations</li>
+<li>1 GB of Cloud Datastore storage, including some operations</li>
+<li>10 GB of BigQuery storage, with 1 TB/month of query processing</li>
+<li>30 GB HDD Storage on GCE and AE</li>
+<li>5 GB snapshot storage on GCE and AE</li>
+<li>5 GB of StackDriver logs with 7 day retention</li>
+</ul>
+</li>
+<li>Networking Highlights<ul>
+<li><em>Egress to China and Australia not free!</em></li>
+<li>1 GB/month of App Engine data egress</li>
+<li>1 GB/month of Compute Engine data egress</li>
+<li>5 GB/month of egress by Cloud Function invocations</li>
+<li>5 GB/month of egress from Cloud Storage based in North America</li>
+<li>10 GB/month of Cloud PubSub messages</li>
+</ul>
+</li>
+<li>Other highlights<ul>
+<li>120 build-minutes/day of Google Cloud Container Builder</li>
+<li>60 minutes/month of Google Cloud Speech API recognition from audio/video</li>
+<li>1000 units/month of Cloud Vision API calls</li>
+<li>5000 units/month of Google Cloud Natural Language API</li>
+<li>Google Cloud Shell with 5 GB of persistent disk storage quota</li>
+<li>1 GB of Google Cloud Source Repositories private hosting</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="create-free-tier-gcp-account">Create Free-Tier GCP Account</h3>
+<ul>
+<li>Create Free Trial GCP account</li>
+<li>New GMail account for Billing</li>
+<li><a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">Principle of least privilege</a></li>
+<li><a href="https://console.cloud.google.com/freetrial">Signup</a></li>
+</ul>
+<h3 id="explore-gcp-console">Explore GCP Console</h3>
+<ul>
+<li><a href="https://console.cloud.google.com">The Google Cloud Platform Console</a></li>
+<li><a href="https://status.cloud.google.com/">Google Cloud Status Dashboard</a></li>
+<li>Fully customizable dashboard<ul>
+<li>Activity tab</li>
+<li>Google Cloud Shell</li>
+</ul>
+</li>
+<li><strong>Do NOT</strong> click activate full account</li>
+</ul>
+<h3 id="set-up-billing-export">Set Up Billing Export</h3>
+<ul>
+<li><a href="https://cloud.google.com/billing/docs/how-to/export-data-bigquery">Export Cloud Billing Data to BigQuery</a></li>
+<li>Setting up Billing Export<ul>
+<li>Navigate to Console &gt; Billing &gt; Billing Export</li>
+<li>Need a BigQuery Dataset<ul>
+<li>Could do from here, but then it will live inside that particular project, which isn't where we want it. Don't want all stuff mashed together.</li>
+<li>Use projects to manage groups of resources</li>
+<li>Create new project<ul>
+<li>Quotas<ul>
+<li>Projects aren't an infinite resource</li>
+<li>Create a new project here, unique ID across <em>all</em> projects</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Create new Dataset in BigQuery under new project<ul>
+<li>Set up a label</li>
+</ul>
+</li>
+<li>Set up BigQuery export<ul>
+<li>Admin project</li>
+<li>billing_export dataset</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Recap<ul>
+<li>Export must be set up per billing account</li>
+<li>Resources should be placed into appropriate projects</li>
+<li>Resources should be tagged with labels</li>
+<li>Billing export is not real-time<ul>
+<li>Delay is hours</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="set-up-billing-alert">Set up Billing Alert</h3>
+<ul>
+<li>Can setup a "budget" with alerts</li>
+<li>Billing &gt; Budget &amp; alerts &gt; Create Budget<ul>
+<li>Trigger alerts for $1, include credits</li>
+</ul>
+</li>
+</ul>
+<h3 id="set-up-non-admin-user-access">Set Up (Non-Admin) User Access</h3>
+<ul>
+<li>Limit risk by restricting user account, as opposed to constantly using admin account<ul>
+<li>Key in this case is user account will <em>not</em> be able to upgrade the billing account to become a paying one.</li>
+</ul>
+</li>
+<li>Production setup may have even more restrictive roles</li>
+<li>Billing IAM<ul>
+<li>Role: Billing Account User</li>
+<li>Purpose: Link projects to billing accounts</li>
+<li>Level: Organization or billing account</li>
+<li>Use Case: This role has very restricted permissions, so you can grant it broadly, typically in combination with Project Creator. These two roles allow a user to create new projects linked to the billing account on which the role is granted.</li>
+</ul>
+</li>
+<li>Add Billing Account User (different than admin account)</li>
+<li>Login and access Billing with newly granted User account<ul>
+<li>Permissions limited here due to role</li>
+</ul>
+</li>
+<li>User has access to that User Project created</li>
+<li>Admin account does not have access to newly created User Project</li>
+<li><a href="https://cloud.google.com/billing/docs/how-to/billing-access">Overview of Billing Access</a></li>
+<li><strong>Owning a project and being able to control its resources is completely separate from being able to control the Billing Account attached to that project.</strong></li>
+</ul>
+<h2 id="7-cloud-shell-and-data-flows">7. Cloud Shell and Data Flows</h2>
+<h3 id="explore-cloud-shell-and-editor">Explore Cloud Shell and Editor</h3>
+<p><a href="https://cloud.google.com/shell/">Cloud Shell Docs</a>
+<a href="https://github.com/ACloudGuru/gcp-cloud-engineer">Course Resources on Github</a></p>
+<ul>
+<li>
+<p>Shell Highlights</p>
+<ul>
+<li>Web browser access<ul>
+<li>No need for local terminal<ul>
+<li>Chromebook (+)</li>
+<li>No PuTTY!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Automatic SSH key management</li>
+<li>5 GB of persistent storage</li>
+<li>Easy-access to preinstalled tools<ul>
+<li>gcloud, bq, kubectl, docker, npm/node, pip/python, ruby, vim, emacs, bash, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Lab walkthrough</p>
+<ul>
+<li>Log into GCP account with non-admin account<ul>
+<li>Make sure 2FA is enabled and you are prompted for it.</li>
+</ul>
+</li>
+<li>Enable Cloud Shell<ul>
+<li>Switch projects: <code>gcloud config set project [PROJECT_ID]</code></li>
+<li>Download file: <code>dl README-cloudshell.txt</code></li>
+<li><code>node hello.js</code> <em>with git repo for cloud test</em><ul>
+<li>Can view with Web Preview</li>
+</ul>
+</li>
+<li>Can view and edit files in cloud editor</li>
+<li><em>nodemon preinstalled here</em></li>
+<li><code>diff hello.js html-hello.js</code></li>
+<li>Can change preview port</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="data-flows">Data Flows</h3>
+<ul>
+<li>Data Flows are Everything (in IT)</li>
+<li>Core Concepts with regard to <strong>DATA</strong><ul>
+<li>Moving - <em>Network, etc</em></li>
+<li>Processing - <em>Compute, etc</em></li>
+<li>Remembering - <em>Storage, etc</em></li>
+</ul>
+</li>
+<li>Cloud Shell Lab Data Flow<ul>
+<li>Your Machine<ul>
+<li>Web Browser<ul>
+<li>GCP Console<ul>
+<li>Google Cloud Control Plane</li>
+<li>Opening up Cloud Shell<ul>
+<li>Find persistent storage available</li>
+<li>Find machine to host our cloud shell instance<ul>
+<li>Container<ul>
+<li>Secure Shell Server</li>
+<li><em>Connection to this secure shell from browser</em><ul>
+<li>Connect to git, download files, stored in persistent storage.</li>
+</ul>
+</li>
+<li>Running Node Server<ul>
+<li>Google cloud sets up proxy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Opening up Editor<ul>
+<li>Make changes to files in persistent storage</li>
+<li>Node process has to be reset to show any changes.<ul>
+<li>Reload browser</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Loading alternative node process with different port also requires us to change proxy port to match.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Key Takeaways<ul>
+<li>Data flows are the foundation of <em>every</em> system</li>
+<li>Moving, Processing, Remembering<ul>
+<li>Not <em>just</em> Network, Compute, Storage</li>
+</ul>
+</li>
+<li>Build mental models<ul>
+<li>Helps you make predictions</li>
+</ul>
+</li>
+<li>Identify and think through data flows<ul>
+<li>Higlights potential issues</li>
+</ul>
+</li>
+<li>Requirements and options not always clear<ul>
+<li>Especially in the real world.</li>
+</ul>
+</li>
+<li>Critical skills for both real world and exam questions        </li>
+</ul>
+</li>
+</ul>
+<h3 id="update-course-lab-files">Update Course Lab Files</h3>
+<ul>
+<li>What's the plan?<ul>
+<li>Configure git</li>
+<li>Stash changes</li>
+<li>Retrieve Updates</li>
+</ul>
+</li>
+<li>Starting off<ul>
+<li>Log into GCP console with user account</li>
+<li>Open Cloud Shell</li>
+<li>(Doesn't matter which project you use)</li>
+<li><code>chmod +x update.sh</code></li>
+<li><code>./update.sh</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="milestone-open-world">Milestone: Open World</h3>
+<p><a href="https://cloud.google.com/docs/overview/#projects">Projects</a></p>
+<ul>
+<li>Two quotas to be aware of:<ul>
+<li>Each user account has a qutoa on how many projects you can own</li>
+<li>Trial billing account has a separate quota for how many projects can be linked to it</li>
+</ul>
+</li>
+<li>Google automatically creates a project for you admin account and links it to your trial billing account</li>
+</ul>
+<h2 id="8-basic-services">8. Basic Services</h2>
+<h3 id="gcs-google-cloud-storage">GCS: Google Cloud Storage</h3>
+<p><a href="https://cloud.google.com/storage/docs/access-control/making-data-public">Making Data Public</a>
+- Log into GCP Console with <em>user</em> account
+    - From now on, just assume this
+    - Only use admin account when we need it
+- Create a new project
+    - Generally, new <em>thing</em>, new <strong>project</strong>
+    - Also link to billing
+- Navigate to <strong>Storage</strong> in navigation list
+    - Can pin to top
+- Create a Bucket
+    - Set up region/multi-region, labels, keys
+- Edit permissions to set up public access to file.
+    - User - "allUsers" - Reader
+- <em>Objects</em> <strong>not</strong> <em>files</em>
+- Command line alternative methods for actions
+    - Example rename an object:
+        - <code>gsutil mv -p gs://storage-lab-console-panda/README-cloudshell.txt gs://storage-lab-console-panda/README-cloudshell.txt</code>
+- Cannot change location or location-type after bucket creation
+- Can edit bucket permissions
+    - Add allUsers as Storage Object Viewer to essentially create a <em>public bucket</em>, which, for security reasons, is <strong><em>not advised</em></strong></p>
+<h3 id="gcs-via-gsutil-in-command-line">GCS via gsutil in Command Line</h3>
+<ul>
+<li><code>gcloud config list</code></li>
+<li>Using <code>gsutil</code><ul>
+<li>Buckets start with <code>gs://</code></li>
+<li><code>gsutil ls gs://storage-lab-console-panda/</code><ul>
+<li>Add <code>**</code> for all</li>
+</ul>
+</li>
+<li>Can use <code>--help</code></li>
+<li><code>gsutil mb</code> (mb = make bucket)<ul>
+<li>Ex: <code>gsutil -l NORTHAMERICA-NORTHEAST1 gs://storage-lab-cli-panda</code></li>
+</ul>
+</li>
+<li><code>gsutil label get gs://storage-lab-console-panda</code><ul>
+<li>Returns JSON listing labels</li>
+</ul>
+</li>
+<li><code>gsutil label set gs://storage-lab-cli-panda</code></li>
+<li><code>gsutil label ch -l "extralabel:extravalue" gs://storage-lab-cli-panda</code></li>
+<li><code>gsutil versioning get gs://storage-lab-cli-panda</code></li>
+<li><code>gsutil versioning set on gs://storage-lab-cli-panda</code></li>
+<li><code>gsutil cp README.txt gs://storage-lab-cli-panda</code><ul>
+<li><code>gsutil cp -a README.txt gs://storage-lab-cli-panda</code><ul>
+<li>Getting version</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Between buckets: <code>gsutil cp gs://storage-lab-console-panda/** gs://storage-lab-cli-panda/</code><ul>
+<li>Can't see or utilize versioning in web UI
+<code>gsutil acl ch -u AllUsers:R gs://storage-lab-cli-panda/Selfie.jpg</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/ACloudGuru/gcp-cloud-engineer/blob/master/storage-labs/gsutil-lab-commands.txt">Lab Script Commands</a></li>
+<li><a href="https://cloud.google.com/storage/docs/locations">Bucket Locations</a></li>
+</ul>
+<h3 id="starting-our-first-gce-vm-google-compute-engine-setup">Starting Our First GCE VM: Google Compute Engine Setup</h3>
+<ul>
+<li>Find which project is selected: <code>gcloud config get-value project</code></li>
+<li>Check if any Compute Engines already running: <code>gcloud compute instances list</code></li>
+<li>List Services: <code>gcloud services list</code><ul>
+<li>Can add <code>--help</code> or <code>-h</code>, like most commands</li>
+<li>List of APIs that are enabled for this specific project</li>
+</ul>
+</li>
+<li><code>gcloud services list --enabled</code> - Default</li>
+<li><code>gcloud services list --available</code> - All<ul>
+<li>Filter down with grep: <code>gcloud services list --available | grep compute</code><ul>
+<li>Result = <code>compute.googleapis.com    Compute Engine API</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>gcloud services -h</code></li>
+<li><code>gcloud compute instances list</code><ul>
+<li>URL given after sending N: <a href="https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=angelic-artwork-262516">API &amp; Services</a><ul>
+<li>Google API section of console</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Navigate to IAM &amp; admin section<ul>
+<li>See members and roles here</li>
+<li>Service Accounts Section<ul>
+<li>Currently empty</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Navigate to Compute Engine section<ul>
+<li>Simply going here will enable it</li>
+<li>After, running <code>gcloud compute instances list</code> will now show <code>Listed 0 items</code></li>
+</ul>
+</li>
+<li>compute.googleapis.com (Compute Engine API) <strong>&amp;</strong> oslogin.googleapis.com (Cloud OS Login API) is now in services list</li>
+<li>Permissions also added automatically in IAM</li>
+<li>Service account also created automatically</li>
+<li>To create our very first virtual machine:<ul>
+<li><code>gcloud compute instances create myvm</code></li>
+<li><code>gcloud compute instances delete myvm</code></li>
+</ul>
+</li>
+<li><a href="https://github.com/ACloudGuru/gcp-cloud-engineer/blob/master/compute-labs/first-vm.txt">Lab Script Commands</a></li>
+</ul>
+<h3 id="rundown-on-gcloud">Rundown on gcloud</h3>
+<ul>
+<li>The <code>gcloud</code> command</li>
+<li>Overview<ul>
+<li><a href="https://cloud.google.com/sdk/gcloud/">Overview Doc for gcloud</a></li>
+<li>Command-line tool to interact with GCP</li>
+<li>Best friends with <code>gsutil</code> and <code>bq</code><ul>
+<li>All share same configuration set via <code>gcloud config</code></li>
+<li><code>gsutil</code> could have been <code>gcloud storage</code></li>
+<li><code>bq</code> could have been <code>gcloud bigquery</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In general: more powerful than console but less powerful than REST API<ul>
+<li>Functionality in command-line tools not yet fully released, can use <code>beta</code> to use:<ul>
+<li><code>gcloud beta billing accounts list</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Syntax:<ul>
+<li><a href="https://cloud.google.com/sdk/gcloud/reference/">Syntax of gcloud</a></li>
+<li><code>gcloud &lt;global flags&gt; &lt;service/product&gt; &lt;group/area&gt; &lt;command&gt; &lt;flags&gt; &lt;parameters&gt;</code></li>
+<li>Always drills down (from left to right)</li>
+</ul>
+</li>
+<li>Examples:<ul>
+<li><code>gcloud --project myprojid compute instances list</code> OR <code>gcloud --project=myprojid myprojid compute instances list</code></li>
+</ul>
+</li>
+<li>In our example, relied on project given in config.<ul>
+<li>We used: <code>gcloud compute instances create myvm</code> (no project name given)</li>
+</ul>
+</li>
+<li>Not all commands have parameters:<ul>
+<li><code>gcloud services list --available</code></li>
+</ul>
+</li>
+<li><code>gsutil ls</code> - Implies working against google cloud storage service and the command is to list</li>
+<li>Command to make bucket: <code>gsutil mb -l northamerica-northeast1 gs://storage-lab-cli-panda</code></li>
+<li>Global flags<ul>
+<li><code>--help</code></li>
+<li><code>-h</code></li>
+<li><code>--project &lt;ProjectID&gt;</code></li>
+<li><code>--acount &lt;Account&gt;</code></li>
+<li><code>--filter</code><ul>
+<li>Not always available, but often better than using grep</li>
+</ul>
+</li>
+<li><code>--format</code><ul>
+<li>Can choose JSON, YAML, CSV, etc.</li>
+<li>Can pipe (<code>|</code>) JSON to <code>jq</code> command for further processing</li>
+</ul>
+</li>
+<li><code>--quiet</code> (or <code>-q</code>)<ul>
+<li>Won't prompt you to confirm about destructive actions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Config Properties<ul>
+<li><a href="https://cloud.google.com/sdk/docs/properties">Properties in gcloud</a></li>
+<li>Values entered once and used by any command that needs them</li>
+<li>Can be overridden on a specific command with corresponding flag</li>
+<li>Used very often for account, project, region, and zone<ul>
+<li>Set <code>core/account</code> or <code>account</code> to replace <code>--account</code></li>
+<li>Set <code>core/project</code> or <code>project</code> to replace <code>--project</code></li>
+<li>Set <code>compute/region</code> to replace <code>--region</code></li>
+<li>Set <code>compute/zone</code> to replace <code>--zone</code></li>
+</ul>
+</li>
+<li>Set with <code>gcloud config set &lt;property&gt; &lt;value&gt;</code></li>
+<li>Check with <code>gcloud config get-value &lt;property&gt;</code></li>
+<li>Clear with <code>gcloud config unset &lt;property&gt;</code></li>
+</ul>
+</li>
+<li>Configurations<ul>
+<li><a href="https://cloud.google.com/sdk/docs/configurations">Configuration in gcloud</a></li>
+<li>Can maintain groups of settings and switch between them</li>
+<li>Most useful when using multiple projects</li>
+<li>Interactive workflow to set common properties in a config with <code>gcloud init</code></li>
+<li>List all properties in a configuration with <code>gcloud config list</code></li>
+<li>List all configurations with <code>gcloud config configurations list</code><ul>
+<li>IS_ACTIVE column shows which one is currently being used</li>
+<li>Other columns list account, project, region, zone, and the name of the config</li>
+</ul>
+</li>
+<li>Make new config with <code>gcloud config configurations create ITS_NAME</code></li>
+<li>Start using config with <code>gcloud config configurations activate ITS_NAME</code><ul>
+<li>Or use for just one command with <code>--configuration=ITS_NAME</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="configurations-analogy">Configurations Analogy</h4>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Directory</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Make New</strong></td>
+<td><code>mkdir newdir</code></td>
+<td><code>gcloud config configurations create newconfig</code></td>
+</tr>
+<tr>
+<td><strong>Switch To</strong></td>
+<td><code>cd newdir</code></td>
+<td><code>gcloud config configurations activate newconfig</code></td>
+</tr>
+<tr>
+<td><strong>List Contents</strong></td>
+<td><code>ls</code></td>
+<td><code>gcloud config list</code></td>
+</tr>
+<tr>
+<td><strong>List Non-Active</strong></td>
+<td><code>ls ~/newdir</code></td>
+<td><code>gcloud --configuration=newconfig config list</code> <em>OR</em> <code>gcloud config configurations describe newconfig</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gce-in-and-out">GCE In and Out</h3>
+<h4 id="how-you-can-connect-into-and-out-of-a-google-compute-engine-instance">How you can connect into and out of a Google Compute Engine instance</h4>
+<p><a href="https://raw.githubusercontent.com/ACloudGuru/gcp-cloud-engineer/master/compute-labs/connect-to-vm.txt">Labs Commands List</a></p>
+<ul>
+<li>Good first step to check and set project we're in<ul>
+<li>Set:<ul>
+<li><code>gcloud config set project [PROJECT_ID]</code></li>
+</ul>
+</li>
+<li>Check:<ul>
+<li><code>gcloud config list</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check for hidden ssh folder in home directory<ul>
+<li><code>pwd</code></li>
+<li><code>ls</code></li>
+<li><code>ls -a .ssh</code></li>
+</ul>
+</li>
+<li>Quick look at the Cloud Shell machine itself<ul>
+<li><code>whoami</code></li>
+<li><code>hostname</code></li>
+<li><code>curl api.ipify.org</code></li>
+</ul>
+</li>
+<li>Check that nothing is running<ul>
+<li><code>gcloud compute instances list</code></li>
+</ul>
+</li>
+<li>Don't create default VM:<ul>
+<li><code>gcloud compute instances create myhappyvm</code><ul>
+<li>Enter no, cancel</li>
+</ul>
+</li>
+<li>Look at how to set the machine type<ul>
+<li><code>gcloud compute instances create myhappyvm -h</code></li>
+<li><code>gcloud compute instances create myhappyvm --help</code></li>
+<li><code>gcloud compute machine-types list</code></li>
+<li>Filter: <ul>
+<li><code>gcloud topic filters</code></li>
+<li><code>gcloud compute machine-types list --filter="NAME:f1-micro"</code></li>
+<li><code>gcloud compute machine-types list --filter="NAME:f1-micro AND ZONE~us-west"</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cloud.google.com/sdk/gcloud/reference/topic/filters">Filters in gcloud</a></p>
+<ul>
+<li>Set default zone &amp; region:<ul>
+<li><code>gcloud config set compute/zone us-west2-b</code></li>
+<li><code>gcloud config set compute/region us-west2</code></li>
+</ul>
+</li>
+<li>Creating the instance:<ul>
+<li><code>gcloud compute instances create --machine-type=f1-micro myhappyvm</code></li>
+</ul>
+</li>
+<li>Ping the VM:<ul>
+<li>By name:<ul>
+<li><code>ping -c 3 myhappyvm</code></li>
+<li>Doesn't recognize "myhappyvm"</li>
+</ul>
+</li>
+<li>By <em>internal</em> IP<ul>
+<li><code>ping -c 3 10.168.0.2</code></li>
+<li>Also doesn't work.</li>
+</ul>
+</li>
+<li>By <em>external</em> IP<ul>
+<li><code>ping -c 3 34.94.94.230</code></li>
+<li>Pinging external IP works here</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Connect with SSH:<ul>
+<li><code>ssh 34.94.94.230</code></li>
+<li>Permission denied</li>
+<li>Use <code>gcloud compute ssh myhappyvm</code><ul>
+<li>Will prompt to set up SSH key if not setup already</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Now connected to VM<ul>
+<li><code>whoami</code> Same result</li>
+<li><code>hostname</code> Different hostname</li>
+</ul>
+</li>
+<li>SSH folder in cloudshell now has keys for compute VM</li>
+<li>SSH folder in VM now has key as well</li>
+</ul>
+<p><a href="https://cloud.google.com/compute/docs/storing-retrieving-metadata">Instance Metadata Reference</a></p>
+<ul>
+<li>Metadata logged when <code>gcloud compute ssh</code> was first running</li>
+<li>Attempt to curl the metadata:<ul>
+<li><code>curl metadata.google.internal./computeMetadata/v1/</code><ul>
+<li>Missing Metadata-Flavor:Google header</li>
+</ul>
+</li>
+<li><code>curl -H "Metadata-Flavor:Google" metadata.google.internal./computeMetadata/v1/</code></li>
+<li><code>curl -H "Metadata-Flavor:Google" metadata.google.internal./computeMetadata/v1/projects/</code></li>
+<li>A look at project-id we see the id of our current project</li>
+<li>In attributes we see ssh keys<ul>
+<li>Includes the public key</li>
+</ul>
+</li>
+<li>Can get instance/name and other useful information here<ul>
+<li>Including service-accounts/default/<ul>
+<li>Has aliases, email, identity, scopes, and token<ul>
+<li>Token to sign API requests</li>
+<li>Also using service account auto created when we enabled compute engine API</li>
+<li>gcloud automatically has a way to connect out from this instance to the rest of the google cloud platform</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Also connected to our project<ul>
+<li>Can see buckets we created from this VM</li>
+</ul>
+</li>
+<li>Attempt delete VM:<ul>
+<li><code>gcloud compute instances delete myhappyvm</code></li>
+<li>From within VM:<ul>
+<li><strong>Permission failed</strong></li>
+</ul>
+</li>
+<li>From cloudshell:<ul>
+<li><strong>Successful</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check if deleted:<ul>
+<li><code>gcloud compute instances list</code><ul>
+<li><code>Listed 0 items</code> expected</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="gce-via-console">GCE via Console</h3>
+<p><a href="https://cloud.google.com/compute/docs/instances/create-start-instance">Creating Instances</a></p>
+<ul>
+<li>Navigate to Compute Engine Service<ul>
+<li>Settings<ul>
+<li>Can set default region/zone here</li>
+<li>Console and command-line config informaton &amp; settings are separate</li>
+</ul>
+</li>
+<li>Metadata<ul>
+<li>SSH keys<ul>
+<li>Key from previous is registered.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>VM instances<ul>
+<li>Create<ul>
+<li>Custom machine config, etc</li>
+<li>Can scope to service account or none<ul>
+<li>In addition to access scopes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Once created, can edit some parts of the VM<ul>
+<li>Cannot change the name</li>
+<li>By default does not preserve instances on deletion</li>
+</ul>
+</li>
+<li>Can use "Create Similar" as shortcut to create similarly configured VM</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cloud.google.com/compute/docs/instances/create-start-preemptible-instance">Preemptible Instances</a></p>
+<ul>
+<li>Can make preemtiple from management setting<ul>
+<li>Setting on will also switch off automatic restart and will terminate on host maintainence</li>
+<li>Making preemtible will make Google do what it can to keep running<ul>
+<li>Will shut down after 24 hours</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cloud.google.com/compute/docs/startupscript">Startup Scripts</a></p>
+<ul>
+<li>Automation<ul>
+<li>Startup script runs automatically when instance starts<ul>
+<li>Whether first time or on a reboot</li>
+<li>Gets passed to instance as metadata<ul>
+<li>The machines are designed to run script on boot</li>
+</ul>
+</li>
+<li>Variety of uses</li>
+</ul>
+</li>
+<li>Security tab<ul>
+<li>Can override project level settings about SSH keys and block them from being used and add custom ones just for this instance</li>
+</ul>
+</li>
+<li>Disks<ul>
+<li>Default behavior is to delete boot disk when instance is deleted<ul>
+<li>Can add a new one or attach an existing persistent disk</li>
+</ul>
+</li>
+<li>Encryption options<ul>
+<li>Google-managed easy preferred route</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Can connect via SSH with button in UI via VM instances<ul>
+<li>Can delete from within the VM here since we changed scopes to allow access to Google compute engine through that service account</li>
+</ul>
+</li>
+<li>In all activity, most logged activities happening as user account<ul>
+<li>Other most recent two come from the service account that was used by the compute engine instance</li>
+</ul>
+</li>
+<li>In metadata&gt;SSH keys, two new keys were added as a part of the connection from the console to the instance<ul>
+<li>Temporary keys</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances">Service Accounts and Scopes</a></p>
+<h2 id="9-basic-services-challenge-lab">9. Basic Services Challenge Lab</h2>
+<h3 id="gce-gcs-challenge-lab">GCE-GCS Challenge Lab</h3>
+<p><a href="https://raw.githubusercontent.com/ACloudGuru/gcp-cloud-engineer/master/compute-labs/worker-startup-script.sh">GCE-GCS Challenge Lab Startup</a></p>
+<ul>
+<li>Desired Result (Requirements)<ul>
+<li>Brand new project</li>
+<li>GCE instance that runs provided script</li>
+<li>System logs available in Stackdriver Logs</li>
+<li>New GCS bucket for resulting log files</li>
+<li>Log file appears in new bucket after instance finishes starting up</li>
+<li>No need to SSH to instance</li>
+</ul>
+</li>
+<li>Tips<ul>
+<li>No need to SSH<ul>
+<li>But you can do so for debugging, if you want</li>
+<li>Final instance should not need any manual control via SSH</li>
+</ul>
+</li>
+<li>You should <em>not</em> need to change the startup script<ul>
+<li>But you must read it for key info to complete the lab</li>
+</ul>
+</li>
+<li>Use the "Create Similar" button to try again</li>
+<li>Clean up after yourself<ul>
+<li>Delete or Stop instances</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Advanced Challenge: No Console<ul>
+<li>Repeat the whole lab from scratch using only the CLI in Cloud Shell</li>
+<li>Complete this Challenge Lab through the console UI, first</li>
+<li>Tip: You can use info from the UI-based project to craft your command lines</li>
+<li>Can you script everything?<ul>
+<li>Even creating the new project?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="gce-gcs-challenge-lab-data-flow">GCE-GCS Challenge Lab Data Flow</h3>
+<p><a href="https://cloud.google.com/compute/docs/access/service-accounts">Service Accounts (incl. scope)</a></p>
+<p><a href="https://cloud.google.com/compute/docs/instances/instance-life-cycle">GCE Instance Statuses</a></p>
+<p><a href="https://cloud.google.com/compute/docs/storing-retrieving-metadata#waitforchange">Long-polling for Metadata Changes</a></p>
+<p><a href="https://cloud.google.com/monitoring/api/metrics_gcp#gcp-compute">Hypervisor-Visible Metrics</a></p>
+<p><a href="https://cloud.google.com/monitoring/api/metrics_agent">Agent-visible Metrics</a></p>
+<p><a href="https://cloud.google.com/logging/docs/agent/installation">Installing Stackdriver Agent</a></p>
+<p><a href="https://cloud.google.com/logging/docs/agent/default-logs">Lost of Logs Sent by Agent (by Default)</a></p>
+<ul>
+<li>Our Actions<ul>
+<li>Retrieve and review startup script</li>
+<li>Make new project</li>
+<li>Make logs destination bucket</li>
+<li>Enable GCE API</li>
+<li>Create new GCE instance<ul>
+<li>Enable scope to write to GCS</li>
+<li>Set labels (optional)</li>
+<li>Set startup script</li>
+<li>Set metadta to point to logs destination bucket</li>
+</ul>
+</li>
+<li>Monitor progress<ul>
+<li>Check Stackdriver Logs</li>
+<li>Check CPU graph</li>
+<li>Check logs bucket</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="data-flow-in-action">Data Flow in Action:</h4>
+<p><img alt="dataFlow" src="../img/data-flow.jpg" title="data flow" /></p>
+<h3 id="gce-gcs-challenge-lab-demo">GCE-GCS Challenge Lab Demo</h3>
+<ul>
+<li>Demo walkthrough<ul>
+<li>Create new project<ul>
+<li>Also must link to billing</li>
+</ul>
+</li>
+<li>Fetch provided bash script</li>
+<li>Create new Storage bucket</li>
+<li>Enable Compute Engine</li>
+<li>Set to run the bash script on startup</li>
+<li>Navigate to stackdriver logs for compute instance</li>
+<li>See file downloaded in bucket storage</li>
+</ul>
+</li>
+</ul>
+<h3 id="basic-services-sample-practice-questions-breakdown">Basic Services Sample Practice Questions Breakdown</h3>
+<ul>
+<li>Understand</li>
+<li>Eliminate</li>
+<li>Evaluate</li>
+<li>Choose</li>
+<li>Validate</li>
+</ul>
+<h2 id="10-scaling">10. Scaling</h2>
+<h3 id="managed-instance-groups">Managed Instance Groups</h3>
+<p><a href="https://raw.githubusercontent.com/ACloudGuru/gcp-cloud-engineer/master/compute-labs/worker-startup-script.sh">Lab Start-Up Script</a></p>
+<ul>
+<li>Challenge Lab GCE as active Project<ul>
+<li>Compute Engine<ul>
+<li>Create instance template<ul>
+<li><a href="https://cloud.google.com/compute/docs/instance-templates/">Instance Templates</a></li>
+<li>Not required to set a zone</li>
+<li>Pick f1 micro machine</li>
+<li>Put in startup script<ul>
+<li>Give metadata key name pair, with <code>gs://PROJECT_ID/</code> as value</li>
+</ul>
+</li>
+<li>Instance templates are <strong>immutable</strong><ul>
+<li>Can't be edited</li>
+<li>Can copy, however</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Create VM with template (x2)</li>
+<li>Create Instance Group<ul>
+<li><a href="https://cloud.google.com/compute/docs/instance-groups/">Instance Groups</a></li>
+<li>Unmanaged Instance Group<ul>
+<li>Groups instances, monitoring, etc</li>
+<li>Manual management</li>
+</ul>
+</li>
+<li>Managed Instance Group<ul>
+<li>Google will be creating and deleting instances on our behalf.</li>
+</ul>
+</li>
+<li><a href="https://cloud.google.com/compute/docs/autoscaler/">Autoscaling</a></li>
+</ul>
+</li>
+<li>Deleting a <strong>managed instance</strong> group will <strong>delete</strong> all of its instances because it owns them.</li>
+<li>Deleting an unmanaged instance group will just leave them all behind.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="milestone-robust-mental-model">Milestone: Robust Mental Model</h3>
+<p><a href="https://en.wikipedia.org/wiki/Elasticity_(cloud_computing)">Resource Elasticity</a></p>
+<h2 id="11-security">11. Security</h2>
+<h3 id="what-is-security-data-flow">What is Security? (Data Flow)</h3>
+<p><a href="https://en.wikipedia.org/wiki/Information_security">Information Security</a></p>
+<ul>
+<li>CIA Triad:<ul>
+<li>You cannot view data you <em>shouldn't</em>: <strong><em>Confidentiality</em></strong></li>
+<li>You cannot change data you <em>shouldn't</em>: <strong><em>Integrity</em></strong></li>
+<li>You can access data you <em>should</em>: <strong><em>Availability</em></strong></li>
+</ul>
+</li>
+<li>How do we control data flow? (AAA)<ul>
+<li>Authentication - <em>Who are you?</em></li>
+<li>Authorization - <em>What are you allowed to you?</em></li>
+<li>Accounting - <em>What did you do?</em></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.google.com/search?q=public+bucket+breach">Public Bucket Breach</a></p>
+<ul>
+<li>Key Security Mindset (Principles)<ul>
+<li>Least privilege</li>
+<li>Defense in depth</li>
+<li>Fail securely</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://wiki.owasp.org/index.php/Security_by_Design_Principles">Security by Design Principles</a></p>
+<ul>
+<li>Key Security Products/Features - AuthN<ul>
+<li>Identity<ul>
+<li>Humans in G Suite, Cloud Identity</li>
+<li>Applications and services use Service Accounts</li>
+</ul>
+</li>
+<li>Identity hierarchy<ul>
+<li>Google groups</li>
+</ul>
+</li>
+<li>Can use Google Cloud Directory Sync (GCDS) to pull from LDAP (no push)</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf">OWASP Top 10</a></p>
+<h3 id="iam-breakdown-resource-hierarchy-to-which-thing">IAM Breakdown: Resource Hierarchy (To which thing?)</h3>
+<p><a href="https://cloud.google.com/iam/docs/overview">IAM Overview Docs</a></p>
+<ul>
+<li>Resource<ul>
+<li>Something you create in GCP</li>
+</ul>
+</li>
+<li>Project</li>
+</ul>
+<p><a href="https://cloud.google.com/iam/docs/resource-hierarchy-access-control">IAM Resource Hierarchy Docs</a></p>
+<h3 id="iam-breakdown-permissions-and-roles-can-do-what">IAM Breakdown: Permissions and Roles (Can do what?)</h3>
+<ul>
+<li><code>Service.Resource.Verb</code></li>
+<li>Examples:<ul>
+<li><code>pubsub.subscriptions.consume</code></li>
+<li><code>pubsub.topics.publish</code></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cloud.google.com/iam/docs/understanding-roles">Understanding Roles</a></p>
+<p><a href="https://cloud.google.com/iam/docs/understanding-custom-roles">Understanding Custom Roles</a></p>
+<ul>
+<li>Roles<ul>
+<li>A Role is a collection of Permissions to use or manage GCP Resources</li>
+<li>Primitive Roles - Project-level and often too broad<ul>
+<li>Viewer is read-only</li>
+<li>Editor can view and change things</li>
+<li>Owner can also control access &amp; billing</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cloud.google.com/iam/docs/understanding-roles#predefined_roles">Predefined Roles List</a></p>
+<ul>
+<li>Predefined Roles - Give granular access to specific GCP Resources<ul>
+<li>E.g.: <code>roles/bigquery.dataEditorm roles/pubsub.subscriber</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="iam-breakdown-members-and-groups-who">IAM Breakdown: Members and Groups (Who?)</h3>
+<p><a href="https://cloud.google.com/iam/docs/overview">IAM Overview Docs w/ Members</a></p>
+<ul>
+<li>
+<p>Members</p>
+<ul>
+<li>A Member is some Google-known identity</li>
+<li>Each Member is identified by a unique email address</li>
+<li>Can be:<ul>
+<li><code>user</code>: Specific Google account<ul>
+<li>G Suite, Cloud Identity, Gmail, or validated email</li>
+</ul>
+</li>
+<li><code>serviceAccount</code>: Service Account for apps/services</li>
+<li><code>group</code>: Google group of users and service accounts</li>
+<li><code>domain</code>: Whole domain managed by G Suite or Cloud Identity</li>
+<li><code>allAuthenticatedUsers</code> - <em>Any</em> Google account or service account</li>
+<li><code>allUsers</code> - Anyone on the internet (public)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Groups</p>
+<ul>
+<li>"A Google group is a named collection of Google accounts and service accounts."</li>
+<li>"Every group has a unique email that is associated with the group."</li>
+<li>You never act <em>as</em> the group.<ul>
+<li>But membership in a group can grant capabilities to individuals.</li>
+</ul>
+</li>
+<li>Use them for everything!</li>
+<li>Can be used for owner when within an organization</li>
+<li>Can nest groups in an organization<ul>
+<li>Example: One group for each department, all those in group for all staff.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="iam-breakdown-policies-bindings">IAM Breakdown: Policies (Bindings)</h3>
+<p><a href="https://cloud.google.com/iam/docs/overview">IAM Overview Docs w/ Policies</a></p>
+<ul>
+<li>Policies<ul>
+<li>A policy binds Members to Roles for some scope of Resources</li>
+<li>Answers: Who can do what to which things?</li>
+<li>Attached to some level in the Resource Hierarchy<ul>
+<li>Organization, Folder, Project, Resource</li>
+</ul>
+</li>
+<li>Roles and Members listed in policy, but Resources identified by attachment</li>
+<li>Always additive ("Allow") and never subtractive (no "Deny")<ul>
+<li>"Child policies cannot restrict access granted at a higher level."</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cloud.google.com/iam/docs/granting-changing-revoking-access">Granting, Changing, Revoking Access</a></p>
+<ul>
+<li>One policy per resource</li>
+<li>Max 1500 member bindings per policy<ul>
+<li>Ridiculously High Max</li>
+<li>Anywhere close and "You're doing it wrong!"</li>
+<li>Use groups instead!</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.google.com/search?q=gcloud+add-iam-policy-binding+site%3Acloud.google.com">Docs for gcloud add iam policy</a></p>
+<h3 id="iam-wrap-up">IAM Wrap-up</h3>
+<p><a href="https://cloud.google.com/iam/docs/using-iam-securely">Using IAM Securely</a></p>
+<p><a href="https://cloud.google.com/iam/docs/faq">FAQ</a></p>
+<h3 id="billing-access-control">Billing Access Control</h3>
+<ul>
+<li>Billing Accounts<ul>
+<li>Represents some way to pay for GCP Service Usage</li>
+<li>Type of Resource that lives outside of Projects</li>
+<li>Can belong to an Organization (i.e. be owned by it)<ul>
+<li>Inherits Org-level IAM policies</li>
+</ul>
+</li>
+<li>Can be linked to projects<ul>
+<li>But does not own them<ul>
+<li>No impact on project IAM</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="billing-iam-roles">Billing IAM Roles</h4>
+<p><a href="https://cloud.google.com/billing/docs/how-to/billing-access">Overview of Billing Access Control</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">Role</th>
+<th align="center">Purpose</th>
+<th align="center">Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Billing Account Creator</td>
+<td align="center">Create new self-serve billing accounts.</td>
+<td align="center">Org</td>
+</tr>
+<tr>
+<td align="center">Billing Account Administrator</td>
+<td align="center">Manage billing accounts (but not create them).</td>
+<td align="center">Billing Account</td>
+</tr>
+<tr>
+<td align="center">Billing Account User</td>
+<td align="center">Link projects to billing accounts.</td>
+<td align="center">Billing Account</td>
+</tr>
+<tr>
+<td align="center">Billing Account Viewer</td>
+<td align="center">View Billing accoun tcost information and transactions</td>
+<td align="center">Billing Account</td>
+</tr>
+<tr>
+<td align="center">Project Billing Manager</td>
+<td align="center">Link/unlink the project to/from a billing account.</td>
+<td align="center">Project</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Monthly Invoiced Billing</p>
+<ul>
+<li><a href="https://cloud.google.com/billing/docs/how-to/invoiced-billing">Invoiced Billing</a></li>
+<li>Get billed monthly and pay by invoice due date.</li>
+<li>Can pay via check or wire transfer</li>
+<li>Can increase project and quota limits</li>
+<li>Billing administrator of org's current billing account contacts Cloud Billing Support<ul>
+<li>To determine eligibility</li>
+<li>To apply to switch to monthly invoicing</li>
+</ul>
+</li>
+<li>Eligibility depends on<ul>
+<li>Account age</li>
+<li>Typical monthly spend</li>
+<li>Country</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>SMB Centralized</p>
+<ul>
+<li>Scenario: Small-to-medium enterprise:</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">User type</th>
+<th align="center">Billing activities</th>
+<th align="center">Billing Cloud IAM roles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">CEO</td>
+<td align="center">Manage payment instrument; View and approve invoices.</td>
+<td align="center">Billing Account Administrator</td>
+</tr>
+<tr>
+<td align="center">CTO</td>
+<td align="center">Set budget alerts; View Spend; Create new billable projects</td>
+<td align="center">Billing Account Administrator;Project Creator.</td>
+</tr>
+<tr>
+<td align="center">Development teams</td>
+<td align="center">None</td>
+<td align="center">None</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>SMB Delegated<ul>
+<li>Scenario: Small-to-medium enterprise with preference for delegated authority</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">User type</th>
+<th align="center">Billing activities</th>
+<th align="center">Billing Cloud IAM roles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">CEO</td>
+<td align="center">Manage payment instrument; Delegate authority</td>
+<td align="center">Billing Account Administrator</td>
+</tr>
+<tr>
+<td align="center">CFO</td>
+<td align="center">Set budget alerts; View spend</td>
+<td align="center">Billing Account Administrator</td>
+</tr>
+<tr>
+<td align="center">Accounts Payable</td>
+<td align="center">View and approve invoices</td>
+<td align="center">Billing Account Viewer</td>
+</tr>
+<tr>
+<td align="center">Development teams</td>
+<td align="center">Create new billable projects</td>
+<td align="center">Billing Account User; Project Creator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-networking">12. Networking</h2>
+<h3 id="routing-overview">Routing Overview</h3>
+<p><a href="https://www.webopedia.com/quick_ref/OSI_Layers.asp">OSI Model of Networking</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Routing">Routing - Wikipedia</a></p>
+<ul>
+<li>Routing<ul>
+<li>Focus on<ul>
+<li>About <em>Software</em>-Defined Networking (SDN)</li>
+<li>More-general than the OSI 7-layer model of networking</li>
+<li>Not about any particular routing scheme</li>
+<li>Only setting the stage for routing tables / routes</li>
+</ul>
+</li>
+<li>What is it?<ul>
+<li>Routing is about deciding where data should go next</li>
+<li>Like a direction marker on a hiking trail<ul>
+<li>Fork in the trail</li>
+<li>At the peak</li>
+</ul>
+</li>
+<li>Many local decisions - No full map or path</li>
+</ul>
+</li>
+<li>Where does it happen?<ul>
+<li>On the way to Google's network</li>
+<li>On the way to the right resource</li>
+<li>On the way from one resource to another</li>
+<li>There and back again</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="routing-to-googles-network">Routing: To Google's Network</h3>
+<ul>
+<li>Getting data to Google's network</li>
+</ul>
+<p><a href="https://cloud.google.com/blog/products/gcp/introducing-network-service-tiers-your-cloud-network-your-way">Premium Routing Tier Blog Post</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing">Hot-Potato and Cold-Potato Routing</a></p>
+<h3 id="routing-to-the-right-resource-load-balancing">Routing: To the Right Resource (Load Balancing)</h3>
+<p><a href="https://cloud.google.com/load-balancing/docs/load-balancing-overview">Load Balancing in GCP</a></p>
+<ul>
+<li>Getting Data to the right resource<ul>
+<li>Latency reduction<ul>
+<li>Uses servers physically close to clients</li>
+<li>Cross-Region Load Balancing (with Global Anycast IPs)</li>
+</ul>
+</li>
+<li>Load balancing<ul>
+<li>Separate from auto-scaling</li>
+<li>Cloud Load Balancer (all types; internal and external)</li>
+</ul>
+</li>
+<li>System design<ul>
+<li>Different servers may handle different parts of the system</li>
+<li>Especiailly when using microservices (instead of a monolith)</li>
+<li>HTTP(S) Load Balancer<ul>
+<li>(with URL Map)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unicast vs Anycast<ul>
+<li>Unicast<ul>
+<li>There is only one <strong>unique</strong> device in the world than can handle this; send it there.</li>
+</ul>
+</li>
+<li>Anycast<ul>
+<li>There are multiple devices that could handle this; send it to <strong>any</strong> one- but ideally the closest.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Layer 4 vs. Layer 7<ul>
+<li>TCP (of TCP/IP) is usually called Layer 4 (L4)<ul>
+<li>It works solely with IP addresses</li>
+</ul>
+</li>
+<li>HTTP and HTTPS work at Layer 7 (L7)<ul>
+<li>These know about URLs and paths</li>
+</ul>
+</li>
+<li>Each layer is built on the one below it</li>
+<li>Therefore:<ul>
+<li>To route based on URL paths, routing needs to understand L7</li>
+<li>L4 cannot route based on the URL paths defined in L7</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What about DNS?<ul>
+<li>Name resolution (via the Domain Name System) can be the first step in routing.</li>
+<li>But that comes with a number of problems:<ul>
+<li>Layer 4 - Cannot route L4 based on L7's URL paths</li>
+<li>Chunky - DNS queries often cached and reused for huge client sets</li>
+<li>Sticky - DNS lookup "locks on" and refreshing per request has a high cost.<ul>
+<li>Extra latency because each request includes another round-trip</li>
+<li>More money for additional DNS request processing</li>
+</ul>
+</li>
+<li>Not Robust - Relies on the client always doing the right thing.<ul>
+<li>Spoiler: They don't</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="routing-among-resources-vpc">Routing: Among Resources (VPC)</h3>
+<h4 id="getting-data-from-one-resource-to-another">Getting data from one resource to another</h4>
+<ul>
+<li>VPC (<strong>global</strong>) is Virtual Private Cloud - Your private SDN space in GCP<ul>
+<li>Not just resource-to-resource - Also manages the doors to outside &amp; peers.</li>
+</ul>
+</li>
+<li>Subnets (<strong>regional</strong>) create logical spaces to contain resources<ul>
+<li>All Subnets can reach all others - globally, without any need fro VPNs.</li>
+</ul>
+</li>
+<li>Routes (<strong>global</strong>) define "next hop" for traffic based on destination IP<ul>
+<li>Routes are global and apply by Instance-level Tags, not by Subnet</li>
+<li>No route to the internet gateway means no such data can flow</li>
+</ul>
+</li>
+<li>Firewall Rules (<strong>global</strong>) further filter data flow that would otherwise route<ul>
+<li>All Firewall Rules are global and apply by Instance-level Tags or Service Acct.</li>
+<li>Default Firewall Rules are restrictive inbound and permissive outbound</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a></p>
+<h4 id="ips-and-cidrs">IPs and CIDRs</h4>
+<ul>
+<li>IP address is <code>abc.def.ghi.jkl</code> (dotted quad) where each piece is 0-255</li>
+<li>CIDR block is group of IP addresses specified in <code>&lt;IP&gt;/xy</code> notation<ul>
+<li>Turn IP address into 32-bit binary number<ul>
+<li>e.q. <code>10.10.0.254</code> -&gt; <code>00001010 00001010 00000000 11111110</code></li>
+</ul>
+</li>
+<li><code>/xy</code> in CIDR notation locks highest (leftmost) bits in IP address (0-32)</li>
+<li><code>abc.def.ghi.jkl/32</code> is single IP address because all 32 bits are locked</li>
+<li><code>abc.def.ghi.jkl/24</code> is 256 IP address because last 8 bits (<code>jkl</code>) can vary</li>
+<li><code>0.0.0.0/0</code> means "any IP address" because no bits are locked</li>
+</ul>
+</li>
+<li>RFC1918 defines private (i.e. non-Internet) address ranges you can use:<ul>
+<li><code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, and <code>192.168.0.0/16</code></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Private_network">RFC1918 Private Networks</a></p>
+<h3 id="creating-auto-mode-vpcs-lab">Creating Auto-Mode VPCs (Lab)</h3>
+<p><a href="https://cloud.google.com/vpc/docs/vpc#subnet-ranges">VPC Subnet Creation Mode</a></p>
+<ul>
+<li>VPC Networks &gt; Create VPC Network<ul>
+<li>Set Subnet Creation Mode to Automatic</li>
+<li>Enable default firewall rules (all available)</li>
+<li>Create</li>
+</ul>
+</li>
+</ul>
+<h3 id="custom-mode-vpcs-lab">Custom-Mode VPCs (Lab)</h3>
+<h4 id="creating-the-vpc">Creating the VPC</h4>
+<p><a href="https://cloud.google.com/vpc/docs/vpc">VPC Overview Docs</a></p>
+<ul>
+<li>Create custom VPC </li>
+</ul>
+<h4 id="creating-the-custom-iam-role-service-account">Creating the Custom IAM Role &amp; Service Account</h4>
+<p><a href="https://cloud.google.com/iam/docs/understanding-custom-roles">Understanding IAM Custom Roles</a></p>
+<p><a href="https://cloud.google.com/iam/docs/creating-custom-roles">Creating and Managing Custom Roles</a></p>
+<p><a href="https://cloud.google.com/compute/docs/access/service-accounts">Service Accounts Overview</a></p>
+<p><a href="https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances">Creating and enabling service accounts for instances</a></p>
+<ul>
+<li>Create custom IAM Role with monitoring and logging roles</li>
+<li>Delete default service account &amp; create new with new custom IAM role</li>
+</ul>
+<h4 id="using-the-vpc-and-configuring-firewall-rules">Using the VPC and Configuring Firewall Rules</h4>
+<p><a href="https://cloud.google.com/vpc/docs/firewalls">Firewall Rules Overview</a></p>
+<p><a href="https://cloud.google.com/vpc/docs/add-remove-network-tags">Configuring Network Tags</a></p>
+<p><a href="https://cloud.google.com/vpc/docs/firewalls#service-accounts-vs-tags">Filtering by Service Accounts vs Network tag</a></p>
+<p><a href="https://cloud.google.com/vpc/docs/firewalls#service-accounts-vs-tags">Updated Managed Instance Groups</a></p>
+<p><a href="https://acloud.guru/forums/gcp-certified-associate-cloud-engineer/discussion/-LX_K01iaNGvgD6ICp_p/cannot_edit_instance_in_group">Having trouble editing the instance in Group</a></p>
+<ul>
+<li>Compute Engine &gt; Instance Template<ul>
+<li><code>frontend-it</code></li>
+<li>Set to f1-micro machine type</li>
+<li>Set service account to <code>frontend-sa</code> from earlier</li>
+<li>Set Networking in advanced settings<ul>
+<li>Network: <code>app-vpc</code></li>
+<li>Subnet: <code>oregon-subnet</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Compute Engine &gt; Instance Template<ul>
+<li><code>frontend-ig</code></li>
+<li>Min 2, Max 3</li>
+<li>Attempt to ping, can't</li>
+</ul>
+</li>
+<li>VPC Network<ul>
+<li><code>app-vpc</code> &gt; Firewall Rules<ul>
+<li>Add firewall rule<ul>
+<li>Direction: Ingress</li>
+<li>Action on match: Allow</li>
+<li>Target &gt; <code>frontend-sa</code> (service account)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="13-gke-introduction-google-kubernetes-engine">13. GKE Introduction: Google Kubernetes Engine</h2>
+<ul>
+<li>What a cluster is</li>
+<li>How to manage</li>
+</ul>
+<h3 id="kubernetes-deep-dive-intro">Kubernetes Deep Dive Intro</h3>
+<h4 id="kubernetes">Kubernetes</h4>
+<ul>
+<li>On prem <strong>AND</strong> on cloud<ul>
+<li>Great cloud on/off ramp</li>
+</ul>
+</li>
+</ul>
+<h2 id="14-kubernetes-course-introduction">14. Kubernetes Course Introduction</h2>
+<h3 id="what-you-need">What You Need</h3>
+<ul>
+<li>A Kubernetes cluster<ul>
+<li>Several Options:<ul>
+<li>Minikube</li>
+<li>Docker for Desktop</li>
+<li>AKS (hosted)</li>
+<li>EKS (hosted)</li>
+<li>GKE (hosted)</li>
+<li>Kops</li>
+<li>Kubeadm (on-premises)</li>
+<li><a href="http://play-with-k8s.com/">Play with Kubernetes (PWK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="schedule">Schedule</h3>
+<ul>
+<li>Kubernetes Big Picture</li>
+<li>Kubernetes App Architecture</li>
+<li>Kubernetes Networking</li>
+<li>Kubernetes Storage</li>
+<li>From Code to Kubernetes</li>
+<li>Kubernetes Deployments</li>
+<li>Scaling Kubernetes Apps</li>
+<li>RBAC and Admission Control</li>
+<li>Other Kubernetes Stuff</li>
+<li>What Next</li>
+</ul>
+<h2 id="15-kubernetes-big-picture">15. Kubernetes Big Picture</h2>
+<h3 id="kubernetes-primer">Kubernetes Primer</h3>
+<ul>
+<li>Open source platform for running cloud native apps<ul>
+<li>Infastructure (on-premises/cloud)</li>
+<li>Kubernetes on top of it to run your apps on<ul>
+<li>Layer that sits about the VMs and provides a rich API and extensive set of primitives for running cloud native apps.</li>
+</ul>
+</li>
+<li>Cloud-native app?<ul>
+<li>Built from lots of small interacting services that come together<ul>
+<li>This makes them easy to scale</li>
+<li>Kubernetes is platform of choice for running these</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Kubernetes cluster made up of a bunch of Linux nodes (vm or cloud instances)<ul>
+<li>Some form the control plane<ul>
+<li>Brain of the cluster</li>
+</ul>
+</li>
+<li>Others are worker nodes<ul>
+<li>Where the apps run</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Persistent Store - etcd<ul>
+<li>Only stateful bit</li>
+</ul>
+</li>
+<li>Protip<ul>
+<li>Business critical, big cluster:<ul>
+<li>etcd, potentially biggest issue<ul>
+<li>Distributed databases not scaling very well</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>API Server is gateway into the cluster<ul>
+<li>Control plane -&gt; Nodes</li>
+<li>Lots of Security around it</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="kubernetes-api">Kubernetes API</h3>
+<ul>
+<li>Where everything in Kubernetes is defined</li>
+<li>RESTful API that uses standard HTTP methods/verbs to perform CRUD style operations<ul>
+<li>Create</li>
+<li>Read</li>
+<li>Update</li>
+<li>Delete</li>
+</ul>
+</li>
+<li>Interaction with API done through the <code>kubectl</code> command line utility.</li>
+<li>Define different parts of app in <code>yaml</code> files and use <code>kubectl</code> to POST to them to API server<ul>
+<li>Assuming authenticated, will create record of intent on the cluster in the store.<ul>
+<li>Record of intent changes the overall desired state of cluster<ul>
+<li>Causes other parts of control plane to kick into action</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Declarative Configuration<ul>
+<li>Watch loops and controllers kick in to match current state to desired state</li>
+</ul>
+</li>
+<li>API broken apart into groups<ul>
+<li>core"" {API}</li>
+<li>apps {API}</li>
+<li>authorization {API}</li>
+<li>storage {API}</li>
+<li>Looked after by Special Interest Group (SIG)<ul>
+<li>People responsible for feature development<ul>
+<li>Alpha -&gt; Beta -&gt; GA</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="kubernetes-objects">Kubernetes Objects</h3>
+<ul>
+<li>Containers<ul>
+<li>Poster child for cloud native</li>
+</ul>
+</li>
+<li>Kubernetes runs containers not directly, but wrapped in high-level construct called a <code>pod</code>.</li>
+<li>Atomic unit for virtualization environment is the VM</li>
+<li>Atomic unit for Kubernetes is the pod</li>
+<li><code>pod</code><ul>
+<li>Contains one or more containers</li>
+<li>Atomic unit of scheduling</li>
+<li>Object on the cluster</li>
+<li>Defined in the v1 API group</li>
+</ul>
+</li>
+<li>Wrap pod in high-level object called a <code>deployment</code></li>
+<li><code>deployments</code><ul>
+<li>Object on the cluster</li>
+<li>Defined in the apps/v1 API group</li>
+<li>Scaling</li>
+<li>Rolling updates</li>
+</ul>
+</li>
+<li><code>pod</code><ul>
+<li>Wrap one or more containers</li>
+</ul>
+</li>
+<li><code>deploy</code><ul>
+<li>Scalability and application releases</li>
+</ul>
+</li>
+<li>Other objects exist for wrapping pods<ul>
+<li>daemon sets<ul>
+<li>One and only one of a specific pod will run on every worker in cluster.</li>
+</ul>
+</li>
+<li>stateful sets<ul>
+<li>Pods with stateful requriements</li>
+</ul>
+</li>
+<li>Tons more!</li>
+</ul>
+</li>
+</ul>
+<h3 id="spin-up-a-quick-cluster">Spin Up a Quick Cluster</h3>
+<p><a href="https://labs.play-with-k8s.com/">Play with Kubernetes</a></p>
+<ol>
+<li>Initialize cluster master node:<ul>
+<li><code>kubeadm init --apiserver-advertise-address $(hostname -i)</code></li>
+</ul>
+</li>
+<li>Initialize cluster networking:<ul>
+<li><code>kubectl apply -n kube-system -f \ "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="16-kubernetes-application-architecture">16. Kubernetes Application Architecture</h2>
+<h3 id="kubernetes-app-theory">Kubernetes App Theory</h3>
+<ul>
+<li>Requirements<ul>
+<li>Persistent back-end</li>
+<li>Storage</li>
+<li>External-facing web service</li>
+<li>External load-balancer</li>
+<li>Secrets/Passwords</li>
+<li>Backups</li>
+<li>Scaling</li>
+</ul>
+</li>
+<li>Build out front end web service code &amp; backend database as a Docker image.</li>
+<li>SVC service for external load-balancer</li>
+<li>Wrap your web containers in a Kubernetes construct called a deployment.<ul>
+<li>Same with backend</li>
+<li>Wrap in pods, then a deployment</li>
+</ul>
+</li>
+<li>Secrets service</li>
+<li>Persistent volume</li>
+<li>Persistent volume claim</li>
+<li>
+<p>Scalable micro-services</p>
+</li>
+<li>
+<p><strong>Resources and services in the API</strong></p>
+</li>
+</ul>
+<h3 id="sample-kubernetes-app">Sample Kubernetes App</h3>
+<ul>
+<li><code>.yaml</code> files<ul>
+<li>Used as declarative config files</li>
+</ul>
+</li>
+<li>Front-end<ul>
+<li>3 Kubernetes objects defined<ul>
+<li>A Service object for load balancer</li>
+<li>Deployment object</li>
+<li>Persistant storage</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Each object has <code>apiVersion</code> and <code>kind</code> properties</li>
+<li>Back-end<ul>
+<li>Service<ul>
+<li>Not a load-balancer one here</li>
+<li>For internal cluster traffic</li>
+</ul>
+</li>
+<li>Deployment<ul>
+<li>Running mysql pods</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="recap">Recap</h3>
+<ol>
+<li>Apps<ul>
+<li>Ideas</li>
+<li>Requirements</li>
+</ul>
+</li>
+<li>Coding</li>
+<li>Then to Docker images</li>
+<li>Then Kubernetes stuff</li>
+</ol>
+<h2 id="17-kubernetes-networking">17. Kubernetes Networking</h2>
+<h3 id="common-networking-requirements">Common Networking Requirements</h3>
+<ul>
+<li>All the Sevices have separate endpoints, and different IPs</li>
+<li>Dynamic DNS</li>
+<li>Highly dynamic networks are the new normal</li>
+</ul>
+<h3 id="sample-app-requirements">Sample App Requirements</h3>
+<ul>
+<li>WordPress front-end</li>
+<li>MySQL back-end</li>
+<li>Can reach with name in metadata, i.e. <code>wordpress</code></li>
+<li>Deployment<ul>
+<li>Container port</li>
+</ul>
+</li>
+<li>Deploy bunch of pods hosting containers running WordPress on port 80<ul>
+<li>Front it with a service<ul>
+<li>Cloud native load balancer that gives way into application from the internet.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>.yaml</code> config files also work double as documentation</li>
+</ul>
+<h3 id="kubernetes-networking-basics">Kubernetes Networking Basics</h3>
+<ul>
+<li>Rules</li>
+<li>All Nodes can talk</li>
+<li>All Pods can talk (not NAT)</li>
+<li>Every Pod gets its own IP</li>
+<li>Node network<ul>
+<li>443 (HTTPS)</li>
+<li>Pod networking</li>
+</ul>
+</li>
+<li>Pod Network<ul>
+<li>CNI plugin (Container Network Interface)</li>
+<li>Big flat network</li>
+</ul>
+</li>
+</ul>
+<h3 id="service-basics">Service Basics</h3>
+<ul>
+<li>If demand ramps, and you scale a service, you're adding new pods with a new IP.</li>
+<li>If demand drops, you're taking the nodes away.<ul>
+<li>Similar with failed nodes</li>
+</ul>
+</li>
+<li>Service is a stable abstraction point for pods<ul>
+<li>Hit Service instead of pod directly.</li>
+</ul>
+</li>
+<li>Every Service gets a name and an IP<ul>
+<li>Are <strong>stable</strong></li>
+<li>Gets registered with the clusters built in or added on DNS</li>
+</ul>
+</li>
+<li>Every Kubernetes cluster has a native DNS service<ul>
+<li>Every pod in cluster knows how to use it</li>
+</ul>
+</li>
+<li>Think of Services as load-balancers or proxies.<ul>
+<li>Front-end config and also a backend one<ul>
+<li>Back-end needs to know which pods to send the traffic<ul>
+<li>Done with <em>label selector</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>How does Service know which pods are going?<ul>
+<li>When you create a Service object with a label selection, Kubernetes also creates another object on the cluster called an End Point Object<ul>
+<li>End Point Object has list of pod IPs and ports matcing Service label selector.<ul>
+<li>List is automatically updated</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="service-types">Service Types</h3>
+<ul>
+<li>Different types of Services that behave differently</li>
+<li>All provide stable networking abstraction point for a bunch of pods</li>
+<li>Main ones are:<ol>
+<li>ClusterIP (default)<ul>
+<li>Gets own IP</li>
+<li>Only accessible from within cluster</li>
+</ul>
+</li>
+<li>NodePort<ul>
+<li>Gets cluster-wide <strong>port</strong><ul>
+<li>(default: 30000-32767)</li>
+</ul>
+</li>
+<li>Also accessible from outside cluster</li>
+</ul>
+</li>
+<li>LoadBalancer<ul>
+<li>Integrates with public cloud platform</li>
+<li>To provision on a cloud platform, that platform has to support load balancer creation in config via a public API as well as Kubernetes knowing and supporting it.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="service-network">Service Network</h3>
+<ul>
+<li>Service is not on any network we recognize<ul>
+<li>Not on node or pod networks</li>
+<li>On a 3rd network known as Service Network<ul>
+<li>Not a real network</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Every node on the network has a process running called <em>kube-proxy</em><ul>
+<li>Writes a bunch of IPVS/IPTABLES rules on each node<ul>
+<li>Any requests to service network, rewrite headers and send to appropriate pods on pod network.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Since Kubernetes 1.2, running kube-proxy in IPTABLES mode has been the default.<ul>
+<li>Good until proper scale</li>
+<li>Not designed for load balancing</li>
+</ul>
+</li>
+<li>Kube-proxy IPVS Mode<ul>
+<li>Stable (GA) since Kubernetes 1.11</li>
+<li>Uses Linux kernel IP Virtual Server</li>
+<li>Native Layer-4 load balancer</li>
+<li>Supports more algorithms</li>
+</ul>
+</li>
+</ul>
+<h3 id="demo">Demo</h3>
+<ul>
+<li>Not for production use</li>
+<li>Three nodes, each with its own range of IP that it can give pods, and three pods deployed as one per node, each with an IP from those ranges.</li>
+</ul>
+<h2 id="18-kubernetes-storage">18. Kubernetes Storage</h2>
+<h3 id="storage">Storage</h3>
+<ul>
+<li>Master a few concepts, and Kubernetes storage is a breeze!<ul>
+<li>High-level storage requirements</li>
+<li>Container Storage Interface (CSI)</li>
+<li>The Kubernetes PersistentVolume Subsystem</li>
+<li>StorageClasses</li>
+<li>Lab/demo</li>
+<li>Recap</li>
+</ul>
+</li>
+</ul>
+<h3 id="big-picture">Big Picture</h3>
+<ul>
+<li>High-level Storage Requirements<ul>
+<li>Kubernetes Volumes<ul>
+<li>All about decoupling storage from Pods</li>
+<li>Exist in their own right</li>
+<li>If pod wants to use one, it needs to lay a claim to it and mount it.<ul>
+<li>If pod fails, volume still exists</li>
+</ul>
+</li>
+<li>Can share volume with multiple pods</li>
+</ul>
+</li>
+<li><strong>Storage is vital!</strong><ul>
+<li>File &amp; Block First-class Citizens in Kubernetes<ul>
+<li>Standards-based</li>
+<li>Pluggable backend</li>
+<li>Rich API</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Fundamental Storage Requirements<ul>
+<li>Storage Backend<ul>
+<li>Speed</li>
+<li>Replicated</li>
+<li>Resiliency</li>
+<li>etc</li>
+</ul>
+</li>
+<li>By provider</li>
+<li>Kubernetes just provides an interface for pods to consume it</li>
+</ul>
+</li>
+<li>Storage -&gt; CSI -&gt; PV Subsystem<ul>
+<li>PV Subsystem<ul>
+<li>PersistentVolume (PV)<ul>
+<li>Storage: 20GB</li>
+</ul>
+</li>
+<li>PersistentVolumeClaim (PVC)<ul>
+<li>Ticket to use PV</li>
+</ul>
+</li>
+<li>StorageClass (SC)<ul>
+<li>Makes it dynamic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="container-storage-interface">Container Storage Interface</h3>
+<ul>
+<li>CSI<ul>
+<li>Out-of-tree</li>
+<li>Open-standard</li>
+<li><a href="https://github.com/container-storage-interface/spec">CSI @ Github</a></li>
+<li>Not Kubernetes specific</li>
+<li>Preferred way to integrate third party storage systems with the PV subsystem</li>
+</ul>
+</li>
+</ul>
+<h3 id="pv-and-pvc">PV and PVC</h3>
+<ul>
+<li>The Kubernetes PersistentVolume Subsystem</li>
+<li>Storage -&gt; CSI -&gt; PV Subsystem</li>
+<li>PV<ul>
+<li>Has attributes such as size</li>
+</ul>
+</li>
+<li>Storage (GCE Persistent disk (Google))</li>
+<li>To use a PV, need a PV Claim<ul>
+<li>Created with yaml file<ul>
+<li><code>spec</code> properties match</li>
+</ul>
+</li>
+<li>Can't have two different claims on a PV with different policies</li>
+<li>Access Modes:<ul>
+<li>RWO: ReadWriteOnce</li>
+<li>RWM: ReadWriteMany</li>
+<li>ROM: ReadOnlyMany</li>
+<li>Not all volumes support all modes</li>
+<li>A PV can only have one active PVC/AccessMode</li>
+</ul>
+</li>
+<li>Reclaim Policy<ul>
+<li>Retain</li>
+<li>Delete</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="storage-classes">Storage Classes</h3>
+<ul>
+<li>Storage Classes enable Dynamic Provisioning of Volumes<ul>
+<li>Create your PVCs which reference a storage class name, and then you reference those PVCs in pod specs</li>
+</ul>
+</li>
+<li>Kubernetes admin concern with <code>parameters</code></li>
+<li>Developer or app concern with <code>name</code></li>
+<li>Control loop in PVC Subsystem checking API Server for new PVC objects, any time it sees one, actions it.</li>
+</ul>
+<h3 id="demo_1">Demo</h3>
+<h2 id="19-from-code-to-kubernetes">19. From Code to Kubernetes</h2>
+<h3 id="big-picture_1">Big Picture</h3>
+<ul>
+<li>Kubernetes object that references the image &amp; code<ul>
+<li>Object options<ul>
+<li>Can wrap in a pod</li>
+<li>Could wrap in a high level construct such as a deployment, daemon set, or stateful set</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-stages">3 Stages</h4>
+<ol>
+<li>Code</li>
+<li>Docker<ul>
+<li>Build the code into an image</li>
+<li>Push image to registry</li>
+</ul>
+</li>
+<li>Kubernetes<ul>
+<li>Rolls image as Kubernetes deployment or other object</li>
+</ul>
+</li>
+</ol>
+<h3 id="demo_2">Demo</h3>
+<ol>
+<li>Code on repo</li>
+<li>Dockerfile (list of instructions to build a docker image)</li>
+<li>Build image</li>
+<li>Push image</li>
+<li>Web deployment on k8s</li>
+<li>Apply service in front (web-nodeport)</li>
+<li>Load balancer (if on cloud provider)</li>
+</ol>
+<h2 id="20-kubernetes-deployments">20. Kubernetes Deployments</h2>
+<ul>
+<li><strong>Declaratively!</strong></li>
+</ul>
+<h3 id="deployment-theory">Deployment Theory</h3>
+<ul>
+<li>Can't do empty/naked containers<ul>
+<li>Must use pods</li>
+</ul>
+</li>
+<li>Then deployments<ul>
+<li>Higher level than pods</li>
+<li>Replica set<ul>
+<li>Sits between deployments and pod</li>
+<li>Replica set has scaling mechanics</li>
+</ul>
+</li>
+<li>Deploy has scaling &amp; updates</li>
+</ul>
+</li>
+<li>Deployment takes care of running one <em>type</em> of pod</li>
+<li>Declarative way to manage deployments is to make every single change that we ever make in the <code>yml</code> file<ul>
+<li>Manifest always in sync with cluster</li>
+</ul>
+</li>
+<li>Rolling Updates, pod by pod, with second replica set</li>
+<li>Labels!<ul>
+<li>Links everything together</li>
+</ul>
+</li>
+</ul>
+<h2 id="21-kubernetes-auto-scaling-apps">21. Kubernetes Auto-scaling Apps</h2>
+<h3 id="big-picture_2">Big Picture</h3>
+<ul>
+<li>Demand goes up, spin up more pods or maybe more nodes.</li>
+<li>Demand goes down, turn them off</li>
+<li>Elaboration<ul>
+<li>Demand (or load) can be a lot of things<ul>
+<li>CPU &amp; memory obvious</li>
+<li>Can be messages in queue</li>
+<li>Or open connections</li>
+</ul>
+</li>
+<li>Generally speaking, if demand goes up we add more pods, but if nodes in the cluster are full, you can't add more pods and need to add more nodes first.</li>
+<li>To automatically add more <em>nodes</em> we have the <strong>cluster auto-scaler</strong></li>
+<li>To automatically add more <em>pods</em> we have the <strong>horizontal pod auto-scaler</strong></li>
+</ul>
+</li>
+<li>Load increases on app</li>
+<li>Add more pod replicas</li>
+<li>If clusters are full and there aren't any nodes with enough capacity to take new pods then those pods moves to pending.</li>
+<li>
+<p>Cluster auto-scaler looks for pending pods, and adds more nodes.</p>
+</li>
+<li>
+<p>Brief note on Vertical Pod Autoscaler (VPA)</p>
+<ul>
+<li>Alpha product at time of this tutorial</li>
+<li>Getting pod scheduled with right amount of resources</li>
+</ul>
+</li>
+</ul>
+<h3 id="horizontal-pod-autoscaler-hpa-theory">Horizontal Pod Autoscaler (HPA) Theory</h3>
+<ul>
+<li>All about pods<ul>
+<li>Scaling pods</li>
+<li>Pod metrics</li>
+<li>Etc</li>
+</ul>
+</li>
+<li>Pod scaling out rather than up.</li>
+<li>Automatic after initial setup</li>
+<li>Define HPA like any other resource in the API</li>
+<li>Tell it which deployment to work on (One-to-One)</li>
+<li>Set target utilization<ul>
+<li>By percentage</li>
+<li>Need to create pods with resource requests</li>
+<li>Can also set limits on scaling</li>
+</ul>
+</li>
+<li>
+<p>HPA tells Deployment and Deployment tells Replica set</p>
+<ul>
+<li>HPA only decides when scaling needs to happen</li>
+</ul>
+</li>
+<li>
+<p>Declaratively!</p>
+</li>
+</ul>
+<h3 id="cluster-autoscaler-theory">Cluster Autoscaler Theory</h3>
+<ul>
+<li>Tied to underlying cloud platform</li>
+<li>Build cluster with autoscaling enabled</li>
+<li>Configure pools of like-nodes</li>
+<li>Also tied to K8s service</li>
+<li><strong>Only works if you configure pods with resource requests</strong><ul>
+<li>Looks at what has been collectively requested</li>
+</ul>
+</li>
+<li>Cluster Autoscaler<ul>
+<li>Works on <em>requested</em> values</li>
+</ul>
+</li>
+<li>Horizontal Pod Autoscaler<ul>
+<li>Works on <em>actual</em> values</li>
+</ul>
+</li>
+<li>For autoscaling to work properly, need to set up and do everything else properly, <strong>especially resource requests</strong></li>
+<li>Checks every 10 seconds</li>
+<li>Warnings<ul>
+<li>Don't try to manually manage pods, node pools</li>
+<li>Check your cloud for support, they vary</li>
+<li>Test performance on big clusters</li>
+</ul>
+</li>
+</ul>
+<h2 id="22-kubernetes-security">22. Kubernetes Security</h2>
+<h3 id="rbac-and-admission-control">RBAC and Admission Control</h3>
+<ul>
+<li>Focus on access to the API server and in particular the role based access control bits.</li>
+</ul>
+<h3 id="big-picture_3">Big Picture</h3>
+<ul>
+<li>API centric<ul>
+<li>Means everything in the cluster revolves around the API server</li>
+<li>Lots of options to lock it down</li>
+<li>REST based</li>
+<li>CRUD style operations</li>
+</ul>
+</li>
+<li>
+<p><code>kubectl</code></p>
+<ul>
+<li>Nodes</li>
+<li>Scheduler</li>
+<li>Controllers</li>
+<li>Every member of control plane is also a client</li>
+<li>Have to go through process</li>
+</ul>
+</li>
+<li>
+<p>Client (HTTPS)</p>
+</li>
+<li>Self signed certificates out-of-the-box</li>
+<li>authN phase<ul>
+<li>Prove your ID</li>
+</ul>
+</li>
+<li>authZ phase<ul>
+<li>Is user allowed to perform action</li>
+</ul>
+</li>
+<li>Admission Control<ul>
+<li>Mutate &amp; validate</li>
+</ul>
+</li>
+<li>Schema validation</li>
+<li>
+<p>Instantiated on cluster</p>
+</li>
+<li>
+<p>This flow assumes we're hitting API server on the secure port</p>
+</li>
+<li>
+<p>Some installations open an insecure local port on the Masters</p>
+<ul>
+<li><strong>Disable for prod</strong></li>
+<li>Can differ by installation</li>
+</ul>
+</li>
+<li>
+<p>RBAC</p>
+<ul>
+<li>Additive deny-by-default system<ul>
+<li>Have to add allow rules</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="authentication-authn">Authentication (AuthN)</h3>
+<ul>
+<li>All about proving you are who you say you are</li>
+<li>Client -- Request (with creds) --&gt; API</li>
+<li>API checks with Authentication module<ul>
+<li>Yes/No back to API</li>
+<li>Configurable</li>
+<li>Out-of-the-Box options<ul>
+<li>Bearer tokens</li>
+<li>Client certs</li>
+<li>Bootstrap tokens</li>
+<li>External systems</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Kubernetes does not do Users!</strong></p>
+<ul>
+<li>Manage Users externally<ul>
+<li>IAM</li>
+<li>Active Directory</li>
+<li>Etc..</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Kubernetes cluster with CA</p>
+<ul>
+<li>Mint user certs with CA</li>
+<li>Embed user names in the CN property of the cert and any groups get listed as organizations or O property</li>
+<li>Create <code>kubectl</code> context so that certificate gets embedded with all future commands</li>
+<li>Good to go!</li>
+</ul>
+</li>
+<li>
+<p>Service Accounts</p>
+<ul>
+<li>Are stored in kubernetes</li>
+<li>Not for us devs, but used for system componants and other parts of control plane</li>
+<li>Managed by Kubernetes</li>
+<li>You can (should) manage them</li>
+</ul>
+</li>
+</ul>
+<h3 id="authorization-authz">Authorization (AuthZ)</h3>
+<ul>
+<li><em>Who</em>(Subject) can perform which <em>actions</em>(Verb) on which <em>resources</em>(pods, deployments, etc)?</li>
+<li>Need to explicitly create some allow rules</li>
+<li>Powerful default users (Too powerful for production)<ul>
+<li>New cluster, get context and a user with mega permissions</li>
+</ul>
+</li>
+<li>RBAC (Role Based Access Control)</li>
+<li>Roles &amp; RoleBindings (for least privilege)<ul>
+<li>All about the rules</li>
+<li>Roles<ul>
+<li>Which operations on which resources</li>
+</ul>
+</li>
+<li>RoleBinding<ul>
+<li>Who can do this, what user</li>
+</ul>
+</li>
+<li>Namespace scoped and cluster scoped</li>
+</ul>
+</li>
+<li>New cluster gets a bunch of pre-created cluster roles and cluster role bindings<ul>
+<li>Docker-for-desktop example</li>
+</ul>
+</li>
+<li>In summary<ul>
+<li>RBAC denies everything by default</li>
+<li>Get around it by using powerful pre-created accounts</li>
+</ul>
+</li>
+</ul>
+<h3 id="admission-control">Admission Control</h3>
+<ul>
+<li>Kicks in <em>after</em> authN and authZ</li>
+<li>Deals with policy enforcement</li>
+<li>Can be used with Webhooks for External admission controller<ul>
+<li>Needs to be secure!</li>
+<li>Needs to work solidly or it has potential to break all requests into API server</li>
+</ul>
+</li>
+<li>Two main types<ul>
+<li>Mutating<ul>
+<li>Modifying requests</li>
+</ul>
+</li>
+<li>Validating</li>
+</ul>
+</li>
+<li>All have to except, single no stops request</li>
+</ul>
+<h2 id="23-more-kubernetes-stuff">23. More Kubernetes Stuff</h2>
+<h3 id="other-kubernetes-stuff">Other Kubernetes Stuff</h3>
+<ul>
+<li>Few things high on list of things to look at next.<ul>
+<li>DaemonSets<ul>
+<li>Like deployments, they manage pods.</li>
+<li>Instead of being about scaling, these are about making sure a particular pod is running on every node.</li>
+</ul>
+</li>
+<li>StatefulSets<ul>
+<li>Bring benefits of Kubernetes to stateful bits of app</li>
+</ul>
+</li>
+<li>Jobs<ul>
+<li>For running a specified number of pods and making sure they complete</li>
+</ul>
+</li>
+<li>CronJobs<ul>
+<li>Run against a schedule</li>
+<li>Configure with pod spec</li>
+<li>Gets pods that run when you want them to</li>
+</ul>
+</li>
+<li>PodSecurityPolicy<ul>
+<li>List a bunch of things a pod has to conform to<ul>
+<li>Deny access to specific things, etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pod resource requests and limits<ul>
+<li>Right way to do things and feeds into other things</li>
+</ul>
+</li>
+<li>ResourceQuotas<ul>
+<li>Lets you set limits against namespaces</li>
+</ul>
+</li>
+<li>CustomResourceDefinition<ul>
+<li>Extensibility of the API</li>
+<li>Extend the API in your local cluster</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="25-gae-google-app-engine">25. GAE: Google App Engine</h2>
+<ul>
+<li>What is it?<ul>
+<li>In scope of the exam</li>
+<li>Different</li>
+<li>The OG<ul>
+<li>The original google cloud service</li>
+</ul>
+</li>
+<li>Fairly easy to learn the basics</li>
+<li>Good test of your independence</li>
+<li>Deeper than it first seems</li>
+<li>Powerful</li>
+</ul>
+</li>
+</ul>
+<h2 id="26-services-breadth">26. Services Breadth</h2>
+<h3 id="changing-gears-to-breadth">Changing GEars to Breadth</h3>
+<p><a href="https://cloud.google.com/products/">Google Products List Page</a></p>
+<h3 id="compute">Compute</h3>
+<h4 id="compute-engine-gce">Compute Engine (GCE)</h4>
+<ul>
+<li><a href="https://cloud.google.com/compute/">Compute Engine (GCE)</a></li>
+<li>Comparable to AWS EC2 or VMware</li>
+</ul>
+<p><img alt="Compute Engine" src="../img/computeEngine.jpg" title="Compute Engine" /></p>
+<h4 id="google-kubernetes-engine-gke">Google Kubernetes Engine (GKE)</h4>
+<ul>
+<li><a href="https://cloud.google.com/kubernetes-engine/">Google Kubernetes Engine (GKE)</a></li>
+<li>Comparable to AWS EC2 Container Service (ECS &amp; EKS)</li>
+<li>Probably use Docker</li>
+</ul>
+<p><img alt="Kubernetes Engine" src="../img/kubernetesEngine.jpg" title="Kubernetes Engine" /></p>
+<h4 id="app-engine-gae">App Engine (GAE)</h4>
+<ul>
+<li><a href="https://cloud.google.com/appengine/">App Engine (GAE)</a></li>
+<li>Comparable to AWS Elastic Beanstalk or Heroku</li>
+</ul>
+<p><img alt="App Engine" src="../img/appEngine.jpg" title="App Engine" /></p>
+<h4 id="google-cloud-functions-gcf">Google Cloud Functions (GCF)</h4>
+<ul>
+<li><a href="https://cloud.google.com/functions/">Google Cloud Functions (GCF)</a></li>
+<li>Comparable to AWS Lambda functions</li>
+</ul>
+<p><img alt="Cloud Functions" src="../img/cloudFunctions.jpg" title="Cloud Functions" /></p>
+<h3 id="storage_1">Storage</h3>
+<h4 id="local-ssds">Local SSDs</h4>
+<ul>
+<li><a href="https://cloud.google.com/compute/docs/disks/#localssds">Local SSDs</a></li>
+<li>Comparable to AWS EC2 Instance Store Vols. or Direct-Attached Storage (DAS)</li>
+</ul>
+<p><img alt="Local SSDs" src="../img/localSSDs.jpg" title="Local SSDs" /></p>
+<h4 id="persistent-disk-pd">Persistent Disk (PD)</h4>
+<ul>
+<li><a href="https://cloud.google.com/persistent-disk/">Persistent Disk</a></li>
+<li>Comparable to AWS Elastic Block Storage (EBS) or Storage Area Network (SAN)</li>
+</ul>
+<p><img alt="Persistent Disk" src="../img/persistentDisk.jpg" title="Persistent Disk" /></p>
+<h4 id="cloud-filestore">Cloud Filestore</h4>
+<ul>
+<li><a href="https://cloud.google.com/filestore/">Cloud Filestore</a></li>
+<li>Comparable to AWS Elastic File System (EFS) or Network-Attached Storage (NAS)</li>
+</ul>
+<p><img alt="Cloud Filestore" src="../img/cloudFilestore.jpg" /></p>
+<h4 id="cloud-storage-gcs">Cloud Storage (GCS)</h4>
+<ul>
+<li><a href="https://cloud.google.com/storage/">Cloud Storage</a></li>
+<li>Comparable to Amazon S3 or Amazon Glacier</li>
+</ul>
+<p><img alt="Cloud Storage" src="../img/cloudStorage.jpg" title="Cloud Storage" /></p>
+<h3 id="databases">Databases</h3>
+<h4 id="cloud-sql">Cloud SQL</h4>
+<ul>
+<li><a href="https://cloud.google.com/sql/">Cloud SQL</a></li>
+<li>Comparable to Amazon RDS or Self-Managed MySQL</li>
+</ul>
+<p><img alt="Cloud SQL" src="../img/cloudSQL.jpg" title="Cloud SQL" /></p>
+<h4 id="cloud-spanner">Cloud Spanner</h4>
+<ul>
+<li><a href="https://cloud.google.com/spanner/">Cloud Spanner</a></li>
+<li>Comparable to Sharded MySQL or CockroachDB</li>
+<li><a href="https://cloud.google.com/spanner/docs/instances">Cloud Spanner Instance Configuration</a></li>
+</ul>
+<p><img alt="Cloud Spanner" src="../img/cloudSpanner.jpg" title="Cloud Spanner" /></p>
+<h4 id="big-query">Big Query</h4>
+<ul>
+<li><a href="https://cloud.google.com/bigquery/">Big Query</a></li>
+<li>Comparable to Amazon Redshift, Amazon Athena, Presto</li>
+<li><a href="https://cloud.google.com/blog/products/gcp/bigquery-under-the-hood">Big Query Under the hood</a></li>
+</ul>
+<p><img alt="Big Query" src="../img/bigQuery.jpg" title="Big Query" /></p>
+<h4 id="cloud-bigtable">Cloud Bigtable</h4>
+<ul>
+<li><a href="https://cloud.google.com/bigtable/">Cloud Bigtable</a></li>
+<li>Comparable to DynamoDB, Cassandra, Apache HBASE</li>
+</ul>
+<p><img alt="Cloud Bigtable" src="../img/cloudBigtable.jpg" title="Cloud Bigtable" /></p>
+<h4 id="cloud-datastore">Cloud Datastore</h4>
+<ul>
+<li><a href="https://cloud.google.com/datastore/">Cloud Datastore</a></li>
+<li>Comparable to DynamoDB, MongoDB</li>
+<li><a href="https://cloud.google.com/datastore/docs/concepts/queries">Cloud Datastore Queries</a></li>
+</ul>
+<p><img alt="Cloud Datastore" src="../img/cloudDatastore.jpg" title="Cloud Datastore" /></p>
+<h4 id="firebase-dbs">Firebase DBs</h4>
+<ul>
+<li><a href="https://firebase.google.com/docs/database/rtdb-vs-firestore">Firebase DBs</a></li>
+<li>Comparable to ELB + DynamoDB + EC2 + Socket.io + MongoDB + NGINX</li>
+</ul>
+<p><img alt="Firebase DBs" src="../img/firebase.jpg" title="Firebase DBs" /></p>
+<h3 id="data-transfer">Data Transfer</h3>
+<h4 id="data-transfer-appliance">Data Transfer Appliance</h4>
+<ul>
+<li><a href="https://cloud.google.com/transfer-appliance/">Data Transfer Appliance</a></li>
+<li>Comparable to AWS Snowball</li>
+</ul>
+<p><img alt="Data Transfer Appliance" src="../img/dataTransferAppliance.jpg" title="Data Transfer Appliance" /></p>
+<h4 id="storage-transfer-service">Storage Transfer Service</h4>
+<ul>
+<li><a href="https://cloud.google.com/transfer-appliance/">Storage Transfer Service</a></li>
+</ul>
+<p><img alt="Storage Transfer Service" src="../img/storageTransferService.jpg" title="Storage Transfer Service" /></p>
+<h3 id="external-networking">External Networking</h3>
+<h4 id="google-domains">Google Domains</h4>
+<ul>
+<li><a href="https://domains.google/#/">Google Domains</a></li>
+<li>Comparable to Amazon Route 53, GoDaddy</li>
+</ul>
+<p><img alt="Google Domains" src="../img/googleDomains.jpg" title="Google Domains" /></p>
+<h4 id="cloud-dns">Cloud DNS</h4>
+<ul>
+<li><a href="https://cloud.google.com/dns/">Cloud DNS</a></li>
+<li>Comparable to Amazon Route 53, Dyn</li>
+</ul>
+<p><img alt="Cloud DNS" src="../img/cloudDNS.jpg" title="Cloud DNS" /></p>
+<h4 id="static-ips">Static IPs</h4>
+<ul>
+<li><a href="https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address">Static IPs</a></li>
+<li>Comparable to AWS's Elastic IP Address</li>
+</ul>
+<p><img alt="Static IPs" src="../img/staticIPs.jpg" title="Static IPs" /></p>
+<h4 id="cloud-load-balancing-clb">Cloud Load Balancing (CLB)</h4>
+<ul>
+<li><a href="https://cloud.google.com/load-balancing/">Cloud Load Balancing</a></li>
+<li>Comparable to AWS's Elastic Load Balancing, HA Proxy, NGINX</li>
+</ul>
+<p><img alt="Cloud Load Balancing" src="../img/cloudLoadBalancing.jpg" title="Cloud Load Balancing" /></p>
+<h4 id="cloud-cdn">Cloud CDN</h4>
+<ul>
+<li><a href="https://cloud.google.com/cdn/">Cloud CDN</a></li>
+<li>Comparable to Amazon Cloudfront, Akamai, Cloudflare</li>
+</ul>
+<p><img alt="Cloud CDN" src="../img/cloudCDN.jpg" title="Cloud CDN" /></p>
+<h3 id="internal-networking">Internal Networking</h3>
+<h4 id="virtual-private-cloud-vpc">Virtual Private Cloud (VPC)</h4>
+<ul>
+<li><a href="https://cloud.google.com/vpc/">Virtual Private Cloud</a></li>
+<li>Comparable to Amazon VPC, OpenFlow</li>
+</ul>
+<p><img alt="Virtual Private Cloud" src="../img/virtualPrivateCloud.jpg" title="Virtual Private Cloud" /></p>
+<h4 id="cloud-interconnect">Cloud Interconnect</h4>
+<ul>
+<li><a href="https://cloud.google.com/interconnect/">Cloud Interconnect</a></li>
+</ul>
+<p><img alt="Cloud Interconnect" src="../img/cloudInterconnect.jpg" title="Cloud Interconnect" /></p>
+<h4 id="cloud-vpn">Cloud VPN</h4>
+<ul>
+<li><a href="https://cloud.google.com/compute/docs/vpn/overview">Cloud VPN</a></li>
+<li>Comparable to AWS VPN, OpenVPN</li>
+</ul>
+<p><img alt="Cloud VPN" src="../img/cloudVPN.jpg" title="Cloud VPN" /></p>
+<h4 id="dedicated-interconnect">Dedicated Interconnect</h4>
+<ul>
+<li><a href="https://cloud.google.com/interconnect/docs/details/dedicated">Dedicated Interconnect</a></li>
+<li>Comparable to AWS Direct Connect</li>
+</ul>
+<p><img alt="Dedicated Interconnect" src="../img/dedicatedInterconnect.jpg" title="Dedicated Interconnect" /></p>
+<h4 id="cloud-router">Cloud Router</h4>
+<ul>
+<li><a href="https://cloud.google.com/router/docs/">Cloud Router</a></li>
+</ul>
+<p><img alt="Cloud Router" src="../img/cloudRouter.jpg" title="Cloud Router" /></p>
+<h4 id="cdn-interconnect">CDN Interconnect</h4>
+<ul>
+<li><a href="https://cloud.google.com/interconnect/docs/how-to/cdn-interconnect">CDN Interconnect</a></li>
+</ul>
+<p><img alt="CDN Interconnect" src="../img/cdnInterconnect.jpg" title="CDN Interconnect" /></p>
+<h3 id="machine-learning-ai">Machine Learning / AI</h3>
+<h4 id="cloud-machine-learning-engine">Cloud Machine Learning Engine</h4>
+<ul>
+<li><a href="https://cloud.google.com/ml-engine/">Cloud Machine Learning Engine</a></li>
+<li>Comparable to Amazon SageMaker, TensorFlow, Apache MXNet</li>
+</ul>
+<p><img alt="Cloud Machine Learning Engine" src="../img/cloudMachineLearningEngine.jpg" title="Cloud Machine Learning Engine" /></p>
+<h4 id="cloud-vision-api">Cloud Vision API</h4>
+<ul>
+<li><a href="https://cloud.google.com/vision/">Cloud Vision API</a></li>
+<li>Comparable to Amazon Rekognition</li>
+</ul>
+<p><img alt="Cloud Vision API" src="../img/cloudVisionAPI.jpg" title="Cloud Vision API" /></p>
+<h4 id="cloud-speech-api">Cloud Speech API</h4>
+<ul>
+<li><a href="https://cloud.google.com/speech-to-text/">Cloud Speech API</a></li>
+</ul>
+<p><img alt="Cloud Speech API" src="../img/cloudSpeechAPI.jpg" title="Cloud Speech API" /></p>
+<h4 id="cloud-natural-language-api">Cloud Natural Language API</h4>
+<ul>
+<li><a href="https://cloud.google.com/natural-language/">Cloud Natural Language API</a></li>
+</ul>
+<p><img alt="Cloud Natural Language API" src="../img/cloudNaturalLanguageAPI.jpg" title="Cloud Natural Language API" /></p>
+<h4 id="cloud-translation-api">Cloud Translation API</h4>
+<ul>
+<li><a href="https://cloud.google.com/translate/">Cloud Translation API</a></li>
+<li>Comparable to</li>
+</ul>
+<p><img alt="Cloud Translation API" src="../img/cloudTranslationAPI.jpg" title="Cloud Translation API" /></p>
+<h4 id="dialogflow">DialogFlow</h4>
+<ul>
+<li><a href="https://cloud.google.com/dialogflow/">DialogFlow</a></li>
+<li>Comparable to Amazon Lex</li>
+</ul>
+<p><img alt="DialogFlow" src="../img/dialogFlow.jpg" title="DialogFlow" /></p>
+<h4 id="cloud-video-intelligence-api">Cloud Video Intelligence API</h4>
+<ul>
+<li><a href="https://cloud.google.com/video-intelligence/">Cloud Video Intelligence API</a></li>
+</ul>
+<p><img alt="Cloud Video Intelligence API" src="../img/cloudVideoIntelligenceAPI.jpg" title="Cloud Video Intelligence API" /></p>
+<h4 id="cloud-job-discovery">Cloud Job Discovery</h4>
+<ul>
+<li><a href="https://cloud.google.com/solutions/talent-solution/">Cloud Job Discovery</a></li>
+</ul>
+<p><img alt="Cloud Job Discovery" src="../img/cloudJobDiscovery.jpg" title="Cloud Job Discovery" /></p>
+<h3 id="big-data-and-iot">Big Data and IoT</h3>
+<h4 id="big-data-lifecycle">Big Data Lifecycle</h4>
+<p><img alt="Big Data Lifecycle" src="../img/bigDataLifecycle.jpg" title="Big Data Lifecycle" /></p>
+<h4 id="cloud-internet-of-things-iot-core">Cloud Internet of Things (IoT) Core</h4>
+<ul>
+<li><a href="https://cloud.google.com/iot-core/">Cloud IoT Core</a></li>
+<li>Comparable to AWS IoT, Custom Management</li>
+</ul>
+<p><img alt="Cloud Iot Core 1" src="../img/cloudiotCore1.jpg" title="Cloud IoT Core 1" />
+<img alt="Cloud Iot Core 2" src="../img/cloudiotCore2.jpg" title="Cloud IoT Core 2" /></p>
+<h4 id="cloud-pub-sub">Cloud Pub-Sub</h4>
+<ul>
+<li><a href="https://cloud.google.com/pubsub/">Cloud Pub-Sub</a></li>
+<li>Comparable to Amazon SNS, Amazon SQS, RabbitMQ, Amazon Kinesis, Apache Kafka</li>
+</ul>
+<p><img alt="Cloud Pub-Sub" src="../img/cloudPubSub.jpg" title="Cloud Pub-Sub" /></p>
+<h4 id="cloud-dataprep">Cloud Dataprep</h4>
+<ul>
+<li><a href="https://cloud.google.com/dataprep/">Cloud Dataprep</a></li>
+<li>Comparable to AWS Glue, Informatica PowerCenter somwewhat, moreso OpenRefine, MatLab, or Excel<ul>
+<li>Managed by Trifacta, not Google</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Cloud Dataprep" src="../img/cloudDataprep.jpg" title="Cloud Dataprep" /></p>
+<h4 id="cloud-dataproc">Cloud Dataproc</h4>
+<ul>
+<li><a href="https://cloud.google.com/dataproc/">Cloud Dataproc</a></li>
+<li>Comparable to Amazon EMR, Spark, Hadoop</li>
+</ul>
+<p><img alt="Cloud Dataproc" src="../img/cloudDataproc.jpg" title="Cloud Dataproc" /></p>
+<h4 id="cloud-dataflow">Cloud Dataflow</h4>
+<ul>
+<li><a href="https://cloud.google.com/dataflow/">Cloud Dataflow</a></li>
+<li>Comparable to Amazon EMR, Spark, Hadoop, <em>and</em> Apache Beam</li>
+</ul>
+<p><img alt="Cloud Dataflow" src="../img/cloudDataflow.jpg" title="Cloud Dataflow" /></p>
+<h4 id="cloud-datalab">Cloud Datalab</h4>
+<ul>
+<li><a href="https://cloud.google.com/datalab/">Cloud Datalab</a></li>
+<li>Comparable to Jupyter Notebook, uses this</li>
+</ul>
+<p><img alt="Cloud Datalab" src="../img/cloudDatalab.jpg" title="Cloud Datalab" /></p>
+<h4 id="cloud-data-studio">Cloud Data Studio</h4>
+<ul>
+<li><a href="https://cloud.google.com/solutions/business-intelligence/">Cloud Data Studio</a></li>
+<li>Comparable to Amazon QuickSight, Tableau</li>
+</ul>
+<p><img alt="Cloud Data Studio" src="../img/cloudDataStudio.jpg" title="Cloud Data Studio" /></p>
+<h4 id="cloud-geonomics">Cloud Geonomics</h4>
+<ul>
+<li><a href="https://cloud.google.com/life-sciences">Cloud Geonomics</a></li>
+<li>Comparable to Global Alliance for Genomics &amp; Health</li>
+</ul>
+<p><img alt="Cloud Geonomics" src="../img/cloudGeonomics.jpg" title="Cloud Geonomics" /></p>
+<h3 id="identify-and-access-core-security">Identify and Access - Core Security</h3>
+<ul>
+<li><a href="https://cloud.google.com/security/">GCP Security Overview</a></li>
+</ul>
+<h4 id="roles">Roles</h4>
+<ul>
+<li><a href="https://cloud.google.com/iam/docs/understanding-roles">Roles</a></li>
+<li>Comparable to AWS IAM Policies</li>
+</ul>
+<p><img alt="Roles" src="../img/roles.jpg" title="Roles" /></p>
+<h4 id="cloud-iam">Cloud IAM</h4>
+<ul>
+<li><a href="https://cloud.google.com/iam/">Cloud IAM</a></li>
+<li>Comparable to AWS IAM</li>
+</ul>
+<p><img alt="Cloud IAM" src="../img/cloudIAM1.jpg" title="Cloud IAM 1" />
+<img alt="Cloud IAM" src="../img/cloudIAM2.jpg" title="Cloud IAM 2" /></p>
+<h4 id="service-accounts">Service Accounts</h4>
+<ul>
+<li><a href="https://cloud.google.com/iam/docs/understanding-service-accounts">Service Accounts</a></li>
+<li>Comparable to AWS IAM Roles</li>
+</ul>
+<p><img alt="Service Accounts" src="../img/serviceAccounts.jpg" title="Service Accounts" /></p>
+<h4 id="cloud-identity">Cloud Identity</h4>
+<ul>
+<li><a href="https://support.google.com/cloudidentity/answer/7319251?visit_id=636845179996740919-1084227653&amp;rd=1">Cloud Identity</a></li>
+<li>Comparable to AWS IAM, G Suite, Gmail/Google Account, Active Directory</li>
+</ul>
+<p><img alt="Cloud Identity" src="../img/cloudIdentity.jpg" title="Cloud Identity" /></p>
+<h4 id="security-key-enforcement">Security Key Enforcement</h4>
+<ul>
+<li><a href="https://cloud.google.com/security-key/">Security Key Enforcement</a></li>
+</ul>
+<p><img alt="Security Key Enforcement" src="../img/securityKeyEnforcement.jpg" title="Security Key Enforcement" /></p>
+<h4 id="cloud-resource-manager">Cloud Resource Manager</h4>
+<ul>
+<li><a href="https://cloud.google.com/resource-manager/">Cloud Resource Manager</a></li>
+<li>Comparable to AWS Organizations</li>
+</ul>
+<p><img alt="Cloud Resource Manager" src="../img/cloudResourceManager1.jpg" title="Cloud Resource Manager 1" />
+<img alt="Cloud Resource Manager" src="../img/cloudResourceManager2.jpg" title="Cloud Resource Manager 2" /></p>
+<h4 id="cloud-identity-aware-proxy-iap">Cloud Identity-Aware Proxy (IAP)</h4>
+<ul>
+<li><a href="https://cloud.google.com/iap/">Cloud IAP</a></li>
+<li>Comparable to Amazon API Gateway</li>
+</ul>
+<p><img alt="Cloud IAP" src="../img/cloudIAP.jpg" title="Cloud IAP" /></p>
+<h4 id="cloud-audit-logging">Cloud Audit Logging</h4>
+<ul>
+<li><a href="https://cloud.google.com/logging/docs/audit/">Cloud Audit Logging</a></li>
+<li>Comparable AWS CloudTrail</li>
+</ul>
+<p><img alt="Cloud Audit Logging" src="../img/cloudAuditLogging.jpg" title="Cloud Audit Logging" /></p>
+<h3 id="security-management-monitoring-and-response">Security Management - Monitoring and Response</h3>
+<h4 id="cloud-armor">Cloud Armor</h4>
+<ul>
+<li><a href="https://cloud.google.com/armor/">Cloud Armor</a></li>
+<li>Comparable to AWS Shield + AWS WAF</li>
+</ul>
+<p><img alt="Cloud Armor" src="../img/cloudArmor.jpg" title="Cloud Armor" /></p>
+<h4 id="cloud-security-scanner">Cloud Security Scanner</h4>
+<ul>
+<li><a href="https://cloud.google.com/security-scanner/">Cloud Security Scanner</a></li>
+<li>Comparable to Amazon Inspector, Trustwave App Scanner, Qualys Web Application Scanning</li>
+</ul>
+<p><img alt="Cloud Security Scanner" src="../img/cloudSecurityScanner.jpg" title="Cloud Security Scanner" /></p>
+<h4 id="cloud-data-loss-prevention-api-dlp">Cloud Data Loss Prevention API (DLP)</h4>
+<ul>
+<li><a href="https://cloud.google.com/dlp/">Cloud DLP API</a></li>
+<li>Comparable to AWS Macie</li>
+</ul>
+<p><img alt="Cloud DLP API" src="../img/cloudDLPAPI.jpg" title="Cloud DLP API" /></p>
+<h4 id="event-threat-detection-etd">Event Threat Detection (ETD)</h4>
+<ul>
+<li><a href="https://cloud.google.com/event-threat-detection/">Event Threat Detection</a></li>
+<li>Comparable to Amazon GuardDuty, Splunk</li>
+</ul>
+<p><img alt="Event Threat Detection" src="../img/eventThreatDetection.jpg" title="Event Threat Detection" /></p>
+<h4 id="cloud-security-command-center-scc">Cloud Security Command Center (SCC)</h4>
+<ul>
+<li><a href="https://cloud.google.com/security-command-center/">Cloud Security Command Center</a></li>
+<li>Comparable to AWS Security Hub, Splunk Enterprise Security, Sumo Logic</li>
+</ul>
+<p><img alt="Cloud Security Command Center" src="../img/cloudSecurityCommandCenter1.jpg" title="Cloud Security Command Center 1" />
+<img alt="Cloud Security Command Center" src="../img/cloudSecurityCommandCenter2.jpg" title="Cloud Security Command Center 2" /></p>
+<ul>
+<li><a href="https://cloud.google.com/blog/products/identity-security/getting-started-with-cloud-security-command-center">Getting Started With SCC</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZuLazPgFtBE&amp;feature=youtu.be">What is SIEM? (Youtube)</a></li>
+</ul>
+<h3 id="encryption-key-management">Encryption Key Management</h3>
+<h4 id="cloud-key-management-service">Cloud Key Management Service</h4>
+<ul>
+<li><a href="https://cloud.google.com/kms/">Cloud KSS</a></li>
+<li>Comparable to AWS KMS, HashiCorp Vault</li>
+</ul>
+<p><img alt="Cloud KSS" src="../img/cloudKSS.jpg" title="Cloud KSS" /></p>
+<h4 id="cloud-hardware-security-module">Cloud Hardware Security Module</h4>
+<ul>
+<li><a href="https://cloud.google.com/hsm/">Cloud HSM</a></li>
+<li>Comparable to AWS CloudHSM, SafeNet HSM</li>
+</ul>
+<p><img alt="Cloud HSM" src="../img/cloudHSM.jpg" title="Cloud HSM" /></p>
+<h3 id="operations-and-management">Operations and Management</h3>
+<h4 id="google-stackdriver">Google Stackdriver</h4>
+<ul>
+<li><a href="https://cloud.google.com/products/operations">Stackdriver</a></li>
+<li>Comparable to Amazon CloudWatch</li>
+</ul>
+<p><img alt="Stackdriver" src="../img/stackdriver.jpg" title="Stackdriver" /></p>
+<h4 id="stackdriver-monitoring">Stackdriver Monitoring</h4>
+<ul>
+<li><a href="https://cloud.google.com/monitoring/">Stackdriver Monitoring</a></li>
+<li>Comparable to CloudWatch Metrics &amp; Dashboards, Datadog, collectd</li>
+</ul>
+<p><img alt="Stackdriver Monitoring" src="../img/stackdriverMonitoring.jpg" title="Stackdriver Monitoring" /></p>
+<h4 id="stackdriver-logging">Stackdriver Logging</h4>
+<ul>
+<li><a href="https://cloud.google.com/logging/">Stackdriver Logging</a></li>
+<li>Comparable to CloudWatch Logs, Splunk, Fluentd</li>
+</ul>
+<p><img alt="Stackdriver Logging" src="../img/stackdriverLogging.jpg" title="Stackdriver Logging" /></p>
+<h4 id="stackdriver-error-reporting">Stackdriver Error Reporting</h4>
+<ul>
+<li><a href="https://cloud.google.com/error-reporting/">Stackdriver Error Reporting</a></li>
+<li>Comparable to Rollbar, Bugsnag</li>
+</ul>
+<p><img alt="Stackdriver Error Reporting" src="../img/stackdriverErrorReporting.jpg" title="Stackdriver Error Reporting" /></p>
+<h4 id="stackdriver-trace">Stackdriver Trace</h4>
+<ul>
+<li><a href="https://cloud.google.com/trace/">Stackdriver Trace</a></li>
+<li>Comparable to AWS X-Ray, ZipKin, OpenTracing</li>
+</ul>
+<p><img alt="Stackdriver Trace" src="../img/stackdriverTrace.jpg" title="Stackdriver Trace" /></p>
+<h4 id="stackdriver-debugger">Stackdriver Debugger</h4>
+<ul>
+<li><a href="https://cloud.google.com/debugger/">Stackdriver Debugger</a></li>
+</ul>
+<p><img alt="Stackdriver Debugger" src="../img/stackdriverDebugger.jpg" title="Stackdriver Debugger" /></p>
+<h4 id="stackdriver-profiler">Stackdriver Profiler</h4>
+<ul>
+<li><a href="https://cloud.google.com/profiler/">Stackdriver Profiler</a></li>
+<li>Comparable to AWS CloudFormation, HashiCorp Terraform</li>
+</ul>
+<p><img alt="Stackdriver Profiler" src="../img/stackdriverProfiler.jpg" title="Stackdriver Profiler" /></p>
+<h4 id="cloud-deployment-manager_1">Cloud Deployment Manager</h4>
+<ul>
+<li><a href="https://cloud.google.com/deployment-manager/">Cloud Deployment Manager</a></li>
+<li>Comparable to AWS CloudFormation, HashiCorp Terraform</li>
+</ul>
+<p><img alt="Cloud Deployment Manager" src="../img/cloudDeploymentManager.jpg" title="Cloud Deployment Manager" /></p>
+<h4 id="cloud-billing-api">Cloud Billing API</h4>
+<ul>
+<li><a href="https://cloud.google.com/billing/docs/">Cloud Billing API</a></li>
+<li>Comparable to AWS Billing API, Excel</li>
+</ul>
+<p><img alt="Cloud Billing API" src="../img/cloudBillingAPI.jpg" title="Cloud Billing API" /></p>
+<h3 id="development-and-apis">Development and APIs</h3>
+<h4 id="cloud-source-repositories">Cloud Source Repositories</h4>
+<ul>
+<li><a href="https://cloud.google.com/source-repositories/">Cloud Source Repositories</a></li>
+<li>Comparable to AWS CodeCommit, GitHub</li>
+</ul>
+<p><img alt="Cloud Source Repositories" src="../img/cloudSourceRepositories.jpg" title="Cloud Source Repositories" /></p>
+<h4 id="cloud-build">Cloud Build</h4>
+<ul>
+<li><a href="https://cloud.google.com/cloud-build/">Cloud Build</a></li>
+<li>Comparable to Amazon CodeBuild, Travis CI, Jenkins</li>
+</ul>
+<p><img alt="Cloud Build" src="../img/cloudBuild.jpg" title="Cloud Build" /></p>
+<h4 id="container-registry-gcr">Container Registry (GCR)</h4>
+<ul>
+<li><a href="https://cloud.google.com/container-registry/">Container Registry</a></li>
+<li>Comparable to Amazon ECR, Docker Hub</li>
+</ul>
+<p><img alt="Container Registry" src="../img/containerRegistry.jpg" title="Container Registry" /></p>
+<h4 id="cloud-endpoints">Cloud Endpoints</h4>
+<ul>
+<li><a href="https://cloud.google.com/endpoints/">Cloud Endpoints</a></li>
+<li><a href="https://cloud.google.com/endpoints/docs/openapi/architecture-overview">Cloud Endpoints Architecture</a></li>
+<li><a href="https://cloud.google.com/endpoints/docs/grpc/transcoding">Cloud Endpoints gRPC Transcoding</a></li>
+<li>Comparable to Amazon API Gateway, NGINX</li>
+</ul>
+<p><img alt="Cloud Endpoints" src="../img/cloudEndpoints1.jpg" title="Cloud Endpoints 1" />
+<img alt="Cloud Endpoints" src="../img/cloudEndpoints2.jpg" title="Cloud Endpoints 2" /></p>
+<h4 id="apigee">Apigee</h4>
+<ul>
+<li><a href="https://cloud.google.com/apigee-api-management/">Apigee</a></li>
+<li>Comparable to Amazon API Gateway + AWS Shield, CA API Gateway</li>
+</ul>
+<p><img alt="Apigee" src="../img/apigee.jpg" title="Apigee" /></p>
+<h4 id="test-lab-for-android">Test Lab for Android</h4>
+<ul>
+<li><a href="https://firebase.google.com/docs/test-lab/">Test Lab for Android</a></li>
+<li>Comparable to AWS Device Farm, Xamarin Test Cloud, Sauce Labs Mobile Testing</li>
+</ul>
+<p><img alt="Test Lab for Android" src="../img/testLab.jpg" title="Test Lab for Android" /></p>
+<h2 id="27-system-of-services">27. System of Services</h2>
+<h3 id="putting-it-all-together">Putting it all Together</h3>
+<h4 id="example-systems">Example Systems</h4>
+<ul>
+<li><a href="https://gcp.solutions/">Project Treehouse</a></li>
+</ul>
+<h4 id="api-hosting"><a href="https://gcp.solutions/diagram/API%20Hosting">API Hosting</a></h4>
+<p><img alt="API Hosting" src="../img/apiHosting.jpg" title="API Hosting" /></p>
+<h4 id="jenkins-on-kubernetes"><a href="https://gcp.solutions/diagram/Jenkins%20on%20k8s">Jenkins on Kubernetes</a></h4>
+<p><img alt="Jenkins on Kubernetes" src="../img/jenkinsOnK8s.jpg" title="Jenkins on Kubernetes" /></p>
+<h4 id="log-processing"><a href="https://gcp.solutions/diagram/Log%20Processing">Log Processing</a></h4>
+<p><img alt="Log Processing" src="../img/logProcessing.jpg" title="Log Processing" /></p>
+<h4 id="live-streaming"><a href="https://gcp.solutions/diagram/Live%20Streaming">Live Streaming</a></h4>
+<p><img alt="Live Streaming" src="../img/liveStreaming.jpg" title="Live Streaming" /></p>
+<h4 id="shopping-cart-analysis"><a href="">Shopping Cart Analysis</a></h4>
+<p><img alt="Shopping Cart Analysis" src="../img/shoppingCartAnalysis.jpg" title="Shopping Cart Analysis" /></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../mern/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mern/" class="btn btn-xs btn-link">
+        MERN
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

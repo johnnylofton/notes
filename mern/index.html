@@ -1,0 +1,6132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>MERN - Notes</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "MERN Stack", url: "#_top", children: [
+              {title: "1. Introduction", url: "#1-introduction" },
+              {title: "2. The MERN Stack - Theory", url: "#2-the-mern-stack-theory" },
+              {title: "3. Planning the App", url: "#3-planning-the-app" },
+              {title: "4. React.js - A Refresher", url: "#4-reactjs-a-refresher" },
+              {title: "5. React.js - Building the Frontend", url: "#5-reactjs-building-the-frontend" },
+              {title: "7. Node.js and Express.js - Building our REST API", url: "#7-nodejs-and-expressjs-building-our-rest-api" },
+              {title: "9. Connecting the Backend to the Database MongoDB and Mongoose", url: "#9-connecting-the-backend-to-the-database-mongodb-and-mongoose" },
+              {title: "10. Connecting the React.js Frontend to the Backend", url: "#10-connecting-the-reactjs-frontend-to-the-backend" },
+              {title: "11. Adding File Upload", url: "#11-adding-file-upload" },
+              {title: "12. Adding Authentication", url: "#12-adding-authentication" },
+              {title: "13. Application Deployment", url: "#13-application-deployment" },
+              {title: "The End", url: "#the-end" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../gcloud/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../gcloud/" class="btn btn-xs btn-link">
+        Google Cloud
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ng/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ng/" class="btn btn-xs btn-link">
+        Angular
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="mern-stack">MERN Stack</h1>
+<p>Notes based on Udemy Course <a href="https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide">React, NodeJS, Express &amp; MongoDB - The MERN Fullstack Guide</a></p>
+<h2 id="1-introduction">1. Introduction</h2>
+<h3 id="what-is-the-mern-stack">What is the "MERN Stack"</h3>
+<ul>
+<li><strong>M</strong>ongoDB</li>
+<li><strong>E</strong>xpress</li>
+<li><strong>R</strong>eact</li>
+<li><strong>N</strong>ode.js</li>
+</ul>
+<h4 id="what-is-react">What is React?</h4>
+<ul>
+<li>A Client-Side (Browser) Library which allows you to build highly reactive user interfaces<ul>
+<li>Render UI with Dynamic Data</li>
+<li>Handle User Input</li>
+<li>Communicate with Backend Services</li>
+<li>Provides a "Mobile App"-like User Experience</li>
+</ul>
+</li>
+</ul>
+<h4 id="what-is-node">What is Node?</h4>
+<ul>
+<li>A Server-side Runtime: Javascript on the Server-side<ul>
+<li>Listen to Requests and Send Responses</li>
+<li>Execute Server-side Logic</li>
+<li>Interact with Databases and Files</li>
+<li>An Alternative to PHP, Ruby on Rails, Java etc. Is rarely used Standalone!</li>
+</ul>
+</li>
+</ul>
+<h4 id="what-is-express">What is Express?</h4>
+<ul>
+<li>A Node Framework which simplifies writing Server-side Code and Logic.<ul>
+<li>Based on Node, offers same Functionalities</li>
+<li>Middleware-based: Funnel Requests through Functions</li>
+<li>Includes Routing, View-rendering &amp; More</li>
+<li>Simplifies the Usage of Node. Express is for Node what Laravel would be for PHP.</li>
+</ul>
+</li>
+</ul>
+<h4 id="what-is-mongodb">What is MongoDB?</h4>
+<ul>
+<li>A NoSQL Database which stores "Documents" in "Collections" (instead of "Records" in "Tables" as in SQL).<ul>
+<li>Store Application Data (Users, Products, ...)</li>
+<li>Enforces no Data Schema or Relations</li>
+<li>Easily connected to Node/Express (NOT to React!)</li>
+<li>A powerful Database which can easily be integrated into a Node/Express Environment</li>
+</ul>
+</li>
+</ul>
+<h3 id="mern-a-first-overview">MERN - A First Overview</h3>
+<p><img alt="bigpicture" src="../img/mern-big-picture.jpg" title="mern big picture" /></p>
+<h3 id="course-outline">Course Outline</h3>
+<ol>
+<li>Getting Started</li>
+<li>MERN in Theory</li>
+<li>React Frontend<ul>
+<li>Components, Hooks, Routing</li>
+<li>Frontend User Input Validation</li>
+</ul>
+</li>
+<li>Node + Express + MongoDB Backend<ul>
+<li>REST API, ROutes, Controllers, Models</li>
+<li>Backend User Input</li>
+</ul>
+</li>
+<li>Connecting Both Ends</li>
+<li>File Upload</li>
+<li>Authentication</li>
+<li>Deployment</li>
+</ol>
+<h2 id="2-the-mern-stack-theory">2. The MERN Stack - Theory</h2>
+<h3 id="understanding-the-big-picture">Understanding the Big Picture</h3>
+<p><img alt="bigpicture2" src="../img/mern-big-picture2.jpg" title="mern big picture2" /></p>
+<h3 id="diving-into-the-frontend">Diving into the Frontend</h3>
+<ul>
+<li>React SPA (Single Page Application)</li>
+</ul>
+<p><img alt="frontend-dive" src="../img/frontend-dive.jpg" title="frontend dive" /></p>
+<h3 id="understanding-the-backend">Understanding the Backend</h3>
+<p><img alt="backend-dive" src="../img/backend-dive.jpg" title="backend dive" /></p>
+<h3 id="rest-vs-graphql">REST vs GraphQL</h3>
+<p><img alt="mern-rest1" src="../img/mern-rest1.jpg" title="mern rest 1" /></p>
+<p><img alt="mern-rest2" src="../img/mern-rest2.jpg" title="mern rest 2" /></p>
+<p><img alt="mern-graphql1" src="../img/mern-graphql1.jpg" title="mern graphQL 1" /></p>
+<p><img alt="mern-graphql2" src="../img/mern-graphql2.jpg" title="mern graphQL 2" /></p>
+<p><img alt="mern-restvgraphql" src="../img/mern-restvgraphql.jpg" title="mern rest v graphQL" /></p>
+<h3 id="connecting-node-react">Connecting Node &amp; React</h3>
+<p><img alt="connecting-ends1" src="../img/mern-connecting-ends1.jpg" title="connecting ends 1" /></p>
+<p><img alt="connecting-ends2" src="../img/mern-connecting-ends2.jpg" title="connecting ends 2" /></p>
+<h3 id="diving-deeper-into-the-code">Diving Deeper into the Code</h3>
+<h4 id="using-simple-mern-project">Using simple-mern-project</h4>
+<h5 id="backend">Backend</h5>
+<ul>
+<li>Basic backend server setup</li>
+</ul>
+<pre><code class="javascript">// backend/server.js
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const uuid = require('uuid/v4');
+
+const app = express();
+
+const DUMMY_PRODUCTS = []; // not a database, just some in-memory storage for now
+
+app.use(bodyParser.json());
+
+// CORS Headers =&gt; Required for cross-origin/ cross-server communication
+app.use((req, res, next) =&gt; {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PATCH, DELETE, OPTIONS'
+  );
+  next();
+});
+
+app.get('/products', (req, res, next) =&gt; {
+  res.status(200).json({ products: DUMMY_PRODUCTS });
+});
+
+app.post('/product', (req, res, next) =&gt; {
+  const { title, price } = req.body;
+
+  if (!title || title.trim().length === 0 || !price || price &lt;= 0) {
+    return res.status(422).json({
+      message: 'Invalid input, please enter a valid title and price.'
+    });
+  }
+
+  const createdProduct = {
+    id: uuid(),
+    title,
+    price
+  };
+
+  DUMMY_PRODUCTS.push(createdProduct);
+
+  res
+    .status(201)
+    .json({ message: 'Created new product.', product: createdProduct });
+});
+
+app.listen(5000); // start Node + Express server on port 5000
+</code></pre>
+
+<h5 id="frontend">Frontend</h5>
+<ul>
+<li>Components<ul>
+<li>Functions or classes</li>
+</ul>
+</li>
+<li><code>index.js</code><ul>
+<li>Entry point to frontend Application</li>
+</ul>
+</li>
+<li><code>App.js</code><ul>
+<li>HTML <strong>in</strong> javascript</li>
+<li>Use React Hooks<ul>
+<li>Help with managing state<ul>
+<li>useState, useEffect</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-planning-the-app">3. Planning the App</h2>
+<h3 id="module-introduction">Module Introduction</h3>
+<h4 id="general-planning-steps">General Planning Steps</h4>
+<ol>
+<li>Come up with an idea / solve a problem</li>
+<li>Create a design / sketch</li>
+<li>Plan your data models (the data you'll work with)</li>
+<li>Plan your endpoints (API, backend) and pages (SPA, frontend)</li>
+</ol>
+<h3 id="understanding-the-general-app-idea">Understanding the General App Idea</h3>
+<p><img alt="the-idea" src="../img/theidea.jpg" title="the idea" /></p>
+<h3 id="data-api-endpoints-used-in-our-app">Data &amp; API Endpoints used in our App</h3>
+<p><img alt="app-data" src="../img/app-data.jpg" title="app data" /></p>
+<h3 id="required-spa-pages-for-the-frontend">Required SPA Pages for the Frontend</h3>
+<p><img alt="api-endpoints" src="../img/mern-api-endpoints.jpg" title="api endpoints" /></p>
+<p><img alt="spa-pages" src="../img/mern-spa-pages.jpg" title="spa pages" /></p>
+<h2 id="4-reactjs-a-refresher">4. React.js - A Refresher</h2>
+<h3 id="what-is-react_1">What is React?</h3>
+<ul>
+<li>A Javascript Library* for Building User Interfaces<ul>
+<li>*started a huge eco-system, effectively forming a "pseudo-framework"</li>
+</ul>
+</li>
+<li>Declarative Approach<ul>
+<li>You define the result, not the steps that lead to the result</li>
+</ul>
+</li>
+<li>Imperative Approach ("normal JS")<ul>
+<li>You define all the steps to achieve the result</li>
+</ul>
+</li>
+<li>You define <strong>components</strong> and build your UI with these components</li>
+</ul>
+<h3 id="setting-up-a-starting-project">Setting Up a Starting Project</h3>
+<p><code>create-react-app</code></p>
+<h3 id="understanding-jsx">Understanding JSX</h3>
+<ul>
+<li>Syntax in React</li>
+<li>HTML-like code in Javascript files<ul>
+<li>Translates to instructions React understands</li>
+</ul>
+</li>
+<li>Example: </li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+
+const App = () =&gt; {
+  return &lt;h1&gt;A React App!&lt;/h1&gt;;
+  // similar to React.createElement('h1', {}, 'Hello!');
+};
+
+export default App;
+</code></pre>
+
+<ul>
+<li>Similar example:</li>
+</ul>
+<pre><code class="javascript">const App = () =&gt; {
+  return &lt;h1 title=&quot;it works!&quot;&gt;Hello!&lt;/h1&gt;;
+  // similar to React.createElement('h1', {title: 'it works!'}, &quot;Hello!&quot;);
+};
+</code></pre>
+
+<h3 id="understanding-components">Understanding Components</h3>
+<ul>
+<li>All about Components</li>
+<li>Can be a function which returns JSC or returns React.createElement() calls.</li>
+<li>Can be a javascript class with a render method<ul>
+<li><em>some technical differences to function</em></li>
+<li><em>in modern React, you can <strong>only use functional components</strong></em></li>
+</ul>
+</li>
+<li>Previous example as a class:</li>
+</ul>
+<pre><code class="javascript">class App extends React.Component {
+  render() {
+      return &lt;h1 title=&quot;it works!&quot;&gt;Hello! This is ReactJS!&lt;/h1&gt;;
+  }
+}
+</code></pre>
+
+<ul>
+<li>We'll only be using functional in this course<ul>
+<li>Just a regular javascript function in the end<ul>
+<li>What makes it a React component is that it returns JSX or React.createElement() logic</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Capitalize components in tags, otherwise will be treated as built-in HTML tag: <code>&lt;App /&gt;</code></li>
+</ul>
+<h3 id="working-with-multiple-components">Working with Multiple Components</h3>
+<ul>
+<li>Must use className and not class in JSX code<ul>
+<li><code>&lt;div className="name"&gt;</code></li>
+</ul>
+</li>
+<li>Styles all applied globally (in App.css here, at least)<ul>
+<li>Styles are not automatically scoped to a component, normal CSS rules are applied, because all CSS files, no matter where you import them, are applied globally to entire page.</li>
+</ul>
+</li>
+<li>GoalList component example:</li>
+</ul>
+<pre><code class="javascript">// src/components/GoalList.js
+import React from 'react';
+
+import './GoalList.css';
+
+const GoalList = () =&gt; {
+    return (
+        &lt;ul className='goal-list'&gt;
+            &lt;li&gt;Finish the Course&lt;/li&gt;
+            &lt;li&gt;Learn all about Course main topics&lt;/li&gt;
+            &lt;li&gt;Help others!&lt;/li&gt;
+        &lt;/ul&gt;
+    );
+};
+
+export default GoalList;
+</code></pre>
+
+<pre><code class="javascript">// src/App.js
+import React from 'react';
+
+import GoalList from './components/GoalList';
+import './App.css';
+
+const App = () =&gt; {
+  return &lt;div className=&quot;course-goals&quot;&gt;
+    &lt;h2&gt;Course Goals&lt;/h2&gt;
+    &lt;GoalList /&gt;
+  &lt;/div&gt;;
+};
+
+export default App;
+</code></pre>
+
+<h3 id="using-props-to-pass-data-between-components">Using Props to pass Data between Components</h3>
+<ul>
+<li>Pass data from component to component with a concept called <strong><em>props</em></strong></li>
+<li>Changing GoalList to dynamic</li>
+<li><code>props</code> as GoalList parameter, object passed to React functional component automatically, object that is bundle of <strong>all</strong> the <code>props</code> you passed to component</li>
+</ul>
+<h3 id="rendering-lists-of-data">Rendering Lists of Data</h3>
+<ul>
+<li>Can use hardcoded data, but need to map every object into a list item in the end.</li>
+<li>Will need to use <code>map()</code> JS function.</li>
+<li>Must also use unique key</li>
+<li>GoalList Example:</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+
+const App = () =&gt; {
+  const courseGoals = [
+    {id: 'cg1', text: 'Finish the course!'},
+    {id: 'cg2', text: 'Learn all about Course main topics'},
+    {id: 'cg3', text: 'Help others!'},
+  ];
+
+  return &lt;div className=&quot;course-goals&quot;&gt;
+    &lt;h2&gt;Course Goals&lt;/h2&gt;
+    &lt;GoalList goals={courseGoals} /&gt;
+  &lt;/div&gt;;
+};
+
+export default App;
+</code></pre>
+
+<pre><code class="javascript">// src/components/GoalList.js
+import React from 'react';
+
+import './GoalList.css';
+
+const GoalList = props =&gt; {
+    return (
+        &lt;ul className='goal-list'&gt;
+            {props.goals.map(goal =&gt; {
+                return &lt;li key={goal.id}&gt;{goal.text}&lt;/li&gt;;
+            })}
+        &lt;/ul&gt;
+    );
+};
+
+export default GoalList;
+</code></pre>
+
+<h3 id="handling-events">Handling Events</h3>
+<ul>
+<li>React component <strong>must</strong> return JSX</li>
+<li>Can add event listeners to any element<ul>
+<li>Will use <code>onSubmit</code> with form here, must <strong><em>point</em></strong> to a function (don't give parentheses)</li>
+<li>Can use <code>onClick</code> and others</li>
+<li>Function will get an event object as parameter passed in automatically by React<ul>
+<li>Can prevent default behavior (form submission)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Now pass data from NewGoal to the parent (App component)</li>
+</ul>
+<h3 id="efficient-childparent-communication">Efficient Child&lt;=&gt;Parent Communication</h3>
+<ul>
+<li>Pass a callback function from the parent to the child</li>
+<li>Technically in form, used all props.<ul>
+<li>No difference between class name where a string is passed and on submit where a pointer to function is passed.</li>
+</ul>
+</li>
+<li>Can use this to pass a prop onto NewGoal in App.js, which holds pointer to a function.</li>
+<li>Example so far:</li>
+</ul>
+<pre><code class="javascript">// src/components/NewGoal/NewGoal.js
+import React from 'react';
+
+import './NewGoal.css';
+
+const NewGoal = props =&gt; {
+  const addGoalHandler = event =&gt; {
+    event.preventDefault();
+
+    const newGoal = {
+      id: Math.random().toString(),
+      text: 'my new goal!!'
+    };
+
+    props.onAddGoal(newGoal);
+  };
+
+  return &lt;form className=&quot;new-goal&quot; onSubmit={addGoalHandler}&gt;
+    &lt;input type=&quot;text&quot; /&gt;
+    &lt;button type=&quot;submit&quot;&gt;Add Goal&lt;/button&gt;
+  &lt;/form&gt;
+};
+
+export default NewGoal;
+</code></pre>
+
+<pre><code class="javascript">// src/App.js
+import React from 'react';
+
+import GoalList from './components/GoalList/GoalList';
+import NewGoal from './components/NewGoal/NewGoal';
+import './App.css';
+
+const App = () =&gt; {
+  const courseGoals = [
+    {id: 'cg1', text: 'Finish the course!'},
+    {id: 'cg2', text: 'Learn all about Course main topics'},
+    {id: 'cg3', text: 'Help others!'},
+  ];
+
+  const addNewGoalHandler = (newGoal) =&gt; {
+    courseGoals.push(newGoal);
+    console.log(courseGoals);
+  }
+
+  return &lt;div className=&quot;course-goals&quot;&gt;
+    &lt;h2&gt;Course Goals&lt;/h2&gt;
+    &lt;NewGoal onAddGoal={addNewGoalHandler} /&gt;
+    &lt;GoalList goals={courseGoals} /&gt;
+  &lt;/div&gt;;
+};
+
+export default App;
+</code></pre>
+
+<h3 id="working-with-state">Working with "State"</h3>
+<ul>
+<li>Need to explicitly tell React when to update UI<ul>
+<li>Do this using state</li>
+</ul>
+</li>
+<li>Use <strong><em>hook function</em></strong> <code>useState</code> </li>
+<li><code>useState()</code> returns array of exactly 2 elements<ol>
+<li>Latest state snapshot</li>
+<li>Function that allows us to update that state and tell React it should re-render</li>
+</ol>
+</li>
+<li>Pass <code>courseGoals</code> array into <code>useState()</code></li>
+<li>Updated App.js:</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+import React, { useState } from 'react';
+
+import GoalList from './components/GoalList/GoalList';
+import NewGoal from './components/NewGoal/NewGoal';
+import './App.css';
+
+const App = () =&gt; {
+  const [courseGoals, setCourseGoals] = useState([
+    {id: 'cg1', text: 'Finish the course!'},
+    {id: 'cg2', text: 'Learn all about Course main topics'},
+    {id: 'cg3', text: 'Help others!'},
+  ]);
+
+  const addNewGoalHandler = (newGoal) =&gt; {
+    setCourseGoals(courseGoals.concat(newGoal));
+  }
+
+  return &lt;div className=&quot;course-goals&quot;&gt;
+    &lt;h2&gt;Course Goals&lt;/h2&gt;
+    &lt;NewGoal onAddGoal={addNewGoalHandler} /&gt;
+    &lt;GoalList goals={courseGoals} /&gt;
+  &lt;/div&gt;;
+};
+
+export default App;
+</code></pre>
+
+<h3 id="more-on-state">More on State</h3>
+<ul>
+<li>State is a <strong>crucial</strong> concept in React</li>
+<li>Whenever you update the state snapshot, React does 2 things<ol>
+<li>Update internally stored state data.</li>
+<li>Will then can the component function again</li>
+</ol>
+</li>
+<li>Re-evaluates entire component, not necessarily the entire DOM</li>
+<li><code>useState()</code> ignores initial and previous snapshots on update, replaces it. This is why we passed <code>courseGoals.concat(newGoal)</code> to <code>setCourseGoals()</code><ul>
+<li>This is actually <strong>not</strong> the best possible way to update state, due to deferring state updates.<ul>
+<li>Better method: <ul>
+<li><code>setCourseGoals((prevCourseGoals) =&gt; { return prevCourseGoals.concat(newGoal); });</code></li>
+<li>Shorthand version: <code>setCourseGoals(prevCourseGoals =&gt; prevCourseGoals.concat(newGoal));</code></li>
+</ul>
+</li>
+<li>Only need if state update depends on previous state data.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="fetching-user-input-two-way-binding">Fetching User Input (Two-way Binding)</h3>
+<ul>
+<li>Store user input in some variable, the pass to new goal.<ul>
+<li>Using <code>onChange</code> event</li>
+</ul>
+</li>
+<li>Flawed on its own here, even when giving value of variable to input tag</li>
+<li>Must use state<ul>
+<li>Manipulate and reset input field</li>
+</ul>
+</li>
+<li>Updated NewGoal.js:</li>
+</ul>
+<pre><code class="javascript">// src/components/NewGoal/NewGoal.js
+import React, { useState } from 'react';
+
+import './NewGoal.css';
+
+const NewGoal = props =&gt; {
+  const [enteredText, setEnteredText] = useState('');
+
+  const addGoalHandler = event =&gt; {
+    event.preventDefault();
+
+    const newGoal = {
+      id: Math.random().toString(),
+      text: enteredText
+    };
+
+    setEnteredText('');
+
+    props.onAddGoal(newGoal);
+  };
+
+  const textChangeHandler = event =&gt; {
+    setEnteredText(event.target.value);
+  };
+
+  return &lt;form className=&quot;new-goal&quot; onSubmit={addGoalHandler}&gt;
+    &lt;input type=&quot;text&quot; value={enteredText} onChange={textChangeHandler} /&gt;
+    &lt;button type=&quot;submit&quot;&gt;Add Goal&lt;/button&gt;
+  &lt;/form&gt;
+};
+
+export default NewGoal;
+</code></pre>
+
+<h2 id="5-reactjs-building-the-frontend">5. React.js - Building the Frontend</h2>
+<h3 id="introduction">Introduction</h3>
+<ol>
+<li>Create React (Single Page) App</li>
+<li>Add Routing &amp; Core Pages</li>
+<li>Split Into Core Components</li>
+<li>UI Components + CSS Styling</li>
+</ol>
+<h3 id="starting-setup-paes-routes">Starting Setup, Paes &amp; Routes</h3>
+<ul>
+<li>Two ways to organize<ol>
+<li>Pages &amp; Components folders</li>
+<li>Separate by Feature<ul>
+<li>Will use this method here:</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>places/-|         
+        |- pages/
+        |- components/
+shared/-|
+        |- components/
+  user/-|    
+        |- pages/
+        |- components/
+</code></pre>
+
+<ul>
+<li>Install third party routing package<ul>
+<li><code>npm i --save react-router-dom</code></li>
+</ul>
+</li>
+<li>App component will be starting point for router<ul>
+<li>Route path treated as filter, use <code>exact</code> property.</li>
+</ul>
+</li>
+<li>Use <code>Redirect</code> for others as well</li>
+<li>Use <code>Switch</code> to not redirect if able to find a path</li>
+<li>App.js so far:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+
+import Users from './user/pages/Users';
+import NewPlace from './places/pages/NewPlace';
+
+const App = () =&gt; {
+  return (
+    &lt;Router&gt;
+      &lt;Switch&gt;
+        &lt;Route path=&quot;/&quot; exact&gt;
+          &lt;Users /&gt;
+        &lt;/Route&gt;
+        &lt;Route path=&quot;/places/new&quot; exact&gt;
+          &lt;NewPlace /&gt;
+        &lt;/Route&gt;
+        &lt;Redirect to=&quot;/&quot; /&gt;
+      &lt;/Switch&gt;
+    &lt;/Router&gt;
+  );
+}
+
+export default App;
+</code></pre>
+
+<h3 id="adding-a-userslist-page-component">Adding a UsersList Page / Component</h3>
+<h4 id="wiring-up-user-components">Wiring up User components</h4>
+<ul>
+<li>User.js so far:</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/User.js
+import React from 'react';
+
+import UsersList from '../components/UsersList';
+
+const Users = () =&gt; {
+    const USERS = [
+        {
+            id: 'u1',
+            name: 'John',
+            image:
+                'https://images.heb.com/is/image/HEBGrocery/cat-medium/flowers-2868.jpg',
+            places: 3
+        }
+    ];
+
+    return &lt;UsersList items={USERS} /&gt;;
+};
+
+export default Users;
+</code></pre>
+
+<ul>
+<li>UsersList.js so far:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+
+import UserItem from './UserItem';
+import './UsersList.css';
+
+const UsersList = props =&gt; {
+    if (props.items.length === 0) {
+        return (
+            &lt;div className='center'&gt;
+                &lt;h2&gt;No users found.&lt;/h2&gt;
+            &lt;/div&gt;
+        );
+    }
+
+    return (
+        &lt;ul&gt;
+            {props.items.map(user =&gt; (
+                &lt;UserItem
+                    key={user.id}
+                    id={user.id}
+                    image={user.image}
+                    name={user.name}
+                    placeCount={user.places}
+                /&gt;
+            ))}
+        &lt;/ul&gt;
+    );
+};
+
+export default UsersList;
+</code></pre>
+
+<ul>
+<li>UserItem.js so far:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+
+import './UserItem.css';
+
+const UserItem = props =&gt; {};
+
+export default UserItem;
+</code></pre>
+
+<h3 id="adding-a-useritem-component">Adding a UserItem Component</h3>
+<ul>
+<li>
+<p>Added <code>className="users-list"</code> to <code>&lt;ul&gt;</code> tag in UsersList.js</p>
+</li>
+<li>
+<p>UserItem.js so far:</p>
+</li>
+</ul>
+<pre><code class="javascript">// src/user/components/UserItem.js
+import React from 'react';
+
+import './UserItem.css';
+
+const UserItem = props =&gt; {
+  return (
+    &lt;li className=&quot;user-item&quot;&gt;
+      &lt;div className=&quot;user-item__content&quot;&gt;
+        &lt;div className=&quot;user-item__image&quot;&gt;
+          &lt;img src={props.image} alt={props.name}/&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;user-item__info&quot;&gt;
+          &lt;h2&gt;{props.name}&lt;/h2&gt;
+          &lt;h3&gt;{props.placeCount} {props.placeCount === 1 ? 'Place' : 'Places'}&lt;/h3&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  );
+};
+
+export default UserItem;
+</code></pre>
+
+<h3 id="styling-our-app-more-components">Styling our App &amp; More Components</h3>
+<ul>
+<li>Use Avatar.js &amp; Avatar.css and Card.js &amp; Card.css provided for styling.</li>
+<li>Updated UserItem.js:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import { Link } from 'react-router-dom';
+
+import Avatar from '../../shared/components/UIElements/Avatar';
+import Card from '../../shared/components/UIElements/Card';
+import './UserItem.css';
+
+const UserItem = props =&gt; {
+    return (
+        &lt;li className='user-item'&gt;
+                &lt;Card className='user-item__content'&gt;
+                    &lt;Link to={`/${props.id}/places`}&gt;
+                        &lt;div className='user-item__image'&gt;
+                            &lt;Avatar image={props.image} alt={props.name} /&gt;
+                        &lt;/div&gt;
+                        &lt;div className='user-item__info'&gt;
+                            &lt;h2&gt;{props.name}&lt;/h2&gt;
+                            &lt;h3&gt;
+                                {props.placeCount} {props.placeCount === 1 ? 'Place' : 'Places'}
+                            &lt;/h3&gt;
+                        &lt;/div&gt;
+                    &lt;/Link&gt;
+                &lt;/Card&gt;
+        &lt;/li&gt;
+    );
+};
+
+export default UserItem;
+</code></pre>
+
+<h3 id="presentational-vs-stateful-components">Presentational vs Stateful Components</h3>
+<ul>
+<li>Presentational<ul>
+<li>Just output content, structure, styling</li>
+<li>Card/Avatar components are good examples of this. UserItem also.</li>
+</ul>
+</li>
+<li>Stateful<ul>
+<li>Smarter, manage some state, orchestrate that child components receive new data, etc.</li>
+</ul>
+</li>
+</ul>
+<h3 id="adding-a-main-header">Adding a Main Header</h3>
+<ul>
+<li>Add Card component to UsersList in event of no users.</li>
+<li><code>props.children</code> special prop that React knows.<ul>
+<li>Will always refer to the things you pass between your opening and closing tags of component.</li>
+<li>Placeholder for the content you enter between the opening and closing tag of your own component.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="javascript">// src/share/components/Navigation/MainHeader.js
+import React from 'react';
+
+import './MainHeader.css';
+
+const MainHeader = props =&gt; {
+    return &lt;header className='main-header'&gt;{props.children}&lt;/header&gt;;
+};
+
+export default MainHeader;
+</code></pre>
+
+<pre><code class="javascript">// src/share/components/Navigation/MainNavigation.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import MainHeader from './MainHeader';
+import './MainNavigation.css';
+
+const MainNavigation = props =&gt; {
+    return (
+        &lt;MainHeader&gt;
+            &lt;button className='main-navigation__menu-btn'&gt;
+                &lt;span /&gt;
+                &lt;span /&gt;
+                &lt;span /&gt;
+            &lt;/button&gt;
+            &lt;h1 className='main-navigation__title'&gt;
+                &lt;Link to='/'&gt;YourPlaces&lt;/Link&gt;
+            &lt;/h1&gt;
+            &lt;nav&gt;...&lt;/nav&gt;
+        &lt;/MainHeader&gt;
+    );
+};
+
+export default MainNavigation;
+</code></pre>
+
+<h3 id="adding-navlinks">Adding Navlinks</h3>
+<pre><code class="javascript">// src/shared/components/Navigation/NavLinks.js
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import './NavLinks.css';
+
+const NavLinks = props =&gt; {
+  return &lt;ul className=&quot;nav-links&quot;&gt;
+    &lt;li&gt;
+      &lt;NavLink to=&quot;/&quot; exact&gt;ALL USERS&lt;/NavLink&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;NavLink to=&quot;/u1/places&quot;&gt;MY PLACES&lt;/NavLink&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;NavLink to=&quot;/places/new&quot;&gt;ADD PLACE&lt;/NavLink&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;NavLink to=&quot;/auth&quot;&gt;AUTHENTICATE&lt;/NavLink&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+};
+
+export default NavLinks;
+</code></pre>
+
+<ul>
+<li>Then insert in MainNavigation <code>&lt;nav&gt;&lt;NavLinks /&gt;&lt;/nav&gt;</code></li>
+</ul>
+<h3 id="implementing-a-basic-desktop-mobile-navigation">Implementing a Basic Desktop &amp; Mobile Navigation</h3>
+<h4 id="two-main-changes">Two Main Changes</h4>
+<ul>
+<li>Add CSS class to nav in MainNavigation.js<ul>
+<li>`<nav className='main-navigation__header-nav'><NavLinks /></nav></li>
+</ul>
+</li>
+<li>Develop SideDrawer.js</li>
+<li>Note: Can only have one <em>root</em> jsx element per component<ul>
+<li>Can use React.Fragment to fulfill this requirement.</li>
+</ul>
+</li>
+<li>SideDrawer.js so far:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import { Link } from 'react-router-dom';
+
+import MainHeader from './MainHeader';
+import NavLinks from './NavLinks';
+import SideDrawer from './SideDrawer';
+
+import './MainNavigation.css';
+
+const MainNavigation = props =&gt; {
+    return (
+        &lt;React.Fragment&gt;
+            &lt;SideDrawer&gt;
+                &lt;nav className='main-navigation__drawer-nav'&gt;
+                    &lt;NavLinks /&gt;
+                &lt;/nav&gt;
+            &lt;/SideDrawer&gt;
+            &lt;MainHeader&gt;
+                &lt;button className='main-navigation__menu-btn'&gt;
+                    &lt;span /&gt;
+                    &lt;span /&gt;
+                    &lt;span /&gt;
+                &lt;/button&gt;
+                &lt;h1 className='main-navigation__title'&gt;
+                    &lt;Link to='/'&gt;YourPlaces&lt;/Link&gt;
+                &lt;/h1&gt;
+                &lt;nav className='main-navigation__header-nav'&gt;
+                    &lt;NavLinks /&gt;
+                &lt;/nav&gt;
+            &lt;/MainHeader&gt;
+        &lt;/React.Fragment&gt;
+    );
+};
+
+export default MainNavigation;
+</code></pre>
+
+<h3 id="understanding-portals">Understanding Portals</h3>
+<ul>
+<li>Portals in React allows us to project/render a component in a different place than it would normally be rendered.</li>
+<li>Add <code>&lt;div id="drawer-hook"&gt;&lt;/div&gt;</code> into index.html, in body just after no script. This is where SideDrawer will be rendered.</li>
+<li>SideDrawer.js so far:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import ReactDOM from 'react-dom';
+
+import './SideDrawer.css';
+
+const SideDrawer = props =&gt; {
+  const content = &lt;aside className=&quot;side-drawer&quot;&gt;{props.children}&lt;/aside&gt;;
+
+  return ReactDOM.createPortal(content, document.getElementById('drawer-hook'));
+};
+
+export default SideDrawer;
+</code></pre>
+
+<ul>
+<li>Drawer still always visible, no animation.</li>
+</ul>
+<h3 id="handling-the-drawer-state">Handling the Drawer State</h3>
+<ul>
+<li>Add <code>&lt;div id="backdrop-hook"&gt;&lt;/div&gt;</code> into index.html, just before drawer hook.</li>
+<li>Backdrop.js</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import ReactDOM from 'react-dom';
+
+import './Backdrop.css';
+
+const Backdrop = props =&gt; {
+  return ReactDOM.createPortal(
+    &lt;div className=&quot;backdrop&quot; onClick={props.onClick}&gt;&lt;/div&gt;,
+    document.getElementById('backdrop-hook')
+  );
+};
+
+export default Backdrop;
+</code></pre>
+
+<ul>
+<li>SideDrawer.js so far:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import ReactDOM from 'react-dom';
+
+import './SideDrawer.css';
+
+const SideDrawer = props =&gt; {
+  const content = &lt;aside className=&quot;side-drawer&quot;&gt;{props.children}&lt;/aside&gt;;
+
+  return ReactDOM.createPortal(content, document.getElementById('drawer-hook'));
+};
+
+export default SideDrawer;
+</code></pre>
+
+<h3 id="animating-the-sidedrawer">Animating the Sidedrawer</h3>
+<ul>
+<li>Install third party library<ul>
+<li><code>npm i --save react-transition-group</code></li>
+</ul>
+</li>
+<li>SideDrawer.js:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
+
+import './SideDrawer.css';
+
+const SideDrawer = props =&gt; {
+    const content = (
+        &lt;CSSTransition
+            in={props.show}
+            timeout={200}
+            classNames='slide-in-left'
+            mountOnEnter
+            unmountOnExit
+        &gt;
+            &lt;aside className='side-drawer' onClick={props.onClick}&gt;{props.children}&lt;/aside&gt;
+        &lt;/CSSTransition&gt;
+    );
+
+    return ReactDOM.createPortal(content, document.getElementById('drawer-hook'));
+};
+
+export default SideDrawer;
+</code></pre>
+
+<ul>
+<li>MainNavigation.js</li>
+</ul>
+<pre><code class="javascript">import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import MainHeader from './MainHeader';
+import NavLinks from './NavLinks';
+import SideDrawer from './SideDrawer';
+import BackDrop from '../UIElements/Backdrop';
+
+import './MainNavigation.css';
+
+const MainNavigation = props =&gt; {
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+
+  const openDrawer = () =&gt; {
+    setDrawerIsOpen(true);
+  };
+
+  const closeDrawerHandler = () =&gt; {
+    setDrawerIsOpen(false);
+  };
+
+    return (
+        &lt;React.Fragment&gt;
+      {drawerIsOpen &amp;&amp; &lt;BackDrop onClick={closeDrawerHandler} /&gt;}
+      &lt;SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}&gt;
+        &lt;nav className='main-navigation__drawer-nav'&gt;
+          &lt;NavLinks /&gt;
+        &lt;/nav&gt;
+      &lt;/SideDrawer&gt;
+            &lt;MainHeader&gt;
+                &lt;button className='main-navigation__menu-btn' onClick={openDrawer}&gt;
+                    &lt;span /&gt;
+                    &lt;span /&gt;
+                    &lt;span /&gt;
+                &lt;/button&gt;
+                &lt;h1 className='main-navigation__title'&gt;
+                    &lt;Link to='/'&gt;YourPlaces&lt;/Link&gt;
+                &lt;/h1&gt;
+                &lt;nav className='main-navigation__header-nav'&gt;
+                    &lt;NavLinks /&gt;
+                &lt;/nav&gt;
+            &lt;/MainHeader&gt;
+        &lt;/React.Fragment&gt;
+    );
+};
+
+export default MainNavigation;
+</code></pre>
+
+<h3 id="rendering-user-places-using-dynamic-route-segments">Rendering User Places &amp; Using Dynamic Route Segments</h3>
+<ul>
+<li>PlaceItem.js so far:</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceItem.js
+import React from 'react';
+
+import Card from '../../shared/components/UIElements/Card';
+import './PlaceItem.css';
+
+const PlaceItem = props =&gt; {
+  return (
+    &lt;li className='place-item'&gt;
+      &lt;Card className='place-item__content'&gt;
+        &lt;div className='place-item__image'&gt;
+          &lt;img src={props.image} alt={props.title} /&gt;
+        &lt;/div&gt;
+        &lt;div className='place-item__info'&gt;
+          &lt;h2&gt;{props.title}&lt;/h2&gt;
+          &lt;h3&gt;{props.address}&lt;/h3&gt;
+          &lt;p&gt;{props.description}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div className='place-item__actions'&gt;
+          &lt;button&gt;VIEW ON MAP&lt;/button&gt;
+          &lt;button&gt;EDIT&lt;/button&gt;
+          &lt;button&gt;DELETE&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/Card&gt;
+    &lt;/li&gt;
+  );
+};
+
+export default PlaceItem;
+</code></pre>
+
+<ul>
+<li>PlaceList.js so far:</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceList.js
+import React from 'react';
+
+import Card from '../../shared/components/UIElements/Card';
+import PlaceItem from './PlaceItem';
+import './PlaceList.css';
+
+const PlaceList = props =&gt; {
+  if (props.items.length === 0) {
+    return (
+      &lt;div className='place-list center'&gt;
+        &lt;Card&gt;
+          &lt;h2&gt;No places found. Maybe create one?&lt;/h2&gt;
+          &lt;button&gt;Share Place&lt;/button&gt;
+        &lt;/Card&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  return (
+    &lt;ul className='place-list'&gt;
+      {props.items.map(place =&gt; (
+        &lt;PlaceItem
+          key={place.id}
+          id={place.id}
+          image={place.imageUrl}
+          title={place.title}
+          description={place.description}
+          address={place.address}
+          creatorId={place.creator}
+          coordinates={place.location}
+        /&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+};
+
+export default PlaceList;
+import React from 'react';
+
+import Card from '../../shared/components/UIElements/Card';
+import PlaceItem from './PlaceItem';
+import './PlaceList.css';
+
+const PlaceList = props =&gt; {
+  if (props.items.length === 0) {
+    return (
+      &lt;div className='place-list center'&gt;
+        &lt;Card&gt;
+          &lt;h2&gt;No places found. Maybe create one?&lt;/h2&gt;
+          &lt;button&gt;Share Place&lt;/button&gt;
+        &lt;/Card&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  return (
+    &lt;ul className='place-list'&gt;
+      {props.items.map(place =&gt; (
+        &lt;PlaceItem
+          key={place.id}
+          id={place.id}
+          image={place.imageUrl}
+          title={place.title}
+          description={place.description}
+          address={place.address}
+          creatorId={place.creator}
+          coordinates={place.location}
+        /&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+};
+
+export default PlaceList;
+</code></pre>
+
+<ul>
+<li>UserPlaces.js so far:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UserPlaces.js
+import React from 'react';
+
+import PlaceList from '../components/PlaceList';
+
+const UserPlaces = () =&gt; {
+  const DUMMY_PLACES = [
+    {
+      id: 'p1',
+      title: 'Empire State Building',
+      description: 'One of the most famous sky scrapers in the world!',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg',
+      address: '20 West 34th Street, New York City, NY 10118-0114',
+      location: {
+        lat: 40.7484405,
+        lng: -73.9878584
+      },
+      creator: 'u1'
+    },
+    {
+      id: 1,
+      title: 'Empire State Building',
+      description: 'One of the most famous sky scrapers in the world!',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg',
+      address: '20 West 34th Street, New York City, NY 10118-0114',
+      location: {
+        lat: 40.7484405,
+        lng: -73.9878584
+      },
+      creator: 'u2'
+    }
+  ];
+
+  return &lt;PlaceList items={DUMMY_PLACES} /&gt;;
+};
+
+export default UserPlaces;
+</code></pre>
+
+<ul>
+<li>In App.js:</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+import UserPlaces from './places/pages/UserPlaces';
+
+// in MainNavigation:
+&lt;Route path=&quot;/:userId/places&quot;&gt;
+  &lt;UserPlaces /&gt;
+&lt;/Route&gt;
+</code></pre>
+
+<h3 id="getting-route-params">Getting Route Params</h3>
+<ul>
+<li>Using <code>useParams()</code></li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UserPlaces.js
+import { useParams } from 'react-router-dom';
+// ...
+const UserPlaces = () =&gt; {
+  const userId = useParams().userId;
+  const loadedPlaces = DUMMY_PLACES.filter(place =&gt; place.creator === userId);
+  return &lt;PlaceList items={loadedPlaces} /&gt;;
+};
+</code></pre>
+
+<h3 id="adding-custom-buttons">Adding Custom Buttons</h3>
+<ul>
+<li>Using provided Button.js:</li>
+</ul>
+<pre><code class="javascript">// src/shared/components/FormElements/Button.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import './Button.css';
+
+const Button = props =&gt; {
+  if (props.href) {
+    return (
+      &lt;a
+        className={`button button--${props.size || 'default'} ${props.inverse &amp;&amp;
+          'button--inverse'} ${props.danger &amp;&amp; 'button--danger'}`}
+        href={props.href}
+      &gt;
+        {props.children}
+      &lt;/a&gt;
+    );
+  }
+  if (props.to) {
+    return (
+      &lt;Link
+        to={props.to}
+        exact={props.exact}
+        className={`button button--${props.size || 'default'} ${props.inverse &amp;&amp;
+          'button--inverse'} ${props.danger &amp;&amp; 'button--danger'}`}
+      &gt;
+        {props.children}
+      &lt;/Link&gt;
+    );
+  }
+  return (
+    &lt;button
+      className={`button button--${props.size || 'default'} ${props.inverse &amp;&amp;
+        'button--inverse'} ${props.danger &amp;&amp; 'button--danger'}`}
+      type={props.type}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    &gt;
+      {props.children}
+    &lt;/button&gt;
+  );
+};
+
+export default Button;
+</code></pre>
+
+<ul>
+<li>Use in PlaceItem.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceItem.js
+&lt;div className='place-item__actions'&gt;
+  &lt;Button inverse&gt;VIEW ON MAP&lt;/Button&gt;
+  &lt;Button to={`/places/${props.id}`}&gt;EDIT&lt;/Button&gt;
+  &lt;Button danger&gt;DELETE&lt;/Button&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="adding-a-modal">Adding a Modal</h3>
+<ul>
+<li>Modal.js:</li>
+</ul>
+<pre><code class="javascript">// src/shared/components/UIElements/Modal.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
+
+import Backdrop from './Backdrop';
+import './Modal.css';
+
+const ModalOverlay = props =&gt; {
+  const content = (
+    &lt;div className={`modal ${props.className}`} style={props.style}&gt;
+      &lt;header className={`modal__header ${props.headerClass}`}&gt;
+        &lt;h2&gt;{props.header}&lt;/h2&gt;
+        &lt;form
+          onSubmit={
+            props.onSubmit ? props.onSubmit : event =&gt; event.preventDefault()
+          }
+        &gt;
+          &lt;div className={`modal__conent ${props.contentClass}`}&gt;
+            {props.children}
+          &lt;/div&gt;
+          &lt;footer className={`modal__footer ${props.footerClass}`}&gt;
+            {props.footer}
+          &lt;/footer&gt;
+        &lt;/form&gt;
+      &lt;/header&gt;
+    &lt;/div&gt;
+  );
+  return ReactDOM.createPortal(content, document.getElementById('modal-hook'));
+};
+
+const Modal = props =&gt; {
+  return (
+    &lt;React.Fragment&gt;
+      {props.show &amp;&amp; &lt;Backdrop onClick={props.onCancel} /&gt;}
+      &lt;CSSTransition
+        in={props.show}
+        mountOnEnter
+        unmountOnExit
+        timeout={200}
+        classNames='modal'
+      &gt;
+        &lt;ModalOverlay {...props} /&gt;
+      &lt;/CSSTransition&gt;
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default Modal;
+</code></pre>
+
+<ul>
+<li>In PlaceItem.js</li>
+</ul>
+<pre><code class="javascript">src/places/components/PlaceItem.js
+import React, { useState } from 'react';
+
+import Card from '../../shared/components/UIElements/Card';
+import Button from '../../shared/components/FormElements/Button';
+import Modal from '../../shared/components/UIElements/Modal';
+import './PlaceItem.css';
+
+const PlaceItem = props =&gt; {
+  const [showMap, setShowMap] = useState(false);
+
+  const openMapHandler = () =&gt; setShowMap(true);
+
+  const closeMapHandler = () =&gt; setShowMap(false);
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;Modal
+        show={showMap}
+        onCancel={closeMapHandler}
+        header={props.address}
+        contentClass='place-item__modal-content'
+        footerClass='place-item__modal-actions'
+        footer={&lt;Button onClick={closeMapHandler}&gt;CLOSE&lt;/Button&gt;}
+      &gt;
+        &lt;div className=&quot;map-container&quot;&gt;
+          &lt;h2&gt;THE MAP!&lt;/h2&gt;
+        &lt;/div&gt;
+      &lt;/Modal&gt;
+      &lt;li className='place-item'&gt;
+        &lt;Card className='place-item__content'&gt;
+          &lt;div className='place-item__image'&gt;
+            &lt;img src={props.image} alt={props.title} /&gt;
+          &lt;/div&gt;
+          &lt;div className='place-item__info'&gt;
+            &lt;h2&gt;{props.title}&lt;/h2&gt;
+            &lt;h3&gt;{props.address}&lt;/h3&gt;
+            &lt;p&gt;{props.description}&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div className='place-item__actions'&gt;
+            &lt;Button inverse onClick={openMapHandler}&gt;VIEW ON MAP&lt;/Button&gt;
+            &lt;Button to={`/places/${props.id}`}&gt;EDIT&lt;/Button&gt;
+            &lt;Button danger&gt;DELETE&lt;/Button&gt;
+          &lt;/div&gt;
+        &lt;/Card&gt;
+      &lt;/li&gt;
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default PlaceItem;
+</code></pre>
+
+<h3 id="rendering-a-map-with-google-maps">Rendering a Map with Google Maps</h3>
+<ul>
+<li>Will need Google Maps SDK<ul>
+<li>Script in index.html:<ul>
+<li><code>&lt;script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7ap01wqRWATA7guCbFBvIgpbYZwKQIEo" async defer&gt;&lt;/script&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Also utilize <code>useRef</code> &amp; <code>useEffect</code></li>
+</ul>
+<pre><code class="javascript">// src/shared/components/UIElements/Map.js
+import React, { useRef, useEffect } from 'react';
+
+import './Map.css';
+
+const Map = props =&gt; {
+  const mapRef = useRef();
+
+  const { center, zoom } = props;
+
+  useEffect(() =&gt; {
+    const map = new window.google.maps.Map(mapRef.current, {
+      center: center,
+      zoom: zoom
+    });
+
+    new window.google.maps.Marker({ position: center, map: map });
+  }, [center, zoom]);
+
+  return (
+    &lt;div
+      ref={mapRef}
+      className={`map ${props.className}`}
+      style={props.style}
+    &gt;&lt;/div&gt;
+  );
+};
+
+export default Map;
+</code></pre>
+
+<h3 id="adding-a-custom-form-input-component">Adding a Custom Form Input Component</h3>
+<ul>
+<li>NewPlace.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/NewPlace.js
+import React from 'react';
+
+import Input from '../../shared/components/FormElements/Input';
+import './NewPlace.css';
+
+const NewPlace = () =&gt; {
+  return (
+    &lt;form className='place-form'&gt;
+      &lt;Input
+        element='input'
+        type='text'
+        label='Title'
+        validators={[]}
+        errorText='Please enter a valid title.'
+      /&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default NewPlace;
+</code></pre>
+
+<ul>
+<li>Input.js:</li>
+</ul>
+<pre><code class="javascript">// src/shared/components/FormElements/Input.js
+import React from 'react';
+
+import './Input.css';
+
+const Input = props =&gt; {
+  const element =
+    props.element === 'input' ? (
+      &lt;input id={props.id} type={props.type} placeholder={props.placeholder} /&gt;
+    ) : (
+      &lt;textarea id={props.id} rows={props.rows || 3} /&gt;
+    );
+
+  return (
+    &lt;div className={`form-control`}&gt;
+      &lt;label htmlFor={props.id}&gt;{props.label}&lt;/label&gt;
+      {element}
+    &lt;/div&gt;
+  );
+};
+
+export default Input;
+</code></pre>
+
+<h3 id="managing-state-in-the-input-component">Managing State in the Input Component</h3>
+<ul>
+<li>Utilizing <code>useReducer</code></li>
+<li>Input.js:</li>
+</ul>
+<pre><code class="javascript">// src/shared/components/FormElements/Input.js
+import React, { useReducer } from 'react';
+
+import './Input.css';
+
+const inputReducer = (state, action) =&gt; {
+  switch (action.type) {
+    case 'CHANGE':
+      return {
+        ...state,
+        value: action.val,
+        isValid: true
+      };
+    default:
+      return state;
+  }
+};
+
+const Input = props =&gt; {
+  const [inputState, dispatch] = useReducer(inputReducer, {
+    value: '',
+    isValid: false
+  });
+
+  const changeHandler = event =&gt; {
+    dispatch({ type: 'CHANGE', val: event.target.value });
+  };
+
+  const element =
+    props.element === 'input' ? (
+      &lt;input
+        id={props.id}
+        type={props.type}
+        placeholder={props.placeholder}
+        onChange={changeHandler}
+        value={inputState.value}
+      /&gt;
+    ) : (
+      &lt;textarea
+        id={props.id}
+        rows={props.rows || 3}
+        onChange={changeHandler}
+        value={inputState.value}
+      /&gt;
+    );
+
+  return (
+    &lt;div
+      className={`form-control ${!inputState.isValid &amp;&amp;
+        'form-control--invalid'}`}
+    &gt;
+      &lt;label htmlFor={props.id}&gt;{props.label}&lt;/label&gt;
+      {element}
+      {!inputState.isValid &amp;&amp; &lt;p&gt;{props.errorText}&lt;/p&gt;}
+    &lt;/div&gt;
+  );
+};
+
+export default Input;
+</code></pre>
+
+<ul>
+<li>NewPlace.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/NewPlace.js
+import React from 'react';
+
+import Input from '../../shared/components/FormElements/Input';
+import './NewPlace.css';
+
+const NewPlace = () =&gt; {
+  return (
+    &lt;form className='place-form'&gt;
+      &lt;Input
+        element='input'
+        type='text'
+        label='Title'
+        validators={[]}
+        errorText='Please enter a valid title.'
+      /&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default NewPlace;
+</code></pre>
+
+<h3 id="adding-input-validation">Adding Input Validation</h3>
+<ul>
+<li>Use provided validators</li>
+<li>in NewPlace.js:</li>
+</ul>
+<pre><code class="javascript">&lt;Input
+// ...
+validators={[VALIDATOR_REQUIRE()]}
+&gt;
+</code></pre>
+
+<ul>
+<li>in Input.js:</li>
+</ul>
+<pre><code class="javascript">import React, { useReducer } from 'react';
+
+import { validate } from '../../util/validators';
+import './Input.css';
+
+const inputReducer = (state, action) =&gt; {
+  switch (action.type) {
+    case 'CHANGE':
+      return {
+        ...state,
+        value: action.val,
+        isValid: validate(action.val, action.validators)
+      };
+    case 'TOUCH': {
+      // keep from erroring immediately on visiting page
+      return {
+        ...state,
+        isTouched: true
+      }
+    }
+    default:
+      return state;
+  }
+};
+
+const Input = props =&gt; {
+  const [inputState, dispatch] = useReducer(inputReducer, {
+    value: '',
+    isTouched: false,
+    isValid: false
+  });
+
+  const changeHandler = event =&gt; {
+    dispatch({
+      type: 'CHANGE',
+      val: event.target.value,
+      validators: props.validators
+    });
+  };
+
+  const touchHandler = () =&gt; {
+    dispatch({
+      type: 'TOUCH'
+    });
+  };
+
+  const element =
+    props.element === 'input' ? (
+      &lt;input
+        id={props.id}
+        type={props.type}
+        placeholder={props.placeholder}
+        onChange={changeHandler}
+        onBlur={touchHandler}
+        value={inputState.value}
+      /&gt;
+    ) : (
+      &lt;textarea
+        id={props.id}
+        rows={props.rows || 3}
+        onChange={changeHandler}
+        onBlur={touchHandler}
+        value={inputState.value}
+      /&gt;
+    );
+
+  return (
+    &lt;div
+      className={`form-control ${!inputState.isValid &amp;&amp; inputState.isTouched &amp;&amp;
+        'form-control--invalid'}`}
+    &gt;
+      &lt;label htmlFor={props.id}&gt;{props.label}&lt;/label&gt;
+      {element}
+      {!inputState.isValid  &amp;&amp; inputState.isTouched &amp;&amp; &lt;p&gt;{props.errorText}&lt;/p&gt;}
+    &lt;/div&gt;
+  );
+};
+
+export default Input;
+</code></pre>
+
+<h3 id="sharing-input-values-adding-multiple-inputs">Sharing Input Values &amp; Adding Multiple Inputs</h3>
+<ul>
+<li>Utilizing <code>useEffect</code> in Input.js:</li>
+</ul>
+<pre><code class="javascript">// in Input component:
+  const { id, onInput } = props;
+  const { value, isValid } = inputState;
+
+  useEffect(() =&gt; {
+    onInput(id, value, isValid);
+  }, [id, value, isValid, onInput]);
+</code></pre>
+
+<ul>
+<li>And Utilizing <code>useCallback</code>, to avoid infinite loop, in NewPlace.js:</li>
+</ul>
+<pre><code class="javascript">import React, { useCallback } from 'react';
+
+import Input from '../../shared/components/FormElements/Input';
+import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from '../../shared/util/validators';
+import './NewPlace.css';
+
+const NewPlace = () =&gt; {
+  const titleInputHandler = useCallback((id, value, isValid) =&gt; {}, []);
+
+  const descriptionInputHandler = useCallback((id, value, isValid) =&gt; {}, []);
+
+  return (
+    &lt;form className='place-form'&gt;
+      &lt;Input
+        id='title'
+        element='input'
+        type='text'
+        label='Title'
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText='Please enter a valid title.'
+        onInput={titleInputHandler}
+      /&gt;
+      &lt;Input
+        id='description'
+        element='input'
+        label='Description'
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText='Please enter a valid description (at least 5 characters).'
+        onInput={descriptionInputHandler}
+      /&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default NewPlace;
+</code></pre>
+
+<h3 id="managing-form-wide-state">Managing Form-wide State</h3>
+<ul>
+<li>NewPlace.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/NewPlace.js
+import React, { useCallback, useReducer } from 'react';
+
+import Input from '../../shared/components/FormElements/Input';
+import Button from '../../shared/components/FormElements/Button';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH
+} from '../../shared/util/validators';
+import './NewPlace.css';
+
+const formReducer = (state, action) =&gt; {
+  switch (action.type) {
+    case 'INPUT_CHANGE':
+      let formIsValid = true;
+      for (const inputId in state.inputs) {
+        if (inputId === action.inputId) {
+          formIsValid = formIsValid &amp;&amp; action.isValid;
+        } else {
+          formIsValid = formIsValid &amp;&amp; state.inputs[inputId].isValid;
+        }
+      }
+      return {
+        ...state,
+        inputs: {
+          ...state.inputs,
+          [action.inputId]: { value: action.value, isValid: action.isValid }
+        },
+        isValid: formIsValid
+      };
+    default:
+      return state;
+  }
+};
+
+const NewPlace = () =&gt; {
+  const [formState, dispatch] = useReducer(formReducer, {
+    inputs: {
+      title: { value: '', isValid: false },
+      description: { value: '', isValid: false }
+    },
+    isValid: false
+  });
+
+  const inputHandler = useCallback((id, value, isValid) =&gt; {
+    dispatch({
+      type: 'INPUT_CHANGE',
+      value: value,
+      isValid: isValid,
+      inputId: id
+    });
+  }, []);
+
+  return (
+    &lt;form className='place-form'&gt;
+      &lt;Input
+        id='title'
+        element='input'
+        type='text'
+        label='Title'
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText='Please enter a valid title.'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Input
+        id='description'
+        element='textarea'
+        label='Description'
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText='Please enter a valid description (at least 5 characters).'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Button type='submit' disabled={!formState.isValid}&gt;
+        ADD PLACE
+      &lt;/Button&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default NewPlace;
+</code></pre>
+
+<ul>
+<li>Input.js</li>
+</ul>
+<pre><code class="javascript">// src/shared/components/FormElements/Input.js
+import React, { useCallback, useReducer } from 'react';
+
+import Input from '../../shared/components/FormElements/Input';
+import Button from '../../shared/components/FormElements/Button';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH
+} from '../../shared/util/validators';
+import './NewPlace.css';
+
+const formReducer = (state, action) =&gt; {
+  switch (action.type) {
+    case 'INPUT_CHANGE':
+      let formIsValid = true;
+      for (const inputId in state.inputs) {
+        if (inputId === action.inputId) {
+          formIsValid = formIsValid &amp;&amp; action.isValid;
+        } else {
+          formIsValid = formIsValid &amp;&amp; state.inputs[inputId].isValid;
+        }
+      }
+      return {
+        ...state,
+        inputs: {
+          ...state.inputs,
+          [action.inputId]: { value: action.value, isValid: action.isValid }
+        },
+        isValid: formIsValid
+      };
+    default:
+      return state;
+  }
+};
+
+const NewPlace = () =&gt; {
+  const [formState, dispatch] = useReducer(formReducer, {
+    inputs: {
+      title: { value: '', isValid: false },
+      description: { value: '', isValid: false }
+    },
+    isValid: false
+  });
+
+  const inputHandler = useCallback((id, value, isValid) =&gt; {
+    dispatch({
+      type: 'INPUT_CHANGE',
+      value: value,
+      isValid: isValid,
+      inputId: id
+    });
+  }, []);
+
+  return (
+    &lt;form className='place-form'&gt;
+      &lt;Input
+        id='title'
+        element='input'
+        type='text'
+        label='Title'
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText='Please enter a valid title.'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Input
+        id='description'
+        element='textarea'
+        label='Description'
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText='Please enter a valid description (at least 5 characters).'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Button type='submit' disabled={!formState.isValid}&gt;
+        ADD PLACE
+      &lt;/Button&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default NewPlace;
+</code></pre>
+
+<h3 id="finishing-the-add-place-form">Finishing the "Add Place" Form</h3>
+<ul>
+<li>In NewPlace.js, add address input field &amp; submit handler:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/NewPlace.js
+// in NewPlace:
+  const placeSubmitHandler = event =&gt; {
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
+
+  return (
+    &lt;form className='place-form' onSubmit={placeSubmitHandler}&gt;
+      &lt;Input
+        id='title'
+        element='input'
+        type='text'
+        label='Title'
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText='Please enter a valid title.'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Input
+        id='description'
+        element='textarea'
+        label='Description'
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText='Please enter a valid description (at least 5 characters).'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Input
+        id='address'
+        element='input'
+        label='Address'
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText='Please enter a valid address.'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Button type='submit' disabled={!formState.isValid}&gt;
+        ADD PLACE
+      &lt;/Button&gt;
+    &lt;/form&gt;
+  );
+</code></pre>
+
+<h3 id="starting-work-on-the-update-place-page">Starting Work on the "Update Place" Page</h3>
+<ul>
+<li>UpdatePlace.js</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import { useParams } from 'react-router-dom';
+
+import Input from '../../shared/components/FormElements/Input';
+import Button from '../../shared/components/FormElements/Button';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH
+} from '../../shared/util/validators';
+
+const DUMMY_PLACES = [
+  // ...
+];
+
+const UpdatePlace = () =&gt; {
+  const placeId = useParams().placeId;
+
+  const identifiedPlace = DUMMY_PLACES.find(p =&gt; p.id === placeId);
+
+  if (!identifiedPlace) {
+    return (
+      &lt;div className='center'&gt;
+        &lt;h2&gt;Could not find place!&lt;/h2&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  return (
+    &lt;form&gt;
+      &lt;Input
+        id='title'
+        element='input'
+        type='text'
+        label='Title'
+        validators={[VALIDATOR_REQUIRE]}
+        errorText='Please enter a valid title.'
+        onInput={() =&gt; {}}
+        value={identifiedPlace.title}
+        valid={true}
+      /&gt;
+      &lt;Input
+        id='description'
+        element='textarea'
+        label='Description'
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText='Please enter a valid description (min. 5 characters).'
+        onInput={() =&gt; {}}
+        value={identifiedPlace.title}
+        valid={true}
+      /&gt;
+      &lt;Button type='submit' disabled={true}&gt;
+        UPDATE PLACE
+      &lt;/Button&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default UpdatePlace;
+</code></pre>
+
+<ul>
+<li>Also add new route in App.js:<ul>
+<li><code>&lt;Route path='/places/:placeId'&gt;
+    &lt;UpdatePlace /&gt;
+  &lt;/Route&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="adjusting-the-input-component">Adjusting the Input Component</h3>
+<ul>
+<li>Update <code>useReducer()</code> in Input.js:</li>
+</ul>
+<pre><code class="javascript">const [inputState, dispatch] = useReducer(inputReducer, {
+  value: props.value || '',
+  isTouched: false,
+  isValid: props.valid || false
+});
+</code></pre>
+
+<ul>
+<li>Rename NewPlace.css to PlaceForm.css, update imports and add class name (place-form) to form in UpdatePlace.js</li>
+</ul>
+<h3 id="creating-a-custom-form-hook-useform">Creating a Custom Form Hook (useForm)</h3>
+<ul>
+<li>Function that can share stateful logic.</li>
+<li>Starts with 'use' by convention (useEffect)</li>
+<li>Can use default hooks <em>inside</em> a custom hook</li>
+<li>Will re-render component if you change something that effects the state</li>
+<li>
+<p>First, restructure NewPlace.js into form-hook.js, fix UpdatePlace.js</p>
+</li>
+<li>
+<p>NewPlace.js</p>
+</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/NewPlace.js
+import React from 'react';
+
+import Input from '../../shared/components/FormElements/Input';
+import Button from '../../shared/components/FormElements/Button';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH
+} from '../../shared/util/validators';
+import './PlaceForm.css';
+import { useForm } from '../../shared/hooks/form-hook';
+
+const NewPlace = () =&gt; {
+  const [formState, inputHandler] = useForm(
+    {
+      title: {
+        value: '',
+        isValid: false
+      },
+      description: {
+        value: '',
+        isValid: false
+      },
+      address: {
+        value: '',
+        isValid: false
+      }
+    },
+    false
+  );
+
+  const placeSubmitHandler = event =&gt; {
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
+
+  return (
+    &lt;form className='place-form' onSubmit={placeSubmitHandler}&gt;
+      &lt;Input
+        id='title'
+        element='input'
+        type='text'
+        label='Title'
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText='Please enter a valid title.'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Input
+        id='description'
+        element='textarea'
+        label='Description'
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText='Please enter a valid description (at least 5 characters).'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Input
+        id='address'
+        element='input'
+        label='Address'
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText='Please enter a valid address.'
+        onInput={inputHandler}
+      /&gt;
+      &lt;Button type='submit' disabled={!formState.isValid}&gt;
+        ADD PLACE
+      &lt;/Button&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default NewPlace;
+</code></pre>
+
+<ul>
+<li>form-hook.js:</li>
+</ul>
+<pre><code class="javascript">// src/shared/hooks/form-hook.js
+import { useCallback, useReducer } from 'react';
+
+const formReducer = (state, action) =&gt; {
+  switch (action.type) {
+    case 'INPUT_CHANGE':
+      let formIsValid = true;
+      for (const inputId in state.inputs) {
+        if (inputId === action.inputId) {
+          formIsValid = formIsValid &amp;&amp; action.isValid;
+        } else {
+          formIsValid = formIsValid &amp;&amp; state.inputs[inputId].isValid;
+        }
+      }
+      return {
+        ...state,
+        inputs: {
+          ...state.inputs,
+          [action.inputId]: { value: action.value, isValid: action.isValid }
+        },
+        isValid: formIsValid
+      };
+    default:
+      return state;
+  }
+};
+
+export const useForm = (initialInputs, initialFormValidity) =&gt; {
+  const [formState, dispatch] = useReducer(formReducer, {
+    inputs: initialInputs,
+    isValid: initialFormValidity
+  });
+
+  const inputHandler = useCallback((id, value, isValid) =&gt; {
+    dispatch({
+      type: 'INPUT_CHANGE',
+      value: value,
+      isValid: isValid,
+      inputId: id
+    });
+  }, []);
+
+  return [formState, inputHandler];
+};
+</code></pre>
+
+<ul>
+<li>Also UpdatePlace.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
+import Input from '../../shared/components/FormElements/Input';
+import Button from '../../shared/components/FormElements/Button';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH
+} from '../../shared/util/validators';
+import { useForm } from '../../shared/hooks/form-hook';
+
+import './PlaceForm.css';
+
+const DUMMY_PLACES = [
+  {
+    id: 'p1',
+    title: 'Empire State Building',
+    description: 'One of the most famous sky scrapers in the world!',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg',
+    address: '20 West 34th Street, New York City, NY 10118-0114',
+    location: {
+      lat: 40.7484405,
+      lng: -73.9878584
+    },
+    creator: 'u1'
+  },
+  {
+    id: 'p2',
+    title: 'Empire State Building',
+    description: 'One of the most famous sky scrapers in the world!',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg',
+    address: '20 West 34th Street, New York City, NY 10118-0114',
+    location: {
+      lat: 40.7484405,
+      lng: -73.9878584
+    },
+    creator: 'u2'
+  }
+];
+
+const UpdatePlace = () =&gt; {
+  const placeId = useParams().placeId;
+
+  const identifiedPlace = DUMMY_PLACES.find(p =&gt; p.id === placeId);
+
+  const [formState, inputHandler] = useForm({
+    title: {
+      value: identifiedPlace.title,
+      isValid: true
+    },
+    description: {
+      value: identifiedPlace.description,
+      isValid: true
+    }
+  }, true);
+
+  const placeUpdateSubmitHandler = event =&gt; {
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
+
+  if (!identifiedPlace) {
+    return (
+      &lt;div className='center'&gt;
+        &lt;h2&gt;Could not find place!&lt;/h2&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  return (
+    &lt;form className='place-form' onSubmit={placeUpdateSubmitHandler}&gt;
+      &lt;Input
+        id='title'
+        element='input'
+        type='text'
+        label='Title'
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText='Please enter a valid title.'
+        onInput={inputHandler}
+        initialValue={formState.inputs.title.value}
+        initialValid={formState.inputs.title.isValid}
+      /&gt;
+      &lt;Input
+        id='description'
+        element='textarea'
+        label='Description'
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText='Please enter a valid description (min. 5 characters).'
+        onInput={inputHandler}
+        initialValue={formState.inputs.description.value}
+        initialValid={formState.inputs.description.isValid}
+      /&gt;
+      &lt;Button type='submit' disabled={!formState.isValid}&gt;
+        UPDATE PLACE
+      &lt;/Button&gt;
+    &lt;/form&gt;
+  );
+};
+
+export default UpdatePlace;
+</code></pre>
+
+<h3 id="adjusting-the-form-hook">Adjusting the Form Hook</h3>
+<ul>
+<li>In <code>useForm()</code></li>
+</ul>
+<pre><code class="javascript">// src/shared/hooks/form-hook.js
+// ...
+  const setFormData = useCallback((inputData, formValidity) =&gt; {
+    dispatch({
+      type: 'SET_DATA',
+      inputs: inputData,
+      formIsValid: formValidity
+    });
+  }, []);
+
+  return [formState, inputHandler, setFormData];
+</code></pre>
+
+<ul>
+<li>Use temporary fix in UpdatePlace.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+// imports...
+const DUMMY_PLACES = [/* ... */];
+
+const UpdatePlace = () =&gt; {
+  const [isLoading, setIsLoading] = useState(true);
+  const placeId = useParams().placeId;
+
+  const [formState, inputHandler, setFormData] = useForm({
+    title: {
+      value: '',
+      isValid: false
+    },
+    description: {
+      value: '',
+      isValid: false
+    }
+  }, true);
+
+  const identifiedPlace = DUMMY_PLACES.find(p =&gt; p.id === placeId);
+
+  useEffect(() =&gt; {
+    setFormData({
+      title: {
+        value: identifiedPlace.title,
+        isValid: true
+      },
+      description: {
+        value: identifiedPlace.description,
+        isValid: true
+      }
+    }, true);
+    setIsLoading(false);
+  }, [setFormData, identifiedPlace]);
+
+  const placeUpdateSubmitHandler = event =&gt; {
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
+
+  if (!identifiedPlace) {
+    return (
+      &lt;div className='center'&gt;
+        &lt;h2&gt;Could not find place!&lt;/h2&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  if (isLoading) {
+    return (
+      &lt;div className='center'&gt;
+        &lt;h2&gt;Loading...&lt;/h2&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  return (/* unchanged form */);
+};
+
+export default UpdatePlace;
+</code></pre>
+
+<h3 id="fixing-minor-issues">Fixing Minor Issues</h3>
+<ul>
+<li>Fix up Share Button on PlaceList.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceList.js
+&lt;Button to='/places/new'&gt;Share Place&lt;/Button&gt;
+</code></pre>
+
+<ul>
+<li>Error on attempted navigate to place that doesn't exist</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceList.js
+// putting setFormData in if check:
+if (identifiedPlace) {
+  setFormData({
+    title: {
+      value: identifiedPlace.title,
+      isValid: true
+    },
+    description: {
+      value: identifiedPlace.description,
+      isValid: true
+    }
+  }, true);
+}
+</code></pre>
+
+<ul>
+<li>Wrap "Could not find place!" in Card for better styling:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+if (!identifiedPlace) {
+  return (
+    &lt;div className='center'&gt;
+      &lt;Card&gt;
+        &lt;h2&gt;Could not find place!&lt;/h2&gt;
+      &lt;/Card&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<h3 id="showing-a-deletion-warning">Showing a Deletion Warning</h3>
+<ul>
+<li>PlaceItem.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceItem.js
+import React, { useState } from 'react';
+
+import Card from '../../shared/components/UIElements/Card';
+import Button from '../../shared/components/FormElements/Button';
+import Modal from '../../shared/components/UIElements/Modal';
+import Map from '../../shared/components/UIElements/Map';
+import './PlaceItem.css';
+
+const PlaceItem = props =&gt; {
+  const [showMap, setShowMap] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+
+  const openMapHandler = () =&gt; setShowMap(true);
+
+  const closeMapHandler = () =&gt; setShowMap(false);
+
+  const showDeleteWarningHandler = () =&gt; {
+    setShowConfirmModal(true);
+  };
+
+  const cancelDeleteHandler = () =&gt; {
+    setShowConfirmModal(false);
+  };
+
+  const confirmDeleteHandler = () =&gt; {
+    setShowConfirmModal(false);
+    console.log('DELETING...');
+  };
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;Modal
+        show={showMap}
+        onCancel={closeMapHandler}
+        header={props.address}
+        contentClass='place-item__modal-content'
+        footerClass='place-item__modal-actions'
+        footer={&lt;Button onClick={closeMapHandler}&gt;CLOSE&lt;/Button&gt;}
+      &gt;
+        &lt;div className='map-container'&gt;
+          &lt;Map center={props.coordinates} zoom={16} /&gt;
+        &lt;/div&gt;
+      &lt;/Modal&gt;
+      &lt;Modal
+        show={showConfirmModal}
+        onCancel={cancelDeleteHandler}
+        header='Are you sure?'
+        footerClass='place-item__modal-actions'
+        footer={
+          &lt;React.Fragment&gt;
+            &lt;Button inverse onClick={cancelDeleteHandler}&gt;CANCEL&lt;/Button&gt;
+            &lt;Button danger onClick={confirmDeleteHandler}&gt;DELETE&lt;/Button&gt;
+          &lt;/React.Fragment&gt;
+        }
+      &gt;
+        &lt;p&gt;
+          Do you want to proceed and delete this place? Please note this action
+          cannnot be undone.
+        &lt;/p&gt;
+      &lt;/Modal&gt;
+      &lt;li className='place-item'&gt;
+        &lt;Card className='place-item__content'&gt;
+          &lt;div className='place-item__image'&gt;
+            &lt;img src={props.image} alt={props.title} /&gt;
+          &lt;/div&gt;
+          &lt;div className='place-item__info'&gt;
+            &lt;h2&gt;{props.title}&lt;/h2&gt;
+            &lt;h3&gt;{props.address}&lt;/h3&gt;
+            &lt;p&gt;{props.description}&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div className='place-item__actions'&gt;
+            &lt;Button inverse onClick={openMapHandler}&gt;
+              VIEW ON MAP
+            &lt;/Button&gt;
+            &lt;Button to={`/places/${props.id}`}&gt;EDIT&lt;/Button&gt;
+            &lt;Button danger onClick={showDeleteWarningHandler}&gt;DELETE&lt;/Button&gt;
+          &lt;/div&gt;
+        &lt;/Card&gt;
+      &lt;/li&gt;
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default PlaceItem;
+</code></pre>
+
+<h3 id="adding-an-auth-page-login-form">Adding an "Auth" Page &amp; Login Form</h3>
+<ul>
+<li>Auth.js:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import Button from '../../shared/components/FormElements/Button';
+import Input from '../../shared/components/FormElements/Input';
+import Card from '../../shared/components/UIElements/Card';
+import {
+  VALIDATOR_EMAIL,
+  VALIDATOR_MINLENGTH
+} from '../../shared/util/validators';
+import { useForm } from '../../shared/hooks/form-hook';
+
+import './Auth.css';
+
+const Auth = () =&gt; {
+  const [formState, inputHandler] = useForm(
+    {
+      email: {
+        value: '',
+        isValid: false
+      },
+      password: {
+        value: '',
+        isValid: false
+      }
+    },
+    false
+  );
+
+  const authSubmitHandler = event =&gt; {
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
+
+  return (
+    &lt;Card className='authentication'&gt;
+      &lt;h2&gt;Login Required&lt;/h2&gt;
+      &lt;hr /&gt;
+      &lt;form onSubmit={authSubmitHandler}&gt;
+        &lt;Input
+          element='input'
+          id='email'
+          type='email'
+          label='E-Mail'
+          validators={[VALIDATOR_EMAIL()]}
+          errorText='Please enter a valid email address.'
+          onInput={inputHandler}
+        /&gt;
+        &lt;Input
+          element='input'
+          id='password'
+          type='password'
+          label='Password'
+          validators={[VALIDATOR_MINLENGTH(7)]}
+          errorText='Please enter a valid password (min. 5 characters).'
+          onInput={inputHandler}
+        /&gt;
+        &lt;Button type='submit' disabled={!formState.isValid}&gt;
+          LOGIN
+        &lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Card&gt;
+  );
+};
+
+export default Auth;
+</code></pre>
+
+<h3 id="adding-signup-switch-mode-button">Adding Signup + "Switch Mode" Button</h3>
+<ul>
+<li>Auth.js updated with "Switch Mode"</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Auth.js
+// imports...
+const Auth = () =&gt; {
+  const [isLoginMode, setIsLoginMode] = useState(true);
+  // need setFormData now
+  const [formState, inputHandler, setFormData] = useForm(/* ... */);
+
+  const switchModeHandler = () =&gt; {
+    if (!isLoginMode) {
+      setFormData(
+        {
+          ...formState.inputs,
+          name: undefined
+        },
+        formState.inputs.email.isValid &amp;&amp; formState.inputs.password.isValid
+      );
+    } else {
+      setFormData(
+        {
+          ...formState.inputs,
+          name: {
+            value: '',
+            isValid: false
+          }
+        },
+        false
+      );
+    }
+    setIsLoginMode(prevMode =&gt; !prevMode);
+  };
+
+  return (
+    &lt;Card className='authentication'&gt;
+      &lt;h2&gt;Login Required&lt;/h2&gt;
+      &lt;hr /&gt;
+      &lt;form onSubmit={authSubmitHandler}&gt;
+        {!isLoginMode &amp;&amp; (
+          &lt;Input
+            element='input'
+            id='name'
+            type='type'
+            label='Your Name'
+            validators={[VALIDATOR_REQUIRE()]}
+            errorText='Please enter a name.'
+            onInput={inputHandler}
+          /&gt;
+        )}
+        {/* email &amp; password inputs*/}
+        &lt;Button type='submit' disabled={!formState.isValid}&gt;
+          {isLoginMode ? 'LOGIN' : 'SIGNUP'}
+        &lt;/Button&gt;
+      &lt;/form&gt;
+      &lt;Button inverse onClick={switchModeHandler}&gt;
+        SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
+      &lt;/Button&gt;
+    &lt;/Card&gt;
+}
+</code></pre>
+
+<ul>
+<li>Add additional condition in form-hook.js <code>for</code> loop:</li>
+</ul>
+<pre><code class="javascript">// src/shared/hooks/form-hook.js/formReducer()
+if (!state.inputs[inputId]) {
+  continue;
+}
+</code></pre>
+
+<h3 id="adding-auth-context-for-app-wide-state-management">Adding Auth Context for App-wide State Management</h3>
+<ul>
+<li>Context for passing data between components without having to use props</li>
+</ul>
+<pre><code class="javascript">// src/shared/context/auth-context.js
+import { createContext } from 'react';
+
+export const AuthContext = createContext({
+  isLoggedIn: false,
+  login: () =&gt; {},
+  logout: () =&gt; {}
+});
+</code></pre>
+
+<ul>
+<li>Wrap where context should be available, in this case, the entire App:</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+// ...imports
+import { AuthContext } from './shared/context/auth-context';
+
+const App = () =&gt; {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const login = useCallback(() =&gt; {
+    setIsLoggedIn(true);
+  }, []);
+
+  const logout = useCallback(() =&gt; {
+    setIsLoggedIn(false);
+  }, []);
+
+  return (
+    &lt;AuthContext.Provider
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+    &gt;
+      &lt;Router&gt;
+        &lt;MainNavigation /&gt;
+        &lt;main&gt;
+          &lt;Switch&gt;
+            &lt;Route path='/' exact&gt;
+              &lt;Users /&gt;
+            &lt;/Route&gt;
+            &lt;Route path='/auth' exact&gt;
+              &lt;Auth /&gt;
+            &lt;/Route&gt;
+            &lt;Route path='/:userId/places'&gt;
+              &lt;UserPlaces /&gt;
+            &lt;/Route&gt;
+            &lt;Route path='/places/new' exact&gt;
+              &lt;NewPlace /&gt;
+            &lt;/Route&gt;
+            &lt;Route path='/places/:placeId'&gt;
+              &lt;UpdatePlace /&gt;
+            &lt;/Route&gt;
+            &lt;Redirect to='/' /&gt;
+          &lt;/Switch&gt;
+        &lt;/main&gt;
+      &lt;/Router&gt;
+    &lt;/AuthContext.Provider&gt;
+  );
+};
+
+export default App;
+</code></pre>
+
+<h3 id="listening-to-context-changes">Listening to Context Changes</h3>
+<ul>
+<li>Use in NavLinks.js:</li>
+</ul>
+<pre><code class="javascript">// src/shared/Navvigation/NavLinks.js
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+
+import { AuthContext } from '../../context/auth-context';
+
+import './NavLinks.css';
+
+const NavLinks = props =&gt; {
+  const auth = useContext(AuthContext);
+
+  return (
+    &lt;ul className='nav-links'&gt;
+      &lt;li&gt;
+        &lt;NavLink to='/' exact&gt;
+          ALL USERS
+        &lt;/NavLink&gt;
+      &lt;/li&gt;
+      {auth.isLoggedIn &amp;&amp; (
+        &lt;li&gt;
+          &lt;NavLink to='/u1/places'&gt;MY PLACES&lt;/NavLink&gt;
+        &lt;/li&gt;
+      )}
+      {auth.isLoggedIn &amp;&amp; (
+        &lt;li&gt;
+          &lt;NavLink to='/places/new'&gt;ADD PLACE&lt;/NavLink&gt;
+        &lt;/li&gt;
+      )}
+      {!auth.isLoggedIn &amp;&amp; (
+        &lt;li&gt;
+          &lt;NavLink to='/auth'&gt;AUTHENTICATE&lt;/NavLink&gt;
+        &lt;/li&gt;
+      )}
+    &lt;/ul&gt;
+  );
+};
+
+export default NavLinks;
+</code></pre>
+
+<h3 id="adding-authenticated-unauthenticated-routes">Adding Authenticated &amp; Unauthenticated Routes</h3>
+<ul>
+<li>In Auth.js:</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Auth.js
+// ...imports
+import { AuthContext } from '../../shared/context/auth-context';
+
+const Auth = () =&gt; {
+  const auth = useContext(AuthContext);
+  // ...
+  const authSubmitHandler = event =&gt; {
+    event.preventDefault();
+    console.log(formState.inputs);
+    auth.login();
+  };
+};
+</code></pre>
+
+<ul>
+<li>Refactor App.js &amp; Routes</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+// ...imports
+const App = () =&gt; {
+  // ...
+  let routes;
+
+  if (isLoggedIn) {
+    routes = (
+      &lt;Switch&gt;
+        &lt;Route path='/' exact&gt;
+          &lt;Users /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/:userId/places'&gt;
+          &lt;UserPlaces /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/places/new' exact&gt;
+          &lt;NewPlace /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/places/:placeId'&gt;
+          &lt;UpdatePlace /&gt;
+        &lt;/Route&gt;
+        &lt;Redirect to='/' /&gt;
+      &lt;/Switch&gt;
+    );
+  } else {
+    routes = (
+      &lt;Switch&gt;
+        &lt;Route path='/' exact&gt;
+          &lt;Users /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/:userId/places'&gt;
+          &lt;UserPlaces /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/auth' exact&gt;
+          &lt;Auth /&gt;
+        &lt;/Route&gt;
+        &lt;Redirect to='/auth' /&gt;
+      &lt;/Switch&gt;
+    );
+  }
+
+  return (
+    &lt;AuthContext.Provider
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+    &gt;
+      &lt;Router&gt;
+        &lt;MainNavigation /&gt;
+        &lt;main&gt;{routes}&lt;/main&gt;
+      &lt;/Router&gt;
+    &lt;/AuthContext.Provider&gt;
+  );
+};
+</code></pre>
+
+<h3 id="more-auth-context-usage">More Auth Context Usage</h3>
+<ul>
+<li>Hide Edit &amp; Delete buttons on PlaceItem:</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceItem.js
+// after view on map place-item action
+{auth.isLoggedIn &amp;&amp; (
+  &lt;Button to={`/places/${props.id}`}&gt;EDIT&lt;/Button&gt;
+)}
+{auth.isLoggedIn &amp;&amp; (
+  &lt;Button danger onClick={showDeleteWarningHandler}&gt;
+    DELETE
+  &lt;/Button&gt;
+)}
+</code></pre>
+
+<ul>
+<li>Add Logout button to NavLinks:</li>
+</ul>
+<pre><code class="javascript">// src/shared/components/Navigation/NavLinks.js
+// after auth button
+{auth.isLoggedIn &amp;&amp; (
+  &lt;li&gt;
+    &lt;button onClick={auth.logout}&gt;LOGOUT&lt;/button&gt;
+  &lt;/li&gt;
+)}
+</code></pre>
+
+<h2 id="7-nodejs-and-expressjs-building-our-rest-api">7. Node.js and Express.js - Building our REST API</h2>
+<h3 id="intro">Intro</h3>
+<ol>
+<li>Set Up Node.js + Express App</li>
+<li>Add Routes</li>
+<li>Add Controllers &amp; (Dummy) Logic</li>
+<li>Add User Input Validation</li>
+</ol>
+<h3 id="setting-up-our-project">Setting up our Project</h3>
+<pre><code>mkdir backend
+cd ./backend
+npm init
+npm i --save body-parser express
+npm i --save-dev nodemon
+touch app.js
+</code></pre>
+
+<h3 id="implementing-basic-routing">Implementing Basic Routing</h3>
+<pre><code>mkdir routes
+cd ./routes
+touch place-routes.js
+touch users-routes.js
+</code></pre>
+
+<pre><code class="javascript">// backend/routes/places-routes.js
+const express = require('express');
+
+const router = express.Router();
+
+router.get('/', (req, res, next) =&gt; {
+  console.log('GET Request in PLaces');
+  res.json({ message: 'It works!' });
+});
+
+module.exports = router;
+</code></pre>
+
+<pre><code class="javascript">// backend/app.js
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const placesRoutes = require('./routes/places-routes');
+
+const app = express();
+
+app.use(placesRoutes);
+
+app.listen(5000);
+</code></pre>
+
+<h3 id="adding-place-specific-routes">Adding Place-Specific Routes</h3>
+<ul>
+<li>Limit filter to <code>placesRoutes</code><ul>
+<li><code>app.use('/api/places', placesRoutes); // =&gt; /api/places/ ...</code></li>
+</ul>
+</li>
+<li>Add in Dummy data to places-routes<ul>
+<li><code>const DUMMY_PLACES + [ /*...*/]</code></li>
+</ul>
+</li>
+<li>Modify GET in places-routes:</li>
+</ul>
+<pre><code class="javascript">// backend/routes/places-routes.js
+router.get('/:pid', (req, res, next) =&gt; {
+  const placeId = req.params.pid // { pid: 'p1' }
+  const place = DUMMY_PLACES.find(p =&gt; {
+      return p.id === placeId;
+  });
+  res.json({ place });
+});
+</code></pre>
+
+<h3 id="getting-a-place-by-user-id">Getting a Place by User ID</h3>
+<ul>
+<li>Order matters in these routes!</li>
+</ul>
+<pre><code class="javascript">// backend/routes/places-routes
+router.get('/user/:uid', (req, res, next) =&gt; {
+  const userId = req.params.uid;
+
+  const place = DUMMY_PLACES.find(p =&gt; {
+    return p.creator === userId;
+  });
+  res.json({ place });
+});
+</code></pre>
+
+<h3 id="handling-errors">Handling Errors</h3>
+<ul>
+<li>Catching in place-routes.js:</li>
+</ul>
+<pre><code class="javascript">// backend/routes/places-routes.js
+router.get('/:pid', (req, res, next) =&gt; {
+  const placeId = req.params.pid; // { pid: 'p1' }
+  const place = DUMMY_PLACES.find(p =&gt; {
+    return p.id === placeId;
+  });
+
+  if (!place) {
+    const error = new Error('Could not find a place for the provided id.');
+    error.code = 404;
+    throw error; // throw in sync code
+  }
+
+  res.json({ place });
+});
+
+router.get('/user/:uid', (req, res, next) =&gt; {
+  const userId = req.params.uid;
+
+  const place = DUMMY_PLACES.find(p =&gt; {
+    return p.creator === userId;
+  });
+
+  if (!place) {
+    const error = new Error('Could not find a place for the provided id.');
+    error.code = 404;
+    return next(error); // next in async code. (its sync here, but as an example)
+  }
+
+  res.json({ place });
+});
+</code></pre>
+
+<ul>
+<li>Modifying app.js:</li>
+</ul>
+<pre><code class="javascript">// backend/app.js
+// after /api/places route
+app.use((error, req, res, next) =&gt; {
+  if (res.headerSent) {
+    return next(error);
+  }
+  res
+    .status(error.code || 500)
+    .json({ message: error.message || 'An unknown error ocurred!' });
+});
+</code></pre>
+
+<h3 id="adding-our-own-error-model">Adding our own Error Model</h3>
+<ul>
+<li>HttpError class:</li>
+</ul>
+<pre><code class="javascript">// backend/models/http-error.js
+class HttpError extends Error {
+    constructor(message, errorCode) {
+        super(message); // Add a &quot;message&quot; property
+        this.code = errorCode; // Adds a &quot;code&quot; property
+    }
+}
+
+module.exports = HttpError;
+</code></pre>
+
+<ul>
+<li>Modify places-routes.js:<ul>
+<li><code>const error = new HttpError('Could not find a place for the provided id.', 404);</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="adding-controllers">Adding Controllers</h3>
+<ul>
+<li>Model View Controller concept (without the views here)<ul>
+<li><code>mkdir controllers</code></li>
+</ul>
+</li>
+<li>Refactor:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controller/js
+const HttpError = require('../models/http-error');
+
+const DUMMY_PLACES = [
+  // ...
+];
+
+const getPlaceById = (req, res, next) =&gt; {
+  // ...
+};
+
+const getPlaceByUserId = (req, res, next) =&gt; {
+  // ..
+};
+
+exports.getPlaceById = getPlaceById;
+exports.getPlaceByUserId = getPlaceByUserId;
+</code></pre>
+
+<pre><code class="javascript">// backend/routes/places-routes.js
+const express = require('express');
+
+const placesControllers = require('../controllers/places-controllers');
+
+const router = express.Router();
+
+router.get('/:pid', placesControllers.getPlaceById);
+
+router.get('/user/:uid', placesControllers.getPlaceByUserId);
+
+module.exports = router;
+</code></pre>
+
+<h3 id="adding-a-post-route-and-using-postman">Adding a POST Route and Using Postman</h3>
+<ul>
+<li>Add new route in places-routes.js:<ul>
+<li><code>router.post('/', placesControllers.createPlace);</code></li>
+</ul>
+</li>
+<li>Add in bodyParser to App.js:<ul>
+<li><code>app.use(bodyParser.json());</code></li>
+</ul>
+</li>
+<li>createPlace route:</li>
+</ul>
+<pre><code class="javascript">const createPlace = (req, res, next) =&gt; {
+  const { title, description, coordinates, address, creator } = req.body;
+
+  const createdPlace = {
+    title,
+    description,
+    location: coordinates,
+    address,
+    creator
+  };
+
+  DUMMY_PLACES.push(createdPlace); // unshift (createdPlaced)
+
+  res.status(201).json({ place: createdPlace });
+};
+
+exports.createPlace = createPlace;
+</code></pre>
+
+<ul>
+<li>Use Postman to test</li>
+<li>Use uuid package to generate unique ids<ul>
+<li><code>npm i --save uuid</code></li>
+<li>import into controller<ul>
+<li><code>const uuid = require('uuid/v4');</code></li>
+<li>use in id field on createPlace<ul>
+<li><code>id: uuid(),</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="handling-errors-for-unsupported-routes">Handling Errors for Unsupported Routes</h3>
+<ul>
+<li>Add a catch-all route <em>after</em> other routes to handle unwanted routes</li>
+</ul>
+<pre><code class="javascript">app.use((req, res, next) =&gt; {
+  const error = new HttpError('Could not find this route.', 404);
+  throw error;
+});
+</code></pre>
+
+<h3 id="adding-patch-routes-to-update-places">Adding Patch Routes to Update Places</h3>
+<ul>
+<li>Add the new route for updating places:<ul>
+<li><code>router.patch('/:pid', placesControllers.updatePlace);</code></li>
+</ul>
+</li>
+<li>Create the route in controllers:</li>
+</ul>
+<pre><code class="javascript">const updatePlace = (req, res, next) =&gt; {
+  const { title, description } = req.body;
+  const placeId = req.params.pid;
+
+  const updatedPlace = { ...DUMMY_PLACES.find(p =&gt; p.id === placeId) };
+  const placeIndex = DUMMY_PLACES.findIndex(p =&gt; p.id === placeId);
+  updatedPlace.title = title;
+  updatedPlace.description = description;
+
+  DUMMY_PLACES[placeIndex] = updatedPlace;
+
+  res.status(200).json({ place: updatedPlace });
+};
+
+exports.updatePlace = updatePlace;
+</code></pre>
+
+<h3 id="deleting-places">Deleting Places</h3>
+<ul>
+<li>Add the new route for deleting places:<ul>
+<li><code>router.delete('/:pid', placesControllers.deletePlace);</code></li>
+</ul>
+</li>
+<li>Create the route in controllers:</li>
+</ul>
+<pre><code class="javascript">const deletePlace = (req, res, next) =&gt; {
+  const placeId = req.params.pid;
+  // need to declare DUMMY_PLACES with let instead of const!
+  DUMMY_PLACES = DUMMY_PLACES.filter(p =&gt; p.id !== placeId);
+  res.status(200).json({message: 'Deleted place.'});
+};
+
+exports.deletePlace = deletePlace;
+</code></pre>
+
+<h3 id="finalizing-the-get-places-by-user-id-resource">Finalizing the "Get Places by User ID" Resource</h3>
+<ul>
+<li>Fix getPlaceByUserId to get multiple places for user</li>
+<li>Change to use <code>filter</code> instead of <code>find</code></li>
+</ul>
+<h3 id="setting-up-the-user-routes-signup-login-get-users">Setting Up the User Routes (Signup, Login, Get Users)</h3>
+<ul>
+<li>User Controllers:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/users-controllers.js
+const uuid = require('uuid/v4');
+
+const HttpError = require('../models/http-error');
+
+const DUMMY_USERS = [
+  {
+    id: 'u1',
+    name: 'John',
+    email: 'john@test.com',
+    password: 'password'
+  }
+];
+
+const getUsers = (req, res, next) =&gt; {
+  res.json({ users: DUMMY_USERS });
+};
+
+const signup = (req, res, next) =&gt; {
+  const { name, email, password } = req.body;
+
+  const hasUser = DUMMY_USERS.find(u =&gt; u.email === email);
+  if (hasUser) {
+    throw new HttpError('Could not create user, email already exists!', 422);
+  }
+
+  const createdUser = {
+    id: uuid(),
+    name,
+    email,
+    password
+  };
+
+  DUMMY_USERS.push(createdUser);
+
+  res.status(201).json({ user: createdUser });
+};
+
+const login = (req, res, next) =&gt; {
+  const { email, password } = req.body;
+
+  const identifiedUser = DUMMY_USERS.find(u =&gt; u.email === email);
+
+  if (!identifiedUser || identifiedUser.password !== password) {
+    throw new HttpError(
+      'Could not identify user, credentials seem to be wrong.',
+      401
+    );
+  }
+
+  res.json({ message: 'Logged In!' });
+};
+
+exports.getUsers = getUsers;
+exports.signup = signup;
+exports.login = login;
+</code></pre>
+
+<ul>
+<li>Users Routes:</li>
+</ul>
+<pre><code class="javascript">// backend/routes/users-routes.js
+const express = require('express');
+
+const usersControllers = require('../controllers/users-controllers');
+
+const router = express.Router();
+
+router.get('/', usersControllers.getUsers);
+
+router.post('/signup', usersControllers.signup);
+
+router.post('/login', usersControllers.login);
+
+module.exports = router;
+</code></pre>
+
+<ul>
+<li>Add to app.js:<ul>
+<li><code>app.use('/api/users', usersRoutes); // =&gt; /api/users/ ...</code> </li>
+</ul>
+</li>
+</ul>
+<h3 id="validating-api-input-request-bodies">Validating API Input (Request Bodies)</h3>
+<ul>
+<li>
+<p>Install validator package:
+<code>npm i --save express-validator</code></p>
+</li>
+<li>
+<p>Can use multiple middlewares on routes</p>
+</li>
+<li>
+<p>For Create Place <em>route</em>:</p>
+</li>
+</ul>
+<pre><code class="javascript">// ...imports
+const { check } = require('express-validator');
+// ...
+router.post(
+  '/',
+  [
+    check('title')
+      .not()
+      .isEmpty(),
+    check('description').isLength({ min: 5 }),
+    check('address')
+      .not()
+      .isEmpty()
+  ],
+  placesControllers.createPlace
+);
+// ...
+</code></pre>
+
+<ul>
+<li>For Create Place <em>controller</em>:</li>
+</ul>
+<pre><code class="javascript">// ...imports
+const { validationResult } = require('express-validator');
+// ...
+const createPlace = (req, res, next) =&gt; {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    throw new HttpError('Invalid inputs passed, please check your data.', 422);
+  }
+  // ...
+}
+// ...
+</code></pre>
+
+<h3 id="validating-patch-requests-and-user-routes">Validating Patch Requests and User Routes</h3>
+<ul>
+<li>For Update Place <em>route</em>:</li>
+</ul>
+<pre><code class="javascript">router.patch(
+  '/:pid',
+  [
+    check('title')
+      .not()
+      .isEmpty(),
+    check('description').isLength({ min: 5 })
+  ],
+  placesControllers.updatePlace
+);
+</code></pre>
+
+<ul>
+<li>
+<p>For Update Place <em>controller</em>, can use same logic as in createPlace above</p>
+</li>
+<li>
+<p>For User Signup <em>route</em></p>
+</li>
+</ul>
+<pre><code class="javascript">// ...imports
+const { check } = require('express-validator');
+// ...
+router.post(
+  '/signup',
+  [
+    check('name')
+      .not()
+      .isEmpty(),
+    check('email')
+      .normalizeEmail() // Test@test.com =&gt; test@test.com
+      .isEmail(),
+    check('password').isLength({ min: 6 })
+  ],
+  usersControllers.signup
+);
+// ...
+</code></pre>
+
+<ul>
+<li>For User Signup <em>controller</em>, use similar logic as update and create place</li>
+</ul>
+<h3 id="using-googles-geocoding-api-to-convert-an-address-into-coordinates">Using Google's Geocoding API to Convert an Address Into Coordinates</h3>
+<ul>
+<li>Use third party package to send request to google<ul>
+<li><code>npm i --save axios</code></li>
+</ul>
+</li>
+<li>location.js:</li>
+</ul>
+<pre><code class="javascript">// backend/util/location.js
+const axios = require('axios');
+
+const HttpError = require('../models/http-error');
+
+const API_KEY = 'AIzaSyC7ap01wqRWATA7guCbFBvIgpbYZwKQIEo';
+
+const getCoordsforAddress = async address =&gt; {
+  const response = await axios.get(
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+      address
+    )}&amp;key=${API_KEY}`
+  );
+
+  const data = response.data;
+
+  if (!data || data.status === 'ZERO_RESULTS') {
+    const error = new HttpError(
+      'Could not find location for the specified address.',
+      422
+    );
+    throw error;
+  }
+
+  const coordinates = data.results[0].geometry.location;
+
+  return coordinates;
+};
+
+module.exports = getCoordsforAddress;
+</code></pre>
+
+<ul>
+<li>Modify create Place in controller:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers.js
+// ...
+const createPlace = async (req, res, next) =&gt; {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError('Invalid inputs passed, please check your data.', 422)
+    );
+  }
+
+  const { title, description, address, creator } = req.body;
+
+  let coordinates;
+  try {
+    coordinates = await getCoordsForAddress(address);
+  } catch (error) {
+    return next(error);
+  }
+  // ...
+}
+// ...
+</code></pre>
+
+<h2 id="9-connecting-the-backend-to-the-database-mongodb-and-mongoose">9. Connecting the Backend to the Database MongoDB and Mongoose</h2>
+<ol>
+<li>Defining our Mongoose Models</li>
+<li>CRUD Operations for Place and User</li>
+<li>Connecting Places and Users</li>
+</ol>
+<h3 id="installing-mongoose-and-connecting-our-backend-to-mongodb">Installing Mongoose and Connecting our Backend to MongoDB</h3>
+<ul>
+<li><code>npm i --save mongoose</code></li>
+</ul>
+<pre><code class="javascript">// backend/app.js
+// ...
+mongoose
+  .connect('mongodb://localhost:27017/react-training')
+  .then(() =&gt; {
+    console.log('Connected to database!');
+    app.listen(5000);
+  })
+  .catch(err =&gt; {
+    console.log(err);
+  });
+</code></pre>
+
+<h3 id="creating-the-place-schema-and-model">Creating the Place Schema and Model</h3>
+<ul>
+<li>place.js:</li>
+</ul>
+<pre><code class="javascript">// backend/models/place.js
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const placeSchema = new Schema({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    image: { type: String, required: true },
+    address: { type: String, required: true },
+    location: {
+        lat: { type: Number, required: true },
+        lng: { type: Number, required: true },
+    },
+    creator: { type: String, required: true },
+});
+
+module.exports = mongoose.model('Place', placeSchema);
+</code></pre>
+
+<h3 id="creating-and-storing-documents-in-the-database">Creating and Storing Documents in the Database</h3>
+<ul>
+<li>Modifying create place controller</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers
+const createPlace = async (req, res, next) =&gt; {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError('Invalid inputs passed, please check your data.', 422)
+    );
+  }
+
+  const { title, description, address, creator } = req.body;
+
+  let coordinates;
+  try {
+    coordinates = await getCoordsForAddress(address);
+  } catch (error) {
+    return next(error);
+  }
+
+  const createdPlace = new Place({
+    title,
+    description,
+    address,
+    location: coordinates,
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg',
+    creator
+  });
+
+  try {
+    await createdPlace.save();
+  } catch (err) {
+    const error = new HttpError(
+      'Creating Place failed, please try again.',
+      500
+    );
+    return next(error);
+  }
+
+  res.status(201).json({ place: createdPlace });
+};
+</code></pre>
+
+<h3 id="getting-places-by-the-placeid">Getting Places by the PlaceID</h3>
+<ul>
+<li>Get place by ID controller:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers.js
+// ...
+const getPlaceById = async (req, res, next) =&gt; {
+  const placeId = req.params.pid; // { pid: 'p1' }
+
+  let place;
+  try {
+    place = await Place.findById(placeId);
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not find a place',
+      500
+    );
+    return next(error);
+  }
+
+  if (!place) {
+    const error = new HttpError(
+      'Could not find a place for the provided id.',
+      404
+    );
+    return next(error);
+  }
+
+  res.json({ place: place.toObject({ getters: true }) });
+};
+// ...
+</code></pre>
+
+<h3 id="getting-places-by-the-userid">Getting Places by the UserID</h3>
+<ul>
+<li>Get place by User ID controller:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers.js
+// ...
+const getPlacesByUserId = async (req, res, next) =&gt; {
+  const userId = req.params.uid;
+
+  let places;
+  try {
+    places = await Place.find({ creator: userId });
+  } catch (err) {
+    const error = new HttpError(
+      'Fetching places failed, please try again later.',
+      500
+    );
+    return next(error);
+  }
+
+  if (!places || places.length === 0) {
+    const error = new HttpError(
+      'Could not find a places for the provided user id.',
+      404
+    );
+    return next(error);
+  }
+
+  res.json({ places: places.map(place =&gt; place.toObject({ getters: true })) });
+};
+// ...
+</code></pre>
+
+<h3 id="updating-places">Updating Places</h3>
+<ul>
+<li>Update place controller:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers.js
+// ...
+const updatePlace = async (req, res, next) =&gt; {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    throw new HttpError('Invalid inputs passed, please check your data.', 422);
+  }
+
+  const { title, description } = req.body;
+  const placeId = req.params.pid;
+
+  let place;
+  try {
+    place = await Place.findById(placeId);
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not update place',
+      500
+    );
+    return next(error);
+  }
+
+  place.title = title;
+  place.description = description;
+
+  try {
+    await place.save();
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not update place.',
+      500
+    );
+    return next(error);
+  }
+
+  res.status(200).json({ place: place.toObject({ getters: true }) });
+};
+// ...
+</code></pre>
+
+<h3 id="deleting-places_1">Deleting Places</h3>
+<ul>
+<li>Delete Places controller:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers
+// ...
+const deletePlace = async (req, res, next) =&gt; {
+  const placeId = req.params.pid;
+
+  let place;
+  try {
+    place = await Place.findById(placeId);
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not delete place.',
+      500
+    );
+    return next(error);
+  }
+
+  try {
+    place.remove();
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not delete place.',
+      500
+    );
+    return next(error);
+  }
+
+  res.status(200).json({ message: 'Deleted place.' });
+};
+// ...
+</code></pre>
+
+<h3 id="how-users-and-places-are-related">How Users and Places are Related</h3>
+<ul>
+<li>One place belongs to exactly one user</li>
+<li>One user can create multiple places</li>
+</ul>
+<h3 id="creating-the-user-model">Creating the User Model</h3>
+<ul>
+<li>Will need mongoose unique validator:<ul>
+<li><code>npm i --save mongoose-unique-validator</code></li>
+<li>Since unique property doesn't make sure another already exists, instead just makes easily to reference with an index</li>
+</ul>
+</li>
+</ul>
+<pre><code class="javascript">// backend/models/user.js
+const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
+
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true, minlength: 6 },
+  image: { type: String, required: true },
+  places: { type: String, required: true }
+});
+
+userSchema.plugin(uniqueValidator);
+
+module.exports = mongoose.model('User', userSchema);
+</code></pre>
+
+<h3 id="using-the-user-model-for-signup">Using the User Model for Signup</h3>
+<ul>
+<li>Modifying user controllers:</li>
+</ul>
+<pre><code class="javascript">const signup = async (req, res, next) =&gt; {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError('Invalid inputs passed, please check your data.', 422)
+    );
+  }
+
+  const { name, email, password, places } = req.body;
+
+  let existingUser;
+  try {
+    existingUser = await User.findOne({ email: email });
+  } catch (err) {
+    const error = new HttpError(
+      'Signing up failed, please try again later.',
+      500
+    );
+    return next(error);
+  }
+
+  if (existingUser) {
+    const error = new HttpError(
+      'User exists already, please login instead.',
+      422
+    );
+    return next(error);
+  }
+
+  const createdUser = new User({
+    name,
+    email,
+    image:
+      'https://www.publicdomainpictures.net/pictures/10000/velka/brown-eyed-susan-flower-closeup-23441281369772mHdG.jpg',
+    password,
+    places
+  });
+
+  try {
+    await createdUser.save();
+  } catch (err) {
+    console.log(err.message);
+    const error = new HttpError(
+      'Saving User failed, please try again.',
+      500
+    );
+    return next(error);
+  }
+
+  res.status(201).json({ user: createdUser.toObject({ getters: true }) });
+};
+</code></pre>
+
+<h3 id="adding-the-user-login">Adding the User Login</h3>
+<ul>
+<li>Modifying users controller</li>
+</ul>
+<pre><code class="javascript">const login = async (req, res, next) =&gt; {
+  const { email, password } = req.body;
+
+  let existingUser;
+
+  try {
+    existingUser = await User.findOne({ email });
+  } catch (err) {
+    const error = new HttpError(
+      'Logging in failed, please try again later.',
+      500
+    );
+    return next(error);
+  }
+
+  // dummy logic currently for authentication:
+  if (!existingUser || existingUser.password !== password) {
+    const error = new HttpError(
+      'Invalid credentials, could not log you in.', 401
+    );
+
+    return next(error);
+  }
+
+  res.json({ message: 'Logged In!' });
+};
+</code></pre>
+
+<h3 id="getting-users">Getting Users</h3>
+<ul>
+<li>Modifying users controller</li>
+</ul>
+<pre><code class="javascript">const getUsers = async (req, res, next) =&gt; {
+  let users;
+  try {
+    users = await User.find({}, '-password');
+  } catch (err) {
+    const error = new HttpError(
+      'Fetching users failed, please try again later.',
+      500
+    );
+    return next(error);
+  }
+  res.json({ users: users.map(user =&gt; user.toObject({ getters: true })) });
+};
+</code></pre>
+
+<h3 id="adding-the-relation-between-places-and-users">Adding the Relation between Places and Users</h3>
+<ul>
+<li>
+<p><em>One user can create multiple places</em> <strong>AND</strong> <em>One place belongs to exactly one user.</em></p>
+</li>
+<li>
+<p>Modify Place Schema:
+<code>{ type: mongoose.Types.ObjectId, required: true, ref: 'User' }</code></p>
+</li>
+<li>
+<p>Modify User schema:
+<code>places: [{ type: mongoose.Types.ObjectId, required: true, ref: 'Place' }]</code></p>
+</li>
+<li>
+<p>Modify users controller</p>
+</li>
+</ul>
+<pre><code class="javascript">// ...
+const signup = async (req, res, next) =&gt; {
+  // ...
+  const { name, email, password } = req.body;
+  // ...
+  const createdUser = new User({
+    name,
+    email,
+    image:
+      'https://www.publicdomainpictures.net/pictures/10000/velka/brown-eyed-susan-flower-closeup-23441281369772mHdG.jpg',
+    password,
+    places: []
+  });
+  // ...
+}
+// ...
+</code></pre>
+
+<h3 id="creating-places-and-adding-it-to-a-user">Creating Places and Adding it to a User</h3>
+<ul>
+<li>Using session and transaction</li>
+<li>Modifying Places controller:</li>
+</ul>
+<pre><code class="javascript">const createPlace = async (req, res, next) =&gt; {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError('Invalid inputs passed, please check your data.', 422)
+    );
+  }
+
+  const { title, description, address, creator } = req.body;
+
+  let coordinates;
+  try {
+    coordinates = await getCoordsForAddress(address);
+  } catch (error) {
+    return next(error);
+  }
+
+  const createdPlace = new Place({
+    title,
+    description,
+    address,
+    location: coordinates,
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg',
+    creator
+  });
+
+  let user;
+
+  try {
+    user = await User.findById(creator);
+  } catch (err) {
+    const error = new HttpError(
+      // 'Creating place failed, please try again.',
+      'Could not find user for provided id',
+      500
+    );
+    return next(error);
+  }
+
+  if (!user) {
+    const error = new HttpError('Could not find user for provided id', 404);
+    return next(error);
+  }
+
+  console.log(user);
+
+  try {
+    // const sess = await mongoose.startSession();
+    // sess.startTransaction();
+    await createdPlace.save(/* { sessions: sess } */);
+    user.places.push(createdPlace);
+    await user.save(/* { sessions: sess } */);
+    // await sess.commitTransaction();
+  } catch (err) {
+    console.log(err.message);
+    const error = new HttpError(
+      'Creating place failed, please try again.',
+      500
+    );
+    return next(error);
+  }
+
+  res.status(201).json({ place: createdPlace });
+};
+</code></pre>
+
+<h3 id="deleting-places-removing-it-from-the-user">Deleting Places &amp; Removing it from the User</h3>
+<ul>
+<li>Modifying delete place in places controllers:</li>
+<li>Using <code>populate()</code></li>
+</ul>
+<pre><code class="javascript">const deletePlace = async (req, res, next) =&gt; {
+  const placeId = req.params.pid;
+
+  let place;
+  try {
+    place = await Place.findById(placeId).populate('creator');
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not delete place.',
+      500
+    );
+    return next(error);
+  }
+
+  if (!place) {
+    const error = new HttpError('Could not find place for this id.', 404);
+    return next(error);
+  }
+
+  try {
+    // const session = await mongoose.startSession();
+    // session.startTransaction();
+    await place.remove(/* { session: session } */);
+    place.creator.places.pull(place);
+    await place.creator.save(/* { session: session } */);
+    // await session.commitTransaction();
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not delete place.',
+      500
+    );
+    return next(error);
+  }
+
+  res.status(200).json({ message: 'Deleted place.' });
+};
+</code></pre>
+
+<h3 id="getting-places-an-alternative">Getting Places - An Alternative</h3>
+<ul>
+<li>Modifying get place by user id in places controllers:</li>
+</ul>
+<pre><code class="javascript">const getPlacesByUserId = async (req, res, next) =&gt; {
+  const userId = req.params.uid;
+
+  // let places;
+  let userWithPlaces;
+  try {
+    userWithPlaces = await User.findById(userId).populate('places');
+  } catch (err) {
+    console.log(err.message)
+    const error = new HttpError(
+      'Fetching places failed, please try again later.',
+      500
+    );
+    return next(error);
+  }
+
+  if (!userWithPlaces || userWithPlaces.length === 0) {
+    const error = new HttpError(
+      'Could not find places for the provided user id.',
+      404
+    );
+    return next(error);
+  }
+
+  res.json({ places: userWithPlaces.places.map(place =&gt; place.toObject({ getters: true })) });
+};
+</code></pre>
+
+<h2 id="10-connecting-the-reactjs-frontend-to-the-backend">10. Connecting the React.js Frontend to the Backend</h2>
+<h3 id="introduction_1">Introduction</h3>
+<ol>
+<li>Send HTTP Requests &amp; Use Response Data</li>
+<li>Handle Errors &amp; Loading State</li>
+<li>Update User Interface</li>
+</ol>
+<h3 id="sending-a-post-request-to-the-backend">Sending a POST Request to the Backend</h3>
+<ul>
+<li>Modifying Auth.js on Frontend</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Auth.js
+// ...
+const Auth = () =&gt; {
+// ...
+  const authSubmitHandler = async event =&gt; {
+    event.preventDefault();
+
+    if (isLoginMode) {
+    } else {
+      try {
+        const response = await fetch('http://localhost:5000/api/users/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value
+          })
+        });
+
+        const responseData = await response.json();
+        console.log(responseData);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    auth.login();
+  };
+// ...
+}
+// ...
+</code></pre>
+
+<h3 id="handling-cors-errors">Handling CORS Errors</h3>
+<ul>
+<li>Cross Origin Resource Sharing (CORS)<ul>
+<li>Enforced by browser</li>
+<li>Issue here because we are trying to send request to localhost:3000 from localhost:5000</li>
+<li>Need to attach certain headers</li>
+</ul>
+</li>
+<li>Modifying app.js in backend:</li>
+</ul>
+<pre><code class="javascript">// backend/app.js
+// ...
+app.use(bodyParser.json());
+
+app.use((req, res, next) =&gt; {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  next();
+});
+// ...
+</code></pre>
+
+<h3 id="getting-started-with-error-handling">Getting Started with Error Handling</h3>
+<ul>
+<li>Modify Auth.js:</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Auth.js
+// ...
+// these components are provided in the course
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+// ...
+const Auth = () =&gt; {
+// ...
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+// ...
+  const authSubmitHandler = async event =&gt; {
+    event.preventDefault();
+
+    if (isLoginMode) {
+    } else {
+      try {
+        setIsLoading(true);
+        const response = await fetch('http://localhost:5000/api/users/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value
+          })
+        });
+
+        const responseData = await response.json();
+        console.log(responseData);
+        setIsLoading(false);
+        auth.login();
+      } catch (err) {
+        console.log(err);
+        setIsLoading(false);
+        setError(err.message || 'Something went wrong, please try again.');
+      }
+    }
+    setIsLoading(false);
+
+  };
+
+    return (
+      &lt;Card className='authentication'&gt;
+        {isLoading &amp;&amp; &lt;LoadingSpinner asOverlay /&gt;}
+        { /* ... */ }
+      &lt;/Card&gt;
+    );
+};
+
+export default Auth;
+</code></pre>
+
+<h3 id="proper-error-handling-in-the-frontend">Proper Error Handling in the Frontend</h3>
+<ul>
+<li>Technically no error in <code>fetch()</code> when getting back a 400ish or 500ish error code.</li>
+<li>Modifying Auth.js</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Auth.js
+// ...
+const Auth = () =&gt; {
+// ...
+  const authSubmitHandler = async event =&gt; {
+    event.preventDefault();
+
+    if (isLoginMode) {
+    } else {
+      try {
+        setIsLoading(true);
+        const response = await fetch('http://localhost:5000/api/users/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value
+          })
+        });
+
+        const responseData = await response.json();
+        if (!response.ok) {
+          throw new Error(responseData.message);
+        }
+        console.log(responseData);
+        setIsLoading(false);
+        auth.login();
+      } catch (err) {
+        console.log(err);
+        setIsLoading(false);
+        setError(err.message || 'Something went wrong, please try again.');
+      }
+    }
+    setIsLoading(false);
+  };
+
+  const errorHandler = () =&gt; {
+    setError(null);
+  };
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;ErrorModal error={error} onClear={errorHandler} /&gt;
+      &lt;Card className='authentication'&gt;
+        {isLoading &amp;&amp; &lt;LoadingSpinner asOverlay /&gt;}
+        { /* ... */ }
+      &lt;/Card&gt;
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default Auth;
+</code></pre>
+
+<h3 id="sending-a-login-request">Sending a Login Request</h3>
+<ul>
+<li>Duplicating signup but with small changes, in Auth.js:</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Auth.js
+// ...
+const Auth = () =&gt; {
+// ...
+  const authSubmitHandler = async event =&gt; {
+  event.preventDefault();
+  setIsLoading(true);
+
+  if (isLoginMode) {
+    try {
+      const response = await fetch('http://localhost:5000/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value
+        })
+      });
+
+      const responseData = await response.json();
+      if (!response.ok) {
+        throw new Error(responseData.message);
+      }
+      setIsLoading(false);
+      auth.login();
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+      setError(err.message || 'Something went wrong, please try again.');
+    }
+  } else { 
+    // ...
+  }
+  // ...
+};
+
+export default Auth;
+</code></pre>
+
+<h3 id="gettig-users-with-a-get-request">Gettig Users with a GET Request</h3>
+<ul>
+<li>Modify Users.js:</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/User.js
+import React, { useEffect, useState } from 'react';
+
+import UsersList from '../components/UsersList';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+
+const Users = () =&gt; {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+  const [loadedUsers, setLoadedUsers] = useState();
+
+  useEffect(() =&gt; {
+    const sendRequest = async () =&gt; {
+      setIsLoading(true);
+      try {
+        const response = await fetch('http://localhost:5000/api/users'); // defaults to get
+
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          throw new Error(responseData.message);
+        }
+
+        setLoadedUsers(responseData.users);
+      } catch (err) {
+        setError(err.message);
+      }
+      setIsLoading(false);
+    };
+    sendRequest();
+  }, []);
+
+  const errorHandler = () =&gt; {
+    setError(null);
+  };
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;ErrorModal error={error} onClear={errorHandler} /&gt;
+      {isLoading &amp;&amp; (
+        &lt;div className='center'&gt;
+          &lt;LoadingSpinner /&gt;
+        &lt;/div&gt;
+      )}
+      {!isLoading &amp;&amp; loadedUsers &amp;&amp; &lt;UsersList items={loadedUsers} /&gt;}
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default Users;
+</code></pre>
+
+<ul>
+<li>And line in UsersList.js<ul>
+<li><code>placeCount={user.places.length}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-a-custom-http-hook">Creating a Custom HTTP Hook</h3>
+<ul>
+<li>http-hook.js so far:</li>
+</ul>
+<pre><code class="javascript">// src/shared/hooks/http-hook.js
+import { useState, useCallback, useRef, useEffect } from 'react';
+
+export const useHttpClient = () =&gt; {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+
+  const activeHttpRequests = useRef([]);
+
+  const sendRequest = useCallback(
+    async (url, method = 'GET', body = null, headers = {}) =&gt; {
+      setIsLoading(true);
+      const httpAbortCtrll = new AbortController();
+      activeHttpRequests.current.push(httpAbortCtrll);
+
+      try {
+        const response = await fetch(url, {
+          method,
+          body,
+          headers,
+          signal: httpAbortCtrll.signal
+        });
+
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          throw new Error(responseData.message);
+        }
+
+        return responseData;
+      } catch (err) {
+        setError(err.message);
+      }
+      setIsLoading(false);
+    },
+    []
+  );
+
+  const clearError = () =&gt; {
+    setError(null);
+  };
+
+  useEffect(() =&gt; {
+    return () =&gt; {
+      activeHttpRequests.current.forEach(abortCtrl =&gt; abortCtrl.abort());
+    };
+  }, []);
+
+  return { isLoading, error, sendRequest, clearError };
+};
+</code></pre>
+
+<h3 id="improving-the-custom-http-hook">Improving the Custom HTTP Hook</h3>
+<ul>
+<li>Use in Auth.js:</li>
+</ul>
+<pre><code class="javascript">// ...
+import { useHttpClient } from '../../shared/hooks/http-hook';
+// ...
+const Auth = () =&gt; {
+  const authSubmitHandler = async event =&gt; {
+    event.preventDefault();
+
+    if (isLoginMode) {
+      try {
+        await sendRequest(
+          'http://localhost:5000/api/users/login',
+          'POST',
+          JSON.stringify({
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value
+          }),
+          {
+            'Content-Type': 'application/json'
+          }
+        );
+        auth.login();
+      } catch (err) {}
+    } else {
+      try {
+        await sendRequest(
+          'http://localhost:5000/api/users/signup',
+          'POST',
+          JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value
+          }),
+          {
+            'Content-Type': 'application/json'
+          }
+        );
+
+        auth.login();
+      } catch (err) {}
+    }
+  };
+};
+
+export default Auth;
+</code></pre>
+
+<ul>
+<li>Also small changes to http-hook.js:</li>
+</ul>
+<pre><code class="javascript">// end of try block:
+setIsLoading(false);
+  return responseData;
+} catch (err) {
+  setError(err.message);
+  setIsLoading(false);
+  throw err;
+}
+</code></pre>
+
+<h3 id="using-the-http-hook-to-get-users">Using the HTTP Hook to GET Users</h3>
+<ul>
+<li>Modify Users.js<ul>
+<li>useCallback in custom hook very important here, preventing infinite loops</li>
+</ul>
+</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Users.js
+import React, { useEffect, useState } from 'react';
+
+import UsersList from '../components/UsersList';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import { useHttpClient } from '../../shared/hooks/http-hook';
+
+const Users = () =&gt; {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [loadedUsers, setLoadedUsers] = useState();
+
+  useEffect(() =&gt; {
+    const fetchUsers = async () =&gt; {
+      try {
+        const responseData = await sendRequest(
+          'http://localhost:5000/api/users'
+        ); // defaults to get
+
+        setLoadedUsers(responseData.users);
+      } catch (err) {}
+    };
+    fetchUsers();
+  }, [sendRequest]);
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;ErrorModal error={error} onClear={clearError} /&gt;
+      {isLoading &amp;&amp; (
+        &lt;div className='center'&gt;
+          &lt;LoadingSpinner /&gt;
+        &lt;/div&gt;
+      )}
+      {!isLoading &amp;&amp; loadedUsers &amp;&amp; &lt;UsersList items={loadedUsers} /&gt;}
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default Users;
+</code></pre>
+
+<h3 id="adding-places-post">Adding Places (POST)</h3>
+<ul>
+<li>Modifying NewPlace.js</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/NewPlace.js
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+// ...
+import { useHttpClient } from '../../shared/hooks/http-hook';
+import { AuthContext } from '../../shared/context/auth-context';
+// ...
+
+const NewPlace = () =&gt; {
+  const auth = useContext(AuthContext);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [formState, inputHandler] = useForm(
+    {
+      title: {
+        value: '',
+        isValid: false
+      },
+      description: {
+        value: '',
+        isValid: false
+      },
+      address: {
+        value: '',
+        isValid: false
+      }
+    },
+    false
+  );
+
+  const history = useHistory();
+
+  const placeSubmitHandler = async event =&gt; {
+    event.preventDefault();
+    try {
+      await sendRequest(
+        'http://192.168.2.2:5000/api/places',
+        'POST',
+        JSON.stringify({
+          title: formState.inputs.title.value,
+          description: formState.inputs.description.value,
+          address: formState.inputs.address.value,
+          creator: auth.userId
+        }),
+        { 'Content-Type': 'application/json' }
+      );
+      history.push('/');
+      // Redirect the user to a different page
+    } catch (err) {}
+  };
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;ErrorModal error={error} onClear={clearError} /&gt;
+      &lt;form className='place-form' onSubmit={placeSubmitHandler}&gt;
+        {isLoading &amp;&amp; &lt;LoadingSpinner asOverlay /&gt;}
+        &lt;Input
+          id='title'
+          element='input'
+          type='text'
+          label='Title'
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText='Please enter a valid title.'
+          onInput={inputHandler}
+        /&gt;
+        &lt;Input
+          id='description'
+          element='textarea'
+          label='Description'
+          validators={[VALIDATOR_MINLENGTH(5)]}
+          errorText='Please enter a valid description (at least 5 characters).'
+          onInput={inputHandler}
+        /&gt;
+        &lt;Input
+          id='address'
+          element='input'
+          label='Address'
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText='Please enter a valid address.'
+          onInput={inputHandler}
+        /&gt;
+        &lt;Button type='submit' disabled={!formState.isValid}&gt;
+          ADD PLACE
+        &lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default NewPlace;
+</code></pre>
+
+<ul>
+<li>Modifying users-controllers.js, auth-context.js, Auth.js, and App.js to supply a userId</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/users-controllers.js
+// ...
+const login = async (req, res, next) =&gt; {
+  // ...
+
+  res.json({
+    message: 'Logged In!',
+    user: existingUser.toObject({ getters: true })
+  });
+};
+
+</code></pre>
+
+<pre><code class="javascript">// src/shared/context/auth-content.js
+export const AuthContext = createContext({
+  isLoggedIn: false,
+  userId: null,
+  login: () =&gt; {},
+  logout: () =&gt; {}
+});
+
+</code></pre>
+
+<pre><code class="javascript">// src/user/pages/Auth.js
+// ...
+import { AuthContext } from '../../shared/context/auth-context';
+// ...
+const Auth = () =&gt; {
+  const auth = useContext(AuthContext);
+  // ...
+  const authSubmitHandler = async event =&gt; {
+    event.preventDefault();
+
+    if (isLoginMode) {
+      try {
+        // ...
+        auth.login(responseData.user.id);
+      } catch (err) { }
+    } else {
+      try {
+        // ...
+        auth.login(responseData.user.id);
+      } catch (err) { }
+    }
+  };
+  // ...
+};
+
+</code></pre>
+
+<pre><code class="javascript">// src/App.js
+// ...
+const App = () =&gt; {
+  // ...
+  const [userId, setUserId] = useState(false);
+  const login = useCallback(uid =&gt; {
+    setIsLoggedIn(true);
+    setUserId(uid);
+  }, []);
+
+  const logout = useCallback(() =&gt; {
+    setIsLoggedIn(false);
+    setUserId(null);
+  }, []);
+  // ...
+  return (
+    &lt;AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        userId: userId,
+        login: login,
+        logout: logout
+      }}
+    &gt;
+    {/* ... */}
+    &lt;/AuthContext.Provider&gt;
+  );
+};
+// ...
+</code></pre>
+
+<h3 id="loading-places-by-user-id">Loading Places by User ID</h3>
+<ul>
+<li>Modify UserPlaces.js</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UserPlaces.js
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import PlaceList from '../components/PlaceList';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import { useHttpClient } from '../../shared/hooks/http-hook';
+
+const UserPlaces = () =&gt; {
+  const [loadedPlaces, setLoadedPlaces] = useState();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  const userId = useParams().userId;
+
+  useEffect(() =&gt; {
+    const fetchPlaces = async () =&gt; {
+      try {
+        const responseData = await sendRequest(
+          `http://192.168.2.2:5000/api/places/user/${userId}`
+        );
+        setLoadedPlaces(responseData.places);
+      } catch (err) {}
+    };
+    fetchPlaces();
+  }, [sendRequest, userId]);
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;ErrorModal error={error} onClear={clearError} /&gt;
+      {isLoading &amp;&amp; (
+        &lt;div className='center'&gt;
+          &lt;LoadingSpinner /&gt;{' '}
+        &lt;/div&gt;
+      )}
+      {!isLoading &amp;&amp; loadedPlaces &amp;&amp; &lt;PlaceList items={loadedPlaces} /&gt;}
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default UserPlaces;
+
+</code></pre>
+
+<ul>
+<li>Modify PlaceList.js</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceList.js
+// ...
+    &lt;PlaceItem
+          image={place.image}
+          // ...
+        /&gt;
+// ...
+</code></pre>
+
+<h3 id="updating-places_1">Updating Places</h3>
+<ul>
+<li>Modifying UpdatePlace.js</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+import React, { useEffect, useState, useContext } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+
+import Input from '../../shared/components/FormElements/Input';
+import Button from '../../shared/components/FormElements/Button';
+import Card from '../../shared/components/UIElements/Card';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH
+} from '../../shared/util/validators';
+import { useForm } from '../../shared/hooks/form-hook';
+import { useHttpClient } from '../../shared/hooks/http-hook';
+import { AuthContext } from '../../shared/context/auth-context';
+
+import './PlaceForm.css';
+
+const UpdatePlace = () =&gt; {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [loadedPlace, setLoadedPlace] = useState();
+  const placeId = useParams().placeId;
+  const history = useHistory();
+  const auth = useContext(AuthContext);
+
+  const [formState, inputHandler, setFormData] = useForm(
+    {
+      title: {
+        value: '',
+        isValid: false
+      },
+      description: {
+        value: '',
+        isValid: false
+      }
+    },
+    false
+  );
+
+  useEffect(() =&gt; {
+    const fetchPlace = async () =&gt; {
+      try {
+        const responseData = await sendRequest(
+          `http://192.168.2.2:5000/api/places/${placeId}`
+        );
+        setLoadedPlace(responseData.place);
+        setFormData(
+          {
+            title: {
+              value: responseData.place.title,
+              isValid: true
+            },
+            description: {
+              value: responseData.place.description,
+              isValid: true
+            }
+          },
+          true
+        );
+      } catch (err) {}
+    };
+    fetchPlace();
+  }, [sendRequest, placeId, setFormData]);
+
+  const placeUpdateSubmitHandler = async event =&gt; {
+    event.preventDefault();
+    try {
+      await sendRequest(
+        `http://192.168.2.2:5000/api/places/${placeId}`,
+        'PATCH',
+        JSON.stringify({
+          title: formState.inputs.title.value,
+          description: formState.inputs.description.value
+        }),
+        { 'Content-Type': 'application/json' }
+      );
+      history.push('/' + auth.userId + '/places');
+    } catch (err) {}
+  };
+
+  if (isLoading) {
+    return (
+      &lt;div className='center'&gt;
+        &lt;LoadingSpinner /&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  if (!loadedPlace &amp;&amp; !error) {
+    return (
+      &lt;div className='center'&gt;
+        &lt;Card&gt;
+          &lt;h2&gt;Could not find place!&lt;/h2&gt;
+        &lt;/Card&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;ErrorModal error={error} onClear={clearError} /&gt;
+      {!isLoading &amp;&amp; loadedPlace &amp;&amp; (
+        &lt;form className='place-form' onSubmit={placeUpdateSubmitHandler}&gt;
+          &lt;Input
+            id='title'
+            element='input'
+            type='text'
+            label='Title'
+            validators={[VALIDATOR_REQUIRE()]}
+            errorText='Please enter a valid title.'
+            onInput={inputHandler}
+            initialValue={loadedPlace.title}
+            initialValid={true}
+          /&gt;
+          &lt;Input
+            id='description'
+            element='textarea'
+            label='Description'
+            validators={[VALIDATOR_MINLENGTH(5)]}
+            errorText='Please enter a valid description (min. 5 characters).'
+            onInput={inputHandler}
+            initialValue={loadedPlace.description}
+            initialValid={true}
+          /&gt;
+          &lt;Button type='submit' disabled={!formState.isValid}&gt;
+            UPDATE PLACE
+          &lt;/Button&gt;
+        &lt;/form&gt;
+      )}
+    &lt;/React.Fragment&gt;
+  );
+};
+
+export default UpdatePlace;
+</code></pre>
+
+<h3 id="deleting-places_2">Deleting Places</h3>
+<ul>
+<li>Modifying PlaceList.js, PlaceItem.js &amp; UserPlaces.js</li>
+</ul>
+<pre><code class="javascript">// src/places/components/PlaceList.js
+// ...
+        &lt;PlaceItem
+          // ...
+          onDelete={props.onDeletePlace}
+        /&gt;
+</code></pre>
+
+<pre><code class="javascript">// src/places/components/PlaceItem.js
+// ...
+import { useHttpClient } from '../../shared/hooks/http-hook';
+import './PlaceItem.css';
+
+const PlaceItem = props =&gt; {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  // ...
+
+  const confirmDeleteHandler = async () =&gt; {
+    setShowConfirmModal(false);
+    try {
+      await sendRequest(
+        `http://192.168.2.2:5000/api/places/${props.id}`,
+        'DELETE'
+      );
+      props.onDelete(props.id);
+    } catch (err) {}
+  };
+
+  return (
+    &lt;React.Fragment&gt;
+      &lt;ErrorModal error={error} onClear={clearError} /&gt;
+      { /* ... */ }
+      &lt;li className='place-item'&gt;
+        &lt;Card className='place-item__content'&gt;
+          {isLoading &amp;&amp; &lt;LoadingSpinner asOverlay /&gt;}
+          &lt;/Card&gt;
+      &lt;/li&gt;
+    &lt;/React.Fragment&gt;
+  );
+};
+// ...
+</code></pre>
+
+<pre><code class="javascript">// src/places/pages/UserPlaces.js
+// ...
+  const placeDeletedHandler = deletedPlaceId =&gt; {
+    setLoadedPlaces(prevPlaces =&gt;
+      prevPlaces.filter(place =&gt; place.id !== deletedPlaceId)
+    );
+  };
+  // ...
+        &lt;PlaceList items={loadedPlaces} onDeletePlace={placeDeletedHandler} /&gt;
+  // ...
+</code></pre>
+
+<h3 id="fixing-navlinks-and-my-places">Fixing NavLinks and "My Places"</h3>
+<ul>
+<li>Modify NavLinks.js</li>
+</ul>
+<pre><code class="javascript">          &lt;NavLink to={`/${auth.userId}/places`}&gt;MY PLACES&lt;/NavLink&gt;
+</code></pre>
+
+<h3 id="final-adjustments">Final Adjustments</h3>
+<ul>
+<li>Modify Auth.js minimum password length to 6 to be consistent with backend</li>
+<li>Modify PlaceItem.js to not show buttons for places not belonging to that user.
+<code>auth.userId === props.creatorId // as opposed to auth.isLoggedIn</code></li>
+</ul>
+<h2 id="11-adding-file-upload">11. Adding File Upload</h2>
+<h3 id="introduction_2">Introduction</h3>
+<ol>
+<li>Accept &amp; Handle Files (Images) on Backend</li>
+<li>Add File Picker on Frontend + Send File to Backend</li>
+</ol>
+<h3 id="building-an-imageupload-component">Building an ImageUpload Component</h3>
+<ul>
+<li>ImageUpload.js so far:</li>
+</ul>
+<pre><code class="javascript">import React, { useRef } from 'react';
+
+import './ImageUpload.css';
+import Button from './Button';
+
+const ImageUpload = props =&gt; {
+  const filePickerRef = useRef();
+
+  const pickedHandler = event =&gt; {
+    console.log(event.target);
+  };
+
+  const pickImageHandler = () =&gt; {
+    filePickerRef.current.click();
+  };
+
+  return (
+    &lt;div className='form-control'&gt;
+      &lt;input
+        id={props.id}
+        ref={filePickerRef}
+        style={{ display: 'none' }}
+        type='file'
+        accept='.jpg,.png,.jpeg'
+        onChange={pickedHandler}
+      /&gt;
+      &lt;div className={`image-upload ${props.center &amp;&amp; 'center'}`}&gt;
+        &lt;div className='image-upload__preview'&gt;
+          &lt;img src='' alt='Preview' /&gt;
+        &lt;/div&gt;
+        &lt;Button type='button' onClick={pickImageHandler}&gt;
+          PICK IMAGE
+        &lt;/Button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default ImageUpload;
+</code></pre>
+
+<ul>
+<li>Add field to Auth.js, just after name:<ul>
+<li><code>{!isLoginMode &amp;&amp; &lt;ImageUpload center id='image' /&gt;}</code> </li>
+</ul>
+</li>
+</ul>
+<h3 id="finishing-an-using-the-imageupload-component-in-a-form">Finishing an Using the ImageUpload Component (in a Form)</h3>
+<ul>
+<li>Modifying Auth.js</li>
+</ul>
+<pre><code class="javascript">// ...
+if (!isLoginMode) {
+  setFormData(
+    {
+      ...formState.inputs,
+      name: undefined,
+      image: undefined
+    },
+    formState.inputs.email.isValid &amp;&amp; formState.inputs.password.isValid
+  );
+} else {
+  setFormData(
+    {
+      ...formState.inputs,
+      name: {
+        value: '',
+        isValid: false
+      },
+      image: {
+        value: null,
+        isValid: false
+      }
+    }, false
+  );
+}
+// ...
+{!isLoginMode &amp;&amp; (
+  &lt;ImageUpload center id='image' onInput={inputHandler} /&gt;
+)}
+// ...
+</code></pre>
+
+<h3 id="on-the-backend-using-multer-to-save-files">On the Backend: Using Multer to Save Files</h3>
+<p><code>npm i --save multer</code></p>
+<ul>
+<li>Starting on file-upload middleware</li>
+<li>Modifying users routes:</li>
+</ul>
+<pre><code class="javascript">// backend/routes/users-routes.js
+  '/signup',
+  fileUpload.single('image'),
+</code></pre>
+
+<h3 id="filtering-files-on-the-backend-images-only">Filtering Files on the Backend (Images Only!)</h3>
+<ul>
+<li>
+<p>Can't rely exclusively on frontend validations!</p>
+<ul>
+<li>Can be changed by users!</li>
+</ul>
+</li>
+<li>
+<p>File Upload middleware final</p>
+</li>
+</ul>
+<pre><code class="javascript">// backend/middleware/file-upload.js
+const multer = require('multer');
+const uuid = require('uuid');
+
+const MIME_TYPE_MAP = {
+  'image/png': 'png',
+  'image/jpeg': 'jpeg',
+  'image/jpg': 'jpg'
+};
+
+const fileUpload = multer({
+  limits: 500000,
+  storage: multer.diskStorage({
+    destination: (req, file, cb) =&gt; {
+      cb(null, 'uploads/images');
+    },
+    filename: (req, file, cb) =&gt; {
+      const ext = MIME_TYPE_MAP[file.mimetype];
+      cb(null, uuid() + '.' + ext);
+    }
+  }),
+  fileFilter: (req, file, cb) =&gt; {
+    const isValid = !!MIME_TYPE_MAP[file.mimetype];
+    let error = isValid ? null : new Error('Invalid mime type!');
+    cb(error, isValid);
+  }
+});
+
+module.exports = fileUpload;
+</code></pre>
+
+<h3 id="wiring-frontend-and-backend-up">Wiring Frontend and Backend up</h3>
+<ul>
+<li>Modify Auth.js</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Auth.js
+const authSubmitHandler = async event =&gt; {
+  event.preventDefault();
+
+  if (isLoginMode) {
+    // ... doesnt apply here
+  } else {
+    try {
+      const formData = new FormData();
+      formData.append('email', formState.inputs.email.value);
+      formData.append('name', formState.inputs.name.value);
+      formData.append('password', formState.inputs.password.value);
+      formData.append('image', formState.inputs.image.value)
+      const responseData = await sendRequest(
+        'http://192.168.2.2:5000/api/users/signup',
+        'POST',
+        formData
+        // headers set automatically when using form data
+      );
+      auth.login(responseData.user.id);
+    } catch (err) {}
+  }
+};
+</code></pre>
+
+<h3 id="connecting-users-to-images">Connecting Users to Images</h3>
+<ul>
+<li>Modifying app.js for rollback of image upload on error</li>
+</ul>
+<pre><code class="javascript">// backend/app.js
+app.use((error, req, res, next) =&gt; {
+  if (req.file) {
+    fs.unlink(req.file.path, err =&gt; {
+      console.log(err);
+    });
+  }
+  // ...
+});
+</code></pre>
+
+<ul>
+<li>Link to User</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/users-controllers.js
+// ...
+  const createdUser = new User({
+    name,
+    email,
+    image:
+      // old static url to external image,
+      req.file.path,
+    password,
+    places: []
+  });
+// ...
+</code></pre>
+
+<h3 id="serving-images-statically">Serving Images Statically</h3>
+<ul>
+<li>Modifying app.js in backend</li>
+</ul>
+<pre><code class="javascript">// backend/app.js
+// ...
+app.use(bodyParser.json());
+
+app.use('/uploads/images', express.static(path.join('uploads', 'images')));
+// ...
+</code></pre>
+
+<h3 id="uploading-images-for-new-places">Uploading Images for New Places</h3>
+<ul>
+<li>Modify NewPlace.js</li>
+</ul>
+<pre><code class="javascript">// ...
+import ImageUpload from '../../shared/components/FormElements/ImageUpload';
+// ...
+
+const NewPlace = () =&gt; {
+  // ...
+// add image to useForm data:
+  const [formState, inputHandler] = useForm(
+    {
+      // ...
+      image: {
+        value: null,
+        isValid: false
+      }
+    },
+    false
+  );
+  // ...
+  const placeSubmitHandler = async event =&gt; {
+    event.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append('title', formState.inputs.title.value);
+      formData.append('description', formState.inputs.description.value);
+      formData.append('address', formState.inputs.address.value);
+      formData.append('creator', auth.userId);
+      formData.append('image', formState.inputs.image.value);
+      await sendRequest('http://192.168.2.2:5000/api/places', 'POST', formData);
+      history.push('/');
+      // Redirect the user to a different page
+    } catch (err) {}
+  };
+
+  return (
+    &lt;React.Fragment&gt;
+        {/* ... */}
+        &lt;ImageUpload
+          id='image'
+          onInput={inputHandler}
+          errorText='Please provide an image.'
+        /&gt;
+        &lt;Button type='submit' disabled={!formState.isValid}&gt;
+          ADD PLACE
+        &lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/React.Fragment&gt;
+  );
+};
+</code></pre>
+
+<ul>
+<li>Modifying places routes</li>
+</ul>
+<pre><code class="javascript">// backend/routes/places-routes.js
+// ...
+const fileUpload = require('../middleware/file-upload');
+// ...
+router.post(
+  '/',
+  fileUpload.single('image'),
+  // ...
+)
+</code></pre>
+
+<ul>
+<li>Modify places controllers</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers.js
+  const createdPlace = new Place({
+    title,
+    description,
+    address,
+    location: coordinates,
+    image:
+      // 'https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg',
+      req.file.path,
+    creator
+  });
+</code></pre>
+
+<ul>
+<li>Modify PlaceItem.js:</li>
+</ul>
+<pre><code class="javascript">&lt;div className='place-item__image'&gt;
+  &lt;img src={`http://192.168.2.2:5000/${props.image}`} alt={props.title} /&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="deleting-images-when-places-get-deleted">Deleting Images When Places Get Deleted</h3>
+<ul>
+<li>Modifying places controllers</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places.controllers.js
+const fs = require('fs')
+// ...
+const deletePlace = async (req, res, next) =&gt; {
+  // ...
+  const imagePath = place.image;
+
+  try {
+    // ...
+  }
+
+  fs.unlink(imagePath, err =&gt; {
+    console.log(err);
+  });
+};
+</code></pre>
+
+<h2 id="12-adding-authentication">12. Adding Authentication</h2>
+<h3 id="introduction_3">Introduction</h3>
+<ol>
+<li>Add Authentication Logic on both Ends</li>
+</ol>
+<h3 id="how-authentication-works-in-aa-mern-app">How Authentication Works (in aa MERN App)</h3>
+<p><img alt="SPA Authentication" src="../img/mern-auth.jpg" title="mern-auth" /></p>
+<h3 id="hashing-the-user-password">Hashing the User Password</h3>
+<p><strong><em>Never store passwords in plain text!</em></strong></p>
+<ul>
+<li>
+<p>Using bcrypt.js</p>
+<ul>
+<li><code>npm i --save bcrypt.js</code></li>
+</ul>
+</li>
+<li>
+<p>Utilize in signup user controller</p>
+</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/users-controllers/signup()
+const bcrypt = require('bcryptjs');
+// ...
+let hashedPassword;
+try {
+  hashedPassword = await bcrypt.hash(password, 12);
+} catch (err) {
+  const error = new HttpError(
+    'Could not create user, please try again.',
+    500
+  );
+  return next(error);
+}
+
+const createdUser = new User({
+  // ...
+  password: hashedPassword,
+  // ...
+});
+</code></pre>
+
+<h3 id="logging-users-in-with-hashed-passwords">Logging Users In (with Hashed Passwords)</h3>
+<ul>
+<li>Utilize in login user controller</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/users-controllers/login()
+let isValidPassword = false;
+try {
+  isValidPassword = await bcrypt.compare(password, existingUser.password);
+} catch (err) {
+  const error = new HttpError(
+    'Could not log you in, please check your credentials and try again.',
+    500
+  );
+  return next(error);
+}
+
+if (!isValidPassword) {
+  const error = new HttpError(
+    'Invalid credentials, could not log you in.',
+    401
+  );
+  return next(error);
+}
+
+res.json({ /* ... */})
+</code></pre>
+
+<h3 id="generating-tokens-jwt-on-the-backend">Generating Tokens (JWT) on the Backend</h3>
+<ul>
+<li>With jsonwebtoken<ul>
+<li><code>npm i --save jsonwebtoken</code></li>
+</ul>
+</li>
+<li>Utilize in login user controller</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/users-controllers.js
+const jwt = require('jsonwebtoken');
+// ...
+const signup = async (req, res, next) =&gt; {
+let token;
+  try {
+    token = jwt.sign(
+      { userId: createdUser.id, email: createdUser.email },
+      'supersecret_dont_share',
+      { expiresIn: '1h' }
+    );
+  } catch (err) {
+    console.log(err.message);
+    const error = new HttpError(
+      'Signing up failed, please try again later.',
+      500
+    );
+    return next(error);
+  }
+
+  res
+    .status(201)
+    .json({ userId: createdUser.id, email: createdUser.email, token: token });
+};
+
+const login = async (req, res, next) =&gt; {
+  // ...
+
+  let token;
+  try {
+    token = jwt.sign(
+      { userId: existingUser.id, email: existingUser.email },
+      'supersecret_dont_share',
+      { expiresIn: '1h' }
+    );
+  } catch (err) {
+    console.log(err.message);
+    const error = new HttpError('Login failed, please try again later.', 500);
+    return next(error);
+  }
+
+  res.json({ userId: existingUser.id, email: existingUser.email, token: token });
+};
+</code></pre>
+
+<h3 id="backend-route-protection-with-auth-middleware">Backend Route Protection with Auth Middleware</h3>
+<ul>
+<li>Use in header, through middleware:</li>
+</ul>
+<pre><code class="javascript">// backend/middleware/check-auth.js
+const jwt = require('jsonwebtoken');
+
+const HttpError = require('../models/http-error');
+
+module.exports = (req, res, next) =&gt; {
+  try {
+    const token = req.headers.authorization.split(' ')[1]; // Authorization: 'Bearer TOKEN'
+    if (!token) {
+      throw new Error('Authentication failed!');
+    }
+    const decodedToken = jwt.verify(token, 'supersecret_dont_share');
+    req.userData = { userId: decodedToken.userId };
+    next();
+  } catch (err) {
+    const error = new HttpError('Authentication failed!', 401);
+    return next(error);
+  }
+};
+</code></pre>
+
+<ul>
+<li>Remember, order is important with routes, top to bottom!</li>
+</ul>
+<pre><code class="javascript">// backend/routes/places-routes.js
+// ...
+const checkAuth = require('../middleware/check-auth');
+// ...
+router.get('/user/:uid', placesControllers.getPlacesByUserId);
+
+router.use(checkAuth);
+</code></pre>
+
+<h3 id="using-and-attaching-jwt-tokens-in-react">Using and Attaching JWT (Tokens) in React</h3>
+<ul>
+<li>Modify auth login in Auth.js</li>
+</ul>
+<pre><code class="javascript">// src/user/pages/Auth.js
+// in BOTH login &amp; signup modes:
+auth.login(responseData.userId, responseData.token);
+</code></pre>
+
+<ul>
+<li>Modify in App.js</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+const App = () =&gt; {
+  const [token, setToken] = useState(false);
+  // ...
+  const login = useCallback((uid, token) =&gt; {
+    setToken(token);
+    setUserId(uid);
+  }, []);
+
+  const logout = useCallback(() =&gt; {
+    setToken(null);
+    setUserId(null);
+  }, []);
+
+  let routes;
+
+  if (token) { /**/ }
+  // ...
+
+  return(
+    &lt;AuthContext.Provider
+      value={{
+        isLoggedIn: !!token,
+        token: token,
+        // ...
+      }}
+    &gt;
+    { /**/ }
+    &lt;/ AuthContext.Provider&gt;
+  );
+</code></pre>
+
+<ul>
+<li>Also modify the auth context</li>
+</ul>
+<pre><code class="javascript">// src/shared/context/auth-context.js
+import { createContext } from 'react';
+
+export const AuthContext = createContext({
+  isLoggedIn: false,
+  userId: null,
+  token: null,
+  login: () =&gt; {},
+  logout: () =&gt; {}
+});
+</code></pre>
+
+<ul>
+<li>Add token to header on new place request</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/NewPlace.js
+await sendRequest('http://192.168.2.2:5000/api/places', 'POST', formData, {
+  Authorization: 'Bearer ' + auth.token
+});
+</code></pre>
+
+<ul>
+<li>Handling OPTIONS Request</li>
+</ul>
+<pre><code class="javascript">// backend/middleware/check-auth.js
+module.exports = (req, res, next) =&gt; {
+  if (req.method === 'OPTIONS') {
+    return next();
+  }
+  // ...
+};
+</code></pre>
+
+<h3 id="using-tokens-to-update-and-delete-places">Using Tokens to Update and Delete Places</h3>
+<ul>
+<li>Modifying UpdatePlace.js</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+// add auth header to update(patch) request:
+{ 'Content-Type': 'application/json', Authorization: 'Bearer ' + auth.token }
+</code></pre>
+
+<ul>
+<li>Set up for delete in PlaceItem.js:</li>
+</ul>
+<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+// in confirm delete handler:
+'DELETE',
+null,
+{ Authorization: 'Bearer ' + auth.token }
+</code></pre>
+
+<h3 id="adding-authorization">Adding Authorization</h3>
+<ul>
+<li>On the backend, updating places:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers.js
+// in updatePlace():
+if (place.creator.toString() !== req.userData.userId) {
+  const error = new HttpError('You are not allowed to edit this place.', 401);
+  return next(error);
+}
+
+place.title = title;
+// ...
+</code></pre>
+
+<h3 id="authorization-on-delete-places">Authorization on "Delete Places"</h3>
+<ul>
+<li>On the backend, deleting places:</li>
+</ul>
+<pre><code class="javascript">// backend/controllers/places-controllers.js
+// in deletePlace():
+if (place.creator.id !== req.userData.userId) {
+  const error = new HttpError('You are not allowed to edit this place.', 401);
+  return next(error);
+}
+
+const imagePath = place.image;
+</code></pre>
+
+<h3 id="storing-the-token-in-the-browser-storage">Storing the Token in the Browser Storage</h3>
+<ul>
+<li>Have Token survive page reloads by storing in browser's local storage</li>
+<li>Modify App.js on frontend:</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+const login = useCallback((uid, token) =&gt; {
+  setToken(token);
+  localStorage.setItem(
+    'userData',
+    JSON.stringify({
+      userId: uid,
+      token: token
+    })
+  );
+  setUserId(uid);
+}, []);
+</code></pre>
+
+<h3 id="adding-auto-login-basic-version">Adding Auto-Login (Basic Version)</h3>
+<ul>
+<li>By utilizing useEffect in App.js:</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+const logout = useCallback(() =&gt; {
+  setToken(null);
+  setUserId(null);
+  localStorage.removeItem('userData');
+}, []);
+
+useEffect(() =&gt; {
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  if (storedData &amp;&amp; storedData.token) {
+    login(storedData.userId, storedData.token);
+  }
+}, [login]);
+</code></pre>
+
+<h3 id="managing-the-token-expiration-date">Managing the Token Expiration Date</h3>
+<ul>
+<li>Modify App.js:</li>
+</ul>
+<pre><code class="javascript">const login = useCallback((uid, token, expirationDate) =&gt; {
+  setToken(token);
+  setUserId(uid);
+  const tokenExpirationDate =
+    expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+  localStorage.setItem(
+    'userData',
+    JSON.stringify({
+      userId: uid,
+      token: token,
+      expiration: tokenExpirationDate.toISOString()
+    })
+  );
+}, []);
+// ...
+// also make sure to pass in useEffect:
+useEffect(() =&gt; {
+  const storedData = JSON.parse(localStorage.getItem('userData'));
+  if (
+    storedData &amp;&amp;
+    storedData.token &amp;&amp;
+    new Date(storedData.expiration) &gt; new Date()
+  ) {
+    login(
+      storedData.userId,
+      storedData.token,
+      new Date(storedData.expiration)
+    );
+  }
+}, [login]);
+</code></pre>
+
+<h3 id="finished-auto-login-auto-logout">Finished Auto-Login &amp; Auto Logout</h3>
+<ul>
+<li>Set up logout timer in App.js with another useEffect</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+// ...
+let logoutTimer;
+
+const App = () =&gt; {
+  const [tokenExpirationDate, setTokenExpirationDate] = useState();
+  // ...
+  const logout = useCallback(() =&gt; {
+    setToken(null);
+    setTokenExpirationDate(null);
+    setUserId(null);
+    localStorage.removeItem('userData');
+  }, []);
+
+  useEffect(() =&gt; {
+    if (token &amp;&amp; tokenExpirationDate) {
+      const remainingTime = tokenExpirationDate.getTime() - new Date().getTime();
+      logoutTimer = setTimeout(logout, remainingTime);
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }, [token, logout, tokenExpirationDate]);
+};
+</code></pre>
+
+<h3 id="creating-a-custom-authentication-hook">Creating a Custom Authentication Hook</h3>
+<ul>
+<li>Move auth logic from App.js to custom hook</li>
+</ul>
+<pre><code class="javascript">// src/shared/hooks/auth-hook.js
+import { useState, useCallback, useEffect } from 'react';
+
+let logoutTimer;
+
+export const useAuth = () =&gt; {
+  const [token, setToken] = useState(false);
+  const [tokenExpirationDate, setTokenExpirationDate] = useState();
+  const [userId, setUserId] = useState(false);
+
+  const login = useCallback((uid, token, expirationDate) =&gt; {
+    setToken(token);
+    setUserId(uid);
+    const tokenExpirationDate =
+      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+    setTokenExpirationDate(tokenExpirationDate);
+    localStorage.setItem(
+      'userData',
+      JSON.stringify({
+        userId: uid,
+        token: token,
+        expiration: tokenExpirationDate.toISOString()
+      })
+    );
+  }, []);
+
+  const logout = useCallback(() =&gt; {
+    setToken(null);
+    setTokenExpirationDate(null);
+    setUserId(null);
+    localStorage.removeItem('userData');
+  }, []);
+
+  useEffect(() =&gt; {
+    if (token &amp;&amp; tokenExpirationDate) {
+      const remainingTime =
+        tokenExpirationDate.getTime() - new Date().getTime();
+      const minutesLeft = remainingTime / 60000;
+      console.log(minutesLeft + ' minutes left.');
+      logoutTimer = setTimeout(logout, remainingTime);
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }, [token, logout, tokenExpirationDate]);
+
+  useEffect(() =&gt; {
+    const storedData = JSON.parse(localStorage.getItem('userData'));
+    if (
+      storedData &amp;&amp;
+      storedData.token &amp;&amp;
+      new Date(storedData.expiration) &gt; new Date()
+    ) {
+      login(
+        storedData.userId,
+        storedData.token,
+        new Date(storedData.expiration)
+      );
+    }
+  }, [login]);
+
+  return { token, login, logout, userId };
+};
+</code></pre>
+
+<ul>
+<li>App.js final</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
+
+import Users from './user/pages/Users';
+import NewPlace from './places/pages/NewPlace';
+import UserPlaces from './places/pages/UserPlaces';
+import UpdatePlace from './places/pages/UpdatePlace';
+import Auth from './user/pages/Auth';
+import MainNavigation from './shared/components/Navigation/MainNavigation';
+import { AuthContext } from './shared/context/auth-context';
+import { useAuth } from './shared/hooks/auth-hook';
+
+const App = () =&gt; {
+  const { token, login, logout, userId } = useAuth();
+  let routes;
+
+  if (token) {
+    routes = (
+      &lt;Switch&gt;
+        &lt;Route path='/' exact&gt;
+          &lt;Users /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/:userId/places'&gt;
+          &lt;UserPlaces /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/places/new' exact&gt;
+          &lt;NewPlace /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/places/:placeId'&gt;
+          &lt;UpdatePlace /&gt;
+        &lt;/Route&gt;
+        &lt;Redirect to='/' /&gt;
+      &lt;/Switch&gt;
+    );
+  } else {
+    routes = (
+      &lt;Switch&gt;
+        &lt;Route path='/' exact&gt;
+          &lt;Users /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/:userId/places'&gt;
+          &lt;UserPlaces /&gt;
+        &lt;/Route&gt;
+        &lt;Route path='/auth' exact&gt;
+          &lt;Auth /&gt;
+        &lt;/Route&gt;
+        &lt;Redirect to='/auth' /&gt;
+      &lt;/Switch&gt;
+    );
+  }
+
+  return (
+    &lt;AuthContext.Provider
+      value={{
+        isLoggedIn: !!token,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout
+      }}
+    &gt;
+      &lt;Router&gt;
+        &lt;MainNavigation /&gt;
+        &lt;main&gt;{routes}&lt;/main&gt;
+      &lt;/Router&gt;
+    &lt;/AuthContext.Provider&gt;
+  );
+};
+
+export default App;
+</code></pre>
+
+<h3 id="general-app-improvements">General App Improvements</h3>
+<ul>
+<li>Modify places controllers to get creator from userData instead of req body</li>
+</ul>
+<pre><code class="javascript">const createdPlace = new Place({
+  // ...
+  creator: req.userData.userId
+});
+</code></pre>
+
+<h2 id="13-application-deployment">13. Application Deployment</h2>
+<h3 id="introduction_4">Introduction</h3>
+<ol>
+<li>Deployment Preparation</li>
+<li>Different Ways of Deploying MERN Apps</li>
+</ol>
+<h3 id="deployment-steps-overview">Deployment Steps Overview</h3>
+<ol>
+<li>Develop &amp; Test Your Code</li>
+<li>Swap URLs &amp; Credentials for Production-ready Ones<ul>
+<li>Consider using Environment Variables</li>
+</ul>
+</li>
+<li>Build &amp; Deploy</li>
+<li>Test Deployed Application, Monitor &amp; Adjust</li>
+</ol>
+<h3 id="using-environment-variables">Using Environment Variables</h3>
+<ul>
+<li>Utilizing nodemon</li>
+</ul>
+<pre><code class="json">// backend/nodemon.json
+{
+  &quot;env&quot;: {
+    &quot;DB_URL&quot;: &quot;mongodb://localhost:27017/react-training&quot;,
+    &quot;PORT&quot;: 5000,
+    &quot;GOOGLE_API_KEY&quot;: &quot;AIzaSyC7ap01wqRWATA7guCbFBvIgpbYZwKQIEo&quot;,
+    &quot;JWT_KEY&quot;: &quot;supersecret_dont_share&quot;
+  }
+}
+</code></pre>
+
+<h3 id="environment-variables-in-react-apps">Environment Variables in React Apps</h3>
+<ul>
+<li>Achieved with <code>.env</code> file in root folder<ul>
+<li><em>Everyone can see because it is running in browser!!</em></li>
+</ul>
+</li>
+</ul>
+<pre><code>REACT_APP_GOOGLE_API_KEY=AIzaSyC7ap01wqRWATA7guCbFBvIgpbYZwKQIEo
+REACT_APP_BACKEND_URL=http://192.168.2.2:5000/api
+REACT_APP_ASSET_URL=http://192.168.2.2:5000
+</code></pre>
+
+<pre><code class="html">&lt;!-- how to replace in index.html for google api key: --&gt;
+&lt;script
+  src=&quot;https://maps.googleapis.com/maps/api/js?key=%REACT_APP_GOOGLE_API_KEY%&quot;
+  async
+  defer
+&gt;&lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>Replace all instances of localhost, 192.168.2.2, etc with React env variables<ul>
+<li><code>${process.env.REACT_APP_BACKEND_URL}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="preparing-api-keys-and-credentials">Preparing API Keys and Credentials</h3>
+<ul>
+<li>Application &amp; Key restrictions on Google API keys</li>
+<li>Configuring whitelist for (cloud) mongodb database</li>
+</ul>
+<h3 id="building-the-react-app">Building the React App</h3>
+<ul>
+<li>To build: <code>npm run build</code></li>
+<li>Using production environment variables:<ul>
+<li>Using <code>.env.production</code> file<ul>
+<li>Automatically picked up by <code>npm run build</code></li>
+<li>Swap API keys, etc</li>
+<li>Will revisit URLs (i.e. localhost)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="adding-code-splitting-to-react">Adding Code Splitting to React</h3>
+<ul>
+<li>Prevent loading code that is not needed yet (lazy loading)</li>
+<li>Modify App.js</li>
+</ul>
+<pre><code class="javascript">// src/App.js
+import React, { Suspense } from 'react';
+
+// import Users from './user/pages/Users';
+// import NewPlace from './places/pages/NewPlace';
+// import UserPlaces from './places/pages/UserPlaces';
+// import UpdatePlace from './places/pages/UpdatePlace';
+// import Auth from './user/pages/Auth';
+
+const Users = React.lazy(() =&gt; import('./user/pages/Users'));
+const NewPlace = React.lazy(() =&gt; import('./places/pages/NewPlace'));
+const UserPlaces = React.lazy(() =&gt; import('./places/pages/UserPlaces'));
+const UpdatePlace = React.lazy(() =&gt; import('./places/pages/UpdatePlace'));
+const Auth = React.lazy(() =&gt; import('./user/pages/Auth'));
+
+// also need to wrap routes with Suspense
+&lt;Router&gt;
+  &lt;MainNavigation /&gt;
+  &lt;main&gt;
+    &lt;Suspense
+      fallback={
+        &lt;div className='center'&gt;
+          &lt;LoadingSpinner /&gt;
+        &lt;/div&gt;
+      }
+    &gt;
+      {routes}
+    &lt;/Suspense&gt;
+  &lt;/main&gt;
+&lt;/Router&gt;
+</code></pre>
+
+<h3 id="understanding-possible-deployment-alternatives">Understanding Possible Deployment Alternatives</h3>
+<ul>
+<li>Two main options<ul>
+<li>Deploy Two Separated Apps<ul>
+<li>React App<ul>
+<li>Static Host (only serve HTML, JS, and CSS)</li>
+<li>AWS S3, Firebase Hosting, etc...</li>
+</ul>
+</li>
+<li>Node REST API<ul>
+<li>Node.js Host</li>
+<li>AWS EC2 / EB, Heroku, etc...</li>
+</ul>
+</li>
+<li><strong><em>CORS Headers absolutely required!</em></strong></li>
+</ul>
+</li>
+<li>Deploy One Combined App<ul>
+<li>Node REST API which renders the React App, too</li>
+<li>Node.js Host</li>
+<li>AWS EC2 / EB, Heroku, etc...</li>
+<li><strong><em>CORS Headers are NOT required!</em></strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="deploying-a-standalone-rest-api-example-heroku">Deploying a Standalone REST API (Example: Heroku)</h3>
+<ul>
+<li>Hosting the NodeJS application</li>
+<li>Use Heroku<ul>
+<li>Create account</li>
+<li>Initialize git on project</li>
+<li>Install and setup heroku CLI</li>
+<li>Setup deployment<ul>
+<li>Settings &gt; Config Vars (for environment variables)<ul>
+<li>Make sure to set up port (heroku gives with <code>process.env.PORT</code>)</li>
+</ul>
+</li>
+<li>Whitelist network connection for MongoDB &lt;--&gt; Heroku</li>
+<li>Push code to Heroku</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="deploying-a-standalone-react-spa-example-firebase-hosting">Deploying a Standalone React SPA (Example: Firebase Hosting)</h3>
+<ul>
+<li>Replace React production environment variables for backend/asset URLs</li>
+<li>Can use <code>npm i -g serve</code> to serve static content to test the React web app build before deployment</li>
+<li>Use Firebase Hosting for hosting static React app<ul>
+<li>Install firebase tools<ol>
+<li><code>firebase login</code></li>
+<li><code>firebase init</code> (in project folder)</li>
+<li>Public directory? <code>build</code></li>
+<li>Single-page-app? <code>yes</code></li>
+<li>Don't overwrite index.html</li>
+<li><code>firebase deploy</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixing-style-issues">Fixing Style Issues</h3>
+<ul>
+<li>Styling issue related to ordering of styles<ul>
+<li>use <code>!important</code> or specify with <code>.card.user-item__content</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="deploying-a-combined-app">Deploying a Combined App</h3>
+<ul>
+<li>Grab build folder and copy to backend<ul>
+<li>React environment variables may change (urls)</li>
+</ul>
+</li>
+<li>Copy build folder into a backend/public/ folder</li>
+<li>After routes in app.js, serve public folder statically (comment out error for not found routes)</li>
+</ul>
+<pre><code class="javascript">// ...
+app.use('/api/users', usersRoutes); // =&gt; /api/users/ ...
+
+app.use(express.static(path.join('public')));
+
+// app.use((req, res, next) =&gt; {
+//   const error = new HttpError('Could not find this route.', 404);
+//   throw error;
+// });
+
+// ...
+</code></pre>
+
+<ul>
+<li>Then move to top and create catch-all route:</li>
+</ul>
+<pre><code class="javascript">app.use('/uploads/images', express.static(path.join('uploads', 'images')));
+app.use(express.static(path.join('public')));
+
+// ...
+
+app.use('/api/users', usersRoutes); // =&gt; /api/users/ ...
+
+app.use((req, res, next) =&gt; {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+</code></pre>
+
+<ul>
+<li>Now we can deploy it (heroku)</li>
+</ul>
+<h3 id="storing-filesuploads">Storing Files/Uploads</h3>
+<ul>
+<li>Files aren't persistently stored and are lost when server restarts<ul>
+<li>Host statically elsewhere? (Heroku specific solutions)</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-end">The End</h2>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../gcloud/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../gcloud/" class="btn btn-xs btn-link">
+        Google Cloud
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ng/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ng/" class="btn btn-xs btn-link">
+        Angular
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

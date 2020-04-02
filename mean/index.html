@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>MEAN - Notes</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "MEAN Stack", url: "#_top", children: [
+              {title: "Layout", url: "#layout" },
+              {title: "Angular Frontend", url: "#angular-frontend" },
+              {title: "Adding Node.js &amp; Express Backend", url: "#adding-nodejs-express-backend" },
+              {title: "Integrating MongoDB", url: "#integrating-mongodb" },
+              {title: "Enchancing the App", url: "#enchancing-the-app" },
+              {title: "Adding Image Uploads to our App", url: "#adding-image-uploads-to-our-app" },
+              {title: "Adding Pagination", url: "#adding-pagination" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ng/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ng/" class="btn btn-xs btn-link">
+        Angular
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../js/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../js/" class="btn btn-xs btn-link">
+        Javascript
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="mean-stack">MEAN Stack</h1>
+<p><img alt="bigpicture" src="../img/mean-big-picture.jpg" title="mean big picture" /></p>
+<h2 id="layout">Layout</h2>
+<pre><code>backend/
+    app.js
+script.js
+e2e/
+node_modules/
+src/
+...           # Other
+</code></pre>
+<hr />
+<h2 id="angular-frontend">Angular Frontend</h2>
+<p>Using Angular Material</p>
+<ul>
+<li><code>c:\project&gt; ng add @angular/material</code></li>
+</ul>
+<hr />
+<h2 id="adding-nodejs-express-backend">Adding Node.js &amp; Express Backend</h2>
+<hr />
+<h3 id="node-backend">Node Backend</h3>
+<pre><code class="javascript">// backend/app.js
+const express = require('express');
+
+const app = express();
+
+app.use('/api/posts', (req, res, next) =&gt; {
+    console.log('middleware');
+    next();
+});
+module.exports = app;
+</code></pre>
+
+<hr />
+<h3 id="express-framework-simple">Express Framework (Simple)</h3>
+<pre><code class="javascript">// server.js
+const http = require('http');
+const app = require('./backend/app');
+
+const port = process.env.PORT || 3000;
+
+app.set('port', port);
+const server = http.createServer(app);
+
+server.listen(port);
+</code></pre>
+
+<h3 id="express-framework-improved">Express Framework (Improved)</h3>
+<pre><code class="javascript">// server.js
+const app = require(&quot;./backend/app&quot;);
+const debug = require(&quot;debug&quot;)(&quot;node-angular&quot;);
+const http = require(&quot;http&quot;);
+
+const normalizePort = val =&gt; {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port &gt;= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+};
+
+const onError = error =&gt; {
+  if (error.syscall !== &quot;listen&quot;) {
+    throw error;
+  }
+  const bind = typeof port === &quot;string&quot; ? &quot;pipe &quot; + port : &quot;port &quot; + port;
+  switch (error.code) {
+    case &quot;EACCES&quot;:
+      console.error(bind + &quot; requires elevated privileges&quot;);
+      process.exit(1);
+      break;
+    case &quot;EADDRINUSE&quot;:
+      console.error(bind + &quot; is already in use&quot;);
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+};
+
+const onListening = () =&gt; {
+  const addr = server.address();
+  const bind = typeof port === &quot;string&quot; ? &quot;pipe &quot; + addr : &quot;port &quot; + port;
+  debug(&quot;Listening on &quot; + bind);
+};
+
+const port = normalizePort(process.env.PORT || &quot;3000&quot;);
+app.set(&quot;port&quot;, port);
+
+const server = http.createServer(app);
+server.on(&quot;error&quot;, onError);
+server.on(&quot;listening&quot;, onListening);
+server.listen(port);
+</code></pre>
+
+<hr />
+<h3 id="adding-the-get-backend-api-point">Adding the GET Backend API Point</h3>
+<pre><code class="javascript">// backend/app.js
+const express = require('express');
+
+const app = express();
+
+app.get('/api/posts', (req, res, next) =&gt; {
+    const posts = [
+        {
+            id: &quot;f01dofoen&quot;,
+            title: &quot;first server-side post&quot;,
+            content: &quot;this is coming from the server&quot;
+        },
+        {
+            id: &quot;f02dofoen&quot;,
+            title: &quot;second server-side post&quot;,
+            content: &quot;this is coming from the server!&quot;
+        }
+    ];
+
+    console.log('posts fetched from /api/posts');
+
+    res.status(200).json({
+        message: 'Posts fetched successfully!',
+        posts: posts
+    });
+});
+
+module.exports = app;
+</code></pre>
+
+<h3 id="handling-get-request-with-angular">Handling GET request with Angular</h3>
+<pre><code class="typescript">// posts.service.ts
+constructor(private http: HttpClient) {}
+getPosts() {
+  this.http.get&lt;{message: string, posts: Post[]}&gt;('http://localhost:3000/api/posts')
+    .subscribe((postData) =&gt; {
+      this.posts = postData.posts;
+      this.postsUpdated.next([...this.posts]);
+  });
+}
+</code></pre>
+
+<h3 id="backend-cors-and-setting-headers">Backend: CORS and Setting Headers</h3>
+<pre><code class="javascript">// backend/app.js
+
+app.use((req, res, next) =&gt; {
+    res.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
+    res.setHeader(
+        &quot;Access-Control-Allow-Header&quot;, 
+        &quot;Origin, X-Requested-With, Content-Type, Accept&quot;
+    );
+    res.setHeader(
+        &quot;Access-Control-Allow-Methods&quot;,
+        &quot;GET, POST, PATCH, DELETE, OPTIONS&quot;
+    )
+    next();
+});
+</code></pre>
+
+<h3 id="adding-the-post-backend-api-point">Adding the POST Backend API Point</h3>
+<pre><code class="typescript">app.post('/api/posts', (req, res, next) =&gt; {
+    const post = req.body;
+    console.log(post);
+    res.status(201).json({
+        message: 'Post added successfully'
+    });
+});
+</code></pre>
+
+<h2 id="integrating-mongodb">Integrating MongoDB</h2>
+<h3 id="what-is-mongodb">What is MongoDB?</h3>
+<ul>
+<li>A NoSQL Database which stores "Documents" in "Collections" (instead of "Records" in "Tables" as in SQL)</li>
+<li>Store Application Data</li>
+<li>Enforces no Data Schema or Relations</li>
+<li>Easily connected to Node/Express (<strong>NOT to Angular!</strong>)</li>
+</ul>
+<h3 id="nosql-vs-sql">NoSQL vs SQL</h3>
+<ul>
+<li>NoSQL</li>
+<li>MongoDB, CouchDB</li>
+<li>Enforces no Data Schema</li>
+<li>Less Focused on Relations</li>
+<li>"Independant Documents"</li>
+<li>Great for: Logs, Orders, (Chat) Messages</li>
+<li>SQL</li>
+<li>MySQL, MS SQL</li>
+<li>Enforces a Strict Data Schema</li>
+<li>Relations are a Core Feature</li>
+<li>Records are Related</li>
+<li>Great for: Shopping Carts, Contracts, Networks</li>
+<li>Connect Angular to the Database?</li>
+<li><strong>NO!</strong></li>
+<li>Secure Authentication is not really possible</li>
+<li>Full database would be exposed.</li>
+<li>Mongoose</li>
+<li>Package built on top of MongoDB driver</li>
+<li><code>npm i mongoose --save</code></li>
+<li>Constructing Post schema &amp; model</li>
+</ul>
+<pre><code class="javascript">// backend/models/post.js
+const mongoose = require('mongoose');
+
+const postSchema = mongoose.Schema({
+    title: { type: String, required: true },
+    content: { type: String, required: true }
+});
+
+module.exports = mongoose.model('Post', postSchema);
+</code></pre>
+
+<ul>
+<li>Saving a Post</li>
+</ul>
+<pre><code class="javascript">// backend/app.js
+// in app.post
+const post = new Post({
+    title: req.body.title,
+    content: req.body.content
+});
+post.save();
+</code></pre>
+
+<ul>
+<li>Fetch Posts from collection</li>
+</ul>
+<pre><code class="javascript">// backend/app.js
+// in app.get
+Post.find().then(documents =&gt; {
+  res.status(200).json({
+    message: 'Posts fetched successfully!',
+    posts: documents
+  });
+});
+</code></pre>
+
+<ul>
+<li>Delete from collection with ID</li>
+</ul>
+<pre><code class="javascript">// backend/app.js
+app.delete('/api/posts/:id', (req, res, next) =&gt; {
+  Post.deleteOne({ _id: req.params.id }).then(result =&gt; {
+    console.log(result);
+    res.status(200).json({message: 'Post deleted!'});
+  });
+});
+
+// src/app/posts/posts.service.ts
+deletePost(postId: string){
+  this.http.delete('http://localhost:3000/api/posts/' + postId)
+    .subscribe(() =&gt; {
+      // console.log('Deleted!');
+      // updating posts
+      const updatedPosts = this.posts.filter(post =&gt; post.id !== postId);
+      this.posts = updatedPosts;
+      this.postsUpdated.next([...this.posts]);
+    });
+}
+</code></pre>
+
+<ul>
+<li>Adding Posts with an ID</li>
+</ul>
+<pre><code class="typescript">//  src/app/posts/posts.service.ts 
+addPost(title: string, content: string) {
+  const post: Post = { id: null, title, content};
+  this.http
+    .post&lt;{message: string, postId: string}&gt;('http://localhost:3000/api/posts', post)
+    .subscribe(responseData =&gt; {
+      const id = responseData.postId;
+      post.id = id;
+      this.posts.push(post);
+      this.postsUpdated.next([...this.posts]);
+  });
+}
+
+//  backend/app.js
+app.post('/api/posts', (req, res, next) =&gt; {
+  const post = new Post({
+      title: req.body.title,
+      content: req.body.content
+  });
+  post.save().then(result =&gt; {
+      console.log(result);
+      res.status(201).json({
+          message: 'Post added successfully',
+          postId: result._id
+      });
+  });
+});
+</code></pre>
+
+<h2 id="enchancing-the-app">Enchancing the App</h2>
+<h3 id="adding-routing">Adding Routing</h3>
+<pre><code class="typescript">//  src/app/app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { PostListComponent } from './posts/post-list/post-list.component';
+import { PostCreateComponent } from './posts/post-create/post-create.component';
+
+const routes: Routes = [
+    { path: '', component: PostListComponent },
+    { path: 'create', component: PostCreateComponent }
+];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+
+export class AppRoutingModule {}
+//  import to app.module.ts
+</code></pre>
+
+<h4 id="header-links-with-routerlink">Header Links with RouterLink</h4>
+<pre><code class="html">&lt;!--
+  src/app/header/header.component.html 
+--&gt;
+&lt;mat-toolbar color=&quot;primary&quot;&gt;
+  &lt;span&gt;&lt;a routerLink=&quot;/&quot;&gt;MyMessages&lt;/a&gt;&lt;/span&gt;
+  &lt;ul&gt;
+      &lt;li&gt;
+          &lt;a routerLink=&quot;/create&quot;&gt;New Post&lt;/a&gt;
+      &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/mat-toolbar&gt;
+</code></pre>
+
+<h3 id="styling-links">Styling Links</h3>
+<pre><code class="css">/*
+  src/app/header/header.component.css 
+*/
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+</code></pre>
+
+<pre><code class="html">&lt;!--
+  src/app/header/header.component.html 
+--&gt;
+&lt;mat-toolbar color=&quot;primary&quot;&gt;
+    &lt;span&gt;&lt;a routerLink=&quot;/&quot;&gt;MyMessages&lt;/a&gt;&lt;/span&gt;
+    &lt;span class=&quot;spacer&quot;&gt;&lt;/span&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a mat-button routerLink=&quot;/create&quot; routerLinkActive=&quot;mat-accent&quot;&gt;New Post&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/mat-toolbar&gt;
+</code></pre>
+
+<h3 id="creating-the-edit-form">Creating the Edit Form</h3>
+<ul>
+<li>Using ActivatedRoute to find postId (if any) and distinguish create/edit modes</li>
+</ul>
+<pre><code class="typescript">//  src/app/posts/post-create.component.ts    (not all file contents as of this point shown here)
+export class PostCreateComponent implements OnInit {
+enteredTitle = '';
+enteredContent = '';
+private mode = 'create';
+private postId: string;
+private post: Post;
+
+constructor(public postsService: PostsService, public route: ActivatedRoute) {}
+
+ngOnInit() {
+  this.route.paramMap.subscribe((paramMap: ParamMap) =&gt; {
+    if (paramMap.has('postId')) {
+      this.mode = 'edit';
+      this.postId = paramMap.get('postId');
+      this.post = this.postsService.getPost(this.postId);
+    } else {
+      this.mode = 'create';
+      this.postId = null;
+    }
+  });
+}
+</code></pre>
+
+<pre><code class="html">  &lt;!-- src/app/posts/post-create.component.html    (not all file contents as of this point shown here) --&gt;
+  &lt;!-- edit button --&gt;
+  &lt;a mat-button color=&quot;primary&quot; [routerLink]=&quot;['/edit', post.id]&quot;&gt;EDIT&lt;/a&gt;
+</code></pre>
+
+<h3 id="finishing-edit-feature">Finishing Edit Feature</h3>
+<ul>
+<li>Creating PUT request</li>
+</ul>
+<pre><code class="javascript">//  backend/app.js
+app.put('/api/posts/:id', (req, res, next) =&gt; {
+  const post = new Post({
+      _id: req.body.id,
+      title: req.body.title,
+      content: req.body.content
+  });
+  Post.updateOne({ _id: req.params.id }, post).then(result =&gt; {
+      console.log(result);
+      res.status(200).json({message: 'Update Successful!'});
+  });
+});
+</code></pre>
+
+<ul>
+<li>Adding updatePost method to Posts Service</li>
+</ul>
+<pre><code class="typescript">//  src/app/posts/post.service.ts  
+updatePost(id: string, title: string, content: string) {
+  const post: Post = { id, title, content };
+  this.http.put('http://localhost:3000/api/posts/' + id, post)
+    .subscribe(response =&gt; console.log(response));
+}
+</code></pre>
+
+<ul>
+<li>Update onAddPost to onSavePost and adding logic to differentiate modes</li>
+</ul>
+<pre><code class="typescript">//  src/app/posts/post-create.component.ts
+onSavePost(form: NgForm) {
+  if (form.invalid) {
+    return;
+  }
+  if (this.mode === 'create'){
+    this.postsService.addPost(form.value.title, form.value.content);
+  } else {
+    this.postsService.updatePost(this.postId, form.value.title, form.value.content);
+  }
+  form.resetForm();
+}
+</code></pre>
+
+<h3 id="updating-posts-on-the-server">Updating Posts on the Server</h3>
+<ul>
+<li>Changing updatePost to locally update posts after successful response</li>
+</ul>
+<pre><code class="typescript">//  src/app/posts/post.service.ts
+updatePost(id: string, title: string, content: string) {
+  const post: Post = { id, title, content };
+  this.http.put('http://localhost:3000/api/posts/' + id, post)
+    .subscribe(response =&gt; {
+      const updatedPosts = [...this.posts];
+      const oldPostIndex = updatedPosts.findIndex(p =&gt; p.id === post.id);
+      updatedPosts[oldPostIndex] = post;
+      this.posts = updatedPosts;
+      this.postsUpdated.next([...this.posts]);
+    });
+}
+</code></pre>
+
+<ul>
+<li>Getting post data from server while on Post create component</li>
+<li>Add new route to backend API:</li>
+</ul>
+<pre><code class="javascript">//  backend/app.js
+app.get('/api/posts/:id', (req, res, next) =&gt; {
+  Post.findById(req.params.id).then(post =&gt; {
+      if (post) {
+          res.status(200).json(post);
+      } else {
+          res.status(404).json({message: 'Post not found!'});
+      }
+  });
+});
+</code></pre>
+
+<ul>
+<li>Changing getPost in Posts Service</li>
+</ul>
+<pre><code class="typescript">//  src/app/posts/post.service.ts
+getPost(id: string) {
+  return this.http.get&lt;{_id: string, title: string, content: string}&gt;('http://localhost:3000/api/posts/' + id);
+}
+</code></pre>
+
+<ul>
+<li>Updating post-create method to reflect changes</li>
+</ul>
+<pre><code class="typescript">//  src/app/posts/post-create/post-create.component.ts
+this.postsService.getPost(this.postId).subscribe(postData =&gt; {
+  this.post = {id: postData._id, title: postData.title, content: postData.content};
+});
+</code></pre>
+
+<ul>
+<li>Now must change ngModel in HTML file to check if post title &amp; content exists</li>
+</ul>
+<pre><code class="html">&lt;!-- src/app/posts/post-create.component.html --&gt;
+[ngModel]=&quot;post?.title&quot;
+[ngModel]=&quot;post?.content&quot;
+</code></pre>
+
+<h3 id="reorganizing-backend-routes">Reorganizing Backend Routes</h3>
+<ul>
+<li>Moving all routes in app.js to new folder &amp; file backend/routes/posts.js</li>
+</ul>
+<pre><code class="javascript">//  backend/routes/posts.js
+import { Router } from 'express';
+const Post = require('../models/post');
+
+const router = Router();
+
+// ...
+
+module.exports = router;
+</code></pre>
+
+<ul>
+<li>Using express router and exporting. Require in app.js and use</li>
+</ul>
+<pre><code class="javascript">//  backend/app.js
+const postsRoutes = require('./routes/posts');
+
+// ...
+
+app.use(postsRoutes);
+</code></pre>
+
+<ul>
+<li>Change to limit to /api/posts routes</li>
+</ul>
+<pre><code class="javascript">//  backend/app.js
+app.use('/api/posts', postsRoutes);
+
+//  backend/routes/posts.js
+router.post('',  // ...
+router.put('/:id', // ...
+//  etc  
+</code></pre>
+
+<h3 id="adding-loading-spinners-and-redirecting-to-messages-page-on-editadd">Adding Loading Spinners and Redirecting to Messages page on Edit/Add</h3>
+<ul>
+<li>Use isLoading property in list and create post components</li>
+<li>Set to false initially, true when needed</li>
+</ul>
+<p><code>isLoading = false;</code></p>
+<ul>
+<li>Redirects</li>
+</ul>
+<p><code>this.router.navigate(['/']);</code></p>
+<ul>
+<li>Using mat-spinner with *ngIf</li>
+</ul>
+<pre><code class="html">&lt;mat-spinner *ngIf=&quot;isLoading&quot;&gt;&lt;/mat-spinner&gt;
+&lt;mat-accordion multi=&quot;true&quot; *ngIf=&quot;posts.length &gt; 0 &amp;&amp; !isLoading&quot;&gt;
+</code></pre>
+
+<h2 id="adding-image-uploads-to-our-app">Adding Image Uploads to our App</h2>
+<ul>
+<li>Allowing an uploaded image with Post</li>
+</ul>
+<h3 id="adding-the-file-input-button">Adding the File Input Button</h3>
+<ul>
+<li>Adding button and an input, proxy button to input and hide</li>
+</ul>
+<pre><code class="html">&lt;div&gt;
+  &lt;button mat-stroked-button type=&quot;button&quot; (click)=&quot;filePicker.click()&quot;&gt;Pick Image&lt;/button&gt;
+  &lt;input type=&quot;file&quot; #filePicker&gt;
+&lt;/div&gt;
+</code></pre>
+
+<ul>
+<li>Hiding with CSS</li>
+</ul>
+<pre><code class="css">input[type=&quot;file&quot;] {
+  visibility: hidden;
+}
+</code></pre>
+
+<h3 id="converting-the-form-from-a-template-driven-to-a-reactive-approach">Converting the Form from a Template Driven to a Reactive Approach</h3>
+<ul>
+<li>Going from Angular handling form, registering controls with ngModel, to Reactive with advanced features</li>
+<li>Features include custom validators</li>
+<li>We define all of this, including controls, in Reactive approach</li>
+<li>Must import to App Module:</li>
+</ul>
+<pre><code class="typescript">// replace FormsModule with ReactiveFormsModule in import and imports array
+import { ReactiveFormsModule } from '@angular/forms';
+// ...
+imports: [
+//...
+ReactiveFormsModule,
+//...
+]
+</code></pre>
+
+<ul>
+<li>Remove the ngModel, postForm ngForm, and validators</li>
+<li>Now create form programmatically in Typescript</li>
+<li>Starting with form Property</li>
+</ul>
+<pre><code class="typescript">//  import &amp; use FormGroup instead of NgForm:
+// import { NgForm } from '@angular/forms';      
+import { FormGroup } from '@angular/forms';
+//  ...
+form: FormGroup;
+
+//  define in ngOnInit : 
+this.form = new FormGroup({
+  title: new FormControl(null, {
+    validators: [Validators.required, Validators.minLength(3)]
+  }),
+  content: new FormControl(null, {
+    validators: [Validators.required]
+  })
+});
+
+//  for form reset, use this.form.reset() instead:
+this.form.reset();
+// form.resetForm();
+</code></pre>
+
+<ul>
+<li>Changes to HTML:</li>
+</ul>
+<pre><code class="html">&lt;form [formGroup]=&quot;form&quot; (submit)=&quot;onSavePost()&quot; *ngIf=&quot;!isLoading&quot;&gt;
+  &lt;mat-form-field&gt;
+    &lt;input
+      matInput
+      type=&quot;text&quot;
+      formControlName=&quot;title&quot;
+      placeholder=&quot;Post Title&quot;&gt;
+    &lt;mat-error *ngIf=&quot;form.get('title').invalid&quot;&gt;Please enter a post title.&lt;/mat-error&gt;
+  &lt;/mat-form-field&gt;
+</code></pre>
+
+<h3 id="adding-image-controls-to-store-the-image">Adding Image Controls to Store the Image</h3>
+<ul>
+<li>First add change event to input control:</li>
+</ul>
+<pre><code class="html">&lt;input type=&quot;file&quot; #filePicker (change)=&quot;onImagePicked($event)&quot;&gt;
+</code></pre>
+
+<ul>
+<li>Implement onImagePicked:</li>
+</ul>
+<pre><code class="typescript">onImagePicked(event: Event) {
+  const file = (event.target as HTMLInputElement).files[0];
+  this.form.patchValue({ image: file });
+  this.form.get('image').updateValueAndValidity();
+}
+</code></pre>
+
+<h3 id="adding-image-preview">Adding Image Preview</h3>
+<ul>
+<li>Add to HTML template:</li>
+</ul>
+<pre><code class="html">&lt;div class=&quot;image-preview&quot;&gt;
+  &lt;img src=&quot;&quot; [alt]=&quot;form.value.title&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+
+<ul>
+<li>New property in TS file and access with FileReader:</li>
+</ul>
+<pre><code class="typescript">imagePreview: string;
+//  ...
+//  in onImagePicked:
+  //  ...
+  const reader = new FileReader();
+  reader.onload = () =&gt; {
+    this.imagePreview = (reader.result as string);
+  };
+  reader.readAsDataURL(file);
+</code></pre>
+
+<ul>
+<li>Adjust HTML element</li>
+</ul>
+<pre><code class="html">&lt;div class=&quot;image-preview&quot; *ngIf=&quot;imagePreview !== '' &amp;&amp; imagePreview&quot;&gt;
+  &lt;img [src]=&quot;imagePreview&quot; [alt]=&quot;form.value.title&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="setting-up-a-validator-with-mime-type-validator">Setting up a validator with Mime-Type Validator</h3>
+<ul>
+<li>Create file mime-type.validator.ts in posts-create</li>
+<li>will be async</li>
+</ul>
+<pre><code class="typescript">//  src/app/posts/post-create/mime-type.validator.ts
+import { AbstractControl } from '@angular/forms';
+import { Observable, Observer } from 'rxjs';
+
+export const mimeType = (control: AbstractControl): Promise&lt;{[key: string]: any}&gt; | Observable&lt;{[key: string]: any}&gt; =&gt; {
+    const file = control.value as File;
+    const fileReader = new FileReader();
+    const frObs = new Observable(
+        (observer: Observer&lt;{[key: string]: any}&gt;) =&gt; {
+            fileReader.addEventListener('loadend', () =&gt; {
+                const arr = new Uint8Array(fileReader.result as ArrayBuffer).subarray(0, 4);
+                let header = '';
+                let isValid = false;
+                // tslint:disable-next-line: prefer-for-of
+                for (let i = 0; i &lt; arr.length; i++) {
+                    header += arr[i].toString(16);
+                }
+                switch (header) {
+                    case '89504e47':
+                        isValid = true;
+                        break;
+                    case 'ffd8ffe0':
+                    case 'ffd8ffe1':
+                    case 'ffd8ffe2':
+                    case 'ffd8ffe3':
+                    case 'ffd8ffe8':
+                        isValid = true;
+                        break;
+                    default:
+                        isValid = false; // Or you can use the blob.type as fallback
+                        break;
+                }
+                if (isValid) {
+                    observer.next(null);
+                } else {
+                    observer.next({ invalidMimeType: true });
+                }
+                observer.complete();
+            });
+            fileReader.readAsArrayBuffer(file);
+        }
+    );
+    return frObs;
+};
+</code></pre>
+
+<h3 id="adding-server-side-upload">Adding Server Side Upload</h3>
+<p><code>npm i --save multer</code></p>
+<ul>
+<li>Attach to certain routes that should be able to accept files</li>
+<li>Import to backend/routes/posts.js
+    <code>const multer = require('multer')</code></li>
+<li>Use diskStorage</li>
+</ul>
+<pre><code class="javascript">//  backend/posts.js
+const storage = multer.diskStorage({
+    destination: (req, file, cb) =&gt; {
+        const isValid = MIME_TYPE_MAP[file.mimetype];
+        let error = new Error('Invalid mime type');
+        if (isValid) {
+            error = null;
+        }
+        cb(error, 'backend/images');
+    },
+    filename: (req, file, cb) =&gt; {
+        const name = file.originalname.toLowerCase().split(' ').join('-');
+        const ext = MIME_TYPE_MAP[file.mimetype];
+        cb(null, name + '-' + Date.now() + '.' + ext);
+    }
+});
+
+//  pass as arg into post route:
+router.post('', multer({storage}).single('image'), (req, res, next) =&gt; {
+//  ...
+</code></pre>
+
+<h3 id="adding-the-code-to-angular-and-front-end-to-upload-file">Adding the code to Angular and Front-end to Upload File</h3>
+<ul>
+<li>In addPost (posts service), now use FormData instead of JSON</li>
+</ul>
+<pre><code class="javascript">//  posts.service.ts
+addPost(title: string, content: string, image: File) {
+  // const post: Post = { id: null, title, content};
+  const postData = new FormData();
+  postData.append('title', title);
+  postData.append('content', content);
+  postData.append('image', image, title);
+  this.http
+    .post&lt;{message: string, postId: string}&gt;(
+      'http://localhost:3000/api/posts',
+      postData
+    )
+    .subscribe(responseData =&gt; {
+      const post: Post = {
+        id: responseData.postId,
+        title,
+        content
+      };
+      this.posts.push(post);
+      this.postsUpdated.next([...this.posts]);
+      this.router.navigate(['/']);
+  });
+}
+</code></pre>
+
+<h3 id="working-with-file-url">Working with file URL</h3>
+<ul>
+<li>Add to posts.js, posts.service.ts, post-create, and update models</li>
+</ul>
+<pre><code class="javascript">//  posts.js
+//  in router.post
+const url = req.protocol + '://' + req.get('host');
+const post = new Post({
+    title: req.body.title,
+    content: req.body.content,
+    imagePath: url + '/images/' + req.file.filename
+});
+//  ...
+//  use of spread syntax for post instance:
+message: 'Post added successfully',
+res.status(201).json({
+    message: 'Post added successfully',
+    post: {
+        ...createdPost,
+        id: createdPost._id
+        // title: createdPost.title,
+        // content: createdPost.content,
+        // imagePath: createdPost.imagePath
+    }
+});
+
+//  posts.service.ts
+return {
+  title: post.title,
+  content: post.content,
+  id: post._id,
+  imagePath: post.imagePath
+};
+
+//  imagePath set to null for now in post-create component
+</code></pre>
+
+<h3 id="fetch-images-on-the-front-end">Fetch images on the Front-End</h3>
+<ul>
+<li>First, in HTML</li>
+</ul>
+<pre><code class="html">&lt;!-- post-list component in between post title and content --&gt;
+&lt;div class=&quot;post-image&quot;&gt;
+  &lt;img [src]=&quot;post.imagePath&quot; [alt]=&quot;post.title&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+
+<ul>
+<li>Use Express &amp; Path to serve images to front-end</li>
+</ul>
+<p><code>app.use('/images', express.static(path.join('backend/images')));</code></p>
+<h3 id="editupdate-posts">Edit/Update Posts</h3>
+<ul>
+<li>Change our update function</li>
+</ul>
+<pre><code class="typescript">//  posts.service.ts
+//  in updatePost
+// const post: Post = { id, title, content, imagePath: null };
+let postData: Post | FormData;
+if (typeof(image) === 'object') {
+  postData = new FormData();
+  postData.append('title', title);
+  postData.append('content', content);
+  postData.append('image', image, title);
+} else {
+  postData = {
+    id,
+    title,
+    content,
+    imagePath: image
+  };
+}
+</code></pre>
+
+<ul>
+<li>Add a check for control value in mime-type validator </li>
+</ul>
+<pre><code class="typescript">if (typeof(control.value) === 'string') {
+    return of(null);
+}
+</code></pre>
+
+<ul>
+<li>Add imagePath to what getPost returns in post service</li>
+</ul>
+<pre><code class="typescript">getPost(id: string) {
+  return this.http.get&lt;{
+    _id: string,
+    title: string,
+    content: string,
+    imagePath: string
+  }&gt;('http://localhost:3000/api/posts/' + id);
+}
+</code></pre>
+
+<ul>
+<li>Add a check for undefined in put request '/:id', and if it is a file, use same logic as in post request</li>
+</ul>
+<pre><code class="typescript">//  posts.js, in router.put('/:id')
+let imagePath = req.body.imagePath;
+if (req.file) {
+    const url = req.protocol + '://' + req.get('host');
+    imagePath = url + '/images/' + req.file.filename
+}
+const post = new Post({
+    _id: req.body.id,
+    title: req.body.title,
+    content: req.body.content,
+    imagePath
+});
+</code></pre>
+
+<ul>
+<li>Also must append id to prevent new one being generated in updatePost within post service:
+<code>postData.append('id', id);</code></li>
+</ul>
+<h2 id="adding-pagination">Adding Pagination</h2>
+<ul>
+<li>Sets of Posts, pages</li>
+<li>Also give user flexibility to decide # of posts on page.</li>
+<li>Use Angular Material
+<code>import { ..., ... MatPaginatorModule, ... } from '@angular/material';</code>
+<code>imports: [..., ..., MatPaginatorModule,...]</code></li>
+</ul>
+<h3 id="adding-the-component">Adding the Component</h3>
+<ul>
+<li>
+<p>In post-list.component.html
+<code>&lt;mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"&gt;&lt;/mat-paginator&gt;</code></p>
+</li>
+<li>
+<p>In post-list.component.ts</p>
+</li>
+</ul>
+<pre><code class="typescript">totalPosts = 10;
+postsPerPage = 2;
+pageSizeOptions = [1, 2, 5, 10];
+// ...
+onChangedPage(pageData: PageEvent) {
+</code></pre>
+
+<ul>
+<li>Fix spacing in CSS
+<code>mat-paginator { margin-top: 1rem; }</code></li>
+</ul>
+<h3 id="working-on-pagination-backend">Working on Pagination Backend</h3>
+<ul>
+<li>Implement pagination on get all posts using Query Parameters</li>
+</ul>
+<pre><code class="javascript">router.get('', (req, res, next) =&gt; {
+    const pageSize = req.query.pagesize;
+    const currentPage = req.query.page;
+    const postQuery = Post.find();
+    if (pageSize &amp;&amp; currentPage) {
+        postQuery
+            .skip(pageSize * (currentPage - 1))
+            .limit(pageSize);
+    }
+    postQuery.then(documents =&gt; {
+        res.status(200).json({
+            message: 'Posts fetched successfully!',
+            posts: documents
+        });
+    });
+});
+</code></pre>
+
+<h3 id="connecting-the-angular-paginator-to-the-backend">Connecting the Angular Paginator to the Backend</h3>
+<ul>
+<li>Add query params to getPosts() in posts service</li>
+</ul>
+<pre><code class="typescript">getPosts(postsPerPage: number, currentPage: number) {
+  const queryParams = `?pagesize=${postsPerPage}&amp;page=${currentPage}`;
+  this.http
+    .get&lt;{ message: string, posts: any }&gt;(
+      'http://localhost:3000/api/posts' + queryParams
+    )
+    .pipe(map((postData) =&gt; {
+      return postData.posts.map(post =&gt; {
+        return {
+          title: post.title,
+          content: post.content,
+          id: post._id,
+          imagePath: post.imagePath
+        };
+      });
+    }))
+    .subscribe(transformedPosts =&gt; {
+      this.posts = transformedPosts;
+      this.postsUpdated.next([...this.posts]);
+    });
+}
+</code></pre>
+
+<ul>
+<li>Adjust in list component</li>
+</ul>
+<pre><code class="typescript">// ngOnInit
+  this.postsService.getPosts(this.postsPerPage, this.currentPage);
+//... 
+onChangedPage(pageData: PageEvent) {
+  this.currentPage = pageData.pageIndex + 1;
+  this.postsPerPage = pageData.pageSize;
+  this.postsService.getPosts(this.postsPerPage, this.currentPage);
+}
+</code></pre>
+
+<h3 id="fetching-posts-correctly">Fetching posts correctly</h3>
+<ul>
+<li>Display spinner by integrating isLoading to new function</li>
+<li>Adjust get all posts query</li>
+</ul>
+<pre><code class="javascript">router.get('', (req, res, next) =&gt; {
+    const pageSize = +req.query.pagesize;
+    const currentPage = +req.query.page;
+    const postQuery = Post.find();
+    let fetchedPosts;
+    if (pageSize &amp;&amp; currentPage) {
+        postQuery
+            .skip(pageSize * (currentPage - 1))
+            .limit(pageSize);
+    }
+    postQuery
+        .then(documents =&gt; {
+            fetchedPosts = documents;
+            return Post.count();
+        })
+        .then(count =&gt; {
+            res.status(200).json({
+                message: 'Posts fetched successfully!',
+                posts: fetchedPosts,
+                maxPosts: count
+            });
+        });
+});
+</code></pre>
+
+<ul>
+<li>Update Posts Service</li>
+<li>Subject: <code>private postsUpdated = new Subject&lt;{posts: Post[], postCount: number}&gt;();</code></li>
+<li>Get posts</li>
+</ul>
+<pre><code class="typescript">  getPosts(postsPerPage: number, currentPage: number) {
+  const queryParams = `?pagesize=${postsPerPage}&amp;page=${currentPage}`;
+  this.http
+    .get&lt;{ message: string, posts: any, maxPosts: number }&gt;(
+      'http://localhost:3000/api/posts' + queryParams
+    )
+    .pipe(
+      map(postData =&gt; {
+        return { posts: postData.posts.map(post =&gt; {
+          return {
+            title: post.title,
+            content: post.content,
+            id: post._id,
+            imagePath: post.imagePath
+          };
+        }),
+        maxPosts: postData.maxPosts
+      };
+    }))
+    .subscribe(transformedPostData =&gt; {
+      this.posts = transformedPostData.posts;
+      this.postsUpdated.next({posts: [...this.posts], postCount: transformedPostData.maxPosts});
+    });
+}
+</code></pre>
+
+<h3 id="finishing-touches">Finishing Touches</h3>
+<ul>
+<li>Adjust subscribe in posts service, update and add post, to just navigate. Not needed here anymore.</li>
+<li>Change delete post to just return the http request</li>
+<li>Adjust post list component to subscribe and call get posts:</li>
+</ul>
+<pre><code class="typescript">onDelete(postId: string) {
+    this.isLoading = true;
+    this.postsService.deletePost(postId).subscribe(() =&gt; {
+    this.postsService.getPosts(this.postsPerPage, this.currentPage);
+  });
+}
+</code></pre>
+
+<ul>
+<li>Adjust subscription in post list component NgOnInit</li>
+</ul>
+<pre><code class="typescript">ngOnInit() {
+  this.isLoading = true;
+  this.postsService.getPosts(this.postsPerPage, this.currentPage);
+  this.postsSub = this.postsService.getPostUpdateListener()
+    .subscribe((postData: {posts: Post[], postCount: number}) =&gt; {
+      this.isLoading = false;
+      this.totalPosts = postData.postCount;
+      this.posts = postData.posts;
+    });
+}
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ng/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ng/" class="btn btn-xs btn-link">
+        Angular
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../js/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../js/" class="btn btn-xs btn-link">
+        Javascript
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

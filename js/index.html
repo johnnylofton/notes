@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Javascript - Notes</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Javascript", url: "#_top", children: [
+              {title: "Usage and History", url: "#usage-and-history" },
+              {title: "Language Features", url: "#language-features" },
+              {title: "Operators", url: "#operators" },
+              {title: "Functions and Scope", url: "#functions-and-scope" },
+              {title: "Objects and Arrays", url: "#objects-and-arrays" },
+              {title: "Classes and Modules", url: "#classes-and-modules" },
+              {title: "Programming the BOM and DOM", url: "#programming-the-bom-and-dom" },
+              {title: "Promises and Error Handling", url: "#promises-and-error-handling" },
+              {title: "Data Access Using HTTP", url: "#data-access-using-http" },
+              {title: "Forms", url: "#forms" },
+              {title: "Chrome Dev Tools and Security", url: "#chrome-dev-tools-and-security" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mean/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mean/" class="btn btn-xs btn-link">
+        MEAN
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../mkdocs/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mkdocs/" class="btn btn-xs btn-link">
+        MkDocs
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="javascript">Javascript</h1>
+<h2 id="usage-and-history">Usage and History</h2>
+<ul>
+<li>Web Browsers</li>
+<li>Applications</li>
+<li>Desktop - Electron</li>
+<li>Mobile - Cordova</li>
+<li>Server - Node.js</li>
+<li>History / Versions</li>
+<li>1995 - Created</li>
+<li>1997 - Standardizing</li>
+<li>1999 - ECMAScript 3</li>
+<li>2009 - ECMAScript 5</li>
+<li>2015 ECMAScript 2015 (ES6)<ul>
+<li>Yearly updates since</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="language-features">Language Features</h2>
+<h3 id="constants-variable-that-cannot-change">Constants - variable that <strong>cannot</strong> change</h3>
+<ul>
+<li><code>const</code></li>
+<li>Must be initiated - <code>const x = 2</code></li>
+</ul>
+<h3 id="variable-declarations">Variable Declarations</h3>
+<ul>
+<li><code>let</code></li>
+<li>Cannot be called before declared</li>
+<li>Has <a href="http://www.benmvp.com/learning-es6-block-level-scoping-let-const/">block scoping</a></li>
+<li><code>var</code></li>
+<li>undefined before declaration</li>
+</ul>
+<h3 id="rest-parameters">Rest Parameters</h3>
+<ul>
+<li>The <em>rest</em> or remaining parameters</li>
+<li>Must be last argument</li>
+<li><code>function x(z, ...y)</code><ul>
+<li><code>z</code> - named parameter</li>
+<li><code>...y</code> - rest parameter, as array</li>
+</ul>
+</li>
+</ul>
+<h3 id="destructuring-arrays">Destructuring Arrays</h3>
+<ul>
+<li>Assign values in array to variables</li>
+</ul>
+<pre><code class="javascript">let carIds = [1, 2, 5];
+let [car1, car2, car3] = carIds;
+// with rest parameters:
+let car1, remainingCars;
+[car1, ...remainingCars] = carIds
+// log
+// 1 [2, 5]
+</code></pre>
+
+<h3 id="destructuring-objects">Destructuring Objects</h3>
+<ul>
+<li><code>{ }</code> instead of <code>[ ]</code> for objects</li>
+</ul>
+<pre><code class="javascript">let car = { id: 5000, style: &quot;convertible&quot; }
+let { id, style } = car;
+// log
+// 5000, convertible
+</code></pre>
+
+<ul>
+<li>Put destructuring in <code>( )</code> if variables already declared</li>
+</ul>
+<pre><code class="javascript">let id, style;
+({id, style} = car);
+</code></pre>
+
+<h3 id="spread-syntax">Spread Syntax</h3>
+<ul>
+<li>Take array, spread out elements for parameters</li>
+<li>Similar to rest syntax, does the opposite</li>
+</ul>
+<pre><code class="javascript">let carIds = [100, 300, 500];
+startCars(...carIds);
+</code></pre>
+
+<ul>
+<li>Can iterate through <strong>arrays</strong> <em>and</em> <strong>strings</strong></li>
+</ul>
+<h3 id="typeof">typeof()</h3>
+<ul>
+<li>Returns a <strong>string</strong></li>
+</ul>
+<pre><code class="javascript">typeof(1);              // 'number'
+typeof(true);           // 'boolean'
+typeof('Hello')         // 'string'
+typeof(function() {});  // 'function'
+typeof({});             // 'object'
+typeof(null);           // 'object'
+typeof(undefined)       // 'undefined'
+typeof(NaN);            // 'number'
+// NaN - not a number
+</code></pre>
+
+<h3 id="common-type-conversions">Common Type Conversions</h3>
+<ul>
+<li>Convert to string - <code>foo.toString();</code></li>
+<li>String to integer - <code>Number.parseInt('55');</code></li>
+<li>String to number - <code>Number.parseFloat('55.99');</code></li>
+</ul>
+<h3 id="controlling-loops">Controlling Loops</h3>
+<ul>
+<li>Use <code>break</code> to get out of a loop</li>
+<li>Use <code>continue</code> to finish iteration (without rest of body)</li>
+</ul>
+<hr />
+<h2 id="operators">Operators</h2>
+<h3 id="equality-operators">Equality operators</h3>
+<ul>
+<li><code>(var1 == var2)</code> - JS will attempt to convert to matching types for comparison</li>
+<li><code>(var1 === var2)</code> - No conversion, types must be equal. 'Strict Equality'</li>
+</ul>
+<h3 id="unary-operators">Unary operators</h3>
+<ul>
+<li><code>++var</code> or <code>var++</code> - Increment</li>
+<li><code>--var</code> or <code>var--</code> - Decrement</li>
+<li><code>+var</code> - string to numertical type</li>
+<li><code>-var</code> - negation, changes sign of numeric type</li>
+</ul>
+<h3 id="logical-boolean-operators">Logical (Boolean) operators</h3>
+<ul>
+<li><code>&amp;&amp;</code>  - AND</li>
+<li><code>||</code>  - OR</li>
+<li><code>!</code>   - NOT, convert to bool, flip</li>
+</ul>
+<h3 id="relational-operators">Relational Operators</h3>
+<ul>
+<li>Compared by ASCII</li>
+<li><code>&gt;</code>, <code>&gt;=</code> - greater than, greater than or equal to</li>
+<li><code>&lt;</code>, <code>&lt;=</code> - less than, less than or equal to</li>
+</ul>
+<h3 id="conditional-operators">Conditional Operators</h3>
+<ul>
+<li><code>?</code> used in shorthand <code>if</code></li>
+<li><code>condition ? exprIfTrue : exprIfFalse</code></li>
+<li>ex: <code>console.log((5&gt;4) ? 'yes' : 'no');   // yes</code></li>
+</ul>
+<h3 id="assignment-operators">Assignment Operators</h3>
+<ul>
+<li><code>+=, -=, /=, *=, %=</code></li>
+<li><code>&lt;&lt;=</code> - shift bits to left</li>
+<li><code>&gt;&gt;=</code> - shift bits to right</li>
+<li><code>&gt;&gt;&gt;=</code> - shift but keep the sign</li>
+</ul>
+<h3 id="operator-precendence">Operator Precendence</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">Full Chart</a></p>
+<ul>
+<li>
+<p>Highest to Lowest</p>
+</li>
+<li>
+<p>Grouping (...)</p>
+</li>
+<li>Multiplication, Division, Remainder</li>
+<li>Addition, Subtraction</li>
+<li>Logical AND</li>
+<li>Logical OR</li>
+</ul>
+<hr />
+<h2 id="functions-and-scope">Functions and Scope</h2>
+<h3 id="function-scope">Function scope</h3>
+<ul>
+<li>
+<p>Variables that can be accessed with a function of a nested function</p>
+</li>
+<li>
+<p><strong><em>lifetime</em></strong></p>
+</li>
+<li>
+<p>If not available in function, looks to parent function</p>
+</li>
+</ul>
+<h3 id="block-scope">Block scope</h3>
+<ul>
+<li><code>{ }</code> not in a function</li>
+<li>Using <code>let</code> for block scope</li>
+<li>No block scope for <code>var</code>, no such thing for these</li>
+<li>IIFE's - Immediately Invoked Function Expression</li>
+<li>ex:</li>
+</ul>
+<pre><code class="javascript">(function () {
+    console.log('in function');
+})();
+// can return values this way
+let app = (function () {
+    let carId = 123;
+    console.log('in function');
+    return {};
+})();
+
+console.log(app);
+// [Function: app]
+</code></pre>
+
+<h3 id="closures">Closures</h3>
+<ul>
+<li>Keeping a function, it's variables and nested function in scope</li>
+<li>ex:</li>
+</ul>
+<pre><code class="javascript">let app = (function() {
+    let carId = 123;
+    let getId = function() {
+        return carId;
+    };
+    return {
+        getId: getId    //  reference
+    };
+})();
+console.log(app.getId());
+// 123
+</code></pre>
+
+<h3 id="the-this-keyword">The <strong>this</strong> keyword</h3>
+<ul>
+<li>Context for the function</li>
+<li>ex:</li>
+</ul>
+<pre><code class="javascript">let o = {
+    carId: 123,
+    getId: function() {
+        return this.carId;
+    }
+};
+console.log(o.getId());
+// 123
+
+</code></pre>
+
+<ul>
+<li>Context can change, ie <code>this</code> value can change</li>
+</ul>
+<h4 id="call-and-apply">Call and apply</h4>
+<ul>
+<li>Change values of <code>this</code> to change the object which is the context of the function</li>
+<li>With previous example:</li>
+</ul>
+<pre><code class="javascript">// call ex:
+let newCar = { carId: 456 };
+console.log(o.getId.call(newCar)); //456
+// apply ex
+/*
+getId: function (prefix) {
+    return prefix + this.carId;
+}
+*/
+console.log(o.getId.apply(newCar, ['id: ']))
+// ID: 456
+</code></pre>
+
+<ul>
+<li>Call and apply similar, except <em>apply</em> accepts array of args</li>
+</ul>
+<h4 id="bind">Bind</h4>
+<ul>
+<li>Make copy of a function and change context / <code>this</code> value.</li>
+<li><code>let newFn = o.getId.bind(newCar);</code></li>
+</ul>
+<h3 id="arrow-functions">Arrow Functions</h3>
+<ul>
+<li>Function declarations</li>
+<li>Arrow function symbol: <code>=&gt;</code></li>
+<li><code>let getId = () =&gt; 123; //no params</code></li>
+<li>More examples</li>
+</ul>
+<pre><code class="javascript">let getId = prefix =&gt; prefix + 123;
+console.log(getId('ID: '));         // ID: 123
+
+let getId = (prefix, suffix) =&gt; prefix + 123 + suffix;
+console.log(getId('ID: ', '!'));    // ID: 123!
+
+// with braces / return keyword required
+let getId = (prefix, suffix) =&gt; {
+    return prefix + 123 + suffix;
+};
+// same result as previous
+
+// use with underscore:
+let getId = _ =&gt; 123;
+</code></pre>
+
+<blockquote>
+<p>Arrow functions do <strong>NOT</strong> have their own <code>this</code> value. <code>this</code> refers to enclosing context</p>
+</blockquote>
+<h3 id="default-parameters">Default Parameters</h3>
+<ul>
+<li>ex:</li>
+</ul>
+<pre><code class="javascript">let trackCar = function(carId, city='NY') {
+    // using backticks for interpreting variables
+    console.log(`Tracking ${carId} in ${city}.`);
+}
+</code></pre>
+
+<ul>
+<li>Like other defaults, must be on right side.</li>
+<li>Default overwritten if defined.</li>
+</ul>
+<hr />
+<h2 id="objects-and-arrays">Objects and Arrays</h2>
+<h3 id="constructor-functions">Constructor Functions</h3>
+<ul>
+<li>Examples</li>
+</ul>
+<pre><code class="javascript">function Car() { }          // capitalized name as convention`
+let car = new Car();
+</code></pre>
+
+<pre><code class="javascript">function Car(id) {
+    this.carId = id;
+}
+let car = new Car(123);
+console.log(car.carId);     // 123
+</code></pre>
+
+<ul>
+<li>Method: function run on an object</li>
+</ul>
+<pre><code class="javascript">function Car(id) {
+    this.carId = id;
+    this.start = function () {
+        console.log('Start: ' + this.carId);
+    };
+}
+let vehicle = new Car(123);
+vehicle.start();            // Start: 123
+</code></pre>
+
+<hr />
+<h3 id="prototypes">Prototypes</h3>
+<pre><code class="javascript">// using previous example
+Car.prototype.start = function() {
+    console.log('Start: ' + this.carId);
+}   // single copy, instead of one function for each object
+</code></pre>
+
+<ul>
+<li>Expanding Objects using Prototypes</li>
+<li>Give new functionality to objects</li>
+</ul>
+<pre><code class="javascript">String.prototype.hello = function() {
+    return this.toString() + ' Hello';
+};
+console.log('foo'.hello());     // foo Hello
+</code></pre>
+
+<h3 id="javascript-object-notation-json">Javascript Object Notation (JSON)</h3>
+<pre><code class="javascript">let car = {
+    id: 123,
+    style: 'convertible'
+};
+console.log(JSON.stringify(car));
+// { &quot;id&quot;: 123, &quot;style&quot;: &quot;convertible&quot; }
+</code></pre>
+
+<pre><code class="javascript">// Array to JSON
+let carIds = [
+    { carId: 123 },
+    { carId: 456 },
+    { carId: 789 }
+];
+console.log(JSON.stringify(carIds));
+//  [{ &quot;carId&quot;: 123 }, { &quot;carId&quot;: 456 }, ...]
+// Parsing JSON:
+let jsonIn = [{ &quot;carId&quot;: 123 }, { &quot;carId&quot;: 456 }, { &quot;carId&quot;: 789 }];
+let carIds = JSON.parse(jsonIn);
+// log: [ { carId: 123 }, { carId: 456 }, { carId: 789 } ]
+</code></pre>
+
+<hr />
+<h3 id="array-iteration">Array Iteration</h3>
+<p>Examples:</p>
+<pre><code class="javascript">carIds.foreach(car =&gt; console.log(car));
+carIds.foreach((car, index) =&gt; console.log(car, index));
+
+//  only some elements
+let convertibles = carIds.filter(car =&gt; car.style === 'convertible');
+
+// every case. find, condition, T/F, all elements
+let result = carIds.every(car =&gt; car.carId &gt; 0);    // true
+
+// retrieve first instance matching condition
+let car = carIds.find(car =&gt; car.carId &gt; 500);
+</code></pre>
+
+<hr />
+<h2 id="classes-and-modules">Classes and Modules</h2>
+<ul>
+<li>Class Basics</li>
+</ul>
+<pre><code class="javascript">class Car { };
+let car = new Car();
+</code></pre>
+
+<h3 id="constructors-and-properties">Constructors and properties</h3>
+<ul>
+<li>
+<p>constructor - function executed when new instance of a class is created</p>
+<p><code>javascript
+class Car() {
+    constructor(id) {   // constructor
+        this.id = id;   // property
+    }
+}   // car.id to access property directly</code></p>
+</li>
+</ul>
+<h3 id="methods">Methods</h3>
+<ul>
+<li>No function keyword needed</li>
+<li>
+<p>Example within class <code>Car</code></p>
+<p><code>javascript
+identify(params) {
+    return `Car Id: ${this.id}`;
+    // dont need `this` to access
+}</code></p>
+</li>
+</ul>
+<h3 id="inheritance">Inheritance</h3>
+<ul>
+<li>Example:</li>
+</ul>
+<pre><code class="javascript">class Car extends Vehicle {
+    constructor() {
+        super();    // refers back to parent Vehicle
+    }
+    start() {
+        return 'In Car Start' + super.start();
+    }
+}
+</code></pre>
+
+<h3 id="creating-and-importing-a-module">Creating and Importing a Module</h3>
+<ul>
+<li>Create &amp; Export</li>
+<li><code>export class Car { ... }</code></li>
+<li>Import</li>
+<li><code>import { Car } from './models/car.js'</code></li>
+</ul>
+<hr />
+<h2 id="programming-the-bom-and-dom">Programming the BOM and DOM</h2>
+<ul>
+<li>BOM - Browser Object Model</li>
+<li>DOM - Document Object Model</li>
+</ul>
+<h3 id="window-object">Window Object</h3>
+<ul>
+<li>Global object</li>
+<li>Properties</li>
+<li>document</li>
+<li>location</li>
+<li>console</li>
+<li>innerHeight</li>
+<li>innerWidth</li>
+<li>pageXOffset</li>
+<li>pageYOffset</li>
+<li>Methods</li>
+<li>alert()</li>
+<li>back()</li>
+<li>confirm()</li>
+<li>Events</li>
+<li>( not common )</li>
+<li>gGlobal object, must refer when dealing with modules</li>
+</ul>
+<h3 id="timers">Timers</h3>
+<ul>
+<li>fire asynchronously</li>
+<li><code>setTimeout(); // once</code></li>
+<li>
+<p><code>setInterval(); // repeatedly</code></p>
+<p>```javascript
+let timeoutId = setTimeout(function() {
+    console.log('1 second paused');
+}, 1000);</p>
+<p>// cancel
+clearTimeout(timeoutId);
+// or
+clearTimeout(id);
+```</p>
+</li>
+</ul>
+<hr />
+<h3 id="location-object">Location object</h3>
+<ul>
+<li>Properties</li>
+<li>href (URL)</li>
+<li>hostname</li>
+<li>port</li>
+<li>pathname</li>
+<li>search</li>
+<li>Methods</li>
+<li>assign()</li>
+<li>reload()
+ex: <code>location.href</code> or <code>document.location.href</code></li>
+</ul>
+<hr />
+<h3 id="document-object">Document Object</h3>
+<ul>
+<li>Properties</li>
+<li>body</li>
+<li>forms</li>
+<li>links</li>
+<li>Methods</li>
+<li>createElement()</li>
+<li>createEvent()</li>
+<li>getElementById()</li>
+<li>getElementsByClassName()</li>
+<li>Events</li>
+<li>onload</li>
+<li>onclick</li>
+<li>onKeypress</li>
+</ul>
+<hr />
+<h3 id="selecting-dom-elements">Selecting DOM Elements</h3>
+<ul>
+<li>Common:</li>
+<li><code>document.getElementById('elementId');</code></li>
+<li><code>document.getElementByClassName('className');</code></li>
+<li><code>document.getElementByTagName('tagName');</code></li>
+</ul>
+<h3 id="modifying-dom-elements">Modifying DOM Elements</h3>
+<ul>
+<li>
+<p>Example:</p>
+<p><code>javascript
+let el = document.getElementById('elementId');
+el.textContent = 'new text here';
+el.setAttribute('name', 'nameValue');
+el.classList.add('myClassName');
+el.style.color = 'blue';</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="promises-and-error-handling">Promises and Error Handling</h2>
+<h3 id="errors-in-javascript">Errors in Javascript</h3>
+<ul>
+<li><code>let car = newCar;</code> // reference error, execution stops</li>
+<li>
+<p>Error Handling with try and catch</p>
+<p><code>javascript
+try {
+    let car = newCar;
+} catch (error) {
+    console.log('error: ', error);
+}
+// continue execution</code></p>
+</li>
+<li>
+<p>With finally (always executes)</p>
+<p>```javascript
+finally {
+    console.log('this always executes');
+}</p>
+</li>
+<li>
+<p>Developer defined errors</p>
+<p><code>javascript
+try {
+    throw new Error('any custom error');
+}</code></p>
+</li>
+<li>
+<p>Creating a Promise</p>
+</li>
+<li>
+<p>Temporary holder for a value you will retrieve after asynchronous call</p>
+<p><code>javascript
+let promise = new Promise (
+    function(resolve, reject) {
+        setTimeout(resolve, 100, 'someValue');
+    }
+);</code></p>
+</li>
+<li>
+<p>Setting a Promise</p>
+<p><code>javascript
+promise.then(
+    value =&gt; console.log('fulfilled: ' + value);
+    error =&gt; console.log('rejected: ' + error);
+);</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="data-access-using-http">Data Access Using HTTP</h2>
+<h3 id="http-requests-using-xhr">HTTP Requests using XHR</h3>
+<ul>
+<li>
+<p>XML HTTP Requests</p>
+<p><code>javascript
+let xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 &amp;&amp; this.status == 200) {
+        console.log(this.responseText);
+    }
+};
+xttp.open("GET", "http://myid.mockapi.io/api/v1/users", true);
+xttp.send();</code></p>
+</li>
+<li>
+<p>HTTP Requests with jQuery</p>
+<p>```javascript
+import $ from 'jquery';</p>
+<p>let promise = $.get(
+    "http://myid.mockapi.io/api/u1/users",
+    data =&gt; console.log('data: ', data)
+);  // returns promise</p>
+<p>promise.then(
+    data =&gt; console.log('success', data),
+    error =&gt; console.log('error: ', error)
+);
+// POST
+$.post("url", user); // user -&gt; data
+```</p>
+</li>
+</ul>
+<hr />
+<h2 id="forms">Forms</h2>
+<h3 id="preventing-form-submission">Preventing Form Submission</h3>
+<ul>
+<li>Form -&gt; .js -&gt; Server</li>
+<li>
+<p>submit event</p>
+<p>```javascript
+let form = document.getElementById('user-form');</p>
+<p>form.addEventListener('submit', event =&gt; {
+    // prevent browser from submitting
+    event.preventDefault();
+});
+```</p>
+</li>
+</ul>
+<h3 id="accessing-form-fields">Accessing Form Fields</h3>
+<pre><code class="javascript">form.addEventListener('submit', event =&gt; {
+    let user = form.elements['user'];
+    let avatarFile = form.elements['avatar-file'];
+
+    console.log(user.value, avatarFile.value);
+});
+</code></pre>
+
+<h3 id="showing-validation-errors">Showing Validation Errors</h3>
+<p><code>javascript
+  let userError = document.getElementById('user-error');
+  userError.textContent = 'Invalid Entry';
+  userError.style.color = 'red';
+  user.style.borderColor = 'red';
+  user.focus();</code></p>
+<h3 id="posting-from-javascript">Posting from Javascript</h3>
+<p>post, data to object levels from form</p>
+<hr />
+<h2 id="chrome-dev-tools-and-security">Chrome Dev Tools and Security</h2>
+<ul>
+<li>Network &gt;&gt; bundle.js file</li>
+<li>Sources &gt;&gt; Watch, etc</li>
+<li>Don't store sensitive info on browser</li>
+</ul>
+<h3 id="security-and-the-eval-function">Security and the eval() function</h3>
+<ul>
+<li>JS Global eval() function will execute whatever is passed</li>
+<li>Avoid eval() altogether? Script tags?</li>
+</ul>
+<h3 id="preventing-man-in-the-middle-attacks">Preventing Man-in-the-Middle Attacks</h3>
+<ul>
+<li>Code put into HTML between server and intended client</li>
+<li>Use SSL, use HTTP header</li>
+<li>Cookie attributes: Secure and HttpOnly</li>
+</ul>
+<h3 id="cross-site-scripting-xss">Cross-site Scripting (XSS)</h3>
+<ul>
+<li>Files from 3rd party servers</li>
+<li>Addressing XSS attacks</li>
+<li>CSP: Content Security Policy<ul>
+<li>Use HTTP Header: Content-Security-Policy</li>
+</ul>
+</li>
+<li>CORS: Cross Origin Resource Sharing<ul>
+<li>Use HTTP Header:</li>
+<li>Access-Control-Allow-Origin</li>
+</ul>
+</li>
+</ul>
+<h3 id="building-your-application-for-production">Building Your Application for Production</h3>
+<ul>
+<li>Minimizing bundle file</li>
+<li><code>npm run dev</code></li>
+<li><code>npm run build</code></li>
+<li>dist folder, files for server</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mean/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mean/" class="btn btn-xs btn-link">
+        MEAN
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../mkdocs/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mkdocs/" class="btn btn-xs btn-link">
+        MkDocs
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

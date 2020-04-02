@@ -1,0 +1,4266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Angular - Notes</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Angular Notes", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "The Basics", url: "#the-basics" },
+              {title: "Debugging", url: "#debugging" },
+              {title: "Components &amp; Data-binding Deep Dive", url: "#components-data-binding-deep-dive" },
+              {title: "Directives Deep Dive", url: "#directives-deep-dive" },
+              {title: "Using Services &amp; Dependency Injection", url: "#using-services-dependency-injection" },
+              {title: "Changing Pages with Routing", url: "#changing-pages-with-routing" },
+              {title: "Understanding Observables", url: "#understanding-observables" },
+              {title: "Handling Forms in Angular Apps", url: "#handling-forms-in-angular-apps" },
+              {title: "Using Pipes to Transform Output", url: "#using-pipes-to-transform-output" },
+              {title: "Making Http Requests", url: "#making-http-requests" },
+              {title: "Authentication and Route Protection in Angular", url: "#authentication-and-route-protection-in-angular" },
+              {title: "Dynamic Components", url: "#dynamic-components" },
+              {title: "Angular Modules &amp; Optimizing Angular Apps", url: "#angular-modules-optimizing-angular-apps" },
+              {title: "Deploying an Angular App", url: "#deploying-an-angular-app" },
+              {title: "Bonus: Working with NgRx in our Project", url: "#bonus-working-with-ngrx-in-our-project" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mern/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mern/" class="btn btn-xs btn-link">
+        MERN
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../mean/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mean/" class="btn btn-xs btn-link">
+        MEAN
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="angular-notes">Angular Notes</h1>
+<p>Based on Udemy Course <a href="https://www.udemy.com/the-complete-guide-to-angular-2">Angular 8 The Complete Guide by Maximilian Schwarzmüller</a></p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="what-is-angular">What is Angular</h3>
+<h4 id="reactive-single-page-applications">Reactive Single-Page Applications</h4>
+<h4 id="angular-versioning">Angular Versioning</h4>
+<ul>
+<li>AngularJS (Angular 1) -old</li>
+<li>Angular (Angular 2) -rewrite of Angular 1</li>
+<li>...</li>
+<li>Angular 8<ul>
+<li>Big release every 6 months</li>
+</ul>
+</li>
+</ul>
+<h4 id="cli">CLI</h4>
+<ul>
+<li><code>ng new my-first-app</code></li>
+</ul>
+<h4 id="data-binding">Data-binding</h4>
+<ul>
+<li><code>{{ title }}</code></li>
+</ul>
+<h4 id="selectors">Selectors</h4>
+<ul>
+<li><code>&lt;app-root&gt;</code></li>
+</ul>
+<h4 id="ngmodel">ngModel</h4>
+<ul>
+<li>Importing forms module</li>
+</ul>
+<h4 id="typescript">Typescript</h4>
+<ul>
+<li>More features than vanilla JS</li>
+<li>Strongly typed</li>
+<li>Compiled to JS<ul>
+<li>Handled by CLI</li>
+</ul>
+</li>
+</ul>
+<h4 id="bootstrap-styling">Bootstrap Styling</h4>
+<ul>
+<li><code>npm install bootstrap</code></li>
+<li>angular.json</li>
+</ul>
+<h2 id="the-basics">The Basics</h2>
+<ul>
+<li><code>app-root</code><ul>
+<li>Root component</li>
+</ul>
+</li>
+<li><code>main.ts</code><ul>
+<li>First code executed<ul>
+<li>Passes AppModule to method</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>app.module.ts</code><ul>
+<li>Bootstrap array</li>
+</ul>
+</li>
+<li>main.ts &gt; bootstrap angular application &gt; pass module as arg &gt; selector &gt; html template &gt; html</li>
+</ul>
+<h3 id="components">Components</h3>
+<ul>
+<li>Whole application is composed of different components, starting with app component / root component</li>
+</ul>
+<h3 id="create-a-new-component">Create a new Component</h3>
+<ul>
+<li>Selectors for other components added - <code>app.component.html</code></li>
+<li>Folder for component <em>in</em> app folder<ul>
+<li>Same name as component for good practice</li>
+</ul>
+</li>
+<li>Example</li>
+</ul>
+<pre><code class="typescript">// server/server.component.ts
+@Component({
+  // decorators - all start with @
+  selector: 'app-server',
+  templateUrl: './server.component.html'
+})
+export class ServerComponent {}
+</code></pre>
+
+<h3 id="appmodule">AppModule</h3>
+<ul>
+<li>Components used to build webpages, bundled by modules into packages.</li>
+<li>Has NgModule decorator</li>
+<li>Need to declare component here, declarations array</li>
+<li>Imports array for other modules</li>
+<li>Can create components with CLI<ul>
+<li><code>ng generate component servers</code> OR <code>ng g c servers</code></li>
+<li>Can nest components, a nd/or use multiple times</li>
+</ul>
+</li>
+</ul>
+<h3 id="component-templates">Component templates</h3>
+<ul>
+<li><strong>Must be</strong> template property <strong>at all times</strong></li>
+<li>Can use templateUrl,  or insert HTML:<ul>
+<li><code>template: '&lt;app-server&gt;&lt;app-server&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="component-styles">Component Styles</h3>
+<ul>
+<li>Can wrap bootstrap classes if used</li>
+<li>Can also add to component CSS file</li>
+<li>Reference multiple stylesheets in styleUrls array</li>
+</ul>
+<h3 id="component-selector">Component Selector</h3>
+<ul>
+<li>Must be unique</li>
+<li>Can use HTML attribute or tags, class, etc</li>
+<li><em>Selecting by id <strong>not</strong> supported</em></li>
+</ul>
+<h3 id="databinding">Databinding</h3>
+<ul>
+<li>Communication<ul>
+<li>TS Code <strong>--&gt;</strong> HTML (template)</li>
+</ul>
+</li>
+<li>Output data<ul>
+<li>String interpolation<ul>
+<li>Surround in double curly brace</li>
+<li><code>{{ data }}</code></li>
+</ul>
+</li>
+<li><strong>Any</strong> expression that can resolve to a <strong>string</strong><ul>
+<li>Or easily converted</li>
+</ul>
+</li>
+<li>Property binding<ul>
+<li>Surround in brackets<ul>
+<li><code>[property]="data"</code></li>
+</ul>
+</li>
+<li>Directly binding to native html property</li>
+<li>Can update dynamically:<ul>
+<li><code>[disabled]="!allowNewServer"</code></li>
+</ul>
+</li>
+<li>Can also bind to directives or components, other properties</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>React to User Events<ul>
+<li>Event-binding<ul>
+<li>Surround in parentheses</li>
+<li><code>(event)="expression"</code></li>
+<li><code>(click)="onCreateServer()</code></li>
+<li>On input event<ul>
+<li><code>(input)="onUpdateServerName($event)"</code></li>
+</ul>
+</li>
+<li>In Method<ul>
+<li><code>this.serverName = (&lt;HTMLInputElement&gt;event.target).value</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Combination<ul>
+<li>Two-way binding<ul>
+<li>Brackets <strong>&amp;</strong> Parentheses</li>
+<li><code>[(ngModel)]="data"</code></li>
+<li><code>[(ngModel)]="serverName"</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="directives">Directives</h3>
+<ul>
+<li>Instructions in the DOM</li>
+<li><code>&lt;p appTurnGreen&gt;</code></li>
+<li><code>@Directive</code></li>
+<li>Attribute Selector</li>
+</ul>
+<h4 id="ngif">ngIf</h4>
+<ul>
+<li><code>&lt;p *ngIf="serverCreated"&gt;</code><ul>
+<li>built in</li>
+<li>' * ' -&gt; structural directive (changes DOM)</li>
+</ul>
+</li>
+<li>Attribute directors don't add or remove elements, changes element it's placed on</li>
+</ul>
+<h4 id="ngstyle">ngStyle</h4>
+<ul>
+<li><code>&lt;p [ngStyle]="{backgroundColor: getColor()}"&gt;</code><ul>
+<li>binding to property of directive</li>
+</ul>
+</li>
+</ul>
+<h4 id="ngclass">ngClass</h4>
+<ul>
+<li><code>[ngClass]="{online: serverStatus ==='online'}"</code></li>
+<li>adds CSS class if condition is true</li>
+</ul>
+<h4 id="ngfor">ngFor</h4>
+<ul>
+<li><code>&lt;app-server *ngFor="let server of servers"&gt;</code><ul>
+<li>Can use <code>server</code> in template<ul>
+<li><code>{{ server }}</code></li>
+<li>get index<ul>
+<li><code>let i = index</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="course-project-planning">Course Project, Planning</h3>
+<ul>
+<li>Shopping List, Recipe Book</li>
+<li>Always Root component</li>
+<li>Header component for connecting List &amp; Book</li>
+<li>Shopping List -&gt; Features<ul>
+<li>Shopping List, Edit components</li>
+</ul>
+</li>
+<li>Recipe Book -&gt; Features<ul>
+<li>Recipe List, Recipe Ittem, Recipes Component, Recipes Detail</li>
+</ul>
+</li>
+<li>Ingredient MModel</li>
+<li>Recipe Model</li>
+</ul>
+<h3 id="creating-a-model">Creating a Model</h3>
+<pre><code class="typescript">export class Recipe {
+  public name: string;
+  public description: string;
+  public imagePath: string;
+
+  constructor(name: string, desc: string, imagePath: string) {}
+}
+</code></pre>
+
+<h2 id="debugging">Debugging</h2>
+<ul>
+<li>Error Messages</li>
+<li>Console in browser</li>
+<li>Sourcemaps<ul>
+<li>map JS bundles to TS code</li>
+</ul>
+</li>
+<li>Webpack<ul>
+<li>TS files</li>
+</ul>
+</li>
+<li>Augury (browser extension)</li>
+</ul>
+<h2 id="components-data-binding-deep-dive">Components &amp; Data-binding Deep Dive</h2>
+<ul>
+<li>Splitting into separate Components</li>
+<li>Array in AppComponent -&gt; Cockpit Component -&gt; Server-Elements Component</li>
+<li>Can use Event &amp; Property binding on directives and components</li>
+<li>Binding to custom properties</li>
+<li>By default component properties only accessible in that component</li>
+<li>Decorators</li>
+<li><code>@Input() // pass a new string for new name outside component</code></li>
+<li>ie: <code>[element]="serverElement"</code></li>
+<li>Alias</li>
+<li>bind to custom event<ul>
+<li>Data up component hierarchy</li>
+<li>New event emitter</li>
+</ul>
+</li>
+<li><code>@Output() serverCreated = new EventEmitter&lt;{serverName: string, serverContent: string}&gt;();</code></li>
+<li>Optional alias -&gt; arg passed to @Output</li>
+</ul>
+<h3 id="view-encapsulation">View Encapsulation</h3>
+<ul>
+<li>CSS between components</li>
+<li>Attributes applied by Angular</li>
+<li>Style encapsulation</li>
+<li>Same attribute to all elements in component</li>
+<li>"Emulates shadow DOM"</li>
+<li>in @Component: <code>encapsulation: ViewEncapsulation.Emulated // None, Native (other options)</code></li>
+</ul>
+<h3 id="load-references-in-templates">Load references in Templates</h3>
+<ul>
+<li>In input element: <code>#serverNameInput</code></li>
+<li>On button: <code>(click)="onAddServer(serverNameInput)"</code></li>
+</ul>
+<h3 id="viewchild">@ViewChild</h3>
+<pre><code class="typescript">@ViewChild('serverContentInput', {static: true})
+
+serverControlInput: ElementRef;
+
+this.serverContentInput.nativeElement.value
+</code></pre>
+
+<h3 id="projecting-content-into-components-with-ng-content">Projecting content into Components with ng-content</h3>
+<ul>
+<li>Everything between open and close of tags on own component will be lost unless: <code>&lt;ng-content&gt;&lt;/ng-content&gt;</code></li>
+</ul>
+<h3 id="component-lifecycle">Component Lifecycle</h3>
+<p><img alt="lifecycle" src="../img/lifecycle.jpg" title="component lifecycle" /></p>
+<ul>
+<li>ngOnChanges</li>
+<li>Called after a bound input property changes</li>
+<li>ngOnInit</li>
+<li>Called once component is initialized</li>
+<li>ngDoCheck</li>
+<li>Called during every change detection run</li>
+<li>ngAfterContentInit</li>
+<li>Called after content (<code>ng-content</code>) has been projected into view</li>
+<li>ngAfterContentChecked</li>
+<li>Called every time the projected content has been checked</li>
+<li>ngAfterViewInit</li>
+<li>Called after the component's view (and child views) has been initialized</li>
+<li>ngAfterViewChecked</li>
+<li>Called every time the view (and child views) has been checked</li>
+<li>ngOnDestroy</li>
+<li>Called once the component is about to be destroyed</li>
+</ul>
+<p>Concept: <strong><em>CONTENT/VIEW</em></strong></p>
+<ul>
+<li>ngOnChanges example</li>
+<li>
+<p>ngOnChanges(changes: SimpleChanges)</p>
+<ul>
+<li>object, with bound property</li>
+<li>'element' in this case</li>
+</ul>
+</li>
+<li>
+<p>@ContentChild</p>
+</li>
+<li>
+<p><code>@ContentChild('contentParagraph', { static: true })</code></p>
+<ul>
+<li><code>paragraph: ElementRef</code></li>
+<li>Using projected content/content to be generated</li>
+</ul>
+</li>
+<li>
+<p>App component:</p>
+</li>
+</ul>
+<pre><code class="html">&lt;app-component&gt;
+&lt;!-- CONTENT --&gt;
+&lt;/app-component&gt;
+</code></pre>
+
+<ul>
+<li>Access via ViewChild in app.component</li>
+<li>Access via ContentChild in server-element.component</li>
+</ul>
+<h2 id="directives-deep-dive">Directives Deep Dive</h2>
+<ul>
+<li>Attribute Directives (ngClass, ngStyle)</li>
+<li>Change properties of element</li>
+<li>Structured Directives (ngIf, ngFor)</li>
+<li>
+<p>Affects whole area in DOM</p>
+</li>
+<li>
+<p><strong>Can't have more than one structural directive on an element</strong></p>
+</li>
+</ul>
+<h3 id="creating-a-basic-attribute-directive">Creating a Basic Attribute Directive</h3>
+<ul>
+<li>Must import Directive from angular core</li>
+<li>Configure:
+  -<code>selector: '[myDirective]' // select as attribute</code></li>
+<li>Must inform angular directive exists via app module</li>
+<li>
+<p><code>&lt;p myDirective&gt; ... &lt;/p&gt;</code></p>
+</li>
+<li>
+<p>Renderer for better Basic Attribute Directive</p>
+</li>
+<li>Renderer2</li>
+<li>Better practice: <code>ngOnInit(){ this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'blue'); }</code></li>
+<li>
+<p>Better to use Renderer for DOM access and it's methods to access DOM</p>
+</li>
+<li>
+<p>Using HostListener to Listen to Host Events</p>
+</li>
+<li>
+<p><code>@HostListener('mouseenter')mouseover(eventData: event) { // ... }</code></p>
+</li>
+<li>
+<p>Using HostBinding to Bind to Host Properties</p>
+</li>
+<li><code>@HostBinding('style.backgroundColor') backgroundColor: string</code></li>
+<li>Element must have a property<ul>
+<li><code>this.backgroundColor = 'blue';</code></li>
+</ul>
+</li>
+<li>
+<p>Can bind to any property of element directive is sitting on</p>
+</li>
+<li>
+<p>Binding to directive properties</p>
+</li>
+<li><code>@Input() defaultColor: string = 'blue'</code></li>
+<li><code>this.backgroundColor = this.defaultColor</code></li>
+<li><code>&lt;p appBetterHighlight [defaultColor]="'yellow'"&gt;</code></li>
+<li><strong>CAN</strong> bind to properties of our own directives</li>
+<li><strong>CAN</strong> omit square brackets, single quotes when passing down a string</li>
+<li>
+<p>Make <strong>clear</strong> property binding is happening, <strong>NOT</strong> an attribute</p>
+</li>
+<li>
+<p>Creating a Structured Directive</p>
+</li>
+<li>* indicates a structured directive</li>
+<li>Transformed into something else no * syntax</li>
+<li>There is <strong>only</strong>:</li>
+<li><em>Property binding</em></li>
+<li><em>Event binding</em></li>
+<li><em>Two-way binding</em></li>
+<li>
+<p><em>String interpolation</em></p>
+</li>
+<li>
+<p>*ngIf example</p>
+</li>
+<li>norm: <code>&lt;div *ngIf="!onlyOdd"&gt;</code></li>
+<li>
+<p>transform: <code>&lt;ng-template [ngIf]="!onlyOdd"&gt;</code></p>
+</li>
+<li>
+<p>Building one</p>
+</li>
+<li><code>@Input()</code> set unless <code>(value: boolean)</code></li>
+<li>
+<p><strong>Must store name!</strong></p>
+</li>
+<li>
+<p>Understanding ngSwitch</p>
+</li>
+</ul>
+<pre><code class="html">&lt;div [ngSwitch]=&quot;value&quot;&gt;
+  &lt;p *ngSwitchCase=&quot;5&quot;&gt;Value is 5&lt;/p&gt;
+  &lt;p *ngSwitchDefault&gt;Default&lt;/p&gt;
+</code></pre>
+
+<h2 id="using-services-dependency-injection">Using Services &amp; Dependency Injection</h2>
+<ul>
+<li>Services address duplicating code or data storage/access</li>
+<li>Centralize a certain task</li>
+</ul>
+<h3 id="creating-a-service">Creating a Service</h3>
+<ul>
+<li>Decorator not needed</li>
+<li><strong>Injecting</strong> service into components</li>
+<li>Dependency Injector</li>
+<li>
+<p><em>Hierarchal</em> Injector</p>
+<ul>
+<li><strong>AppModule</strong> -&gt; Some instance of service available application-wide</li>
+<li><strong>App Component</strong> -&gt; Available for all components (not for other services)<ul>
+<li><strong>Any other component</strong> -&gt; Same service instance for component and add all child components</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Add constructor in component where service will be used:</p>
+</li>
+<li>
+<p><code>constructor(private loggingService: LoggingService) {} // must give type</code></p>
+</li>
+<li>
+<p>Must give providers in component decorator</p>
+</li>
+<li>
+<p><code>providers: [LoggingService]</code></p>
+</li>
+<li>
+<p>Different instances in this example, providers array dictates new instance if service included, otherwise, same instance.</p>
+</li>
+<li>Declare Service in providers array overrides the instance next, up, creating it's own.</li>
+<li>Thus, can inject a service into a service</li>
+<li>Injecting requires 'meta-data', found in decorators<ul>
+<li>Must use <code>@Injectable</code> for service -&gt; service</li>
+<li>Into <em>receiving</em> service</li>
+</ul>
+</li>
+</ul>
+<h3 id="cross-component-communication-with-services">Cross-Component Communication with Services</h3>
+<ul>
+<li>In service:</li>
+<li><code>statusUpdated = new EventEmitter&lt;string&gt;();</code></li>
+<li>In account, onSetTo:</li>
+<li><code>this.accountService.statusUpdated.emit(status);</code></li>
+<li>In new account, constructor:</li>
+<li><code>this.accountService.statusUpdated.subscribe((statis: string) =&gt; alert('New status ' + status));</code></li>
+<li>
+<p>Provide at AppModule level</p>
+</li>
+<li>
+<p>Alternative syntax:</p>
+</li>
+<li><code>@Injectable({ providedIn: 'root' })</code><ul>
+<li>For application-wide service</li>
+</ul>
+</li>
+</ul>
+<h2 id="changing-pages-with-routing">Changing Pages with Routing</h2>
+<h3 id="why">Why</h3>
+<ul>
+<li>Navigation, other pages</li>
+</ul>
+<h3 id="setting-up-in-appmodule">Setting up, in AppModule</h3>
+<pre><code class="typescript">const appRoutes: Routes = [
+  { path: 'user', component: UsersComponent }, // no slash
+  { path: '', component: HomeComponent } // home page: '/'
+];
+</code></pre>
+
+<ul>
+<li>
+<p>In component.html: <code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code></p>
+</li>
+<li>
+<p>Implement Navigation with a Directive</p>
+</li>
+<li>Using <code>href</code> will reload the app, reseting state.</li>
+<li>Not ideal behavior</li>
+<li>in HTML: <code>&lt;a routerLink="/"&gt;Home&lt;/a&gt;</code></li>
+<li>
+<p>OR (array): <code>&lt;a [routerLink]="['/users']"&gt;</code> -&gt; Property binding (non-string); For nested links</p>
+</li>
+<li>
+<p>'<strong>/</strong>' indicates absolute path</p>
+</li>
+<li>Navigation will build on what component it's in</li>
+<li><code>/servers/servers</code> example</li>
+<li>
+<p>'<strong>./</strong>' for relative path, or '<strong>../</strong>'</p>
+</li>
+<li>
+<p>Setting selected nav tab as active dynamically: <code>routerLinkActive="active"</code></p>
+</li>
+<li>Empty home path always there, always active</li>
+<li>To fix: <code>[routerLinkActiveOptions]="{ exact: true }"</code><ul>
+<li>Exact path, instead of including</li>
+</ul>
+</li>
+</ul>
+<h3 id="navigating-programmatically">Navigating Programmatically</h3>
+<pre><code class="typescript">onLoadServer() {
+  // calculations
+  this.router.navigate(['/servers']);
+}
+</code></pre>
+
+<ul>
+<li>
+<p>Inject via constructor: <code>constructor(private router: Router)</code> -&gt; Import from angular/router</p>
+</li>
+<li>
+<p>With relative</p>
+</li>
+<li>Navigate method above does not know which route you're currently on, opposed to routerLink</li>
+<li>Pass second arg to inform: <code>this.router.navigate(['servers'], { relativeTo: this.route });</code></li>
+<li>
+<p>Must inject! <code>private route: ActivatedRoute</code></p>
+</li>
+<li>
+<p>Passing parameters to routes</p>
+</li>
+<li>Add dynamic part to route: <code>{ path: 'users/:id', component: UserComponent }</code></li>
+<li>
+<p>Fetch route parameters (inject ActivatedRoute) <code>this.route.snapshot.params['id']</code></p>
+</li>
+<li>
+<p>Snapshot works for first instance, won't re-render if already on component, need approach to get updated data</p>
+</li>
+</ul>
+<pre><code class="typescript">this.route.params   // Observable
+  .subscribe( // update user object when params change
+    (params: Params) =&gt; { // import
+      this.user.id = params['id'];
+    }
+  );
+</code></pre>
+
+<ul>
+<li>
+<p>Snapshot sufficient <strong>if</strong> component never reloads.</p>
+</li>
+<li>
+<p>For manual unsubscribe: <code>ngOnDestroy(){ this.paramsSubscription.unsubscribe() }</code></p>
+</li>
+<li>Component must implement ngOnDestroy</li>
+<li>Params imported</li>
+<li>
+<p><strong><em>Angular does this automatically!</em></strong> Good practice to do manually</p>
+</li>
+<li>
+<p>Passing query params and fragments</p>
+</li>
+<li><code>[routerLink]="['/servers', 5, 'edit']"</code></li>
+<li><code>[queryParams]="{ allowEdit: '1' }"</code></li>
+<li>
+<p><code>fragment="loading"</code></p>
+</li>
+<li>
+<p>Dynamic:</p>
+</li>
+<li>HTML: <code>(click)="onLoadServer(1)"</code></li>
+<li>
+<p>TS:</p>
+<p><code>typescript
+onLoadServer(id: number) {
+  // do stuff
+  this.router.navigate(
+    ['/servers', id, 'edit']
+  )
+}</code></p>
+</li>
+<li>
+<p>Retrieve query params &amp; fragments</p>
+</li>
+<li>In constructor: <code>private route: ActivatedRoute</code></li>
+<li>ngOnInit:</li>
+<li><code>this.route.snapshot.queryParams</code> OR <code>.fragment</code></li>
+<li><code>this.route.queryParams.subscribe()</code></li>
+<li>
+<p><code>this.route.fragment.subscribe()</code></p>
+</li>
+<li>
+<p>Params come in as string, convert to number: <code>const id = +this.route.snapshot.params['id']</code></p>
+</li>
+</ul>
+<h3 id="setting-up-child-nested-routes">Setting up Child (nested) Routes</h3>
+<ul>
+<li>Add property to route:</li>
+</ul>
+<pre><code class="typescript">{ path: 'servers', component: ServersComponent,
+  children: [
+    { path: ':id', component: ServerComponent }, // servers will be pre-appended
+    { // ... }
+  ]
+}
+</code></pre>
+
+<ul>
+<li>Must <strong>NEST</strong> a <code>&lt;router-outlet&gt;</code></li>
+<li>onEdit button</li>
+</ul>
+<pre><code class="typescript">this.router.navigate(
+  ['edit'], { relativeTo: this.route,
+  queryParamsHandling: 'preserve' } 
+  // blank for new, keep old overwrite new, merge for no overwrite
+);
+</code></pre>
+
+<ul>
+<li>Redirecting &amp; Wildcard routes</li>
+<li><code>{ path: 'something', redirectTo: '/not-found' }</code><ul>
+<li>^ <code>path: '**'</code></li>
+<li>Wildcard route, all routes that are not known</li>
+<li><strong><em>Must be at bottom/last route!</em></strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="outsourcing-route-config">Outsourcing Route Config</h3>
+<ul>
+<li><code>app-routing.module.ts</code></li>
+<li>`@NgModule</li>
+<li><strong>Must export!</strong></li>
+</ul>
+<h3 id="guards">Guards</h3>
+<ul>
+<li>canActivate:</li>
+<li>
+<p><code>{ path: 'servers', canActivate: [AuthGuard], } // ...</code></p>
+</li>
+<li>
+<p>Protecting child (nested) routes:</p>
+</li>
+<li>canActivateChild:<ul>
+<li><code>canActivateChild: [AuthGuard] // fake or mimic read Auth</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="controlling-navigation-with-candeactivate">Controlling navigation with canDeactivate</h3>
+<ul>
+<li>Use for prompting discard of changes or navigate, component must implement</li>
+<li>Given as property in route</li>
+<li>Similar format to canActivate</li>
+</ul>
+<h3 id="passing-static-data-to-a-route">Passing Static Data to a Route</h3>
+<ul>
+<li>Date property in route definition:</li>
+<li><code>{ path: 'not-found', component: ErrorPageComponent, data: { message: 'Page not found!' }}</code></li>
+</ul>
+<h3 id="resolving-dynamic-data-with-the-resolve-guard">Resolving Dynamic Data with the resolve Guard</h3>
+<ul>
+<li>Resolver Service</li>
+<li>Resolve property on route (best for async)</li>
+<li>
+<p>Takes an object</p>
+</li>
+<li>
+<p><code>{ path: ':id', component: ServerComponent, resolve: { server: ServerResolver }}</code></p>
+</li>
+<li>"server" is choice of name</li>
+</ul>
+<pre><code class="typescript">this.route.data.subscribe((data: Data) =&gt; {
+  this.server = data['server']; // choice of name &quot;server&quot; here
+});
+</code></pre>
+
+<h3 id="location-strategies">Location Strategies</h3>
+<ul>
+<li>Add configs for old browsers</li>
+<li><code>RouterModule.forRoot(appRoutes, { useHash: true })</code><ul>
+<li>Hash mode routing</li>
+</ul>
+</li>
+</ul>
+<h2 id="understanding-observables">Understanding Observables</h2>
+<ul>
+<li>Observable - A data source</li>
+<li>(user input) events, http request, triggered in code.</li>
+<li>Observer</li>
+<li>Handle data, handle error, handle completion</li>
+<li>RxJs</li>
+<li>Unsubscribe if no longer using</li>
+<li>Avoid memory leaks</li>
+<li>Custom Observable</li>
+<li>Imports</li>
+<li>Handle next, complete, error</li>
+<li>Can use built-in operators in between Observer/Observable</li>
+<li>Pipe, operators</li>
+<li>Subject</li>
+<li>More active observable, event emitter</li>
+<li>For communicating between components with Services</li>
+</ul>
+<h2 id="handling-forms-in-angular-apps">Handling Forms in Angular Apps</h2>
+<ul>
+<li>Form as a JS object</li>
+<li>Value, metadata</li>
+<li>2 Approaches</li>
+<li>Template-Driven<ul>
+<li>Form object inferred from DOM</li>
+</ul>
+</li>
+<li>
+<p>Reactive</p>
+<ul>
+<li>Synced with DOM</li>
+</ul>
+</li>
+<li>
+<p>Template Driven:</p>
+</li>
+</ul>
+<pre><code class="typescript">@ViewChild('f', { static: false })
+signupForm: NgForm;
+</code></pre>
+
+<pre><code class="html">&lt;form (ngSubmit)=&quot;onSubmit(f)&quot; #f=&quot;ngForm&quot;&gt;
+</code></pre>
+
+<h3 id="validation">Validation</h3>
+<ul>
+<li>Built-In Validators</li>
+<li>Required</li>
+<li>Email</li>
+<li>Form states</li>
+<li>ng-valid</li>
+<li>ng-invalid</li>
+<li>example: <code>[disabled]="!f.valid"</code>, <code>#email="ngModel"</code> &lt;--&gt; <code>*ngIf="!email.valid"</code></li>
+<li>Default value:</li>
+<li><code>[ngModel]="defaultQuestion"</code></li>
+<li>Grouping data:</li>
+<li><code>ngModelGroup="userData" // key</code></li>
+<li><code>#userData="ngModelGroup"</code></li>
+<li>Radio buttons</li>
+<li>Similar to other inputs, add ngModel</li>
+</ul>
+<h3 id="setting-fetching-form-values">Setting &amp; Fetching Form Values</h3>
+<ul>
+<li><code>form.setValue</code></li>
+<li><code>form.patchValue</code></li>
+<li>Extract with ViewChild</li>
+<li>Reset Form</li>
+<li><code>signupForm.reset()</code></li>
+</ul>
+<h3 id="reactive-approach">Reactive Approach</h3>
+<ul>
+<li>In component:</li>
+<li><code>signupForm: FormGroup;</code></li>
+<li>In Module:</li>
+<li><code>ReactiveFormsModule</code></li>
+</ul>
+<pre><code class="typescript">// in OnInit:
+this.signupForm = new FormGroup({
+  'username': new FormControl(null),
+  'email': new FormControl(null),
+  'gender': new FormControl('male')
+});
+</code></pre>
+
+<ul>
+<li>Submit</li>
+<li><code>&lt;form (ngSubmit)="onSubmit()"&gt;</code></li>
+<li>Validation</li>
+<li>Not using required</li>
+<li>Not configured at template</li>
+<li><code>new FormControl(null, Validators.required)</code></li>
+<li>Access to Controls</li>
+<li><code>*ngIf="!signupForm.get('email').valid"</code></li>
+<li>Grouping</li>
+<li><code>FormGroup({ FormControl, Form Control })</code></li>
+<li>In template:</li>
+<li><code>&lt;div formGroupName="userData"&gt; &lt;input formControlName="username"&gt;</code></li>
+<li>Access:</li>
+<li><code>*ngIf="!signupForm.get('userData.username').valid"</code></li>
+</ul>
+<h3 id="arrays-of-form-control">Arrays of Form Control</h3>
+<ul>
+<li>Component:</li>
+</ul>
+<pre><code class="typescript">'hobbies': new FormArray([]) // empty
+
+onAddHobby() {
+  const control = new FormControl(null);
+  (&lt;FormArray&gt;this.signupForm.get('hobbies')).push(control);
+}
+</code></pre>
+
+<ul>
+<li>Template:</li>
+</ul>
+<pre><code class="html">&lt;button
+  (click)=&quot;onAddHobby()&quot;&gt;
+&lt;div
+  *ngFor=&quot;let hobbyControl of signupForm.get('hobbies').controls;
+  let i = index&quot;
+&gt;
+&lt;input [formControlName]=&quot;i&quot;&gt;
+</code></pre>
+
+<h3 id="custom-validators">Custom Validators</h3>
+<ul>
+<li>A function checked during validation</li>
+</ul>
+<pre><code class="typescript">forbiddenNames(control: FormControl): {[s: string]: boolean} { }
+</code></pre>
+
+<ul>
+<li>Errors:</li>
+<li>
+<p><code>signupForm.get('userData.email').errors['nameIsForbidden']</code></p>
+</li>
+<li>
+<p>ASYNC Validator:</p>
+</li>
+</ul>
+<pre><code class="typescript">forbiddenEmails(control: FormControl): Promise&lt;any&gt; | Observable&lt;any&gt; {
+  const promise = new Promise&lt;any&gt;((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      if (control.value === 'test@test.com') {
+        resolve({ 'emailIsForbidden': true });
+      } else {
+        resolve(null);
+      }
+    }, 1500);
+  });
+  return promise;
+}
+</code></pre>
+
+<ul>
+<li>statusChanges &amp; valueChanges</li>
+</ul>
+<pre><code class="typescript">this.signupForm.statusChanges.subscribe(
+  (value) =&gt; console.log(value)
+);
+</code></pre>
+
+<h2 id="using-pipes-to-transform-output">Using Pipes to Transform Output</h2>
+<ul>
+<li>For transforming values</li>
+<li><code>&lt;p&gt;{{ username | uppercase }}&lt;/p&gt;</code></li>
+<li>Built-in &amp; Custom</li>
+<li>Using <code>{{ var | date }}</code></li>
+<li>Parameterizing Pipes</li>
+<li><code>{{ var | date: 'fullDate' }} // parameter -&gt; fullDate</code></li>
+<li>For multiple: <code>date:param:param</code></li>
+<li>Can combine<ul>
+<li><code>{{ var | date:'fullDate' | uppercase }}</code></li>
+</ul>
+</li>
+<li>Custom</li>
+</ul>
+<pre><code class="typescript">// shorten.pipe.ts
+@Pipe({
+  name: 'shorten'
+})
+export class ShortenPipe implements PipeTransform {
+  transform(value: any) {
+    return value.substr(0, 10);
+  }
+}
+</code></pre>
+
+<ul>
+<li>Decorator, also in declarations in app.module.ts</li>
+<li>Parameterizing <code>shorten: 10</code></li>
+<li>Can use as filter of loop content</li>
+<li>Pure/Impure Pipes</li>
+<li>Recalculated pipe when data changes - Impure Pipe</li>
+<li>Async Pipe</li>
+<li>Works with Promises, Observables</li>
+</ul>
+<h2 id="making-http-requests">Making Http Requests</h2>
+<h3 id="how-does-angular-interact-with-backends">How does Angular interact with backends?</h3>
+<ul>
+<li>How to connect Angular to a database</li>
+<li>Not directly</li>
+<li>HTTP Requests/responses</li>
+</ul>
+<h3 id="server">Server</h3>
+<ul>
+<li>HTTP Request -&gt; [Server/API (REST, GraphQL)] -&gt; HTTP Response -&gt; Angular -&gt; Store and Fetch Data -&gt; SQL/NoSQL</li>
+<li>HTTP Anatomy</li>
+<li>HTTP Verb</li>
+<li>URL (API Endpoint)</li>
+<li>Headers(metadata)</li>
+<li>Body</li>
+<li>Google Firebase - complete backend service (.json)</li>
+<li>POST</li>
+<li>Need HttpClientModuke in imports -&gt; app.module</li>
+<li>Inject to component<ul>
+<li><code>constructor(private http: HttpClient) { }</code></li>
+</ul>
+</li>
+<li><code>http.post</code> returns Observable, must subscribe or won't be sent<ul>
+<li>Same with GET</li>
+</ul>
+</li>
+<li>Transform with Pipe<ul>
+<li>Example with Map</li>
+</ul>
+</li>
+<li>Using Services for HttpRequests</li>
+<li>
+<p>Service and Components Working together</p>
+</li>
+<li>
+<p>DELETE</p>
+</li>
+<li>Handle Errors<ul>
+<li>Second arg in <code>subscribe</code></li>
+</ul>
+</li>
+<li>Using a Subject</li>
+<li>All HTTP Methods have options to configure, such as headers<ul>
+<li>HttpHeaders</li>
+<li>HttpParams</li>
+<li>HttpEventType</li>
+</ul>
+</li>
+</ul>
+<h3 id="interceptors">Interceptors</h3>
+<ul>
+<li>Service to run right before request</li>
+<li>HttpRequest, HttpHandler</li>
+<li>Structure! (see http-01-start)</li>
+<li>Doesn't need to be injected</li>
+<li>Manipulate Request object</li>
+<li>Request immutable, must create new one</li>
+<li>Response Interceptors</li>
+<li>Pipe handle in return of request</li>
+<li>Multiple</li>
+<li><strong>Order matters!</strong></li>
+</ul>
+<h2 id="authentication-and-route-protection-in-angular">Authentication and Route Protection in Angular</h2>
+<h3 id="how-it-works">How it works</h3>
+<ul>
+<li>Client -- Sends auth data --&gt; Server</li>
+<li>Server -- Session --&gt; Client</li>
+<li>For Angular, we use single page applications. Front-end decoupled from back-end. Will use a RESTful API since sessions can't be used. Communication done through HttpClient offered by Angular.</li>
+<li>Token sent to client which stores it, stored token is sent to authorize subsequent request.</li>
+</ul>
+<h3 id="adding-auth-page">Adding Auth Page</h3>
+<ul>
+<li>Sign up and login.</li>
+<li>Lock down recipes and manage dropdown to only be used by auth'd users.</li>
+</ul>
+<h3 id="switch-between-auth-modes">Switch between Auth Modes</h3>
+<ul>
+<li>Use click listener, function to reverse a boolean</li>
+</ul>
+<h3 id="handling-form-input">Handling Form Input</h3>
+<ul>
+<li>Similar to previous forms</li>
+</ul>
+<pre><code class="html">&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-xs-12 col-md-6 col-md-offset-3&quot;&gt;
+        &lt;div class=&quot;alert alert-danger&quot; *ngIf=&quot;error&quot;&gt;
+            &lt;p&gt;{{ error }}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf=&quot;isLoading&quot; style=&quot;text-align: center&quot;&gt;
+            &lt;app-loading-spinner&gt;&lt;/app-loading-spinner&gt;
+        &lt;/div&gt;
+        &lt;form #authForm=&quot;ngForm&quot; (ngSubmit)=&quot;onSubmit(authForm)&quot; *ngIf=&quot;!isLoading&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;email&quot;&gt;E-Mail&lt;/label&gt;
+                &lt;input
+                    type=&quot;email&quot;
+                    id=&quot;email&quot;
+                    class=&quot;form-control&quot;
+                    ngModel
+                    name=&quot;email&quot;
+                    required
+                    email
+                &gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input
+                    type=&quot;password&quot;
+                    id=&quot;password&quot;
+                    class=&quot;form-control&quot;
+                    ngModel
+                    name=&quot;password&quot;
+                    required
+                    minlength=&quot;6&quot;
+                &gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot; [disabled]=&quot;!authForm.valid&quot;&gt;
+                    {{ isLoginMode ? 'Login' : 'Sign Up' }}
+                &lt;/button&gt;
+                |
+                &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;onSwitchMode()&quot; type=&quot;button&quot;&gt;
+                    Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<ul>
+<li>Use service to communicate with backend and authenticate</li>
+<li>Interface of response data</li>
+</ul>
+<pre><code class="typescript">export interface AuthResponseData {
+    kind: string;
+    idToken: string;
+    email: string;
+    refreshToken: string;
+    expiresIn: string;
+    localId: string;
+    registered?: boolean; // optional, is only in login res
+}
+</code></pre>
+
+<ul>
+<li>Chaining observables</li>
+</ul>
+<pre><code class="typescript">onSubmit(form: NgForm) {
+    if (!form.valid) {
+        return;
+    }
+    const email = form.value.email;
+    const password = form.value.password;
+
+    let authObs: Observable&lt;AuthResponseData&gt;;
+
+    this.isLoading = true;
+    if (this.isLoginMode) {
+        authObs = this.authService.login(email, password);
+    } else {
+        authObs = this.authService.signup(email, password);
+    }
+
+    authObs.subscribe(resData =&gt; {
+        console.log(resData);
+        this.isLoading = false;
+    }, errorMessage =&gt; {
+        console.log(errorMessage);
+        this.error = errorMessage;
+        this.isLoading = false;
+    });
+
+    form.reset();
+}
+</code></pre>
+
+<ul>
+<li>Source error handling to private function in service.</li>
+</ul>
+<pre><code class="typescript">private handleError(errorRes: HttpErrorResponse) {
+    let errorMessage = 'An unknown error occurred!';
+    if (!errorRes.error || !errorRes.error.error) {
+        return throwError(errorMessage);
+    }
+    switch (errorRes.error.error.message) {
+        case 'EMAIL_EXISTS':
+            errorMessage = 'This email exists already.';
+            break;
+        case 'EMAIL_NOT_FOUND':
+            errorMessage = 'This email does not exist';
+            break;
+        case 'INVALID_PASSWORD':
+            errorMessage = 'This password is not correct';
+            break;
+    }
+    return throwError(errorMessage);
+}
+</code></pre>
+
+<h3 id="creating-and-storing-the-user-data">Creating and Storing the User Data</h3>
+<ul>
+<li>Create a user model</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/user.model.ts
+export class User {
+    constructor(
+        public email: string,
+        public id: string,
+        // underscore &amp; private for validity
+        private _token: string,
+        private _tokenExpirationDate: Date
+    ) {}
+
+    /*
+        getter using get keyword
+        access like a property
+        allows for logic in validity and checks
+    */
+    get token() {
+        if (!this._tokenExpirationDate || new Date() &gt; this._tokenExpirationDate) {
+            return null;
+        }
+        return this._token;
+    }
+}
+</code></pre>
+
+<ul>
+<li>Use in Auth Service</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/auth.service.ts
+user = new Subject&lt;User&gt;();
+//  ...
+private handleAuthentication(
+    email: string,
+    userId: string,
+    token: string,
+    expiresIn: number
+  ) {
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    const user = new User(email, userId, token, expirationDate);
+    this.user.next(user);
+  }
+
+// integrate to login and signup, from pipe
+.pipe(
+    catchError(this.handleError),
+    tap(resData =&gt; {
+    this.handleAuthentication(
+        resData.email,
+        resData.localId,
+        resData.idToken,
+        +resData.expiresIn
+    );
+    })
+);
+</code></pre>
+
+<h3 id="reflecting-the-auth-state-in-the-ui">Reflecting the Auth State in the UI</h3>
+<ul>
+<li>
+<p>Add <code>this.router.navigate(['/recipes]);</code> to successful auth subscriber in auth component.</p>
+</li>
+<li>
+<p>Reflect state in Header component</p>
+<ul>
+<li>Disable recipes link <em>if not</em> logged in</li>
+<li>Disable Authenticate link only <em>if</em> logged in.</li>
+<li>Disable dropdown <em>if not</em> logged in</li>
+<li>Show Logout button</li>
+</ul>
+</li>
+<li>Get current auth status into header component (user with valid token or not)</li>
+</ul>
+<pre><code class="typescript">isAuthenticated = false;
+private userSub = Subscription;
+// inject auth service
+// implement ngOnInit and ngOnDestroy
+ngOnInit() {
+    this.userSub = this.authService.user.subscribe(user =&gt; {
+        this.isAuthenticated = !!user;
+        console.log(!user);
+        console.log(!!user);
+    });
+}
+// then use ngIf in template
+</code></pre>
+
+<h3 id="adding-the-token-to-outgoing-requests">Adding the Token to Outgoing Requests</h3>
+<ul>
+<li>Change user in auth service<ul>
+<li><code>user = new BehaviorSubject&lt;User&gt;(null);</code></li>
+</ul>
+</li>
+<li>Use this to pull one value from user object in data-storage service, using take, and refactoring fetchRecipes:</li>
+</ul>
+<pre><code class="typescript">fetchRecipes() {
+  return this.authService.user.pipe(
+    take(1),
+    exhaustMap(user =&gt; {
+      return this.http.get&lt;Recipe[]&gt;(
+      'https://ng-learn-practice.firebaseio.com/recipes.json'
+    );
+    }),
+    map(recipes =&gt; {
+      return recipes.map(recipe =&gt; {
+        return {
+          ...recipe,
+          ingredients: recipe.ingredients ? recipe.ingredients : []
+        };
+      });
+    }),
+    tap(recipes =&gt; {
+      this.recipeService.setRecipes(recipes);
+    })
+  );
+}
+</code></pre>
+
+<h3 id="attaching-the-token-with-an-interceptor">Attaching the Token with an Interceptor</h3>
+<ul>
+<li>Want to also add token to storeRecipes</li>
+<li>Use an interceptor to manipulate requests instead of handling it twice.</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/auth-interceptor.service.ts
+import { Injectable } from '@angular/core';
+import {
+  HttpInterceptor,
+  HttpRequest,
+  HttpHandler,
+  HttpParams
+} from '@angular/common/http';
+
+import { AuthService } from './auth.service';
+import { take, exhaustMap } from 'rxjs/operators';
+
+@Injectable()
+export class AuthInterceptorService implements HttpInterceptor {
+  constructor(private authService: AuthService) {}
+
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler) {
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap(user =&gt; {
+        // must check, only add token if we have a user! otherwise send original req
+        if (!user) {
+          return next.handle(req);
+        }
+        const modifiedRequest = req.clone({
+          params: new HttpParams().set('auth', user.token)
+        });
+        return next.handle(modifiedRequest);
+      })
+    );
+  }
+}
+</code></pre>
+
+<h3 id="adding-logout">Adding Logout</h3>
+<ul>
+<li>Add method to authService and link to header</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/auth.service.ts
+logout() {
+  this.user.next(null);
+  this.router.navigate(['/auth']);
+}
+
+// src/app/header/header.component.ts
+onLogout() {
+  this.authService.logout();
+}
+</code></pre>
+
+<h3 id="adding-auto-login">Adding Auto-Login</h3>
+<ul>
+<li>Use local storage via browser to store token to be persisted in app reload</li>
+<li>Add to end of handleAuthentication in auth service: <code>localStorage.setItem('userData', JSON.stringify(user));</code></li>
+<li>Implement autoLogin method</li>
+</ul>
+<pre><code class="typescript">autoLogin(){
+    const userData: {
+      email: string,
+      id: string,
+      _token: string,
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
+
+    const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate));
+
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+    }
+}
+</code></pre>
+
+<ul>
+<li>Add to App Component (<em>runs first</em>)<ul>
+<li><code>ngOnInit() { this.authService.autoLogin(); }</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="adding-auto-logout">Adding Auto-Logout</h3>
+<ul>
+<li>Need to manually clear the snapshot of the user</li>
+<li>At end of logout method in auth service<ul>
+<li><code>localStorage.removeItem('userData');</code></li>
+</ul>
+</li>
+<li>Must set timer to know when to invalidate token. autoLogout method</li>
+<li>Must also clear token expiration timer.</li>
+<li>Store in property</li>
+</ul>
+<pre><code class="typescript">private tokenExpirationTimer: any;
+
+logout() {
+  this.user.next(null);
+  this.router.navigate(['/auth']);
+  localStorage.removeItem('userData');
+  if (this.tokenExpirationTimer) {
+    clearTimeout(this.tokenExpirationTimer);
+  }
+  this.tokenExpirationTimer = null;
+}
+
+autoLogout(expirationDuration: number) {
+  this.tokenExpirationTimer = setTimeout(() =&gt; {
+    this.logout();
+  }, expirationDuration);
+}
+</code></pre>
+
+<ul>
+<li>Need to call autoLogout everyime we emit a new user to the app. So, in handleAuthentication and autoLogin methods</li>
+</ul>
+<pre><code class="typescript">// in handleAuthentication method
+this.user.next(user);
+this.autoLogout(expiresIn * 1000);
+</code></pre>
+
+<ul>
+<li>Must calculate expiration date in autoLogin</li>
+</ul>
+<pre><code class="typescript">// in autoLogin method
+if (loadedUser.token) {
+  this.user.next(loadedUser);
+  const expirationDuration =
+    new Date(userData._tokenExpirationDate).getTime() -
+    new Date().getTime();
+  this.autoLogout(expirationDuration);
+}
+</code></pre>
+
+<h3 id="adding-an-auth-guard">Adding an Auth Guard</h3>
+<ul>
+<li>Run logic right before a route is loaded.</li>
+</ul>
+<pre><code class="typescript">// ./src/app/auth/auth.guard.ts
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
+} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { AuthService } from './auth.service';
+
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    router: RouterStateSnapshot
+  ): boolean | Promise&lt;boolean&gt; | Observable&lt;boolean&gt; {
+    return this.authService.user.pipe(
+      map(user =&gt; {
+        return !!user;
+      })
+    );
+  }
+}
+</code></pre>
+
+<ul>
+<li>Add to Router Module</li>
+</ul>
+<pre><code class="typescript">// ./src/app/app-routing.module
+path: 'recipes',
+    component: RecipesComponent,
+    canActivate: [AuthGuard],
+    children: [
+    // ...
+</code></pre>
+
+<ul>
+<li>Add redirect on attempt to go to /recipes</li>
+<li>Used to have to add router and tap, redirect manually</li>
+<li>Can now use URL Tree</li>
+</ul>
+<pre><code class="typescript">import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Router,
+  UrlTree
+} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { AuthService } from './auth.service';
+
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    router: RouterStateSnapshot
+  ):
+    | boolean
+    | UrlTree
+    | Promise&lt;boolean | UrlTree&gt;
+    | Observable&lt;boolean | UrlTree&gt; {
+    return this.authService.user.pipe(
+      take(1),
+      map((user) =&gt; {
+        const isAuth = !!user;
+        if (isAuth) {
+          return true;
+        }
+        return this.router.createUrlTree(['/auth']);
+      })
+    );
+  }
+}
+</code></pre>
+
+<h2 id="dynamic-components">Dynamic Components</h2>
+<h3 id="what-are-dynamic-components">What are Dynamic Components(?)</h3>
+<ul>
+<li>Components you create dynamically at runtime.</li>
+<li>Show an alert, some modal, some overlay, etc</li>
+<li>How to load it on demand, communicate, and get rid of it.</li>
+</ul>
+<h3 id="adding-an-alert-modal-component">Adding an Alert Modal Component</h3>
+<ul>
+<li>Build simple alert box on invalid login credentials</li>
+</ul>
+<pre><code class="typescript">// ./src/app/shared/alert/alert.component.ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-alert',
+  templateUrl: './alert.component.html',
+  styleUrls: ['./alert.component.css']
+})
+
+export class AlertComponent {
+  @Input() message: string;
+}
+</code></pre>
+
+<pre><code class="html">&lt;!-- ./src/app/shared/alert/alert.component.html --&gt;
+&lt;div class=&quot;backdrop&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;alert-box&quot;&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
+  &lt;div class=&quot;alert-box-actions&quot;&gt;
+    &lt;button class=&quot;btn btn-primary&quot;&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="css">/* ./src/app/shared/alert/alert.component.css */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+}
+
+.alert-box {
+  position: fixed;
+  top: 30vh;
+  left: 20vw;
+  width: 60vw;
+  padding: 16px;
+  z-index: 100;
+  background: white;
+  box-shadow: 0 2px 8px rbga(0, 0, 0, 0.26);
+}
+
+.alert-box-actions {
+  text-align: right;
+}
+</code></pre>
+
+<pre><code class="html">&lt;!-- ./src/app/auth/auth.component.html --&gt;
+
+&lt;!-- &lt;div class=&quot;alert alert-danger&quot; *ngIf=&quot;error&quot;&gt;
+    &lt;p&gt;{{ error }}&lt;/p&gt;
+&lt;/div&gt; --&gt;
+&lt;app-alert [message]=&quot;error&quot; *ngIf=&quot;error&quot;&gt;&lt;/app-alert&gt;
+</code></pre>
+
+<h3 id="understanding-the-different-approaches">Understanding the Different Approaches</h3>
+<ul>
+<li>What are dynamic components?</li>
+<li>Loaded Programmatically<ul>
+<li>*ngIf</li>
+<li>Component embedded via selector (declaratively)</li>
+<li>*ngIf controls whether component is added to DOM</li>
+<li>Dynamic Component Loader (doesn't exist anymore)</li>
+<li>Component created and added to DOM via code (imperatively)</li>
+<li>Component is managed &amp; added by developer</li>
+</ul>
+</li>
+</ul>
+<h3 id="using-ngif">Using ngIf</h3>
+<pre><code class="html">&lt;!-- ./src/app/auth/auth.component.html --&gt;
+&lt;app-alert [message]=&quot;error&quot; *ngIf=&quot;error&quot; (close)=&quot;onHandleError()&quot;&gt;&lt;/app-alert&gt;
+</code></pre>
+
+<pre><code class="typescript">// ./src/app/auth/auth.component.ts
+onHandleError() {
+  this.error = null;
+}
+</code></pre>
+
+<pre><code class="typescript">// ./src/app/shared/alert/alert.component.ts
+@Input() message: string;
+@Output() close = new EventEmitter&lt;void&gt;();
+
+onClose() {
+  this.close.emit();
+}
+</code></pre>
+
+<pre><code class="html">&lt;!-- ./src/app/shared/alert/alert.component.html --&gt;
+&lt;div class=&quot;backdrop&quot; (click)=&quot;onClose()&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;alert-box&quot;&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
+  &lt;div class=&quot;alert-box-actions&quot;&gt;
+    &lt;button class=&quot;btn btn-primary&quot; (click)=&quot;onClose()&quot;&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="preparing-programmatic-creation">Preparing Programmatic Creation</h3>
+<ul>
+<li>Comment out app-alert in html</li>
+<li>Create method in auth component</li>
+</ul>
+<pre><code class="typescript">// ./src/app/auth/auth.component.ts
+// on error in authObs:
+this.error = errorMessage;
+this.showErrorAlert(errorMessage);
+this.isLoading = false;
+// Use component factory resolver, inject into constructor
+private showErrorAlert(message: string) {
+  const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+    AlertComponent
+  );
+
+}
+</code></pre>
+
+<ul>
+<li>Create a directive</li>
+</ul>
+<pre><code class="typescript">// ./src/app/shared/placeholder/placeholder.directive.ts
+import { Directive, ViewContainerRef } from '@angular/core';
+
+@Directive({
+  selector: '[appPlaceholder]'
+})
+export class PlaceholderDirective {
+  constructor(public viewContainerRef: ViewContainerRef) {}
+}
+</code></pre>
+
+<h3 id="creating-a-component-programmatically">Creating a Component Programmatically</h3>
+<ul>
+<li>Add ng-template to HTML</li>
+</ul>
+<pre><code class="html">&lt;!-- ./src/app/auth/auth.component.html --&gt;
+&lt;!-- Get access to this place in the DOM --&gt;
+&lt;ng-template appPlaceholder&gt;&lt;/ng-template&gt;
+</code></pre>
+
+<pre><code class="typescript">// ./src/app/auth/auth.component.ts
+// Access directive with @ViewChild
+@ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
+// ...
+private showErrorAlert(message: string) {
+  const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+    AlertComponent
+  );
+  const hostViewContainerRef = this.alertHost.viewContainerRef;
+  hostViewContainerRef.clear();
+
+  hostViewContainerRef.createComponent(alertCmpFactory);
+}
+// ERROR: No component factory found for AlertComponent. Did you add it to @NgMOdule.entryComponents?
+</code></pre>
+
+<h3 id="understanding-entrycomponents">Understanding entryComponents</h3>
+<ul>
+<li>Angular does not automatically reach out to declarations array when creating component manually in code.</li>
+<li>To tell Angular to be prepared for creation of that component, need to add special property to the object passed to NgModule</li>
+</ul>
+<pre><code class="typescript">// ./src/app/app.module.ts
+// in NgModule declaration
+bootstrap: [AppComponent],
+entryComponents: [
+  AlertComponent
+]
+</code></pre>
+
+<h3 id="data-binding-and-event-binding">Data Binding and Event Binding</h3>
+<ul>
+<li>Create instance with component ref</li>
+<li>To close, manually have to listen to our close event</li>
+</ul>
+<pre><code class="typescript">// ./src/app/auth/auth.component.ts
+private showErrorAlert(message: string) {
+  const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+    AlertComponent
+  );
+  const hostViewContainerRef = this.alertHost.viewContainerRef;
+  hostViewContainerRef.clear();
+  const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
+  componentRef.instance.message = message;
+  // Must create closeSub: Subscription
+  this.closeSub = componentRef.instance.close.subscribe(() =&gt; {
+    this.closeSub.unsubscribe();
+    hostViewContainerRef.clear();
+  });
+}
+</code></pre>
+
+<h2 id="angular-modules-optimizing-angular-apps">Angular Modules &amp; Optimizing Angular Apps</h2>
+<h3 id="what-are-modules">What are Modules</h3>
+<ul>
+<li>Modules are ways to bundle Angular building blocks together</li>
+<li>Angular analyzes NgModules to <em>understand</em> your application and it's features.</li>
+<li>Defines all building blocks your app uses:</li>
+<li>Components, directives, services, pipes</li>
+<li>Application requires at least one module (AppModule) but may be split into multiple modules.</li>
+<li>Core Angular features are included in Angular modules (e.g. FormsModule) to load them only when needed.</li>
+<li>Can't use a feature/building block without including it in a module.</li>
+</ul>
+<h3 id="analyzing-the-appmodule">Analyzing the AppModule</h3>
+<ul>
+<li>Already using two modules in shop recipe project</li>
+<li><code>app.module.ts</code></li>
+<li><code>app-routing.module.ts</code></li>
+<li>AppModule</li>
+<li>Declarations<ul>
+<li>Array of all components, directives, custom pipes being used in application</li>
+</ul>
+</li>
+<li>Imports array<ul>
+<li>Import other modules into this module.</li>
+<li>Split into multiple modules.</li>
+</ul>
+</li>
+<li>Providers array<ul>
+<li>Define all services we want to provide.</li>
+<li>Any service you plan on injecting, must add here.</li>
+</ul>
+</li>
+<li>Bootstrap array<ul>
+<li>Starting app, defines what component is available in index.html file.</li>
+<li>Typically one root component in bootstrap array</li>
+</ul>
+</li>
+<li>Entry Components array<ul>
+<li>For components created <em>in code</em> or <em>programmatically</em></li>
+</ul>
+</li>
+<li>AppRoutingModule</li>
+<li>Separation of concerns, leaner and more focused.</li>
+<li>Imports RouterModule</li>
+<li>Exported here.<ul>
+<li>Made available in AppModule</li>
+</ul>
+</li>
+<li>Every module works <em>on its own</em></li>
+<li>Splitting modules help with performance</li>
+</ul>
+<h3 id="getting-started-with-feature-modules">Getting Started with Feature Modules</h3>
+<ul>
+<li>Working with multiple modules, splitting into multiple feature modules.</li>
+<li>Products Module</li>
+<li>Orders Module</li>
+<li>In relation to course project</li>
+<li>3 main feature areas:<ul>
+<li>Recipes</li>
+<li>Shopping List</li>
+<li>Authentication</li>
+</ul>
+</li>
+<li>Everything in a module stands alone</li>
+</ul>
+<h4 id="initial-recipes-module">Initial Recipes Module</h4>
+<pre><code class="typescript">// ./src/app/recipes/recipes.module.ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { RecipesComponent } from './recipes.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.component';
+import { RecipeStartComponent } from './recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
+
+@NgModule({
+  declarations: [
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    RecipeStartComponent,
+    RecipeEditComponent,
+  ],
+  exports: [
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    RecipeStartComponent,
+    RecipeEditComponent,
+  ]
+})
+export class RecipesModule {}
+</code></pre>
+
+<h3 id="splitting-modules-correctly">Splitting Modules Correctly</h3>
+<ul>
+<li>Using something other than a service, only have access to what you import</li>
+<li>Import RouterModule</li>
+<li><strong>Don't</strong> import BrowserModule</li>
+<li>CommonModule instead</li>
+<li>Import ReactiveFormsModule for recipe forms.</li>
+<li>Recipes module finished!</li>
+</ul>
+<h4 id="recipes-module">Recipes Module</h4>
+<pre><code class="typescript">// src/app/recipes/recipes.module.ts
+
+// imports
+
+@NgModule({
+  // ...
+  imports: [RouterModule, CommonModule, ReactiveFormsModule],
+  // ...
+})
+export class RecipesModule {}
+</code></pre>
+
+<h3 id="adding-routes-to-feature-modules">Adding Routes to Feature Modules</h3>
+<ul>
+<li>Move recipes segment of routing module to recipes module</li>
+</ul>
+<h4 id="recipesroutingmodule">RecipesRoutingModule</h4>
+<pre><code class="typescript">// ./src/app/recipes/recipes.module.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { RecipesComponent } from './recipes.component';
+import { AuthGuard } from '../auth/auth.guard';
+import { RecipeStartComponent } from './recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { RecipesResolverService } from './recipes-resolver.service';
+
+const routes: Routes = [
+  {
+    path: 'recipes',
+    component: RecipesComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: RecipeStartComponent},
+      { path: 'new', component: RecipeEditComponent },
+      {
+        path: ':id',
+        component: RecipeDetailComponent,
+        resolve: [RecipesResolverService]
+      },
+      {
+        path: ':id/edit',
+        component: RecipeEditComponent,
+        resolve: [RecipesResolverService]
+      }
+    ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class RecipesRoutingModule {}
+</code></pre>
+
+<h3 id="component-declarations">Component Declarations</h3>
+<ul>
+<li>Declaration and export important, must include components for routes used.</li>
+<li>Don't need exports in recipe module here, since not using in app component.</li>
+</ul>
+<h3 id="shopping-list-feature-module">Shopping List Feature Module</h3>
+<pre><code class="typescript">// src/app/shopping-list/shopping-list.module.ts
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { ShoppingListComponent } from './shopping-list.component';
+import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
+
+@NgModule({
+  declarations: [ShoppingListComponent, ShoppingEditComponent,],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild([
+      { path: 'shopping-list', component: ShoppingListComponent }
+    ])
+  ]
+})
+export class ShoppingListModule {}
+</code></pre>
+
+<h3 id="understanding-shared-modules">Understanding Shared Modules</h3>
+<ul>
+<li>Two feature modules, differing in one component</li>
+<li>Can move components in common to shared module to be imported by both</li>
+<li>Do this in Shop Recipe with Shared folder</li>
+<li>Import and export relevant components</li>
+<li>Can't have multiple declarations</li>
+</ul>
+<pre><code class="typescript">// src/app/shared/shared.module.ts
+import { NgModule } from '@angular/core';
+
+import { AlertComponent } from './alert/alert.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { PlaceholderDirective } from './placeholder/placeholder.directive';
+import { DropdownDirective } from './dropdown.directive';
+import { CommonModule } from '@angular/common';
+
+@NgModule({
+  declarations: [
+    AlertComponent,
+    LoadingSpinnerComponent,
+    PlaceholderDirective,
+    DropdownDirective
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    AlertComponent,
+    LoadingSpinnerComponent,
+    PlaceholderDirective,
+    DropdownDirective,
+    CommonModule
+  ],
+  entryComponents: [
+    AlertComponent
+  ]
+})
+export class SharedModule {}
+// import into shopping list module instead of common module
+</code></pre>
+
+<h3 id="understanding-the-core-module">Understanding the Core Module</h3>
+<ul>
+<li>Makes app module leaner</li>
+<li>Can use to move services out, organize into one module, then bring core module back into app module</li>
+<li>Provide application-wide services in separate module, to keep app module leaner</li>
+</ul>
+<pre><code class="typescript">// src/app/core.module.ts
+import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { RecipeService } from './recipes/recipe.service';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+
+@NgModule({
+  providers: [
+    ShoppingListService,
+    RecipeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ]
+})
+export class CoreModule {}
+</code></pre>
+
+<h3 id="adding-an-auth-feature-module">Adding an Auth Feature Module</h3>
+<pre><code class="typescript">// src/app/auth/auth.module.ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { AuthComponent } from './auth.component';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+
+@NgModule({
+  declarations: [AuthComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild([
+      { path: 'auth', component: AuthComponent }
+    ]),
+    SharedModule
+  ]
+})
+export class AuthModule {}
+</code></pre>
+
+<h3 id="understanding-lazy-loading">Understanding Lazy Loading</h3>
+<ul>
+<li>An optimization <em>concept</em></li>
+<li>Previous refactoring only cosmetic, not performative.</li>
+<li>Only run code that belongs to separate areas <em>when we really need it</em></li>
+<li>Only load when we visit</li>
+</ul>
+<h3 id="implementing-lazy-loading">Implementing Lazy Loading</h3>
+<ul>
+<li>For lazy loading, feature module needs to bring it's own routes.</li>
+<li>Have to change to empty path in recipes routing module, since it is now being used in app-routing module</li>
+</ul>
+<h3 id="more-lazy-loading">More Lazy Loading</h3>
+<ul>
+<li>Implement on Shopping List and Auth modules</li>
+<li>Final result:</li>
+</ul>
+<pre><code class="typescript">// src/app/app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  {
+    path: 'recipes',
+    loadChildren: () =&gt;
+      import('./recipes/recipes.module').then(m =&gt; m.RecipesModule)
+  },
+  {
+    path: 'shopping-list',
+    loadChildren: () =&gt;
+      import('./shopping-list/shopping-list.module').then(m =&gt; m.ShoppingListModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () =&gt;
+      import('./auth/auth.module').then(m =&gt; m.AuthModule)
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+</code></pre>
+
+<h3 id="preloading-lazy-loaded-code">Preloading Lazy-Loaded Code</h3>
+<ul>
+<li>Small delay, this will alleviate that</li>
+<li>Preloads bundles as soon as possible
+<code>imports: [RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})],</code></li>
+</ul>
+<h3 id="modules-and-services">Modules and Services</h3>
+<ul>
+<li>Can provide Service in</li>
+<li>AppModule<ul>
+<li>Available app-wide</li>
+<li>Use root injector</li>
+<li><em>Should be default</em></li>
+</ul>
+</li>
+<li>AppComponent(or other Components)<ul>
+<li>Available in component-tree</li>
+<li>Use component-specific injector</li>
+<li>Use if <em>service is only relevant for component tree</em></li>
+</ul>
+</li>
+<li>Eager-loaded Module<ul>
+<li>Available app-wide</li>
+<li>Use root injector</li>
+<li><strong><em>Avoid this!</em></strong> Same effect as AppModule</li>
+</ul>
+</li>
+<li>Lazy-Loaded Module<ul>
+<li>Available in loaded module</li>
+<li>Use child injector</li>
+<li>Use if <em>service should be scoped to loaded module</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="loading-services-differently">Loading Services Differently</h3>
+<ul>
+<li>Different instances</li>
+</ul>
+<pre><code class="typescript">// Service loading demo
+// src/app/logging.service.ts
+import { Injectable } from '@angular/core';
+
+// @Injectable({ providedIn: 'root' })
+export class LoggingService {
+  lastLog: string;
+
+  printLog(message: string) {
+    console.log(message);
+    console.log(this.lastLog);
+    this.lastLog = message;
+  }
+}
+</code></pre>
+
+<h3 id="ahead-of-time-compilation">Ahead-of-Time Compilation</h3>
+<ul>
+<li>Code and templates compiled to Javascript with TS compiler.</li>
+<li>Angular compiler (automatically included in built code) compile template syntax to Javascript DOM instructions</li>
+<li>Just-in-Time(JiT) Compilation<ul>
+<li>Angular template compiler runs in browser (at runtime)</li>
+</ul>
+</li>
+<li>Ahead-of-Time (AoT) Compilation<ul>
+<li>Angular template compiler runs during build process (before app is deployed)</li>
+</ul>
+</li>
+<li><code>ng serve</code> does JiT compilation by default</li>
+<li>Run <code>ng build --prod</code></li>
+<li>Error with recipe-edit controls, fixed before
+  <code>get controls() { return (this.recipeForm.get('ingredients') as FormArray).controls; }</code></li>
+</ul>
+<h2 id="deploying-an-angular-app">Deploying an Angular App</h2>
+<ul>
+<li>Using Firebase</li>
+</ul>
+<h3 id="preparation">Preparation</h3>
+<ul>
+<li>Use &amp; check Environment Variables</li>
+<li>Polish &amp; test code</li>
+<li><code>ng build --prod</code></li>
+<li>Uses ahead-of-time compilation</li>
+<li>Deploy build artificats (generated files) to static host</li>
+<li>No server-side language on static host, just HTML, JS, CSS</li>
+</ul>
+<h3 id="using-environment-variables">Using Environment Variables</h3>
+<p><code>src/environments</code></p>
+<ul>
+<li>File for production, and one for development</li>
+<li><code>environment.ts</code></li>
+<li>
+<p><code>environment.prod.ts</code></p>
+</li>
+<li>
+<p>Import (used here with firebase API key in authentication service)</p>
+</li>
+<li><code>import { environment } from '../../environments/environment';</code></li>
+<li><code>environment.firebaseAPIKey</code></li>
+</ul>
+<h3 id="deployment-example-firebase-hosting">Deployment Example: Firebase Hosting</h3>
+<ul>
+<li>Options for static website hosting</li>
+<li>AWS S3</li>
+<li>Firebase Hosting</li>
+<li>
+<p>etc..</p>
+</li>
+<li>
+<p>For Firebase, first install</p>
+</li>
+<li><code>npm i -g firebase-tools</code></li>
+<li>Initialize</li>
+<li><code>firebase init</code></li>
+<li>Go through settings</li>
+<li>Deploy</li>
+<li><code>firebase deploy</code></li>
+</ul>
+<h3 id="server-routing-vs-browser-routing">Server Routing vs Browser Routing</h3>
+<ul>
+<li>When deploying an Angular app, it's really important to make sure that your server (like S3) is configured to always serve the index.html file. <a href="https://academind.com/learn/angular/angular-q-a/#how-to-fix-broken-routes-after-deployment">Here's why</a>.</li>
+</ul>
+<h2 id="bonus-working-with-ngrx-in-our-project">Bonus: Working with NgRx in our Project</h2>
+<ul>
+<li>State management</li>
+</ul>
+<h3 id="what-is-application-state">What is Application State</h3>
+<ul>
+<li>Example</li>
+<li>WelcomeComponent</li>
+<li>NewTrainingComponent</li>
+<li>CurrentTraining Component</li>
+<li>TrainingService<ul>
+<li>Fetch excercises (NewTrainingComponent)</li>
+<li>Store excercises (CurrentTrainingComponent)</li>
+</ul>
+</li>
+<li>Application state lost when application refreshes!</li>
+<li>TrainingService Store &amp; Fetch on Backend</li>
+<li>Known as <em>Persistent State on Backend</em></li>
+<li>ShoppingListService as example on our Recipe App</li>
+<li>(User) Event in UI/App -&gt; State Changing Event -&gt; Observable -&gt; Operators* -&gt; Listener -&gt; Update UI</li>
+<li>*Optional</li>
+<li>Using Subjects, Observables<ul>
+<li>Push subscribe mechanism</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-is-ngrx">What is NgRx</h3>
+<ul>
+<li>Issues with the RxJS Approach</li>
+<li>State can be updated anywhere</li>
+<li>State is (possibly) mutable</li>
+<li>Handling side effects (e.g. Http calls) is unclear</li>
+<li>No specific Pattern is Enforced</li>
+<li>Redux</li>
+<li>State management pattern and library</li>
+<li><strong>Store</strong> - Application State</li>
+<li>Services &amp; Components receive state from <strong>Store</strong></li>
+<li><strong>Actions</strong> - Dispatch<ul>
+<li>Sent to <strong>Reducers</strong></li>
+<li>Reduces/Combines State</li>
+<li>Returns new state</li>
+<li><strong>Store</strong> saves reduced State (immutably)</li>
+</ul>
+</li>
+<li>NgRx is Angular's Implementation of Redux</li>
+<li>Differences to "normal" Redux<ul>
+<li>Deeply integrated into Angular</li>
+<li>Injectable Services</li>
+<li>Uses RxJS</li>
+<li>Observables</li>
+<li>(Uses Typescript)</li>
+</ul>
+</li>
+</ul>
+<h3 id="getting-started-with-reducers">Getting Started with Reducers</h3>
+<ul>
+<li>App is <em>fine as is</em></li>
+<li>Recommended to follow for introduction to this pattern</li>
+<li>Install: <code>npm i --save @ngrx/store</code></li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/shopping-list.reducer.ts
+import { Ingredient } from '../shared/ingredient.model';
+
+const initialState = {
+  ingredients: [
+    new Ingredient('Apples', 5),
+    new Ingredient('Tomatoes', 10),
+]
+};
+
+export function shoppingListReducer(state = initialState, action) {}
+</code></pre>
+
+<h3 id="adding-logic-to-the-reducer">Adding Logic to the Reducer</h3>
+<ul>
+<li><strong>Never</strong> touch existing state.</li>
+<li>Instead, return new object to replace old state</li>
+<li>Copy old state</li>
+</ul>
+<pre><code class="typescript">import { Ingredient } from '../shared/ingredient.model';
+import { Action } from '@ngrx/store';
+
+const initialState = {
+  ingredients: [
+    new Ingredient('Apples', 5),
+    new Ingredient('Tomatoes', 10),
+]
+};
+
+export function shoppingListReducer(state = initialState, action: Action) {
+  switch (action.type) {
+    case 'ADD_INGREDIENT':
+      return {
+        ...state,     // good practice to always copy over old state
+        ingredients: [...state.ingredients, action]
+      };
+  }
+}
+</code></pre>
+
+<h3 id="understanding-and-adding-actions">Understanding and Adding Actions</h3>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.actions.ts
+import { Action } from '@ngrx/store';
+import { Ingredient } from 'src/app/shared/ingredient.model';
+
+export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+
+export class AddIngredient implements Action {
+  readonly type = ADD_INGREDIENT;
+  payload: Ingredient;
+  // &quot;payload&quot; not a required name, can use any. only &quot;type&quot; property is required.
+}
+</code></pre>
+
+<h3 id="setting-up-the-ngrx-store">Setting up the NgRx Store</h3>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.reducer.ts
+import { Ingredient } from '../../shared/ingredient.model';
+import * as ShoppingListActions from './shopping-list.actions';
+
+const initialState = {
+  ingredients: [
+    new Ingredient('Apples', 5),
+    new Ingredient('Tomatoes', 10),
+]
+};
+
+export function shoppingListReducer(state = initialState, action: ShoppingListActions.AddIngredient) {
+  switch (action.type) {
+    case ShoppingListActions.ADD_INGREDIENT:
+      return {
+        ...state,     // good practice to always copy over old state
+        ingredients: [...state.ingredients, action.payload]
+      };
+  }
+}
+</code></pre>
+
+<ul>
+<li>Add to AppModule imports array:
+<code>StoreModule.forRoot({ShoppingList: shoppingListReducer}),</code></li>
+</ul>
+<h3 id="selecting-state">Selecting State</h3>
+<ul>
+<li>Inject to ShoppingListComponent:
+<code>private store: Store&lt;{ shoppingList: { ingredients: Ingredient[] } }&gt;</code></li>
+</ul>
+<pre><code class="typescript">import { Ingredient } from '../../shared/ingredient.model';
+import * as ShoppingListActions from './shopping-list.actions';
+
+const initialState = {
+  ingredients: [new Ingredient('Apples', 5), new Ingredient('Tomatoes', 10)]
+};
+
+export function shoppingListReducer(
+  state = initialState,
+  action: ShoppingListActions.AddIngredient
+) {
+  switch (action.type) {
+    case ShoppingListActions.ADD_INGREDIENT:
+      return {
+        ...state, // good practice to always copy over old state
+        ingredients: [...state.ingredients, action.payload]
+      };
+    default:
+      return state;
+  }
+}
+</code></pre>
+
+<h3 id="dispatching-actions">Dispatching Actions</h3>
+<ul>
+<li>Find where we change state</li>
+<li>Create new object based on Action class and dispatch it</li>
+<li>Instead of adding payload as property in shopping-list actions, make into constructor funtion.</li>
+<li><code>constructor(public payload: Ingredient) {}</code></li>
+<li>When add ingredient, dispatch action, which reaches all reducers (1 in this case), in shopping-edit</li>
+<li><code>this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient));</code></li>
+<li>Flow</li>
+<li>Add ingredient -&gt; Dispatch the action (defined in actions) -&gt; to ngrx store (aware of reducer) -&gt; action reaches all reducers that store knows -&gt; in reducer, action passed as second arg -&gt; check for type of action -&gt; react appropriately.</li>
+<li>Now using ngRx end-to-end for displaying and adding ingredients</li>
+</ul>
+<h3 id="multiple-actions">Multiple Actions</h3>
+<ul>
+<li>Handle other state changes:</li>
+<li>Add multiple ingredients</li>
+<li>Update Ingredient</li>
+<li>
+<p>Delete Ingredient</p>
+</li>
+<li>
+<p>Add Multiple Ingredients</p>
+</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.actions.ts
+export const ADD_INGREDIENTS = 'ADD_INGREDIENTS';
+
+export class AddIngredients implements Action {
+  readonly type = ADD_INGREDIENTS;
+  constructor(public payload: Ingredient[]) {}
+}
+
+// create union of diff action types
+export type ShoppingListActions = AddIngredient | AddIngredients;
+</code></pre>
+
+<ul>
+<li>Implement on state change</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/recipe.service.ts
+addIngredientsToShoppingList(ingredients: Ingredient[]) {
+  // this.sLService.addIngredients(ingredients);
+  this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+}
+</code></pre>
+
+<h3 id="preparing-update-delete-actions">Preparing Update &amp; Delete Actions</h3>
+<ul>
+<li>Add constants, classes, and add to union</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.actions.ts
+export const UPDATE_INGREDIENT = 'UPDATE_INGREDIENT';
+export const DELETE_INGREDIENT = 'DELETE_INGREDIENT';
+
+export class UpdateIngredient implements Action {
+  readonly type = UPDATE_INGREDIENT;
+  constructor(public payload: { index: number; ingredient: Ingredient }) {}
+}
+
+export class DeleteIngredient implements Action {
+  readonly type = DELETE_INGREDIENT;
+  constructor(public payload: number) {}
+}
+
+export type ShoppingListActions =
+  | AddIngredient
+  | AddIngredients
+  | UpdateIngredient
+  | DeleteIngredient;
+</code></pre>
+
+<h3 id="updating-deleting-ingredients">Updating &amp; Deleting Ingredients</h3>
+<ul>
+<li>Updating Ingredient</li>
+<li>Must create new state, object</li>
+<li>Create a copy</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.reducer.ts
+case ShoppingListActions.UPDATE_INGREDIENT:
+  const ingredient = state.ingredients[action.payload.index];
+  const updatedIngredient = {
+    ...ingredient,
+    ...action.payload.ingredient
+  };
+  const updatedIngredients = [...state.ingredients];
+  updatedIngredients[action.payload.index] = updatedIngredient;
+
+  return {
+    ...state,
+    ingredients: [updatedIngredients]
+  };
+</code></pre>
+
+<ul>
+<li>Delete Ingredient</li>
+<li>Using filter</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.reducer.ts
+case ShoppingListActions.DELETE_INGREDIENT:
+  return {
+    ...state,
+    ingredients: state.ingredients.filter((ig, igIndex) =&gt; {
+      return igIndex !== action.payload;
+    })
+  };
+</code></pre>
+
+<h3 id="expanding-the-state">Expanding the State</h3>
+<ul>
+<li>Shopping Edit ngOnInit manages ingredients and whether we're editting or not from service</li>
+<li>Translate to ngRx</li>
+<li>Dispatch action for start editing, in shopping list on edit item</li>
+<li>Now we need more than just the ingredients in state</li>
+<li>Also want to store edited ingredient and index</li>
+<li>Change structure of state:</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.reducer.ts
+const initialState = {
+  ingredients: [new Ingredient('Apples', 5), new Ingredient('Tomatoes', 10)],
+  editedIngredient: null,
+  editedIngredientIndex: -1
+};
+</code></pre>
+
+<ul>
+<li>Now must change definition of return type</li>
+<li>Use simpler pattern</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.reducer.ts
+export interface State {
+  ingredients: Ingredient[];
+  editedIngredient: Ingredient;
+  editedIngredientIndex: number;
+}
+export interface AppState {
+  shoppingList: State;
+}
+</code></pre>
+
+<h3 id="managing-more-state-via-ngrx">Managing More State via NgRx</h3>
+<ul>
+<li>Need action for starting and cancelling edit process</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.actions.ts
+export const START_EDIT = 'START_EDIT';
+export const STOP_EDIT = 'STOP_EDIT';
+// ...
+export class StartEdit implements Action {
+  readonly type = START_EDIT;
+
+  constructor(public payload: number) {}
+}
+
+export class StopEdit implements Action {
+  readonly type = STOP_EDIT;
+}
+</code></pre>
+
+<ul>
+<li>Create cases in Reducer:</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.reducer.ts
+case ShoppingListActions.START_EDIT:
+  return {
+    ...state,
+    editedIngredientIndex: action.payload,
+    editedIngredient: { ...state.ingredients[action.payload] }
+  };
+
+case ShoppingListActions.STOP_EDIT:
+  return {
+    ...state,
+    editedIngredient: null,
+    editedIngredientIndex: -1
+  };
+</code></pre>
+
+<ul>
+<li>Now must dispatch the actions appropriately.</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/shopping-list.component.ts
+onEditItem(index: number) {
+  // this.slService.startedEditing.next(index);
+  this.store.dispatch(new ShoppingListActions.StartEdit(index));
+}
+</code></pre>
+
+<pre><code class="typescript">// src/app/shopping-list/shopping-edit/shopping-edit.component.ts
+constructor(
+  private slService: ShoppingListService,
+  private store: Store&lt;fromShoppingList.AppState&gt;
+) {}
+
+ngOnInit() {
+  this.subscription = this.store.select('shoppingList').subscribe(stateData =&gt; {
+    if (stateData.editedIngredientIndex &gt; -1) {
+      this.editMode = true;
+      this.editedItem = stateData.editedIngredient;
+      this.slForm.setValue({
+        name: this.editedItem.name,
+        amount: this.editedItem.amount
+      });
+    } else {
+      this.editMode = false;
+    }
+  });
+}
+</code></pre>
+
+<h3 id="removing-redundant-component-state-management">Removing Redundant Component State Management</h3>
+<ul>
+<li>We have index in our state, so instead of passing that as data, remove</li>
+<li>Final shopping list actions:</li>
+</ul>
+<pre><code class="typescript">// src/app/shopping-list/store/shopping-list.actions.ts
+import { Action } from '@ngrx/store';
+import { Ingredient } from 'src/app/shared/ingredient.model';
+
+export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+export const ADD_INGREDIENTS = 'ADD_INGREDIENTS';
+export const UPDATE_INGREDIENT = 'UPDATE_INGREDIENT';
+export const DELETE_INGREDIENT = 'DELETE_INGREDIENT';
+export const START_EDIT = 'START_EDIT';
+export const STOP_EDIT = 'STOP_EDIT';
+
+export class AddIngredient implements Action {
+  readonly type = ADD_INGREDIENT;
+  // payload: Ingredient;
+  // &quot;payload&quot; not a required name, can use any. only &quot;type&quot; property is required.
+  constructor(public payload: Ingredient) {}
+}
+
+export class AddIngredients implements Action {
+  readonly type = ADD_INGREDIENTS;
+  constructor(public payload: Ingredient[]) {}
+}
+
+export class UpdateIngredient implements Action {
+  readonly type = UPDATE_INGREDIENT;
+  constructor(public payload: Ingredient) {}
+}
+
+export class DeleteIngredient implements Action {
+  readonly type = DELETE_INGREDIENT;
+}
+
+export class StartEdit implements Action {
+  readonly type = START_EDIT;
+
+  constructor(public payload: number) {}
+}
+
+export class StopEdit implements Action {
+  readonly type = STOP_EDIT;
+}
+
+export type ShoppingListActions =
+  | AddIngredient
+  | AddIngredients
+  | UpdateIngredient
+  | DeleteIngredient
+  | StartEdit
+  | StopEdit;
+</code></pre>
+
+<h3 id="first-summary-clean-up">First Summary &amp; Clean Up</h3>
+<ul>
+<li>Added NgRx to Application by including the StoreModule and calling forRoot</li>
+<li>forRoot then needs a map (basically an object) that tells NgRx which reducers we have in our application.</li>
+<li>All these reducers and the state they generate make up the NgRx Store.</li>
+<li>Reducer is just a function</li>
+<li>NgRx will automatically pass in the current state and an action it received, so it will execute the function whenever a new action is received.</li>
+<li>In reducer, switch case statement where we check action we got and depending on type we return new state.</li>
+<li>Data in, data out. All synchronous</li>
+<li>Return new object, new state</li>
+<li>Return state is what NgRx will in the end register for the shopping list slice of the overall AppState of the App Store it manages here</li>
+<li>Also added actions file where we defined unique identifiers, and then each is a complete object based on classes we defined.</li>
+<li>Each action needs to have a type property, where we do store string identifier for the action</li>
+<li>Might also have a payload, a property which can be set to attach data to that action.<ul>
+<li>Needed for adding an ingredient</li>
+<li>Wasn't needed for deleting an ingredient</li>
+</ul>
+</li>
+<li>Fair amount of overhead work involved</li>
+<li>Using service with subjects is <em>more than fine</em> alternative to using NgRx</li>
+<li>Although fairly easy to grow the state, once setup.</li>
+<li>Can get rid of shopping list service, delete file, remove imports &amp; injections</li>
+</ul>
+<h3 id="one-root-state">One Root State</h3>
+<ul>
+<li>Implement NgRx in Auth section</li>
+<li>Create <code>src/app/auth/store/auth.reducer.ts</code></li>
+<li>Only state we use in other parts of app is User object, so it must be part of initial state</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.reducer.ts
+import { User } from '../user.model';
+
+export interface State {
+  user: User;
+}
+
+const initialState: State = {
+  user: null
+};
+
+export function authReducer(state = initialState, action) {
+  return state;
+}
+</code></pre>
+
+<ul>
+<li>Also initialize global store:</li>
+<li>
+<p><code>StoreModule.forRoot({shoppingList: shoppingListReducer, auth: authReducer }),</code></p>
+</li>
+<li>
+<p>Move AppState out of shopping list reducer, since it's more general. Into global store folder:</p>
+</li>
+</ul>
+<pre><code class="typescript">// src/app/store/app.reducer.ts
+import { ActionReducerMap } from '@ngrx/store';
+
+import * as fromShoppingList from '../shopping-list/store/shopping-list.reducer';
+import * as fromAuth from '../auth/store/auth.reducer';
+
+export interface AppState {
+  shoppingList: fromShoppingList.State;
+  auth: fromAuth.State;
+}
+
+export const appReducer: ActionReducerMap&lt;AppState&gt; = {
+  shoppingList: fromShoppingList.shoppingListReducer,
+  auth: fromAuth.authReducer
+};
+</code></pre>
+
+<ul>
+<li>Now App module can simply point to the general App Reducer:</li>
+</ul>
+<pre><code class="typescript">// src/app/app.module.ts
+import * as fromApp from './store/app.reducer';
+// ...
+@NgModule({
+  // ...
+  imports: [
+    // ...
+    StoreModule.forRoot(fromApp.appReducer),
+    // ...
+  ]
+  // ...
+})
+</code></pre>
+
+<ul>
+<li>Change imports, etc in Recipe Service, Shopping List &amp; Shopping Edit components</li>
+</ul>
+<h3 id="setting-up-auth-reducer-actions">Setting up Auth Reducer &amp; Actions</h3>
+<ul>
+<li>Dispatch actions in handle auth and logout, when creating new user object, wherever user next is called</li>
+<li>Create actions for Auth</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.actions.ts
+import { Action } from '@ngrx/store';
+
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+
+export class Login implements Action {
+  readonly type = LOGIN;
+
+  constructor(
+    public payload: {
+      email: string;
+      userId: string;
+      token: string;
+      expirationDate: Date;
+    }
+  ) {}
+}
+
+export class Logout implements Action {
+  readonly type = LOGOUT;
+}
+
+export type AuthActions = Login | Logout;
+</code></pre>
+
+<ul>
+<li>Now modify auth reducer:</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.reducer.ts
+import { User } from '../user.model';
+import * as AuthActions from './auth.actions';
+
+export interface State {
+  user: User;
+}
+
+const initialState: State = {
+  user: null
+};
+
+export function authReducer(
+  state = initialState,
+  action: AuthActions.AuthActions
+) {
+  switch (action.type) {
+    case AuthActions.LOGIN:
+      const user = new User(
+        action.payload.email,
+        action.payload.userId,
+        action.payload.token,
+        action.payload.expirationDate
+      );
+      return {
+        ...state,
+        user
+      };
+    case AuthActions.LOGOUT:
+      return {
+        ...state,
+        user: null
+      };
+    default:
+      return state;
+  }
+}
+</code></pre>
+
+<ul>
+<li>Now, to dispatch the actions</li>
+</ul>
+<h3 id="dispatching-auth-actions">Dispatching Auth Actions</h3>
+<pre><code class="typescript">// src/app/auth/auth.service.ts
+  // in autoLogin:
+
+  // this.user.next(loadedUser);
+  this.store.dispatch(
+    new AuthActions.Login({
+      email: loadedUser.email,
+      userId: loadedUser.id,
+      token: loadedUser.token,
+      expirationDate: new Date(userData._tokenExpirationDate)
+    })
+  );
+
+  // in logout:
+
+  // this.user.next(null);
+  this.store.dispatch(new AuthActions.Logout());
+
+  // in handleAuthentication:
+
+  // this.user.next(user);
+  this.store.dispatch(new AuthActions.Login({email, userId, token, expirationDate}));
+</code></pre>
+
+<ul>
+<li>Now to make sure we use the auth state</li>
+</ul>
+<h3 id="auth-finished-for-now">Auth Finished (for now...)</h3>
+<ul>
+<li>Trick to find where subject is used, comment out in service</li>
+<li>Address auth interceptor</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/auth-interceptor.service.ts
+return this.store.select('auth').pipe(
+  take(1),
+  map(authState =&gt; {
+    return authState.user;
+  }),
+  exhaustMap(user =&gt; {
+    // ...
+</code></pre>
+
+<ul>
+<li>Address in auth guard and header component</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/auth.guard.ts
+return this.store.select('auth').pipe(
+  take(1),
+  map(authState =&gt; {
+    return authState.user;
+  }),
+  map(user =&gt; {
+    // ...
+</code></pre>
+
+<pre><code class="typescript">// src/app/header/header.component.ts
+ngOnInit() {
+  this.userSub = this.store
+    .select('auth')
+    .pipe(map(authState =&gt; authState.user))
+    .subscribe(user =&gt; {
+      this.isAuthenticated = !!user;
+    });
+}
+</code></pre>
+
+<h3 id="an-important-note-on-actions">An Important Note on Actions</h3>
+<ul>
+<li>Initial action reaches all reducers.</li>
+<li>Any action you dispatch always reaches <strong>all</strong> reducers</li>
+<li>Always copy old state</li>
+<li>Always return state in default case</li>
+<li>Since action still reaches reducer</li>
+<li>Careful with identifiers that interfere, since actions reach all reducers.</li>
+<li>Prefixing<ul>
+<li><code>'ADD_INGREDIENT'</code> -&gt; <code>'[Shopping List] Add Ingredient'</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="exploring-ngrx-side-effects">Exploring NgRx Side Effects</h3>
+<ul>
+<li>Side effects</li>
+<li>Parts in code where we run some logic that's not immediately important for updating current state</li>
+<li>Ex with Http Request<ul>
+<li>Start signup process</li>
+<li>Signup success</li>
+<li>Signup error</li>
+<li>Local storage as a side effect</li>
+</ul>
+</li>
+<li>Another NgRx package for dealing with side effects</li>
+<li><code>npm i --save @ngrx/effects</code></li>
+</ul>
+<h3 id="defining-the-first-effect">Defining the First Effect</h3>
+<ul>
+<li>Observable for each dispatched action</li>
+<li>In AuthEffects, don't change state, but can execute any other code, then dispatch another action.<ul>
+<li>Stream of dispatched actions</li>
+</ul>
+</li>
+<li>Add effect as normal property<ul>
+<li>Call pipe, <strong>not</strong> subscribe</li>
+</ul>
+</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.effects.ts
+import { Actions, ofType } from '@ngrx/effects';
+
+import * as AuthActions from './auth.actions';
+
+export class AuthEffects {
+  authLogin = this.actions$.pipe(
+    ofType(AuthActions.LOGIN_START)
+  );
+
+  constructor(private actions$: Actions) {}
+}
+</code></pre>
+
+<h3 id="effects-error-handling">Effects &amp; Error-Handling</h3>
+<ul>
+<li>Implement new action in auth actions:</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.actions.ts
+
+// ...
+export class LoginStart implements Action {
+  readonly type = LOGIN_START;
+
+  constructor(public payload: { email: string, password: string }) {}
+}
+</code></pre>
+
+<ul>
+<li>Copy HTTP request and AuthResponseData interface into Auth effects</li>
+<li>Effect by default should return new action</li>
+<li>Errors handled on a different level</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.effects.ts
+import { Actions, ofType, Effect } from '@ngrx/effects';
+import { switchMap, catchError, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { of } from 'rxjs';
+
+import * as AuthActions from './auth.actions';
+
+export interface AuthResponseData {
+  kind: string;
+  idToken: string;
+  email: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
+  registered?: boolean;
+}
+
+export class AuthEffects {
+  @Effect()
+  authLogin = this.actions$.pipe(
+    ofType(AuthActions.LOGIN_START),
+    switchMap((authData: AuthActions.LoginStart) =&gt; {
+      return this.http
+      .post&lt;AuthResponseData&gt;(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +
+          environment.firebaseAPIKey,
+        {
+          email: authData.payload.email,
+          password: authData.payload.password,
+          returnSecureToken: true
+        }
+      ).pipe(catchError(error =&gt; {
+        // ...
+        of();
+      }), map(resData =&gt; {
+        of();
+      })
+      );
+    }),
+  );
+
+  constructor(private actions$: Actions, private http: HttpClient) {}
+}
+</code></pre>
+
+<h3 id="login-via-ngrx-effects">Login via NgRx Effects</h3>
+<ul>
+<li>Need to return or add an object, and NgRx will automatically dispatch action</li>
+<li>Also must add to App Module</li>
+<li><code>import { EffectsModule } from '@ngrx/effects';</code></li>
+<li><code>EffectsModule.forRoot([AuthEffects]),</code></li>
+<li>Add in auth component</li>
+<li>Old <code>// authObs = this.authService.login(email, password);</code></li>
+<li>New <code>this.store.dispatch(new AuthActions.LoginStart({email, password}));</code></li>
+</ul>
+<h3 id="managing-ui-state-in-ngrx">Managing UI State in NgRx</h3>
+<ul>
+<li>Need to manage more of our authentication related state</li>
+<li>Implement a Login Fail action</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.actions.ts
+export const LOGIN_FAIL = '[Auth] Login Fail';
+// ...
+export class LoginFail implements Action {
+  readonly type = LOGIN_FAIL;
+
+  constructor(public payload: string) {}
+}
+</code></pre>
+
+<ul>
+<li>Modify and add error property to reducer states</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.reducer.ts
+export interface State {
+  user: User;
+  authError: string;
+  loading: boolean;
+}
+
+const initialState: State = {
+  user: null,
+  authError: null,
+  loading: false;
+};
+
+export function authReducer(
+  state = initialState,
+  action: AuthActions.AuthActions
+) {
+  switch (action.type) {
+    case AuthActions.LOGIN:
+      const user = new User(
+        action.payload.email,
+        action.payload.userId,
+        action.payload.token,
+        action.payload.expirationDate
+      );
+      return {
+        ...state,
+        authError: null,
+        user,
+        loading: false
+      };
+    case AuthActions.LOGOUT:
+      return {
+        ...state,
+        user: null
+      };
+    case AuthActions.LOGIN_START:
+      return {
+        ...state,
+        authError: null,
+        loading: true
+      };
+    case AuthActions.LOGIN_FAIL:
+      return {
+        ...state,
+        user: null,
+        authError: action.payload,
+        loading: false
+      };
+    default:
+      return state;
+  }
+}
+</code></pre>
+
+<ul>
+<li>In auth component</li>
+<li>Comment out auth observer subscribe</li>
+</ul>
+<pre><code class="typescript">ngOnInit() {
+  this.store.select('auth').subscribe(authState =&gt; {
+    this.isLoading = authState.loading;
+    this.error = authState.authError;
+  });
+}
+</code></pre>
+
+<h3 id="finishing-the-login-effect">Finishing the Login Effect</h3>
+<ul>
+<li>Adding Auth Success Effect</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.effects.ts
+
+// fix map in authLogin
+map(resData =&gt; {
+  const expirationDate = new Date(
+    new Date().getTime() + +resData.expiresIn * 1000
+  );
+  return new AuthActions.Login({
+      email: resData.email,
+      userId: resData.localId,
+      token: resData.idToken,
+      expirationDate
+    }
+  );
+}),
+// ...
+@Effect({dispatch: false})
+// ^ let angular know this effect will not yield dispatchable action
+authSuccess = this.actions$.pipe(
+  ofType(AuthActions.LOGIN),
+  tap(() =&gt; {
+    this.router.navigate(['/']);
+  })
+);
+</code></pre>
+
+<ul>
+<li>Handle error on login</li>
+<li>First add show alert dynamic component function to NgOnInit in auth component:<ul>
+<li><code>if (this.error) { this.showErrorAlert(this.error); }</code></li>
+</ul>
+</li>
+<li>Then modify catchError in auth effect:</li>
+</ul>
+<pre><code class="typescript">catchError(errorRes =&gt; {
+  let errorMessage = 'An unknown error occurred!';
+  if (!errorRes.error || !errorRes.error.error) {
+    // return throwError(errorMessage);
+    return of(new AuthActions.LoginFail(errorMessage));
+  }
+  switch (errorRes.error.error.message) {
+    case 'EMAIL_EXISTS':
+      errorMessage = 'This email exists already.';
+      break;
+    case 'EMAIL_NOT_FOUND':
+      errorMessage = 'This email does not exist';
+      break;
+    case 'INVALID_PASSWORD':
+      errorMessage = 'This password is not correct';
+      break;
+  }
+  return of(new AuthActions.LoginFail(errorMessage));
+})
+</code></pre>
+
+<h3 id="preparing-other-auth-actions">Preparing Other Auth Actions</h3>
+<ul>
+<li>Add effect for signing up</li>
+<li><em>Also changed Login/LoginFail to Authenticate/AuthenticateFail</em></li>
+<li>Signup start implementation</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.actions.ts
+export class SignupStart implements Action {
+  readonly type = SIGNUP_START;
+
+  constructor(public payload: { email: string; password: string }) {}
+}
+
+export type AuthActions =
+  | AuthenticateSuccess
+  | Logout
+  | LoginStart
+  | AuthenticateFail
+  | SignupStart;
+
+// src/app/auth/store/auth.effects.ts
+@Effect()
+authSignup = this.actions$.pipe(
+  ofType(AuthActions.SIGNUP_START)
+);
+</code></pre>
+
+<h3 id="adding-signup">Adding Signup</h3>
+<pre><code class="typescript">// src/app/auth/store/auth.effects.ts
+const handleAuthentication = (
+  expiresIn: number,
+  email: string,
+  userId: string,
+  token: string
+) =&gt; {
+  const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+  return new AuthActions.AuthenticateSuccess({
+    email,
+    userId,
+    token,
+    expirationDate
+  });
+};
+
+const handleError = (errorRes: any) =&gt; {
+  let errorMessage = 'An unknown error occurred!';
+  if (!errorRes.error || !errorRes.error.error) {
+    // return throwError(errorMessage);
+    return of(new AuthActions.AuthenticateFail(errorMessage));
+  }
+  switch (errorRes.error.error.message) {
+    case 'EMAIL_EXISTS':
+      errorMessage = 'This email exists already.';
+      break;
+    case 'EMAIL_NOT_FOUND':
+      errorMessage = 'This email does not exist';
+      break;
+    case 'INVALID_PASSWORD':
+      errorMessage = 'This password is not correct';
+      break;
+  }
+  return of(new AuthActions.AuthenticateFail(errorMessage));
+};
+
+@Injectable()
+export class AuthEffects {
+  @Effect()
+  authSignup = this.actions$.pipe(
+    ofType(AuthActions.SIGNUP_START),
+    switchMap((signupAction: AuthActions.SignupStart) =&gt; {
+      return this.http
+        .post&lt;AuthResponseData&gt;(
+          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +
+            environment.firebaseAPIKey,
+          {
+            email: signupAction.payload.email,
+            password: signupAction.payload.password,
+            returnSecureToken: true
+          }
+        )
+        .pipe(
+          map(resData =&gt; {
+            return handleAuthentication(
+              +resData.expiresIn,
+              resData.email,
+              resData.localId,
+              resData.idToken
+            );
+          }),
+          catchError(errorRes =&gt; {
+            return handleError(errorRes);
+          })
+        );
+    })
+  );
+
+// ...
+}
+</code></pre>
+
+<h3 id="further-auth-effects">Further Auth Effects</h3>
+<ul>
+<li>Changing auth component to sync with NgRx states</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/auth.component.ts
+onHandleError() {
+  this.store.dispatch(new AuthActions.ClearError());
+}
+
+ngOnDestroy() {
+  if (this.closeSub) {
+    this.closeSub.unsubscribe();
+  }
+
+  if (this.storeSub){
+    this.storeSub.unsubscribe();
+  }
+}
+</code></pre>
+
+<h3 id="adding-auto-login-with-ngrx">Adding Auto-Login with NgRx</h3>
+<ul>
+<li>Essentially moving logic out of service and into effects/actions</li>
+</ul>
+<pre><code class="typescript">@Effect()
+autoLogin = this.actions$.pipe(
+  ofType(AuthActions.AUTO_LOGIN),
+  map(() =&gt; {
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return { type: 'DUMMY' };
+    }
+
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+    );
+    if (loadedUser.token) {
+      // this.user.next(loadedUser);
+      return new AuthActions.AuthenticateSuccess({
+          email: loadedUser.email,
+          userId: loadedUser.id,
+          token: loadedUser.token,
+          expirationDate: new Date(userData._tokenExpirationDate)
+      });
+    }
+    return { type: 'DUMMY' };
+    // const expirationDuration =
+    //   new Date(userData._tokenExpirationDate).getTime() -
+    //   new Date().getTime();
+    // this.autoLogout(expirationDuration);
+  })
+);
+</code></pre>
+
+<h3 id="adding-auto-logout-ngrx">Adding Auto-Logout (NgRx)</h3>
+<ul>
+<li>AuthService set &amp; clear logout timer:</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/auth.service.ts
+setLogoutTimer(expirationDuration: number) {
+  console.log(expirationDuration);
+  this.tokenExpirationTimer = setTimeout(() =&gt; {
+    this.store.dispatch(new AuthActions.Logout());
+  }, expirationDuration);
+}
+
+clearLogoutTimer() {
+  if (this.tokenExpirationTimer) {
+    clearTimeout(this.tokenExpirationTimer);
+    this.tokenExpirationTimer = null;
+  }
+}
+</code></pre>
+
+<h3 id="finishing-auth-effects">Finishing Auth Effects</h3>
+<ul>
+<li>Full Auth Service:</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/auth.service.ts
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import * as fromApp from '../store/app.reducer';
+import * as AuthActions from '../auth/store/auth.actions';
+
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  private tokenExpirationTimer: any;
+
+  constructor(
+    private store: Store&lt;fromApp.AppState&gt;
+  ) {}
+
+  setLogoutTimer(expirationDuration: number) {
+    console.log(expirationDuration);
+    this.tokenExpirationTimer = setTimeout(() =&gt; {
+      this.store.dispatch(new AuthActions.Logout());
+    }, expirationDuration);
+  }
+
+  clearLogoutTimer() {
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer);
+      this.tokenExpirationTimer = null;
+    }
+  }
+}
+</code></pre>
+
+<ul>
+<li>Full Auth Actions:</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.actions.ts
+import { Action } from '@ngrx/store';
+
+export const LOGIN_START = '[Auth] Login Start';
+export const AUTHENTICATE_SUCCESS = '[Auth] Login';
+export const AUTHENTICATE_FAIL = '[Auth] Login Fail';
+export const SIGNUP_START = '[Auth] Signup Start';
+export const CLEAR_ERROR = '[Auth] Clear Error';
+export const AUTO_LOGIN = '[Auth] Auto Login';
+export const LOGOUT = '[Auth] Logout';
+
+export class AuthenticateSuccess implements Action {
+  readonly type = AUTHENTICATE_SUCCESS;
+
+  constructor(
+    public payload: {
+      email: string;
+      userId: string;
+      token: string;
+      expirationDate: Date;
+    }
+  ) {}
+}
+
+export class Logout implements Action {
+  readonly type = LOGOUT;
+}
+
+export class LoginStart implements Action {
+  readonly type = LOGIN_START;
+
+  constructor(public payload: { email: string; password: string }) {}
+}
+
+export class AuthenticateFail implements Action {
+  readonly type = AUTHENTICATE_FAIL;
+
+  constructor(public payload: string) {}
+}
+
+export class SignupStart implements Action {
+  readonly type = SIGNUP_START;
+
+  constructor(public payload: { email: string; password: string }) {}
+}
+
+export class ClearError implements Action {
+  readonly type = CLEAR_ERROR;
+}
+
+export class AutoLogin implements Action {
+  readonly type = AUTO_LOGIN;
+}
+
+export type AuthActions =
+  | AuthenticateSuccess
+  | Logout
+  | LoginStart
+  | AuthenticateFail
+  | SignupStart
+  | ClearError
+  | AutoLogin;
+</code></pre>
+
+<ul>
+<li>Full Auth Effects:</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.effects.ts
+import { Injectable } from '@angular/core';
+import { Actions, ofType, Effect } from '@ngrx/effects';
+import { switchMap, catchError, map, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { of } from 'rxjs';
+import { Router } from '@angular/router';
+
+import * as AuthActions from './auth.actions';
+import { User } from '../user.model';
+import { AuthService } from '../auth.service';
+
+export interface AuthResponseData {
+  kind: string;
+  idToken: string;
+  email: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
+  registered?: boolean;
+}
+
+const handleAuthentication = (
+  expiresIn: number,
+  email: string,
+  userId: string,
+  token: string
+) =&gt; {
+  const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+  const user = new User(email, userId, token, expirationDate);
+  localStorage.setItem('userData', JSON.stringify(user));
+  return new AuthActions.AuthenticateSuccess({
+    email,
+    userId,
+    token,
+    expirationDate
+  });
+};
+
+const handleError = (errorRes: any) =&gt; {
+  let errorMessage = 'An unknown error occurred!';
+  if (!errorRes.error || !errorRes.error.error) {
+    // return throwError(errorMessage);
+    return of(new AuthActions.AuthenticateFail(errorMessage));
+  }
+  switch (errorRes.error.error.message) {
+    case 'EMAIL_EXISTS':
+      errorMessage = 'This email exists already.';
+      break;
+    case 'EMAIL_NOT_FOUND':
+      errorMessage = 'This email does not exist';
+      break;
+    case 'INVALID_PASSWORD':
+      errorMessage = 'This password is not correct';
+      break;
+  }
+  return of(new AuthActions.AuthenticateFail(errorMessage));
+};
+
+@Injectable()
+export class AuthEffects {
+  @Effect()
+  authSignup = this.actions$.pipe(
+    ofType(AuthActions.SIGNUP_START),
+    switchMap((signupAction: AuthActions.SignupStart) =&gt; {
+      return this.http
+        .post&lt;AuthResponseData&gt;(
+          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +
+            environment.firebaseAPIKey,
+          {
+            email: signupAction.payload.email,
+            password: signupAction.payload.password,
+            returnSecureToken: true
+          }
+        )
+        .pipe(
+          tap(resData =&gt; {
+            this.authService.setLogoutTimer(+resData.expiresIn * 1000);
+          }),
+          map(resData =&gt; {
+            return handleAuthentication(
+              +resData.expiresIn,
+              resData.email,
+              resData.localId,
+              resData.idToken
+            );
+          }),
+          catchError(errorRes =&gt; {
+            return handleError(errorRes);
+          })
+        );
+    })
+  );
+
+  @Effect()
+  authLogin = this.actions$.pipe(
+    ofType(AuthActions.LOGIN_START),
+    switchMap((authData: AuthActions.LoginStart) =&gt; {
+      return this.http
+        .post&lt;AuthResponseData&gt;(
+          'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +
+            environment.firebaseAPIKey,
+          {
+            email: authData.payload.email,
+            password: authData.payload.password,
+            returnSecureToken: true
+          }
+        )
+        .pipe(
+          tap(resData =&gt; {
+            this.authService.setLogoutTimer(+resData.expiresIn * 1000);
+          }),
+          map(resData =&gt; {
+            return handleAuthentication(
+              +resData.expiresIn,
+              resData.email,
+              resData.localId,
+              resData.idToken
+            );
+          }),
+          catchError(errorRes =&gt; {
+            return handleError(errorRes);
+          })
+        );
+    })
+  );
+
+  @Effect({ dispatch: false })
+  // ^ let angular know this effect will not yield dispatchable action
+  authRedirect = this.actions$.pipe(
+    ofType(AuthActions.AUTHENTICATE_SUCCESS),
+    tap(() =&gt; {
+      this.router.navigate(['/']);
+    })
+  );
+
+  @Effect()
+  autoLogin = this.actions$.pipe(
+    ofType(AuthActions.AUTO_LOGIN),
+    map(() =&gt; {
+      const userData: {
+        email: string;
+        id: string;
+        _token: string;
+        _tokenExpirationDate: string;
+      } = JSON.parse(localStorage.getItem('userData'));
+      if (!userData) {
+        return { type: 'DUMMY' };
+      }
+
+      const loadedUser = new User(
+        userData.email,
+        userData.id,
+        userData._token,
+        new Date(userData._tokenExpirationDate)
+      );
+      if (loadedUser.token) {
+        // this.user.next(loadedUser);
+        const expirationDuration =
+          new Date(userData._tokenExpirationDate).getTime() -
+          new Date().getTime();
+        this.authService.setLogoutTimer(expirationDuration);
+        return new AuthActions.AuthenticateSuccess({
+            email: loadedUser.email,
+            userId: loadedUser.id,
+            token: loadedUser.token,
+            expirationDate: new Date(userData._tokenExpirationDate)
+        });
+      }
+      return { type: 'DUMMY' };
+      // const expirationDuration =
+      //   new Date(userData._tokenExpirationDate).getTime() -
+      //   new Date().getTime();
+      // this.autoLogout(expirationDuration);
+    })
+  );
+
+  @Effect({ dispatch: false })
+  authLogout = this.actions$.pipe(
+    ofType(AuthActions.LOGOUT),
+    tap(() =&gt; {
+      this.authService.clearLogoutTimer();
+      localStorage.removeItem('userData');
+      this.router.navigate(['/auth']);
+    })
+  );
+
+  constructor(
+    private actions$: Actions,
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService
+  ) {}
+}
+</code></pre>
+
+<ul>
+<li>Full Auth Reducer:</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.reducer.ts
+
+import { User } from '../user.model';
+import * as AuthActions from './auth.actions';
+
+export interface State {
+  user: User;
+  authError: string;
+  loading: boolean;
+}
+
+const initialState: State = {
+  user: null,
+  authError: null,
+  loading: false
+};
+
+export function authReducer(
+  state = initialState,
+  action: AuthActions.AuthActions
+) {
+  switch (action.type) {
+    case AuthActions.AUTHENTICATE_SUCCESS:
+      const user = new User(
+        action.payload.email,
+        action.payload.userId,
+        action.payload.token,
+        action.payload.expirationDate
+      );
+      return {
+        ...state,
+        authError: null,
+        user,
+        loading: false
+      };
+    case AuthActions.LOGOUT:
+      return {
+        ...state,
+        user: null
+      };
+    case AuthActions.LOGIN_START:
+    case AuthActions.SIGNUP_START:
+      return {
+        ...state,
+        authError: null,
+        loading: true
+      };
+    case AuthActions.AUTHENTICATE_FAIL:
+      return {
+        ...state,
+        user: null,
+        authError: action.payload,
+        loading: false
+      };
+    case AuthActions.CLEAR_ERROR:
+      return {
+        ...state,
+        authError: null
+      }
+    default:
+      return state;
+  }
+}
+</code></pre>
+
+<h3 id="using-the-store-devtools">Using the Store Devtools</h3>
+<ul>
+<li>Redux Devtools for Chrome</li>
+<li>Chrome Web Store</li>
+<li>NgRx Devtools</li>
+<li><code>npm i --save-dev @ngrx/store-devtools</code></li>
+<li>Import into App Module</li>
+</ul>
+<pre><code class="typescript">import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+// ...
+StoreDevtoolsModule.instrument({ logOnly: environment.production }),
+</code></pre>
+
+<h3 id="the-router-store">The Router Store</h3>
+<p><code>npm i --save @ngrx/router-store</code></p>
+<pre><code class="typescript">import { StoreRouterConnectingModule } from '@ngrx/router-store';
+// ...
+StoreRouterConnectingModule.forRoot(),
+</code></pre>
+
+<h3 id="getting-started-with-ngrx-for-recipes">Getting Started with NgRx for Recipes</h3>
+<ul>
+<li><code>src/app/recipes/store/</code></li>
+<li>Create files</li>
+<li><code>recipe.reducer.ts</code></li>
+<li><code>recipe.actions.ts</code></li>
+<li><code>recipe.effects.ts</code></li>
+<li>
+<p>Add to App Reducer</p>
+</li>
+<li>
+<p>Initial Recipe Reducer</p>
+</li>
+</ul>
+<pre><code class="typescript">import { Recipe } from '../recipe.model';
+import * as RecipeActions from './recipe.actions';
+
+export interface State {
+  recipes: Recipe[];
+}
+
+const initialState: State = {
+  recipes: []
+};
+
+export function recipeReducer(
+  state = initialState,
+  action: RecipeActions.RecipesActions
+) {
+  switch (action.type) {
+    case RecipeActions.SET_RECIPES:
+      return {
+        ...state,
+        recipes: [...action.payload]
+      };
+    default:
+      return state;
+  }
+}
+</code></pre>
+
+<ul>
+<li>Initial Recipe Actions</li>
+</ul>
+<pre><code class="typescript">import { Action } from '@ngrx/store';
+
+import { Recipe } from '../recipe.model';
+
+export const SET_RECIPES = '[Recipes] Set Recipes';
+
+export class SetRecipes implements Action {
+  readonly type = SET_RECIPES;
+
+  constructor(public payload: Recipe[]) {}
+}
+
+export type RecipesActions = SetRecipes;
+</code></pre>
+
+<ul>
+<li>Change in recipe-list component &amp; data-storage service</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/recipe-list/recipe-list.component.ts
+ngOnInit() {
+  this.subscription = this.store
+    .select('recipes')
+    .pipe(map(recipesState =&gt; recipesState.recipes))
+    .subscribe((recipes: Recipe[]) =&gt; {
+      this.recipes = recipes;
+    });
+}
+
+// src/app/shared/data-storage.service.ts
+fetchRecipes() {
+  // ...
+      tap(recipes =&gt; {
+        // this.recipeService.setRecipes(recipes);
+        this.store.dispatch(new RecipesActions.SetRecipes(recipes));
+      })
+    );
+}
+</code></pre>
+
+<h3 id="fetching-recipe-detail-data">Fetching Recipe Detail Data</h3>
+<ul>
+<li>Recipe detail/edit still using Recipes service</li>
+<li>
+<p>Will need to modify recipe-edit &amp; recipe-detail to use NgRx Store instead of Recipes Service</p>
+</li>
+<li>
+<p>In Recipe-Detail:</p>
+</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/recipe-detail/recipe-detail.component.ts
+ngOnInit() {
+  this.route.params
+    .pipe(
+      map(params =&gt; {
+        return +params['id'];
+      }),
+      switchMap(id =&gt; {
+        this.id = id;
+        return this.store.select('recipes');
+      }),
+      map(recipesState =&gt; {
+        return recipesState.recipes.find((recipe, index) =&gt; {
+          return index === this.id;
+        });
+      })
+    )
+    .subscribe(recipe =&gt; {
+      this.recipe = recipe;
+    });
+}
+</code></pre>
+
+<ul>
+<li>In Recipe-Edit:</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/recipe-detail/recipe-detail.component.ts
+// in initForm():
+// const recipe = this.recipeService.getRecipe(this.id);
+this.store
+  .select('recipes')
+  .pipe(
+    map(recipeState =&gt; {
+      return recipeState.recipes.find((recipe, index) =&gt; {
+        return index === this.id;
+      });
+    })
+  )
+  .subscribe(recipe =&gt; {
+    recipeName = recipe.name;
+    recipeImagePath = recipe.imagePath;
+    recipeDescription = recipe.description;
+    if (recipe['ingredients']) {
+      for (let ingredient of recipe.ingredients) {
+        recipeIngredients.push(
+          new FormGroup({
+            name: new FormControl(ingredient.name, Validators.required),
+            amount: new FormControl(ingredient.amount, [
+              Validators.required,
+              Validators.pattern(/^[1-9]+[0-9]*$/)
+            ])
+          })
+        );
+      }
+    }
+  });
+</code></pre>
+
+<h3 id="fetching-recipes-using-the-resolver">Fetching Recipes Using the Resolver</h3>
+<ul>
+<li>Manage getting data through effects, notably in recipes-resolver and header component</li>
+<li>Initial Recipe Effects:</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/store/recipe.effects.ts
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { HttpClient } from '@angular/common/http';
+import { switchMap, map } from 'rxjs/operators';
+
+import * as RecipesActions from './recipe.actions';
+import { Recipe } from '../recipe.model';
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class RecipeEffects {
+  @Effect()
+  fetchRecipes = this.actions$.pipe(
+    ofType(RecipesActions.FETCH_RECIPES),
+    switchMap(fetchAction =&gt; {
+      return this.http.get&lt;Recipe[]&gt;(
+        'https://ng-learn-practice.firebaseio.com/recipes.json'
+      );
+    }),
+    map(recipes =&gt; {
+      return recipes.map(recipe =&gt; {
+        return {
+          ...recipe,
+          ingredients: recipe.ingredients ? recipe.ingredients : []
+        };
+      });
+    }),
+    map(recipes =&gt; {
+      return new RecipesActions.SetRecipes(recipes);
+    }),
+  );
+
+  constructor(private actions$: Actions, private http: HttpClient) {}
+}
+</code></pre>
+
+<ul>
+<li>Import recipe effects:</li>
+</ul>
+<pre><code class="typescript">// src/app/app.module.ts
+import { RecipeEffects } from './recipes/store/recipe.effects';
+// ...
+@NgModule({
+  // ...
+  imports: [
+    // ...
+    EffectsModule.forRoot([AuthEffects, RecipeEffects]),
+    // ...
+  ],
+  // ...
+})
+</code></pre>
+
+<ul>
+<li>Implement Recipe Action for Fetching Recipes:</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/store/recipe.actions.ts
+export const FETCH_RECIPES = '[Recipes] Fetch Recipes';
+// ...
+export class FetchRecipes implements Action {
+  readonly type = FETCH_RECIPES;
+}
+</code></pre>
+
+<ul>
+<li>Dispatch fetch recipes in data-storage service, or where it's called, which is in header</li>
+</ul>
+<pre><code class="typescript">// src/app/header/header.component.ts
+onFetchData() {
+  // this.dataStorageService.fetchRecipes().subscribe();
+  this.store.dispatch(new RecipesActions.FetchRecipes());
+}
+</code></pre>
+
+<ul>
+<li>Modify Resolver:</li>
+</ul>
+<pre><code class="typescript">import { Injectable } from '@angular/core';
+import {
+  Resolve,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
+} from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Actions, ofType } from '@ngrx/effects';
+import { take } from 'rxjs/operators';
+
+import { Recipe } from './recipe.model';
+import * as fromApp from '../store/app.reducer';
+import * as RecipesActions from '../recipes/store/recipe.actions';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RecipesResolverService implements Resolve&lt;Recipe[]&gt; {
+  constructor(
+    private store: Store&lt;fromApp.AppState&gt;,
+    private actions$: Actions
+  ) {}
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    this.store.dispatch(new RecipesActions.FetchRecipes());
+    return this.actions$.pipe(
+      ofType(RecipesActions.SET_RECIPES),
+      take(1)
+    );
+  }
+}
+</code></pre>
+
+<ul>
+<li>On recipe selected and reload page, sent back to /recipes. Will fix this issue next.</li>
+</ul>
+<h3 id="fixing-the-auth-redirect">Fixing the Auth Redirect</h3>
+<ul>
+<li>Actually related to Auth Effects and redirect there</li>
+<li>Add redirect boolean property to Auth Success action</li>
+</ul>
+<pre><code class="typescript">// src/app/auth/store/auth.actions.ts
+export class AuthenticateSuccess implements Action {
+  readonly type = AUTHENTICATE_SUCCESS;
+
+  constructor(
+    public payload: {
+      email: string;
+      userId: string;
+      token: string;
+      expirationDate: Date;
+      redirect: boolean;
+    }
+  ) {}
+}
+</code></pre>
+
+<ul>
+<li>Give true value on handleAuthentication effect, false on autologin</li>
+<li>If condition in authRedirect:</li>
+</ul>
+<pre><code class="typescript">@Effect({ dispatch: false })
+// ^ let angular know this effect will not yield dispatchable action
+authRedirect = this.actions$.pipe(
+  ofType(AuthActions.AUTHENTICATE_SUCCESS),
+  tap((authSuccessAction: AuthActions.AuthenticateSuccess) =&gt; {
+    if (authSuccessAction.payload.redirect) {
+      this.router.navigate(['/']);
+    }
+  })
+);
+</code></pre>
+
+<h3 id="update-delete-and-add-recipes">Update, Delete, and Add Recipes</h3>
+<ul>
+<li>Modify recipe resolver</li>
+</ul>
+<pre><code class="typescript">resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  return this.store.select('recipes').pipe(
+    take(1),
+    map(recipesState =&gt; {
+      return recipesState.recipes;
+    }),
+    switchMap(recipes =&gt; {
+      if (recipes.length === 0) {
+        this.store.dispatch(new RecipesActions.FetchRecipes());
+        return this.actions$.pipe(
+          ofType(RecipesActions.SET_RECIPES),
+          take(1)
+        );
+      } else {
+        return of(recipes);
+      }
+    })
+  );
+}
+</code></pre>
+
+<ul>
+<li>Add actions and cases for each to reducer:</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/store/recipe.actions.ts
+export const ADD_RECIPE = '[Recipe] Add Recipe';
+export const UPDATE_RECIPE = '[Recipe] Update Recipe';
+export const DELETE_RECIPE = '[Recipe] Delete Recipe';
+// ...
+export class AddRecipe implements Action {
+  readonly type = ADD_RECIPE;
+
+  constructor(public payload: Recipe) {}
+}
+
+export class UpdateRecipe implements Action {
+  readonly type = UPDATE_RECIPE;
+
+  constructor(public payload: { index: number; newRecipe: Recipe }) {}
+}
+
+export class DeleteRecipe implements Action {
+  readonly type = DELETE_RECIPE;
+
+  constructor(public payload: number) {}
+}
+
+export type RecipesActions =
+  | SetRecipes
+  | FetchRecipes
+  | AddRecipe
+  | UpdateRecipe
+  | DeleteRecipe;
+</code></pre>
+
+<pre><code class="typescript">// src/app/recipes/store/recipe.reducer.ts
+case RecipeActions.ADD_RECIPE:
+  return {
+    ...state,
+    recipes: [...state.recipes, action.payload]
+  };
+case RecipeActions.UPDATE_RECIPE:
+  const updatedRecipe = {
+    ...state.recipes[action.payload.index],
+    ...action.payload.newRecipe
+  };
+
+  const updatedRecipes = [...state.recipes];
+  updatedRecipes[action.payload.index] = updatedRecipe;
+  return {
+    ...state,
+    recipes: updatedRecipes
+  };
+case RecipeActions.DELETE_RECIPE:
+  return {
+    ...state,
+    recipes: state.recipes.filter((recipe, index) =&gt; {
+      return index !== action.payload;
+    })
+  };
+</code></pre>
+
+<ul>
+<li>Need to modify where actions occur. For delete, in recipe-detail component:</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/recipe-detail/recipe-detail.component.ts
+onDeleteRecipe() {
+  // this.recipeService.deleteRecipe(this.id);
+  this.store.dispatch(new RecipesActions.DeleteRecipe(this.id));
+  this.router.navigate(['/recipes']);
+}
+</code></pre>
+
+<ul>
+<li>And modify recipe-edit for update and add</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/recipe-edit/recipe-edit.component.ts
+// ...
+onSubmit() {
+  if (this.editMode) {
+    // this.recipeService.updateRecipe(this.id, this.recipeForm.value);
+    this.store.dispatch(
+      new RecipesActions.UpdateRecipe({
+        index: this.id,
+        newRecipe: this.recipeForm.value
+      })
+    );
+  } else {
+    // this.recipeService.addRecipe(this.recipeForm.value);
+    this.store.dispatch(new RecipesActions.AddRecipe(this.recipeForm.value));
+  }
+  this.onCancel();
+}
+// ...
+// must also implement unsubscribe, or get error on delete after cancelling edit:
+
+ngOnDestroy() {
+  if (this.storeSub){
+    this.storeSub.unsubscribe();
+  }
+}
+</code></pre>
+
+<h3 id="storing-recipes-via-effects">Storing Recipes via Effects</h3>
+<ul>
+<li>Implement the Action</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/store/recipe.actions.ts
+export const STORE_RECIPES = '[Recipe] Store Recipes';
+// ...
+export class StoreRecipes implements Action {
+  readonly type = STORE_RECIPES;
+}
+</code></pre>
+
+<ul>
+<li>Add the effect</li>
+</ul>
+<pre><code class="typescript">// src/app/recipes/store/recipe.effects.ts
+@Effect()
+storeRecipes = this.actions$.pipe(
+  ofType(RecipesActions.STORE_RECIPES),
+  withLatestFrom(this.store.select('recipes')),
+  switchMap(([actionData, recipesState]) =&gt; {
+    return this.http.put(
+      'https://ng-learn-practice.firebaseio.com/recipes.json',
+      recipesState.recipes
+    );
+  })
+);
+</code></pre>
+
+<ul>
+<li>Modify header component</li>
+</ul>
+<pre><code class="typescript">// src/app/header/header.component.ts
+onSaveData() {
+  // this.dataStorageService.storeRecipes();
+  this.store.dispatch(new RecipesActions.StoreRecipes());
+}
+</code></pre>
+
+<h3 id="cleanup-work">Cleanup Work</h3>
+<ul>
+<li>Can delete recipe service file</li>
+<li>Fix recipe edit and recipe detail, remove extra non-used or nonexistant imports</li>
+</ul>
+<h3 id="wrap-up">Wrap Up</h3>
+<ul>
+<li>Thorough look at NgRx</li>
+<li>Services and subjects are fine on their own</li>
+<li>State management may be worth the work to setup on a project that is much larger in scale.</li>
+<li>Streamlined approach</li>
+<li><a href="https://ngrx.io/">NgRx Documentation</a></li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mern/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mern/" class="btn btn-xs btn-link">
+        MERN
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../mean/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mean/" class="btn btn-xs btn-link">
+        MEAN
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
