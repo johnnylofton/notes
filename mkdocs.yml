@@ -1,0 +1,10 @@
+site_name: Notes
+nav:
+  - Home: index.md
+  - MkDocs: mkdocs.md
+  - Javascript: js.md
+  - MEAN: mean.md
+  - Angular: ng.md
+  - MERN: mern.md
+  - Google Cloud: gcloud.md
+theme: windmill-dark
