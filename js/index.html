@@ -71,12 +71,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../mean/" class="btn btn-xs btn-default pull-right">
+      <a href="../css/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../mean/" class="btn btn-xs btn-link">
-        MEAN
+      <a href="../css/" class="btn btn-xs btn-link">
+        CSS
       </a>
     </div>
     
@@ -96,11 +96,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h2 id="usage-and-history">Usage and History</h2>
 <ul>
 <li>Web Browsers</li>
-<li>Applications</li>
+<li>Applications<ul>
 <li>Desktop - Electron</li>
 <li>Mobile - Cordova</li>
 <li>Server - Node.js</li>
-<li>History / Versions</li>
+</ul>
+</li>
+<li>History / Versions<ul>
 <li>1995 - Created</li>
 <li>1997 - Standardizing</li>
 <li>1999 - ECMAScript 3</li>
@@ -110,28 +112,38 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <hr />
 <h2 id="language-features">Language Features</h2>
 <h3 id="constants-variable-that-cannot-change">Constants - variable that <strong>cannot</strong> change</h3>
 <ul>
-<li><code>const</code></li>
+<li><code>const</code><ul>
 <li>Must be initiated - <code>const x = 2</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="variable-declarations">Variable Declarations</h3>
 <ul>
-<li><code>let</code></li>
+<li><code>let</code><ul>
 <li>Cannot be called before declared</li>
 <li>Has <a href="http://www.benmvp.com/learning-es6-block-level-scoping-let-const/">block scoping</a></li>
-<li><code>var</code></li>
+</ul>
+</li>
+<li><code>var</code><ul>
 <li>undefined before declaration</li>
+</ul>
+</li>
 </ul>
 <h3 id="rest-parameters">Rest Parameters</h3>
 <ul>
-<li>The <em>rest</em> or remaining parameters</li>
+<li>The <em>rest</em> or remaining parameters<ul>
 <li>Must be last argument</li>
 <li><code>function x(z, ...y)</code><ul>
 <li><code>z</code> - named parameter</li>
 <li><code>...y</code> - rest parameter, as array</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -219,9 +231,9 @@ typeof(NaN);            // 'number'
 </ul>
 <h3 id="logical-boolean-operators">Logical (Boolean) operators</h3>
 <ul>
-<li><code>&amp;&amp;</code>  - AND</li>
-<li><code>||</code>  - OR</li>
-<li><code>!</code>   - NOT, convert to bool, flip</li>
+<li><code>&amp;&amp;</code>    - AND</li>
+<li><code>||</code>    - OR</li>
+<li><code>!</code>     - NOT, convert to bool, flip</li>
 </ul>
 <h3 id="relational-operators">Relational Operators</h3>
 <ul>
@@ -232,8 +244,10 @@ typeof(NaN);            // 'number'
 <h3 id="conditional-operators">Conditional Operators</h3>
 <ul>
 <li><code>?</code> used in shorthand <code>if</code></li>
-<li><code>condition ? exprIfTrue : exprIfFalse</code></li>
+<li><code>condition ? exprIfTrue : exprIfFalse</code><ul>
 <li>ex: <code>console.log((5&gt;4) ? 'yes' : 'no');   // yes</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="assignment-operators">Assignment Operators</h3>
 <ul>
@@ -352,14 +366,18 @@ console.log(o.getId.apply(newCar, ['id: ']))
 </ul>
 <h4 id="bind">Bind</h4>
 <ul>
-<li>Make copy of a function and change context / <code>this</code> value.</li>
+<li>Make copy of a function and change context / <code>this</code> value.<ul>
 <li><code>let newFn = o.getId.bind(newCar);</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="arrow-functions">Arrow Functions</h3>
 <ul>
-<li>Function declarations</li>
+<li>Function declarations<ul>
 <li>Arrow function symbol: <code>=&gt;</code></li>
 <li><code>let getId = () =&gt; 123; //no params</code></li>
+</ul>
+</li>
 <li>More examples</li>
 </ul>
 <pre><code class="javascript">let getId = prefix =&gt; prefix + 123;
@@ -434,8 +452,10 @@ Car.prototype.start = function() {
 </code></pre>
 
 <ul>
-<li>Expanding Objects using Prototypes</li>
+<li>Expanding Objects using Prototypes<ul>
 <li>Give new functionality to objects</li>
+</ul>
+</li>
 </ul>
 <pre><code class="javascript">String.prototype.hello = function() {
     return this.toString() + ' Hello';
@@ -505,9 +525,11 @@ class Car() {
 </ul>
 <h3 id="methods">Methods</h3>
 <ul>
-<li>No function keyword needed</li>
 <li>
-<p>Example within class <code>Car</code></p>
+<p>No function keyword needed</p>
+<ul>
+<li>Example within class <code>Car</code></li>
+</ul>
 <p><code>javascript
 identify(params) {
     return `Car Id: ${this.id}`;
@@ -531,10 +553,14 @@ identify(params) {
 
 <h3 id="creating-and-importing-a-module">Creating and Importing a Module</h3>
 <ul>
-<li>Create &amp; Export</li>
+<li>Create &amp; Export<ul>
 <li><code>export class Car { ... }</code></li>
-<li>Import</li>
+</ul>
+</li>
+<li>Import<ul>
 <li><code>import { Car } from './models/car.js'</code></li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2 id="programming-the-bom-and-dom">Programming the BOM and DOM</h2>
@@ -545,7 +571,7 @@ identify(params) {
 <h3 id="window-object">Window Object</h3>
 <ul>
 <li>Global object</li>
-<li>Properties</li>
+<li>Properties<ul>
 <li>document</li>
 <li>location</li>
 <li>console</li>
@@ -553,20 +579,28 @@ identify(params) {
 <li>innerWidth</li>
 <li>pageXOffset</li>
 <li>pageYOffset</li>
-<li>Methods</li>
+</ul>
+</li>
+<li>Methods<ul>
 <li>alert()</li>
 <li>back()</li>
 <li>confirm()</li>
-<li>Events</li>
+</ul>
+</li>
+<li>Events<ul>
 <li>( not common )</li>
+</ul>
+</li>
 <li>gGlobal object, must refer when dealing with modules</li>
 </ul>
 <h3 id="timers">Timers</h3>
 <ul>
-<li>fire asynchronously</li>
-<li><code>setTimeout(); // once</code></li>
 <li>
-<p><code>setInterval(); // repeatedly</code></p>
+<p>fire asynchronously</p>
+<ul>
+<li><code>setTimeout(); // once</code></li>
+<li><code>setInterval(); // repeatedly</code></li>
+</ul>
 <p>```javascript
 let timeoutId = setTimeout(function() {
     console.log('1 second paused');
@@ -581,41 +615,53 @@ clearTimeout(id);
 <hr />
 <h3 id="location-object">Location object</h3>
 <ul>
-<li>Properties</li>
+<li>Properties<ul>
 <li>href (URL)</li>
 <li>hostname</li>
 <li>port</li>
 <li>pathname</li>
 <li>search</li>
-<li>Methods</li>
+</ul>
+</li>
+<li>Methods<ul>
 <li>assign()</li>
 <li>reload()
 ex: <code>location.href</code> or <code>document.location.href</code></li>
 </ul>
+</li>
+</ul>
 <hr />
 <h3 id="document-object">Document Object</h3>
 <ul>
-<li>Properties</li>
+<li>Properties<ul>
 <li>body</li>
 <li>forms</li>
 <li>links</li>
-<li>Methods</li>
+</ul>
+</li>
+<li>Methods<ul>
 <li>createElement()</li>
 <li>createEvent()</li>
 <li>getElementById()</li>
 <li>getElementsByClassName()</li>
-<li>Events</li>
+</ul>
+</li>
+<li>Events<ul>
 <li>onload</li>
 <li>onclick</li>
 <li>onKeypress</li>
 </ul>
+</li>
+</ul>
 <hr />
 <h3 id="selecting-dom-elements">Selecting DOM Elements</h3>
 <ul>
-<li>Common:</li>
+<li>Common:<ul>
 <li><code>document.getElementById('elementId');</code></li>
 <li><code>document.getElementByClassName('className');</code></li>
 <li><code>document.getElementByTagName('tagName');</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="modifying-dom-elements">Modifying DOM Elements</h3>
 <ul>
@@ -660,9 +706,9 @@ try {
 </li>
 <li>
 <p>Creating a Promise</p>
-</li>
-<li>
-<p>Temporary holder for a value you will retrieve after asynchronous call</p>
+<ul>
+<li>Temporary holder for a value you will retrieve after asynchronous call</li>
+</ul>
 <p><code>javascript
 let promise = new Promise (
     function(resolve, reject) {
@@ -716,9 +762,11 @@ $.post("url", user); // user -&gt; data
 <h2 id="forms">Forms</h2>
 <h3 id="preventing-form-submission">Preventing Form Submission</h3>
 <ul>
-<li>Form -&gt; .js -&gt; Server</li>
 <li>
-<p>submit event</p>
+<p>Form -&gt; .js -&gt; Server</p>
+<ul>
+<li>submit event</li>
+</ul>
 <p>```javascript
 let form = document.getElementById('user-form');</p>
 <p>form.addEventListener('submit', event =&gt; {
@@ -767,23 +815,29 @@ let form = document.getElementById('user-form');</p>
 <h3 id="cross-site-scripting-xss">Cross-site Scripting (XSS)</h3>
 <ul>
 <li>Files from 3rd party servers</li>
-<li>Addressing XSS attacks</li>
+<li>Addressing XSS attacks<ul>
 <li>CSP: Content Security Policy<ul>
 <li>Use HTTP Header: Content-Security-Policy</li>
 </ul>
 </li>
 <li>CORS: Cross Origin Resource Sharing<ul>
-<li>Use HTTP Header:</li>
+<li>Use HTTP Header:<ul>
 <li>Access-Control-Allow-Origin</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="building-your-application-for-production">Building Your Application for Production</h3>
 <ul>
-<li>Minimizing bundle file</li>
+<li>Minimizing bundle file<ul>
 <li><code>npm run dev</code></li>
 <li><code>npm run build</code></li>
 <li>dist folder, files for server</li>
+</ul>
+</li>
 </ul>
 
   <br>
@@ -797,12 +851,12 @@ let form = document.getElementById('user-form');</p>
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../mean/" class="btn btn-xs btn-default pull-right">
+      <a href="../css/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../mean/" class="btn btn-xs btn-link">
-        MEAN
+      <a href="../css/" class="btn btn-xs btn-link">
+        CSS
       </a>
     </div>
     

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>React - Notes</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "React - The Complete Guide", url: "#_top", children: [
+              {title: "1. Getting Started", url: "#1-getting-started" },
+              {title: "2. Refreshing Next Generation Javascript (Optional)", url: "#2-refreshing-next-generation-javascript-optional" },
+              {title: "3. Understanding the Base Features and Syntax", url: "#3-understanding-the-base-features-and-syntax" },
+              {title: "4. Working with Lists and Conditionals", url: "#4-working-with-lists-and-conditionals" },
+              {title: "5. Styling React Components and Elements", url: "#5-styling-react-components-and-elements" },
+              {title: "6. Debugging React Apps", url: "#6-debugging-react-apps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../gcloud/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../gcloud/" class="btn btn-xs btn-link">
+        Google Cloud
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../mern/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mern/" class="btn btn-xs btn-link">
+        MERN
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="react-the-complete-guide">React - The Complete Guide</h1>
+<p>Notes based on Udemy Course <a href="https://www.udemy.com/course/react-the-complete-guide-incl-redux">React - The Complete Guide (incl Hooks, React Router, Redux)</a></p>
+<h2 id="1-getting-started">1. Getting Started</h2>
+<ul>
+<li>Building elements with reusable components.</li>
+<li>Utilizes JSX</li>
+</ul>
+<h3 id="writing-our-first-react-code">Writing Our First React Code</h3>
+<pre><code class="javascript">function Person(props) {
+  return (
+    &lt;div className=&quot;person&quot;&gt;
+      &lt;h1&gt;{props.name}&lt;/h1&gt;
+      &lt;p&gt;Your Age: {props.age}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+ReactDOM.render(&lt;Person name=&quot;John&quot; age=&quot;26&quot; /&gt;, document.querySelector('#p1'));
+
+ReactDOM.render(&lt;Person name=&quot;Sam&quot; age=&quot;28&quot; /&gt;, document.querySelector('#p2'));
+</code></pre>
+
+<ul>
+<li>Turn into:</li>
+</ul>
+<pre><code class="javascript">function Person(props) {
+  return (
+    &lt;div className=&quot;person&quot;&gt;
+      &lt;h1&gt;{props.name}&lt;/h1&gt;
+      &lt;p&gt;Your Age: {props.age}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+var app = (
+  &lt;div&gt;
+    &lt;Person name=&quot;John&quot; age=&quot;26&quot; /&gt;
+    &lt;Person name=&quot;Sam&quot; age=&quot;28&quot; /&gt;
+  &lt;/div&gt;
+);
+
+ReactDOM.render(app, document.querySelector('#app'));
+</code></pre>
+
+<h3 id="why-should-we-choose-react">Why Should we Choose React</h3>
+<ol>
+<li>UI State becomes difficult to handle with Vanilla Javascript</li>
+<li>Focus on Business Logic, not on preventing your App from exploding</li>
+<li>Plus: Framework Creators probably write better Code</li>
+<li>Huge Ecosystem, Active Community, High Performance</li>
+</ol>
+<h3 id="react-alternatives">React Alternatives</h3>
+<ul>
+<li>Angular</li>
+<li>Vue</li>
+<li>Not so much: jQuery</li>
+</ul>
+<h3 id="understanding-single-page-applications-and-multi-page-applications">Understanding Single Page Applications and Multi Page Applications</h3>
+<h4 id="two-kinds-of-applications">Two Kinds of Applications</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Single Page Applications</th>
+<th align="center">Multi Page Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Only ONE HTML Page, Content is (re)rendered on Client</td>
+<td align="center">Multiple HTML Pages, Content is rendered on Server</td>
+</tr>
+<tr>
+<td align="center">Root react component, and other child components</td>
+<td align="center">Typical HTML/CSS/JS, with maybe some React widgets</td>
+</tr>
+<tr>
+<td align="center">Typically only ONE ReactDOM.render() call</td>
+<td align="center">One ReactDOM.render() call per "widget"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="course-outline">Course Outline</h3>
+<ol>
+<li>Getting Started</li>
+<li>The Basics</li>
+<li>Debugging</li>
+<li>Styling Components</li>
+<li>Components Deep Dive</li>
+<li>HTTP Requests</li>
+<li>Routing</li>
+<li>Forms &amp; Validation</li>
+<li>Redux</li>
+<li>Authentication</li>
+<li>Testing Introduction</li>
+<li>Deployment</li>
+<li>Bonus (Animations, Next Steps, Webpack)</li>
+</ol>
+<h2 id="2-refreshing-next-generation-javascript-optional">2. Refreshing Next Generation Javascript (Optional)</h2>
+<!-- SKIPPED -->
+
+<h2 id="3-understanding-the-base-features-and-syntax">3. Understanding the Base Features and Syntax</h2>
+<h3 id="the-build-workflow">The Build Workflow</h3>
+<ul>
+<li>Local project</li>
+<li>Using a Build Workflow<ul>
+<li>Recommend for SPAs and MPAs</li>
+<li>Why?<ul>
+<li><strong>Optimize</strong> Code</li>
+<li>Use <strong>Next-Gen</strong> Javascript Features<ul>
+<li>ES6 vs ES5</li>
+</ul>
+</li>
+<li>Be <strong>More Productive</strong></li>
+</ul>
+</li>
+<li>How?<ul>
+<li>Use <strong>Dependency Management</strong> Tool<ul>
+<li><code>npm</code> or <code>yarn</code></li>
+</ul>
+</li>
+<li>Use <strong>Bundler</strong><ul>
+<li>Recommended: <strong>Webpack</strong></li>
+</ul>
+</li>
+<li>Use <strong>Compiler</strong> (Next-Gen Javascript)<ul>
+<li><strong>Babel</strong> + Presets</li>
+</ul>
+</li>
+<li>Use a <strong>Development Server</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="using-create-react-app">Using Create React App</h3>
+<p><code>npm i -g create-react-app</code></p>
+<h3 id="understanding-the-folder-structure">Understanding the Folder Structure</h3>
+<ul>
+<li><code>package.json</code> lists dependencies</li>
+<li><code>node_modules</code> holds files for dependencies and subdependencies</li>
+<li><code>public</code> folder is root folder served by web server in the end.<ul>
+<li>Contains the single <code>index.html</code> file in a project.<ul>
+<li><code>&lt;div id="root"&gt;&lt;/div&gt;</code> is where React app will be mounted</li>
+</ul>
+</li>
+<li><code>manifest.json</code> file defines meta-data</li>
+</ul>
+</li>
+<li><code>src</code> contains files we will work with</li>
+</ul>
+<h3 id="understanding-component-basics">Understanding Component Basics</h3>
+<ul>
+<li>App component our first component</li>
+<li>Typically render one root component, and nest all others</li>
+<li>React component <em>class</em> extends Component from React, and has method <code>render()</code></li>
+<li><code>.js</code> and <code>.jsx</code> files</li>
+<li>Utilizing JSX</li>
+</ul>
+<h3 id="understanding-jsx">Understanding JSX</h3>
+<ul>
+<li>With <code>React.createElement()</code><ul>
+<li>Our previous JSX ends up compiled to this</li>
+<li>Takes at least 3 args<ul>
+<li>1st is element we want to render to DOM</li>
+<li>2nd is configuration</li>
+<li>3rd is any amount of children</li>
+</ul>
+</li>
+<li><code>return React.createElement('div', null, 'h1', "Hi, I'm a React App!");</code><ul>
+<li>This gets us: <code>h1Hi, I'm a React App!</code></li>
+<li>Interpreted as text by default, need to once again call <code>createElement()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>This code</p>
+<pre><code class="javascript">return React.createElement(
+  'div',
+  {className: &quot;App&quot;},
+  React.createElement('h1', null, 'Does this work now?')
+);
+</code></pre>
+
+<p>is equivilant to this code:</p>
+<pre><code class="javascript">return (
+  &lt;div className=&quot;App&quot;&gt;
+    &lt;h1&gt;Hi, I'm a React App&lt;/h1&gt;
+  &lt;/div&gt;
+);
+</code></pre>
+
+<h3 id="jsx-restrictions">JSX Restrictions</h3>
+<ul>
+<li><code>className</code> is used instead of <code>class</code> because the second is a reserved word in javascript<ul>
+<li>Translated to <code>class</code></li>
+</ul>
+</li>
+<li>We are not using the real HTML tags, React is converting them behind the scenes</li>
+<li>Must have a single root element, can't have multiple</li>
+</ul>
+<h3 id="creating-a-functional-component">Creating a Functional Component</h3>
+<ul>
+<li>Creating a new component</li>
+<li><code>Person/Person.js</code>:</li>
+</ul>
+<pre><code class="javascript">import React from 'react';
+
+const person = () =&gt; {
+  return &lt;p&gt;I'm a Person!&lt;/p&gt;;
+};
+
+export default person;
+</code></pre>
+
+<p>In App.js: <code>&lt;Person /&gt;</code></p>
+<h3 id="working-with-components-and-re-using-them">Working with Components and Re-Using Them</h3>
+<ul>
+<li>Simply decalre the element multiple times, can do this anywhere.</li>
+</ul>
+<h3 id="outputting-dynamic-content">Outputting Dynamic Content</h3>
+<pre><code class="javascript">// Person.js
+import React from 'react';
+
+const person = () =&gt; {
+  return (
+    &lt;p&gt;I'm a Person and I am {Math.floor(Math.random() * 30)} years old!&lt;/p&gt;
+  );
+};
+
+export default person;
+</code></pre>
+
+<h3 id="working-with-props">Working with Props</h3>
+<p>In App.js:</p>
+<pre><code class="javascript">&lt;Person name=&quot;John&quot; age=&quot;26&quot; /&gt;
+&lt;Person name=&quot;Max&quot; age=&quot;28&quot; &gt;My Hobbies: Racing&lt;/Person&gt;
+&lt;Person name=&quot;Sam&quot; age=&quot;23&quot; /&gt;
+</code></pre>
+
+<p>in Person.js:
+<code>I'm a {props.name} and I am {props.age} years old!</code></p>
+<h3 id="understanding-the-children-prop">Understanding the <code>children</code> prop</h3>
+<ul>
+<li><code>children</code> is reserved.</li>
+<li>Includes any elements in between opening and closing tag of our component/element</li>
+<li>In Person.js:<ul>
+<li><code>&lt;p&gt;{props.children}&lt;/p&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="understanding-and-using-state">Understanding and Using State</h3>
+<ul>
+<li>Using <code>state</code> property</li>
+</ul>
+<pre><code class="javascript">class App extends Component {
+  state = {
+    persons: [
+      { name: 'John', age: 26 },
+      { name: 'Max', age: 28 },
+      { name: 'Same', age: 23 },
+    ],
+  };
+
+  render() {
+    return (
+      &lt;div className='App'&gt;
+        &lt;h1&gt;Hi, I'm a React App&lt;/h1&gt;
+        &lt;p&gt;This is really working!&lt;/p&gt;
+        &lt;button&gt;Switch Name&lt;/button&gt;
+        &lt;Person
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age}
+        /&gt;
+        &lt;Person
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].age}
+        &gt;
+          My Hobbies: Racing
+        &lt;/Person&gt;
+        &lt;Person
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age}
+        /&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+
+<h3 id="handling-events-with-methods">Handling Events with Methods</h3>
+<p><code>switchNameHandler = () =&gt; { console.log('Was clicked!'); };</code></p>
+<p><code>&lt;button onClick={this.switchNameHandler}&gt;Switch Name&lt;/button&gt;</code></p>
+<ul>
+<li><a href="https://reactjs.org/docs/events.html#supported-events">To which Events can you Listen?</a></li>
+</ul>
+<h3 id="manipulating-the-state">Manipulating the State</h3>
+<ul>
+<li>Only two things update DOM<ul>
+<li><code>props</code> &amp; <code>state</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="javascript">switchNameHandler = () =&gt; {
+  // console.log('Was clicked!');
+  // DON'T DO THIS: this.state.persons[0].name = 'Jonathonas'
+  this.setState({persons: [
+    { name: 'Jonathonas', age: 26 },
+    { name: 'Maximilian', age: 28 },
+    { name: 'Sam', age: 23 },
+  ]})
+};
+</code></pre>
+
+<h3 id="using-the-usestate-hook-for-state-manipulation">Using the <code>useState()</code> Hook for State Manipulation</h3>
+<ul>
+<li><strong>Prior to React v16.8, managing state in classes was the only way</strong></li>
+<li>Used in <em>functional</em> React components</li>
+<li>
+<p><code>useState()</code> <em>Always</em> returns array with exactly 2 elements, always</p>
+<ul>
+<li>1st will always been our current state</li>
+<li>2nd will be a function that allows us to update state</li>
+</ul>
+</li>
+<li>
+<p>Replaces old state with what you give it.</p>
+</li>
+<li>Choice between using class-based vs functional components with hooks</li>
+</ul>
+<h3 id="stateless-vs-stateful-components">Stateless vs Stateful Components</h3>
+<ul>
+<li>Whether using <code>this.state</code> or hooks, they are stateful</li>
+<li>Others are display/functional components</li>
+<li>It's good practice to have containers and few smart or stateful components for handling the necessary logic</li>
+</ul>
+<h3 id="passing-method-references-between-components">Passing Method References Between Components</h3>
+<ul>
+<li>
+<p>Can pass down a reference to a handler function down as a property</p>
+<ul>
+<li><code>&lt;Person click={switchNameHandler} &gt;</code></li>
+<li><code>&lt;p onClick={props.click}&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>When passing data:</p>
+<ul>
+<li><code>switchNameHandler = (newName) =&gt; { }</code></li>
+<li>Using bind:<ul>
+<li><code>this.switchNameHandler.bind(this, 'Max!')</code></li>
+</ul>
+</li>
+<li>Using arrow function:<ul>
+<li><code>() =&gt; this.switchNameHandler('Maximilian!!')</code></li>
+</ul>
+</li>
+<li>Better to use bind, arrow function in cases can be more inefficient</li>
+</ul>
+</li>
+</ul>
+<h3 id="adding-two-way-binding">Adding Two Way Binding</h3>
+<ul>
+<li>Changing the name on our own with an input</li>
+</ul>
+<pre><code class="javascript">nameChangedHandler = (event) =&gt; {
+  this.setState( {
+    persons: [
+      { name: 'Max', age: 28 },
+      { name: event.target.value, age: 29 },
+      { name: 'Stephanie', age: 26 }
+    ]
+  } )
+}
+// ...
+</code></pre>
+
+<pre><code class="html">&lt;!-- in render(): --&gt;
+  &lt;Person changed={this.nameChangedHandler} /&gt;
+&lt;!-- in Person component: --&gt;
+&lt;input type='text' onChange={props.changed} /&gt;
+</code></pre>
+
+<ul>
+<li>This way, we're able to dynamically update, and also use inputs</li>
+<li>Now, we want to see the state right from the start<ul>
+<li><code>value={props.name}</code></li>
+<li>This gives warning, because potentially not handling changes. We need onChange or we cannot change the input</li>
+<li>Will improve this later</li>
+</ul>
+</li>
+</ul>
+<h3 id="adding-styling-with-stylesheets">Adding Styling with Stylesheets</h3>
+<ul>
+<li>Give <code>div</code> in <code>Person</code> a class name: <code>&lt;div className="Person"&gt;</code></li>
+<li>Create <code>Person.css</code></li>
+</ul>
+<pre><code class="css">.Person {
+  width: 60%;
+  margin: 16px auto;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 16px;
+  text-align: center;
+}
+</code></pre>
+
+<ul>
+<li>Now, must import. Thanks to webpack (which is a part of the build tools, react scripts), we can import CSS files into Javascript in React.<ul>
+<li><code>import './Person.css';</code></li>
+</ul>
+</li>
+<li>Can see the style tags are injected dynamically by webpack</li>
+<li>It is also <strong><em>global</em></strong></li>
+</ul>
+<h3 id="working-with-inline-styles">Working with Inline Styles</h3>
+<ul>
+<li>Styling our button differently</li>
+</ul>
+<pre><code class="javascript">  render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+    };
+    return (
+      // ...
+      &lt;button style={style} onClick={/* ... */}&gt;
+      // ...
+    )
+  }
+</code></pre>
+
+<ul>
+<li>Inline styling has restrictions, for example if we were to try a hover effect on the button.<ul>
+<li>We will look at this more in depth later on for a way to scope styles and still use all the CSS features (Section 29?)</li>
+</ul>
+</li>
+</ul>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://github.com/facebookincubator/create-react-app">create-react-app</a></li>
+<li><a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a></li>
+<li><a href="https://reactjs.org/docs/rendering-elements.html">Rendering Elements</a></li>
+<li><a href="https://reactjs.org/docs/components-and-props.html">Components &amp; Props</a></li>
+<li><a href="https://reactjs.org/docs/events.html">Listenable Events</a></li>
+</ul>
+<h2 id="4-working-with-lists-and-conditionals">4. Working with Lists and Conditionals</h2>
+<h3 id="rendering-content-conditionally">Rendering Content Conditionally</h3>
+<h3 id="handling-dynamic-content-the-javascript-way">Handling Dynamic Content "The Javascript Way"</h3>
+<h3 id="outputting-lists">Outputting Lists</h3>
+<h3 id="lists-and-state">Lists and State</h3>
+<h3 id="updating-state-immutably">Updating State Immutably</h3>
+<h3 id="lists-and-keys">Lists and Keys</h3>
+<h3 id="flexible-lists">Flexible Lists</h3>
+<h2 id="5-styling-react-components-and-elements">5. Styling React Components and Elements</h2>
+<h2 id="6-debugging-react-apps">6. Debugging React Apps</h2>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../gcloud/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../gcloud/" class="btn btn-xs btn-link">
+        Google Cloud
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../mern/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mern/" class="btn btn-xs btn-link">
+        MERN
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>CSS - Notes</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "CSS Complete Guide", url: "#_top", children: [
+              {title: "1. Getting Started", url: "#1-getting-started" },
+              {title: "2. Diving into the Basics of CSS", url: "#2-diving-into-the-basics-of-css" },
+              {title: "3. Diving Deeper into CSS", url: "#3-diving-deeper-into-css" },
+              {title: "4. More on Selectors and CSS Features", url: "#4-more-on-selectors-and-css-features" },
+              {title: "5. Practicing the Basics", url: "#5-practicing-the-basics" },
+              {title: "6. Positioning Elements with CSS", url: "#6-positioning-elements-with-css" },
+              {title: "7. Understanding Background Images and Images", url: "#7-understanding-background-images-and-images" },
+              {title: "8. Sizes and Units", url: "#8-sizes-and-units" },
+              {title: "11. Adding and Styling Forms", url: "#11-adding-and-styling-forms" },
+              {title: "13. Adding FlexBox to our Project", url: "#13-adding-flexbox-to-our-project" },
+              {title: "14. Using the CSS Grid", url: "#14-using-the-css-grid" },
+              {title: "15. Transforming Elements with CSS Transforms", url: "#15-transforming-elements-with-css-transforms" },
+              {title: "16. Transistions and Animations in CSS", url: "#16-transistions-and-animations-in-css" },
+              {title: "17. Writing Future-Proof CSS Code", url: "#17-writing-future-proof-css-code" },
+              {title: "18. Introducing Sass", url: "#18-introducing-sass" },
+              {title: "19. Course Roundup", url: "#19-course-roundup" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mean/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mean/" class="btn btn-xs btn-link">
+        MEAN
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../js/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../js/" class="btn btn-xs btn-link">
+        Javascript
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="css-complete-guide">CSS Complete Guide</h1>
+<p>Notes based on Udemy Course <a href="https://www.udemy.com/course/css-the-complete-guide-incl-flexbox-grid-sass">CSS - The Complete Guide 2020 (incl. Flexbox, Grid, &amp; Sass)</a></p>
+<h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="11-what-is-css">1.1 What is CSS</h3>
+<ul>
+<li>Cascading Style Sheets</li>
+<li>HTML Required, structure of the page.</li>
+<li>CSS allows for the styling of the page (is optional!)</li>
+<li>Simple provided example</li>
+</ul>
+<h3 id="12-css-history-present-and-future">1.2 CSS History, Present and Future</h3>
+<ul>
+<li>CSS 1<ul>
+<li>Released in 1996</li>
+</ul>
+</li>
+<li>CSS 2<ul>
+<li>Released in 1998</li>
+</ul>
+</li>
+<li>CSS 3<ul>
+<li>In Development</li>
+</ul>
+</li>
+<li>There will never be a CSS 4<ul>
+<li>Development changed</li>
+<li>Split up into independent modules based on different features</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-course-outline">1.3 Course Outline</h3>
+<ul>
+<li>Basic Track<ul>
+<li>Getting Started</li>
+<li>The Basics</li>
+<li>Diving Deeper</li>
+<li>More on Selectors &amp; CSS Features</li>
+<li>Practicing the Basics</li>
+<li>Positioning</li>
+</ul>
+</li>
+<li>Advanced Track<ul>
+<li>Backgrounds &amp; Images</li>
+<li>Dimensions, Units, &amp; Sizes</li>
+<li>Javascript &amp; CSS</li>
+<li>Responsiveness</li>
+<li>Styling Forms</li>
+<li>Working with Text &amp; Fonts</li>
+</ul>
+</li>
+<li>Expert Track<ul>
+<li>Flexbox</li>
+<li>CSS Grid</li>
+<li>Transformations</li>
+<li>Transitions &amp; Animations</li>
+<li>Writing Future-Proof CSS</li>
+<li>Sass Introduction</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-diving-into-the-basics-of-css">2. Diving into the Basics of CSS</h2>
+<h3 id="21-introduction">2.1 Introduction</h3>
+<ul>
+<li>How to Add CSS to HTML</li>
+<li>Setting up CSS Rules</li>
+<li>Selectors, Properties &amp; Values</li>
+<li>Conflicting Styles</li>
+</ul>
+<h3 id="22-adding-css-to-our-project-with-inline-styles">2.2 Adding CSS to our Project with Inline Styles</h3>
+<ul>
+<li>Inline styling<ul>
+<li>Shortcuts for colors, but comes down to hex codes.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="html">&lt;section style=style=&quot;background: #ff1b68;&quot;&gt;
+    &lt;h1&gt;Get the freedom you deserve!&lt;/h1&gt;
+&lt;/section&gt;
+</code></pre>
+
+<ul>
+<li>Doesn't scale well, makes it difficult to read.</li>
+</ul>
+<h3 id="23-understanding-the-ltstylegt-tag-and-creating-a-css-file">2.3 Understanding the <code>&lt;style&gt;</code> Tag and Creating a <code>.css</code> file</h3>
+<ul>
+<li>Can use <code>&lt;style&gt;</code> tag in <code>&lt;head&gt;</code> part of the HTML<ul>
+<li>Need to use <em>selectors</em></li>
+<li>Select all <code>&lt;section&gt;</code> elements:</li>
+</ul>
+</li>
+</ul>
+<pre><code class="html">&lt;head&gt;
+    &lt;style&gt;
+        section {
+            background: #ff1b68;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+
+<ul>
+<li>Can use an external style sheet<ul>
+<li><code>main.css</code></li>
+<li>Dont use style tags</li>
+<li>Separates structure and styles.<ul>
+<li>Helps to keep HTML file from becoming bloated</li>
+</ul>
+</li>
+<li>Browser can cache.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">section {
+    background: #ff1b68;
+}
+</code></pre>
+
+<ul>
+<li>Have to explicitly tell include the file</li>
+</ul>
+<pre><code class="html">&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;main.css&quot;&gt;
+&lt;head&gt;
+</code></pre>
+
+<h3 id="24-applying-additional-styles-and-importing-google-fonts">2.4 Applying Additional Styles and Importing Google Fonts</h3>
+<ul>
+<li>Changing more properties:</li>
+</ul>
+<pre><code class="css">h1 {
+    color: white;
+    font-family: sans-serif;
+}
+</code></pre>
+
+<ul>
+<li>Given set of preinstalled font families, but can use Google Fonts for others<ul>
+<li>Get import link</li>
+<li>Modify CSS file to use new font</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">h1 {
+  color: white;
+  font-family: 'Anton', sans-serif;
+}
+</code></pre>
+
+<h3 id="25-theory-time-selectors">2.5 Theory Time - Selectors</h3>
+<ul>
+<li>More about Selectors</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Selector</th>
+<th align="center"><code>html</code></th>
+<th align="center"><code>css</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Elements (Set equal style for these elements)</td>
+<td align="center"><code>&lt;h1&gt;Our Header&lt;/h1&gt;</code></td>
+<td align="center"><code>h1 { color: red; }</code></td>
+</tr>
+<tr>
+<td align="center">Classes  (Set equal style for the elements within the same class)</td>
+<td align="center"><code>&lt;h1 class="blog-post"&gt;Our Header&lt;/h1&gt;</code></td>
+<td align="center"><code>.blog-post { color: red; }</code></td>
+</tr>
+<tr>
+<td align="center">Universal (rarely use)</td>
+<td align="center"><code>&lt;h1&gt;Our Header&lt;/h1&gt;</code></td>
+<td align="center"><code>* { color: red; }</code></td>
+</tr>
+<tr>
+<td align="center">IDs (Set style to one specific element)</td>
+<td align="center"><code>&lt;h1 id="main-title"&gt;Our Header&lt;/h1&gt;</code></td>
+<td align="center"><code>#main-title { color: red; }</code></td>
+</tr>
+<tr>
+<td align="center">Attributes (Set equal styles to all elements with attributes(s))</td>
+<td align="center"><code>&lt;button disabled&gt;Click&lt;/button&gt;</code></td>
+<td align="center"><code>[disabled] { color: red; }</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>IDs not only used for styling, but also can add <code>#</code> at end of URL and browser will jump down to that element.<ul>
+<li>Semantically should only occur once in page</li>
+<li>Kebab case recommended due to CSS being case-insensitive</li>
+</ul>
+</li>
+<li>
+<p>Class good choice for multiple-use scenarios</p>
+<ul>
+<li>You can also assign multiple classes with a space between the classes, e.g. <code>class="section-title article-title</code></li>
+</ul>
+</li>
+<li>
+<p>Modify index.html and main.css</p>
+</li>
+</ul>
+<pre><code class="html">&lt;section id=&quot;product-overview&quot;&gt;
+    &lt;h1&gt;Get the freedom you deserve!&lt;/h1&gt;
+&lt;/section&gt;
+&lt;section id=&quot;plans&quot;&gt;
+    &lt;h1 class=&quot;section-title&quot;&gt;Choose Your Plan&lt;/h1&gt;
+&lt;/section&gt;
+</code></pre>
+
+<pre><code class="css">#product-overview {
+  background: #ff1b68;
+}
+
+h1 {
+  color: white;
+  font-family: 'Anton', sans-serif;
+}
+
+.section-title {
+  color: #2ddf5c;
+}
+</code></pre>
+
+<h3 id="understanding-the-cascading-style-and-specificity">Understanding the "Cascading" Style and Specificity</h3>
+<ul>
+<li>Both <code>h1</code> and <code>.section-title</code> selectors apply</li>
+<li>Class selector overrides the element one here</li>
+<li>Multiple rules affect same element, and have different priorities.</li>
+<li>Inspector with dev-tools<ul>
+<li>Inline at top, since inline styling takes highest priority</li>
+<li>Class selector has higher priority than element selector, and second element selector takes priority over the first.</li>
+</ul>
+</li>
+<li>Multiple rules applied to the same element is the cascading part of CSS<ul>
+<li>Rules can lead to conflicts, as shown</li>
+</ul>
+</li>
+<li>
+<p>To resolve conflicts, use Specificity</p>
+</li>
+<li>
+<p>Cascading Style Sheets &amp; Specificity</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Cascading</th>
+<th align="center">Specificity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Multiple rules can apply to the same element</td>
+<td align="center">Resolve conflicts arising from multiple Rules</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">Inline Styles</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">#ID selectors</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center"><code>.class</code>, <code>:pseudo-class</code> and <code>[attribute]</code> selectors</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center"><code>&lt;Tag&gt;</code> and <code>::pseudo-element</code> selectors</td>
+</tr>
+</tbody>
+</table>
+<h3 id="understanding-inheritance">Understanding Inheritance</h3>
+<ul>
+<li>An element also inherits some styles of the parent element.</li>
+<li>Add in a global rule</li>
+</ul>
+<pre><code class="css">body {
+  font-family: 'Montserrat', sans-serif;
+}
+</code></pre>
+
+<ul>
+<li>Any direct selector has higher specificity and will overwrite inheritance if it defines the same property as parent</li>
+</ul>
+<h3 id="adding-combinators">Adding Combinators</h3>
+<ul>
+<li>Can use <code>inherit</code> to be explicit<ul>
+<li>e.g. <code>font-family: inherit;</code></li>
+<li>Not necessarily the best way</li>
+<li>Apply to only the one h1 tag:<ul>
+<li>Class not good for only one use</li>
+<li>Already have ID for section, semantically not good</li>
+<li>Can use Combinator</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Combinator allows to combine multiple selectors</li>
+<li>More combinators, higher specificity</li>
+</ul>
+<h3 id="theory-time-combinators">Theory Time - Combinators</h3>
+<ul>
+<li>Adjacent Sibling<ul>
+<li><code>div + p {    }</code></li>
+<li>Using <code>h2 + p { color: red }</code>:<ul>
+<li>Applied: <code>&lt;h2&gt;Not Applied&lt;/h2&gt;&lt;p&gt;CSS Applied&lt;p&gt;</code></li>
+<li>Not applied: <code>&lt;h3&gt;Not Applied&lt;/h3&gt;&lt;p&gt;CSS Not Applied&lt;p&gt;</code></li>
+</ul>
+</li>
+<li>Elements share the same parent</li>
+<li>Second element comes <strong>immediately</strong> after first element</li>
+</ul>
+</li>
+<li>General Sibling<ul>
+<li><code>div ~ p {    }</code></li>
+<li>Using <code>h2 ~ p { color: red }</code>:</li>
+<li>Applied: <code>&lt;h2&gt;Not Applied&lt;/h2&gt;&lt;p&gt;CSS Applied&lt;p&gt;</code></li>
+<li>Not applied: <code>&lt;h3&gt;Not Applied&lt;/h3&gt;&lt;p&gt;CSS Applied&lt;p&gt;</code></li>
+<li>Applies to same level</li>
+<li>Elements share the same parent</li>
+<li>Second element comes after first, but doesn't have to be directly after it.</li>
+</ul>
+</li>
+<li>Child<ul>
+<li><code>div &gt; p {    }</code></li>
+<li>Using <code>div &gt; p { color: red }</code>:<ul>
+<li>Applied: <code>&lt;div&gt;Not Applied&lt;/div&gt;&lt;p&gt;CSS Applied&lt;/p&gt;</code></li>
+<li>Not applied: <code>&lt;div&gt;Not applied&lt;/div&gt;&lt;article&gt;&lt;p&gt;Not applied&lt;/p&gt;&lt;/article&gt;</code></li>
+<li>Second element is <em>direct</em> child of first element.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Descendant<ul>
+<li><code>div p {  }</code></li>
+<li>Level doesn't matter, all descendants</li>
+<li>Using <code>div &gt; p { color: red }</code>:<ul>
+<li>Applied: <code>&lt;div&gt;Not Applied&lt;/div&gt;&lt;p&gt;CSS Applied&lt;/p&gt;</code></li>
+<li>Applied: <code>&lt;div&gt;Not applied&lt;/div&gt;&lt;article&gt;&lt;p&gt;Applied&lt;/p&gt;&lt;/article&gt;</code></li>
+</ul>
+</li>
+<li>Second element is a descendant of the first element</li>
+</ul>
+</li>
+</ul>
+<h3 id="summarizing-properties-and-selectors">Summarizing Properties and Selectors</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Selectors</th>
+<th align="center">Properties</th>
+<th align="center">Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>div</code></td>
+<td align="center"><code>background-color</code></td>
+<td align="center"><code>red</code></td>
+</tr>
+<tr>
+<td align="center"><code>.blog-post</code></td>
+<td align="center"><code>width</code></td>
+<td align="center"><code>30%</code></td>
+</tr>
+<tr>
+<td align="center"><code>#main-title</code></td>
+<td align="center"><code>color</code></td>
+<td align="center"><code>#fa923f</code></td>
+</tr>
+<tr>
+<td align="center"><code>[disabled]</code></td>
+<td align="center"><code>margin</code></td>
+<td align="center"><code>10px</code></td>
+</tr>
+<tr>
+<td align="center"><code>*</code></td>
+<td align="center"><code>display</code></td>
+<td align="center"><code>block</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">Mozilla Developer Network CSS Reference</a></p>
+</li>
+<li>
+<p>Value Types</p>
+<ul>
+<li>Values are tightly coupled to specific property</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Pre-defined Options</th>
+<th align="center">Colors</th>
+<th align="center">Length, Sizes &amp; Numbers</th>
+<th align="center">Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>display: block;</code></td>
+<td align="center"><code>background: red;</code></td>
+<td align="center"><code>height: 100px;</code></td>
+<td align="center"><code>background: url(...);</code></td>
+</tr>
+<tr>
+<td align="center"><code>overflow: auto;</code></td>
+<td align="center"><code>color: #fa923f</code></td>
+<td align="center"><code>width:20%;</code></td>
+<td align="center"><code>transform: scale(...);</code></td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center"><code>color: #ccc;</code></td>
+<td align="center"><code>order: 1;</code></td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-diving-deeper-into-css">3. Diving Deeper into CSS</h2>
+<h3 id="introduction">Introduction</h3>
+<ul>
+<li>The Box Model</li>
+<li>Height &amp; Width</li>
+<li>The <code>display</code> Property</li>
+<li>"Properties Worth to Remember"</li>
+<li>Pseudo Classes &amp; Elements</li>
+</ul>
+<h3 id="introducing-the-css-box-model">Introducing the CSS Box Model</h3>
+<ul>
+<li>Margin &gt; Border &gt; Padding &gt; Content</li>
+<li>Margin not part of core element<ul>
+<li>Space between element and next sibling</li>
+</ul>
+</li>
+<li>The layers are the Box Model</li>
+</ul>
+<h3 id="understanding-the-box-model">Understanding the Box Model</h3>
+<pre><code class="css">#product-overview {
+  background: #ff1b68;
+  /* below added */
+  padding: 20px;
+  border: 5px black solid; /* shorthand */
+  margin: 20px;
+}
+</code></pre>
+
+<h3 id="understanding-margin-collapsing-and-removing-default-margins">Understanding Margin Collapsing and Removing Default Margins</h3>
+<pre><code class="css">body {
+  font-family: 'Montserrat', sans-serif;
+  /* below added */
+  margin: 0;
+}
+</code></pre>
+
+<ul>
+<li>Margin Collapsing<ul>
+<li>Margins between elements are collapsed to one margin, bigger one "wins"</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing">MDN Reference</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="theory-time-working-with-shorthand-properties">Theory Time - Working with Shorthand Properties</h3>
+<ul>
+<li>Shorthand Properties<ul>
+<li>Combine values of multiple properties in a single property (the shorthand property)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="shorthand" src="../img/css-shorthands.JPG" title="CSS Shorthand Properties" /></p>
+<h3 id="applying-shorthands-in-practice">Applying Shorthands in Practice</h3>
+<pre><code class="css">#product-overview {
+  background: #ff1b68;
+  padding: 20px;
+  /* border-style: solid;
+  border-color: black;
+  border-width: 5px; */
+  border: 5px black solid;
+  margin: 20px;
+}
+</code></pre>
+
+<ul>
+<li>Can see splitting up in Dev-tools</li>
+</ul>
+<h3 id="diving-into-the-height-and-width-properties">Diving into the Height and Width Properties</h3>
+<ul>
+<li>Set width to 100%</li>
+</ul>
+<pre><code class="css">#product-overview {
+  background: #ff1b68;
+  width: 100%;
+}
+</code></pre>
+
+<ul>
+<li>Default behavior here anyway<ul>
+<li><code>section</code>, like <code>div</code> or <code>h1</code> elements are block elements<ul>
+<li>HTML feature</li>
+</ul>
+</li>
+<li>Block-level elements always take full available width by default</li>
+</ul>
+</li>
+<li>
+<p>Percentages, absolute pixel values</p>
+</li>
+<li>
+<p>Heigh to 100%</p>
+</li>
+</ul>
+<pre><code class="css">#product-overview {
+  background: #ff1b68;
+  width: 700px;
+  height: 100%;
+}
+</code></pre>
+
+<ul>
+<li>Uses <em>available</em> height<ul>
+<li><em>Relative</em> height of 100%</li>
+</ul>
+</li>
+</ul>
+<h3 id="understanding-box-sizing">Understanding Box Sizing</h3>
+<ul>
+<li>Height &amp; Width</li>
+</ul>
+<pre><code class="css">#product-overview {
+  background: #ff1b68;
+  width: 100%;
+  height: 528px;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 10px;
+}
+</code></pre>
+
+<ul>
+<li>Now have total width and height bigger than we specified</li>
+<li>All elements by default have a certain way of calculating width and height.<ul>
+<li>Content box</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">#product-overview {
+  /* added: */
+  box-sizing: border-box;
+}
+</code></pre>
+
+<ul>
+<li>Now width and height include padding and border.<ul>
+<li>Height property setting now takes these into account</li>
+</ul>
+</li>
+<li>Move box-sizing to body<ul>
+<li>Inheritance doesn't take effect because browser sets its own block sizing</li>
+</ul>
+</li>
+<li>Use the <code>*</code> selector now to reset all elements to have certain behavior<ul>
+<li>Overwriting inheritance and defaults</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">* {
+  box-sizing: border-box;
+}
+</code></pre>
+
+<h3 id="adding-the-header-to-our-project">Adding the Header to our Project</h3>
+<ul>
+<li>Add and modify header code</li>
+</ul>
+<pre><code class="html">&lt;header class=&quot;main-header&quot;&gt;
+    &lt;div&gt;
+        &lt;a href=&quot;index.html&quot;&gt;
+            uHost
+        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;packages/index.html&quot;&gt;Packages&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;customers/index.html&quot;&gt;Customers&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;start-hosting/index.html&quot;&gt;Start Hosting&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+
+<ul>
+<li>Add to main.css</li>
+</ul>
+<pre><code class="css">.main-header {
+  width: 100%;
+  background-color: #2ddf5c;
+  padding: 8px 16px;
+}
+</code></pre>
+
+<h3 id="understanding-the-display-property">Understanding the Display Property</h3>
+<ul>
+<li>Add class to <code>nav</code>, <code>ul</code> and all <code>li</code> elements</li>
+<li>Use certain way of writing classes, BEM (Block element modifier)</li>
+</ul>
+<pre><code class="html">&lt;nav class=&quot;main-nav&quot;&gt;
+    &lt;ul class=&quot;main-nav__items&quot;&gt;
+        &lt;li class=&quot;main-nav__item&quot;&gt;
+</code></pre>
+
+<ul>
+<li>Inline and block elements<ul>
+<li><code>display: block</code> and <code>display: none</code><ul>
+<li><code>visibility: hidden;</code> alternative</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Modify main.css</li>
+</ul>
+<pre><code class="css">.main-nav__item {
+  display: inline-block;
+}
+
+</code></pre>
+
+<ul>
+<li>Can still style list items like block elements, but now displayed like inline elements now</li>
+</ul>
+<h3 id="applying-the-display-property-and-styling-our-navigation-bar">Applying the Display Property and Styling our Navigation Bar</h3>
+<ul>
+<li>Modify main.css</li>
+</ul>
+<pre><code class="css">.main-header &gt; div {
+  display: inline-block;
+}
+
+.main-nav {
+  display: inline-block;
+  text-align: right;
+  width: calc(100% - 49px);
+}
+
+.main-nav__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+</code></pre>
+
+<h3 id="understanding-an-unexpected-inline-block-behavior">Understanding an Unexpected <code>inline-block</code> Behavior</h3>
+<ul>
+<li>Empty whitespace is added as extra inline element</li>
+<li>Can remove space, but there is a better way<ul>
+<li><code>width: calc(100% - 54px)</code> for now, better solution later</li>
+</ul>
+</li>
+</ul>
+<h3 id="working-with-text-decoration-and-vertical-align">Working with <code>text-decoration</code> and <code>vertical-align</code></h3>
+<ul>
+<li>Add class to brand part of header<ul>
+<li><code>&lt;a href="index.html" class="main-header__brand"&gt;</code></li>
+</ul>
+</li>
+<li>Modify main.css &amp; change</li>
+</ul>
+<pre><code class="css">.main-header &gt; div {
+  display: inline-block;
+  vertical-align: middle; /* added */
+}
+
+.main-header__brand { /* added */
+  color: #0e4f1f;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.main-nav {
+  display: inline-block;
+  text-align: right;
+  width: calc(100% - 74px); /* was 54px */
+  vertical-align: middle; /* added */
+}
+</code></pre>
+
+<h3 id="styling-anchor-tags">Styling Anchor Tags</h3>
+<pre><code class="css">.main-nav__item {
+  display: inline-block;
+  margin: 0 16px;
+}
+
+.main-nav__item a {
+  text-decoration: none;
+  color: #0e4f1f;
+}
+</code></pre>
+
+<h3 id="adding-pseudo-classes">Adding Pseudo Classes</h3>
+<ul>
+<li>Modifying main.css, using pseudo classes:</li>
+</ul>
+<pre><code class="css">.main-nav__item a:hover {
+  color: white;
+}
+
+.main-nav__item a:active {
+  color: white;
+}
+</code></pre>
+
+<h3 id="theory-time-pseudo-classes-and-pseudo-elements">Theory Time- Pseudo Classes and Pseudo Elements</h3>
+<ul>
+<li>
+<p>Pseudo</p>
+<ul>
+<li>Class<ul>
+<li>Defines the style of a <em>special state</em> of an element</li>
+<li><code>:class name</code></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">MDN Reference</a></li>
+</ul>
+</li>
+<li>Element<ul>
+<li>Defines the style of a <em>specific part</em> of an element</li>
+<li><code>: : element name</code></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">MDN Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Examples:</p>
+</li>
+</ul>
+<pre><code class="css">.main-nav__item a::after {
+  content: &quot; (Link)&quot;;
+  color: red;
+}
+
+p::first-letter {
+  color: red;
+  font-size: 20px;
+}
+</code></pre>
+
+<h3 id="grouping-rules">Grouping Rules</h3>
+<ul>
+<li>Modify main.css</li>
+</ul>
+<pre><code class="css">.main-nav__item a:hover, .main-nav__item a:active {
+    color: white;
+}
+</code></pre>
+
+<h3 id="working-with-font-weight-and-border">Working with <code>font-weight</code> and <code>border</code></h3>
+<ul>
+<li>Modifying main.css:</li>
+</ul>
+<pre><code class="css">.main-nav__item a {
+  text-decoration: none;
+  color: #0e4f1f;
+  font-weight: bold;
+  padding: 3px 0;
+}
+
+.main-nav__item a:hover, .main-nav__item a:active {
+  color: white;
+  border-bottom: 5px solid white;
+}
+</code></pre>
+
+<h3 id="adding-and-styling-a-cta-button">Adding and Styling a CTA-Button</h3>
+<ul>
+<li>Call to Action button</li>
+</ul>
+<pre><code class="html">&lt;li class=&quot;main-nav__item main-nav__item--cta&quot;&gt;
+</code></pre>
+
+<pre><code class="css">.main-nav__item--cta a {
+  color: white;
+  background: #ff1b68;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active {
+  color: #ff1b68;
+  background: white;
+  border: none;
+}
+</code></pre>
+
+<h3 id="adding-a-background-image-to-our-project">Adding a Background Image to our Project</h3>
+<ul>
+<li>Modifying main.css</li>
+</ul>
+<pre><code class="css">#product-overview {
+  background: url(&quot;freedom.jpg&quot;);
+  width: 100%;
+  height: 528px;
+  padding: 10px;
+}
+</code></pre>
+
+<h3 id="properties-worth-to-remember">Properties Worth to Remember</h3>
+<p><img alt="properties" src="/img/css-properties-to-rem.JPG" title="CSS Properties Worth to Remember" /></p>
+<h2 id="4-more-on-selectors-and-css-features">4. More on Selectors and CSS Features</h2>
+<h3 id="introduction-4">Introduction (4)</h3>
+<ul>
+<li>More on CSS Classes</li>
+<li><code>!important</code></li>
+<li>More on Pseudo Classes &amp; Elements</li>
+<li><code>not()</code></li>
+</ul>
+<h3 id="using-multiple-css-classes-and-combined-selectors">Using Multiple CSS Classes and Combined Selectors</h3>
+<ul>
+<li>More on CSS Classes<ul>
+<li>You can use multiple classes on one element<ul>
+<li>html: <code>&lt;div class="class1 class2"</code></li>
+<li>css: <code>.class1 { ... } .class2 { .. }</code></li>
+</ul>
+</li>
+<li>You can select a same-element combination<ul>
+<li>html: <code>&lt;a href="#" class="active"&gt;</code></li>
+<li>css: <code>a.active { ... }</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="classes-or-ids">Classes or IDs</h3>
+<ul>
+<li>Classes 1st pick</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>CSS Class Selectors</th>
+<th>Class ID Selectors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.some-class{ ... }</code></td>
+<td>#some-id {...}</td>
+</tr>
+<tr>
+<td><code>&lt;div class="some-class"&gt;</code></td>
+<td><code>&lt;div id="some-id"&gt;</code></td>
+</tr>
+<tr>
+<td>Re-usable</td>
+<td>Only used once per page</td>
+</tr>
+<tr>
+<td>Allow you to "mark" and name things for styling purposes only</td>
+<td>Also got non-CSS meaning (e.g. on-page link)</td>
+</tr>
+<tr>
+<td>Most-used selector type</td>
+<td>Use if available anyways</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Link to elsewhere on a page<ul>
+<li>Baked into HTML</li>
+<li>HTML: <code>href="#test"</code></li>
+<li>URL: ~#test</li>
+</ul>
+</li>
+</ul>
+<h3 id="not-using-important">(Not) using <code>!important</code></h3>
+<pre><code class="css">div {
+  color: red !important;
+  /*
+    overwrites specifity and all other selectors
+  */
+}
+</code></pre>
+
+<p>Do <strong>NOT</strong> use, bad practice</p>
+<h3 id="selecting-the-opposite-with-not">Selecting the Opposite with <code>:not()</code></h3>
+<p>Excludes selectors</p>
+<h4 id="not"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not">:not()</a></h4>
+<h3 id="css-and-browser-support">CSS and Browser Support</h3>
+<ul>
+<li>Whenever you use a certain feature, browser must support it.</li>
+<li>There's a way to go around this in some cases, come back to this later</li>
+<li>Can be found at the bottom of MDN references</li>
+<li>Also: caniuse.com</li>
+</ul>
+<h2 id="5-practicing-the-basics">5. Practicing the Basics</h2>
+<h3 id="adding-style-to-our-plans">Adding Style to our Plans</h3>
+<p>Add class to each article plan
+<code>&lt;article class="plan"&gt;</code></p>
+<p>Add CSS</p>
+<pre><code class="css">.section-title {
+  color: #2ddf5c;
+  text-align: center; /* added */
+}
+/* ... */
+.plan {
+  background: #d5ffdc;
+  text-align: center;
+  padding: 16px;
+  margin: 8px;
+  display: inline-block;
+  width: 30%;
+  vertical-align: middle;
+}
+</code></pre>
+
+<h3 id="working-on-the-recommended-plan">Working on the Recommended Plan</h3>
+<p>Add article class and modify title</p>
+<p><code>&lt;article class="plan plan--hightlighted"&gt;</code></p>
+<p><code>&lt;h1 class="plan__annotation"&gt;RECOMMENDED&lt;/h1&gt;</code></p>
+<p>Modify <code>main.css</code>, introducting new <code>box-shadow</code> and <code>rgb()</code>/<code>rbga()</code> color function</p>
+<pre><code class="css">.plan--hightlighted {
+  background: #19b84c;
+  color: white;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+</code></pre>
+
+<h3 id="styling-the-badge-with-border-radius">Styling the Badge with <code>border-radius</code></h3>
+<p>Can use border-radius to round the corners</p>
+<pre><code class="css">.plan__annotation {
+  background: white;
+  color: #19b84c;
+  padding: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+</code></pre>
+
+<h3 id="styling-our-list">Styling our List</h3>
+<p>Get rid of margin and padding from all <code>ul</code></p>
+<p><code>&lt;ul class="plan__features"&gt;</code></p>
+<pre><code class="css">.plan__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+</code></pre>
+
+<p>Adjust individual list items</p>
+<p><code>&lt;li class="plan__feature"&gt;</code></p>
+<pre><code class="css">.plan__feature {
+  margin: 8px 0;
+}
+</code></pre>
+
+<h3 id="working-on-the-title-and-the-price-of-our-packages">Working on the Title and the Price of our Packages</h3>
+<p>New Classes</p>
+<p><code>&lt;h1 class="plan__title"&gt;FREE&lt;/h1&gt;</code></p>
+<p><code>&lt;h2 class="plan__price"&gt;$0/month&lt;/h2&gt;</code></p>
+<pre><code class="css">/* main.css */
+.plan__title {
+  color: #0e4f1f;
+}
+
+.plan__price {
+  color: #858585;
+}
+
+.plan--hightlighted .plan__title {
+  color: white;
+}
+
+.plan--hightlighted .plan__price {
+  color: #0e4f1f;
+}
+</code></pre>
+
+<h3 id="improving-our-action-button">Improving our Action Button</h3>
+<p>Add class</p>
+<p><code>&lt;button class="button"&gt;CHOOSE PLAN&lt;/button&gt;</code></p>
+<p>Styling, using <code>inherit</code> for font</p>
+<pre><code class="css">.button {
+  background: #0e4f1f;
+  color: white;
+  font: inherit;
+  border: 1.5px solid #0e4f1f;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+  background: white;
+  color: #0e4f1f;
+}
+</code></pre>
+
+<h3 id="understanding-outlines">Understanding Outlines</h3>
+<p>Comparable to border but is not part of box model, can use on focus active pseudo property</p>
+<pre><code class="css">.button:focus {
+  outline: none;
+}
+</code></pre>
+
+<h3 id="presenting-the-core-features-to-the-user">Presenting the Core Features to the User</h3>
+<p>Add new given HTML section</p>
+<h3 id="styling-the-headline-of-the-core-features-section">Styling the Headline of the Core Features Section</h3>
+<p>Reuse section-title class, and add id to section</p>
+<p><code>&lt;section id="key-features"&gt;</code></p>
+<p><code>&lt;h1 class="section-title"&gt;Many Good Reasons to Stick Around&lt;/h1&gt;</code></p>
+<p>Styling</p>
+<pre><code class="css">#key-features {
+  background: #ff1b68;
+  margin-top: 80px;
+  padding: 16px;
+}
+
+#key-features .section-title {
+  color: white;
+  margin: 32px;
+}
+</code></pre>
+
+<h3 id="preparing-the-content-of-the-key-feature-area">Preparing the Content of the Key Feature Area</h3>
+<p>Add classes</p>
+<p><code>&lt;ul class="key-feature__list"&gt;</code></p>
+<p><code>&lt;li class="key-feature"&gt;</code></p>
+<p><code>&lt;p class="key-feature__description"&gt;Lightning Fast CDN&lt;/p&gt;</code></p>
+<p><code>&lt;div class="key-feature__image"&gt;&lt;/div&gt;</code></p>
+<p>Styling</p>
+<pre><code class="css">.key-feature__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.key-feature {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+
+.key-feature__image {
+  background: #ffcede;
+  width: 128px;
+  height: 128px;
+  border: 2px solid #424242;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.key-feature__description{
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}
+</code></pre>
+
+<h3 id="adding-the-footer">Adding the Footer</h3>
+<p>Add given new html code, assign classes</p>
+<p><code>&lt;footer class="main-footer"&gt;</code></p>
+<p><code>&lt;ul class="main-footer__links"&gt;</code></p>
+<p><code>&lt;li class="main-footer__link"&gt;</code></p>
+<p>Styling</p>
+<pre><code class="css">.main-footer {
+  background: black;
+  padding: 32px;
+  margin-top: 48px;
+}
+
+.main-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.main-footer__link {
+  display: inline-block;
+  margin: 0 16px;
+}
+
+.main-footer__link a {
+  color: white;
+  text-decoration: none;
+}
+.main-footer__link a:hover,
+.main-footer__link a:active {
+  color: #ccc;
+}
+</code></pre>
+
+<h3 id="adding-packages-page">Adding Packages Page</h3>
+<p>Reuse everything but what's in <code>&lt;main&gt;</code></p>
+<p><code>./packages/index.html</code></p>
+<p><code>./packages/packages.css</code></p>
+<p>Separate out CSS files</p>
+<p><code>./shared.css</code></p>
+<h3 id="styling-the-links">Styling the Links</h3>
+<p>Add classes</p>
+<p><code>&lt;section class="package"&gt;</code></p>
+<p>Styling</p>
+<pre><code class="css">main {
+  padding-top: 32px;
+}
+
+.package {
+  width: 80%;
+  margin: 16px 0;
+  border: 4px solid #0e4f1f;
+  border-left: none;
+}
+
+.package a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 32px;
+}
+</code></pre>
+
+<h3 id="styling-our-package-boxes">Styling our Package Boxes</h3>
+<p>Add classes</p>
+<p><code>&lt;h1 class="package__title"&gt;</code></p>
+<p><code>&lt;h2 class="package__subtitle"&gt;</code></p>
+<p><code>&lt;p class="package__info"&gt;</code></p>
+<p>Also add individual IDs for each plan:</p>
+<p><code>&lt;section class="package" id="plus"&gt;</code></p>
+<p><code>&lt;section class="package" id="free"&gt;</code></p>
+<p><code>&lt;section class="package" id="premium"&gt;</code></p>
+<p>Styling</p>
+<pre><code class="css">.package:hover,
+.package:active {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border-color: #ff5454;
+}
+
+#plus {
+  background: rgba(213, 255, 220, 0.95);
+}
+
+#free {
+  background: rgba(234, 252, 237, 0.95);
+}
+
+#premium {
+  background: rgba(14, 79, 31, 0.95);
+}
+
+#premium .package__title {
+  color: white;
+}
+
+#premium .package__subtitle {
+  color: #bbb;
+}
+</code></pre>
+
+<h3 id="adding-float-to-our-package">Adding "float" to our Package</h3>
+<p>Overwrite default positioning and tell browser to push element to left or right of page. Not great for moving block style elements.</p>
+<p>Add properties</p>
+<pre><code class="css">#free {
+  background: rgba(234, 252, 237, 0.95);
+  float: right;
+  border-right: none;
+  border-left: 4px solid #0e4f1f;
+  text-align: right;
+}
+</code></pre>
+
+<p>Need clearfix to fix float.</p>
+<p><code>&lt;div class="clearfix"&gt;&lt;/div&gt;</code></p>
+<pre><code class="css">.clearfix {
+  clear: both;
+}
+</code></pre>
+
+<h3 id="fixing-the-hover-effect">Fixing the Hover Effect</h3>
+<p>Specificity border rule overrides, because of ID selector</p>
+<p>Simple fix with redundant code</p>
+<pre><code class="css">#free:hover,
+#free:active {
+    border-left-color: #ff5454;
+}
+</code></pre>
+
+<p>An alternative fix, only on <em>very very</em> rare occasions, using <code>!important</code></p>
+<pre><code class="css">.package:hover,
+.package:active {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border-color: #ff5454 !important;
+}
+</code></pre>
+
+<p><strong><em>NOT RECOMMENDED!</em></strong></p>
+<h3 id="adding-final-touches">Adding Final Touches</h3>
+<p>On main page, add class</p>
+<p><code>&lt;div class="plan__list"&gt;</code></p>
+<p>Styling</p>
+<pre><code class="css">.plan__list {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+</code></pre>
+
+<h2 id="6-positioning-elements-with-css">6. Positioning Elements with CSS</h2>
+<h3 id="6-introduction">6. Introduction</h3>
+<p><strong>Positioning</strong> - How to change the position of Elements</p>
+<ol>
+<li>Understanding the <code>position</code> Property</li>
+<li>Fixed Navigation Bars with <code>fixed</code></li>
+<li>Positioning Elements with <code>z-index</code></li>
+<li>Using <code>absolute</code> and <code>relative</code> - Stand Alone and Combined</li>
+<li>"Sticky" Positioning</li>
+<li>The "Stacking Context"</li>
+</ol>
+<h3 id="why-positioning-will-improve-our-website">Why Positioning will Improve our Website</h3>
+<ul>
+<li>Fixed Navigation Bar</li>
+<li>Background Image, slogan, positioning.</li>
+<li>Background Image on Packages page</li>
+<li>Add Badge to Plus plan on Packages page</li>
+</ul>
+<h3 id="understanding-positioning-the-theory">Understanding Positioning - The Theory</h3>
+<p><code>position</code> property applied automatically with <code>static</code> default value</p>
+<p>Other values include <code>absolute</code>, <code>relative</code>, <code>fixed</code>, <code>sticky</code>(new)</p>
+<p>Changing the Position</p>
+<p>Top, bottom, left, right options.</p>
+<p>Refer to initial position in <strong><em>Document Flow</em></strong></p>
+<p>Options to <strong>Positioning Context</strong></p>
+<h3 id="working-with-the-fixed-value">Working with the <code>fixed</code> Value</h3>
+<p><code>top: 100px;</code></p>
+<ul>
+<li>Not reflected</li>
+<li>Need to provide value other than default</li>
+</ul>
+<p><code>position: fixed;</code></p>
+<ul>
+<li>Removed from document flow</li>
+</ul>
+<pre><code class="css">.parent .child-1 {
+  position: fixed;
+  width: 400px;
+  top: 100px;
+}
+</code></pre>
+
+<ul>
+<li>Now applied</li>
+<li>Use <code>top: 0;</code> and <code>margin: 0;</code> to see <em>context</em></li>
+<li>Now has viewport for the positioning context</li>
+<li>Example navbar:</li>
+</ul>
+<pre><code class="css">.parent .child-1 {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+</code></pre>
+
+<ul>
+<li>Can apply positioning no matter if it's a block level element or inline element</li>
+</ul>
+<h3 id="creating-a-fixed-navigation-bar">Creating a Fixed Navigation Bar</h3>
+<ul>
+<li>Modify <code>main-header</code></li>
+</ul>
+<pre><code class="css">.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2ddf5c;
+  padding: 8px 16px;
+}
+</code></pre>
+
+<h3 id="using-position-to-add-a-background-image">Using <code>position</code> to Add a Background Image</h3>
+<p>Add <code>div</code> for background: <code>&lt;div class="background"&gt;&lt;/div&gt;</code> (in between header and beginning of body)</p>
+<p>For image, add property <code>background</code></p>
+<ul>
+<li>Set width/height to 100%, but cannot see image?<ul>
+<li>This is due to position property.</li>
+<li>Use pixels, can now see.</li>
+<li>Change to fixed position and can now use percentages</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">.background {
+  background: url('../images/plans-background.jpg');
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+</code></pre>
+
+<h3 id="understanding-the-z-index">Understanding the Z-Index</h3>
+<ul>
+<li>Were able to position along axis, now need <code>z-index</code></li>
+<li>Every element has <code>z-index: auto;</code> by default, which is <code>z-index: 0;</code></li>
+<li>Use positive numbers to position above, negative for below</li>
+<li><strong>NOTE</strong>: If element doesn't have position property applied (different from default), <code>z-index</code> has no effect</li>
+<li>Because background is fixed, covers up all package elements even though <code>z-index</code> may be 0.<ul>
+<li>Can see Navbar because it is also fixed</li>
+</ul>
+</li>
+<li>Now can add to background:</li>
+</ul>
+<pre><code class="css">.background {
+  /* ... */
+  z-index: -1;
+}
+</code></pre>
+
+<h3 id="adding-a-badge-to-our-package">Adding a Badge to our Package</h3>
+<p>Add badge on 'Plus' package</p>
+<p><code>&lt;h2 class="package__badge"&gt;RECOMMENDED&lt;/h2&gt;</code></p>
+<p>Styling:</p>
+<pre><code class="css">.package__badge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 20px;
+}
+</code></pre>
+
+<ul>
+<li>Problem here is, the position context is the viewport, and that's not what we want here.<ul>
+<li>Change to <code>absolute</code><ul>
+<li>No longer stuck to viewport</li>
+</ul>
+</li>
+<li>Context based on two cases<ul>
+<li>If no ancestors have position property, then positioning context is just the HTML element</li>
+<li>If it does have ancestors, the the closest one with position property applied is the positioning context for this element</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Apply <code>absolute</code> to whole <code>package</code> instead, breaks all packages.<ul>
+<li>Change to <code>relative</code><ul>
+<li>Fixes this and gives badge a positioning context</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">.package {
+  /* ... */
+  position: relative;
+}
+</code></pre>
+
+<h3 id="styling-and-positioning-our-badge-with-absolute-and-relative">Styling and Positioning our Badge with <code>absolute</code> and <code>relative</code></h3>
+<p>Adjust package badge styling</p>
+<pre><code class="css">.package__badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  font-size: 12px;
+  color: white;
+  background-color: #ff5454;
+  padding: 8px;
+}
+</code></pre>
+
+<p>Also on <code>.main-header</code>: <code>z-index: 1;</code>, to keep package from going over navbar</p>
+<h3 id="diving-deeper-into-relative-positioning">Diving Deeper into Relative Positioning</h3>
+<ul>
+<li>Using demo code, appling relative position to first child<ul>
+<li>Initially, nothing changes</li>
+<li>Add a top/left, element moves</li>
+</ul>
+</li>
+<li>With <code>position: relative</code>, element is <strong>not</strong> taken out of document flow.</li>
+<li><code>absolute</code> and <code>fixed</code> specifiy distance to parent element basically</li>
+<li><code>relative</code> just specifies how it should move from current position<ul>
+<li>Can end up moving directly out of parent</li>
+</ul>
+</li>
+</ul>
+<h3 id="working-with-overflow-and-relative-positioning">Working with <code>overflow</code> and Relative Positioning</h3>
+<ul>
+<li>In parent, can apply <code>overflow: hidden</code><ul>
+<li>Elements positioned out of parent are hidden</li>
+<li>Doing with <code>body</code> and <code>parent</code> instead, doesn't work.<ul>
+<li>Is passed to HTML selector<ul>
+<li>Default CSS behavior</li>
+</ul>
+</li>
+<li>Now doesn't apply to child</li>
+</ul>
+</li>
+<li>Can add to <strong>both</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="introducing-sticky-positioning">Introducing <code>sticky</code> Positioning</h3>
+<p>Using demo code</p>
+<p>Add <code>position: sticky;</code> to <code>.parent .country</code></p>
+<p>Behaves like fixed, but then has a limit</p>
+<ul>
+<li><code>sticky</code> is a combination of relative and fixed<ul>
+<li>Doesn't do anything without setting top or right, etc</li>
+<li>Can specify distance between element and viewport</li>
+<li>End of the content in the parent is limit</li>
+<li>Rather new value for <code>position</code> property, browser support not perfect yet</li>
+</ul>
+</li>
+</ul>
+<h3 id="understanding-the-stacking-context">Understanding the Stacking Context</h3>
+<p>Using demo code</p>
+<p>Fixed elements, taken out of document flow, with default <code>z-index</code></p>
+<p>Stacking context comes into play when dealing with the children. </p>
+<p>Image will never go below its parent, will never go above elements higher than the parent</p>
+<p>Only effects elements <em>inside</em> the parent</p>
+<p>Stacking context depends on <code>z-index</code> of the <strong>parent</strong></p>
+<h2 id="7-understanding-background-images-and-images">7. Understanding Background Images and Images</h2>
+<h3 id="7-introduction">7. Introduction</h3>
+<ol>
+<li>Understanding the <code>background</code> Property</li>
+<li>Images and Background Images</li>
+<li>Gradients</li>
+<li>Filters</li>
+</ol>
+<h3 id="understanding-background-size">Understanding <code>background-size</code></h3>
+<ul>
+<li>Using direct background properties such as <code>background-image</code> and <code>background-color</code></li>
+<li>Can define multiple backgrounds, just one color, but muiltiple images</li>
+<li>Can also use <code>background-size</code><ul>
+<li><code>background-size: 100px;</code> affects the width here, can set width and height with <code>background-size: 100px 50%;</code><ul>
+<li>Also have pre-defined keywords, such as <code>cover</code><ul>
+<li><code>cover</code> finds out if height or weight is more important, sets width to 100% here, landscape container</li>
+</ul>
+</li>
+<li><code>contain</code> is another<ul>
+<li>entire image</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Can turn off repeating effect with <code>background-repeat: no-repeat;</code><ul>
+<li>Other options, such as <code>repeat-x</code> and <code>repeat-y</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="working-with-background-position">Working with <code>background-position</code></h3>
+<ul>
+<li><code>background-position</code> first value is x-axis, second is y-axis, top edge</li>
+<li>Can also use percentage values here, which is based off of the excess space<ul>
+<li>Default for y-axis is 50%</li>
+<li>Keyword <code>center</code> = <code>background-position: 50% 50%;</code></li>
+<li>Also <code>left</code>, <code>top</code>, <code>bottom</code>, <code>right</code></li>
+<li>Able to combine<ul>
+<li><code>background-position: left 10% bottom 20%;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-background-shorthand-theory">The <code>background</code> Shorthand - Theory</h3>
+<ul>
+<li>The background property<ul>
+<li><code>background: red;</code></li>
+<li><code>background</code> is a shorthand property<ul>
+<li><code>background-image</code><ul>
+<li>Set one or more background images</li>
+</ul>
+</li>
+<li><code>background-color</code><ul>
+<li>Set a background color</li>
+</ul>
+</li>
+<li><code>background-position</code><ul>
+<li>Set initial position, relative to background position layer</li>
+<li>Defined by <code>background-origin</code></li>
+</ul>
+</li>
+<li><code>background-size</code><ul>
+<li>Set size of background image</li>
+</ul>
+</li>
+<li><code>background-repeat</code><ul>
+<li>Defines how background images are repeated</li>
+</ul>
+</li>
+<li><code>background-origin</code><ul>
+<li>Set background positioning area</li>
+</ul>
+</li>
+<li><code>background-clip</code><ul>
+<li>Define whether background extends underneath border</li>
+</ul>
+</li>
+<li><code>background-attachment</code><ul>
+<li>Sets the scrolling behavior of the background image</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>All except for <code>background-color</code> and <code>background-clip</code> refer to <code>background-image</code> only</li>
+</ul>
+</li>
+</ul>
+<h3 id="applying-background-origin-clip-and-attachment">Applying <code>background</code> Origin, Clip and Attachment</h3>
+<ul>
+<li>Comparable to box-sizing, but has extra value</li>
+<li>By default cropped before border, can change here</li>
+<li>Can set <code>background-origin: border-box;</code> to have it go below border, away from default</li>
+<li><code>content-box</code> means content without border padding</li>
+<li>
+<p><code>padding-box</code> including content and padding, but not border, is default value</p>
+</li>
+<li>
+<p>Can affect the cropping with <code>background-clip</code></p>
+<ul>
+<li>Setting to <code>border-box</code>, same as before</li>
+<li>Setting to <code>padding-box</code> will clip image <em>after</em> padding</li>
+<li>Can set to <code>content-box</code> to clip <em>before</em> padding<ul>
+<li>Also affects width here</li>
+</ul>
+</li>
+<li>Overwrites <code>background-origin</code></li>
+</ul>
+</li>
+<li>
+<p><code>background-attachment</code> defines how scrolling behaves in a container that has a background image but not fixed itself</p>
+<ul>
+<li>Can set <code>fixed</code>, <code>scroll</code>, or <code>local</code></li>
+<li>Rarely used</li>
+</ul>
+</li>
+</ul>
+<h3 id="using-the-background-shorthand-on-our-project">Using the <code>background</code> Shorthand on our Project</h3>
+<pre><code class="css">#product-overview {
+  background: url('freedom.jpg') left 10% bottom 20% / cover no-repeat
+    border-box;
+  width: 100%;
+  height: 528px;
+  padding: 10px;
+  margin-top: 43px;
+  position: relative;
+}
+</code></pre>
+
+<p><code>border-box</code> at end applies to origin and clip, can give two separate values</p>
+<h3 id="styling-images">Styling Images</h3>
+<pre><code class="html">&lt;a href=&quot;index.html&quot; class=&quot;main-header__brand&quot;&gt;
+  &lt;img
+    src=&quot;./images/uhost-icon.png&quot;
+    alt=&quot;uHost - Your favorite hosting company&quot;
+  /&gt;
+&lt;/a&gt;
+</code></pre>
+
+<ul>
+<li>Need to adjust size</li>
+<li>Default behavior is if you enter an image tag and you point to an image, then the default height and width of the original image will be used, regardless of the surrounding element</li>
+<li>Setting height on image elemnt as percentage dont respect surrounding container due to it being an inline element</li>
+<li>Must set <code>display: inline-block;</code></li>
+</ul>
+<pre><code class="css">.main-header__brand {
+  color: #0e4f1f;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 22px;
+  height: 22px;
+  /* width: 20px; */
+  display: inline-block;
+}
+
+.main-header__brand img {
+  height: 100%;
+  /* width: 100%; */
+}
+</code></pre>
+
+<h3 id="adding-the-customers-page-to-our-website">Adding the Customers Page to our Website</h3>
+<p>Add given code and fix links</p>
+<h3 id="working-on-the-image-layout">Working on the Image Layout</h3>
+<pre><code class="css">.testimonial__image-container {
+  width: 65%;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
+}
+
+.testimonial__image {
+  width: 100%;
+  vertical-align: top;
+}
+
+.testimonial__info {
+  text-align: right;
+  padding: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30%;
+}
+</code></pre>
+
+<h3 id="understanding-linear-gradients">Understanding Linear Gradients</h3>
+<ul>
+<li>Treated as images</li>
+<li><code>background-image: linear-gradient(red, blue);</code><ul>
+<li>Line top to bottom by default, can give direction</li>
+</ul>
+</li>
+<li><code>background-image: linear-gradient(to bottom, red, blue);</code><ul>
+<li>Same as previous</li>
+<li>Can do <code>to right bottom</code></li>
+</ul>
+</li>
+<li>Also use degrees<ul>
+<li><code>background-image: linear-gradient(0deg, red, blue);</code><ul>
+<li>Bottom, <code>180deg</code> for top</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Define multiple colors, hex codes<ul>
+<li><code>background-image: linear-gradient(180deg, red, blue, green, yellow, #fa923f);</code></li>
+<li>Or <code>transparent</code></li>
+<li>Also <code>rgba()</code></li>
+</ul>
+</li>
+<li>Can also define percentages of color in gradient<ul>
+<li><code>background-image: linear-gradient(180deg, red 70%, blue 60%, rgba(0,0,0,0.5));</code><ul>
+<li>Hard cutoff here</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="applying-radial-gradients">Applying Radial Gradients</h3>
+<ul>
+<li><code>background-image: radial-gradient(red, blue);</code></li>
+<li>Circlular elipse, can change shape:<ul>
+<li><code>background-image: radial-gradient(circle, red, blue, green);</code></li>
+</ul>
+</li>
+<li>Position:<ul>
+<li><code>background-image: radial-gradient(circle at top left, red, blue, green);</code></li>
+<li>Custom values<ul>
+<li><code>background-image: radial-gradient(circle at 20% 50%, red, blue, green);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Size: <code>background-image: radial-gradient(circle 20px at 20% 50%, red, blue, green);</code></li>
+<li>Other keywords<ul>
+<li><code>background-image: radial-gradient(ellipse farthest-side at 20% 50%, red, blue, green);</code><ul>
+<li><code>closest-side</code></li>
+<li><code>closest-corner</code></li>
+<li><code>farthest-corner</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Also treated as images like linears</li>
+</ul>
+<h3 id="stacking-multiple-backgrounds">Stacking Multiple Backgrounds</h3>
+<ul>
+<li>Using multiple backgrounds<ul>
+<li><code>background:</code></li>
+<li>Only one <code>background-color</code> may be used</li>
+<li>But can use multiple images</li>
+<li>Separate different layers with commas</li>
+</ul>
+</li>
+<li>Modify main.css background</li>
+</ul>
+<pre><code class="css">#product-overview {
+  background: linear-gradient(to top, rgba(80, 68, 18, 0.6) 10%, transparent), url('./images/freedom.jpg') left 10% bottom 20% / cover no-repeat
+    border-box, #ff1b68;
+    /* ... */
+}
+</code></pre>
+
+<h3 id="understanding-filters">Understanding Filters</h3>
+<ul>
+<li>Can change look of an element by applying filters</li>
+<li>For example<ul>
+<li><code>filter: blur(10px);</code></li>
+</ul>
+</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">MDN CSS filter Reference</a></li>
+<li>Modify packages.css:</li>
+</ul>
+<pre><code class="css">.background {
+  background: url('../images/plans-background.jpg') center/cover;
+  filter: grayscale(40%);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+</code></pre>
+
+<ul>
+<li>Not supported in IE</li>
+</ul>
+<h3 id="adding-and-styling-svgs-the-basics">Adding and Styling SVGs - The Basics</h3>
+<ul>
+<li>Full topic all on it's own</li>
+<li>Add given <code>svg</code> code to HTML</li>
+<li>Icons added</li>
+<li>Can style <code>svg</code></li>
+<li><code>fill</code> and <code>stroke</code> properties</li>
+</ul>
+<h2 id="8-sizes-and-units">8. Sizes and Units</h2>
+<h3 id="8-introduction">8. Introduction</h3>
+<ul>
+<li>Dimensions, Sizes, and Units</li>
+<li>In this Module<ul>
+<li>Theory - Which Units can we Use?</li>
+<li><code>%</code> and the Containing Block</li>
+<li><code>min-width</code> &amp; <code>max-width</code></li>
+<li>Understanding <code>rem</code> vs <code>em</code></li>
+<li>Working with <code>vw</code> and <code>vh</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="where-units-matter">Where Units Matter</h3>
+<ul>
+<li>Pixels, Percentages &amp; More</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Units</th>
+<th align="center">-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">pixels</td>
+<td align="center"><code>px</code></td>
+</tr>
+<tr>
+<td align="center">percentages</td>
+<td align="center"><code>%</code></td>
+</tr>
+<tr>
+<td align="center">root em</td>
+<td align="center"><code>rem</code></td>
+</tr>
+<tr>
+<td align="center">em</td>
+<td align="center"><code>em</code></td>
+</tr>
+<tr>
+<td align="center">viewport height</td>
+<td align="center"><code>vh</code></td>
+</tr>
+<tr>
+<td align="center">viewport width</td>
+<td align="center"><code>vw</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>3 Core Questions</strong></p>
+<ol>
+<li>Which properties can I use in connection with these units?</li>
+<li>How is the size calculated?</li>
+<li>What's the right unit to choose?</li>
+</ol>
+</li>
+<li>
+<p>Where Units Matter</p>
+<ul>
+<li>Box model (<code>box-sizing: border-box;</code>), content, padding, border, margin</li>
+<li>Which properties can I use?<ol>
+<li><code>font-size</code></li>
+<li><code>padding</code></li>
+<li><code>border</code></li>
+<li><code>margin</code></li>
+<li><code>width</code></li>
+<li><code>height</code></li>
+<li><code>top</code></li>
+<li><code>bottom</code></li>
+<li><code>left</code></li>
+<li><code>right</code></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Different units, properties</p>
+</li>
+</ul>
+<h3 id="an-overview-of-available-sizes-and-units">An Overview of Available Sizes and Units</h3>
+<ul>
+<li>How is the Size Calculated?</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Absolute Lengths</th>
+<th align="center">Viewport Lengths</th>
+<th align="center">Font-Relative Lengths</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Mostly ignore user settings</td>
+<td align="center">Adjust to current viewport</td>
+<td align="center">Adjust to default font size</td>
+</tr>
+<tr>
+<td align="center"><code>px</code></td>
+<td align="center"><code>vh</code></td>
+<td align="center"><code>rem</code></td>
+</tr>
+<tr>
+<td align="center">cm*</td>
+<td align="center"><code>vw</code></td>
+<td align="center"><code>em</code></td>
+</tr>
+<tr>
+<td align="center">mm*</td>
+<td align="center"><code>vmin</code></td>
+<td align="center">...</td>
+</tr>
+<tr>
+<td align="center">...</td>
+<td align="center"><code>vmax</code></td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center"><code>%</code></td>
+<td align="center"><code>%</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>*Different depending on browser, not regularly used</li>
+<li>Percentages are a special case</li>
+<li>How is the Box Size for % Units Calculated?</li>
+</ul>
+<h3 id="rules-to-remember-fixed-positioning">Rules to Remember: <em>Fixed</em> Positioning &amp; <code>%</code></h3>
+<ul>
+<li>Reference for element with a percentage unit is called the <em>containing block</em></li>
+<li>Element<ul>
+<li>With <code>position: fixed;</code><ul>
+<li>Has an impact</li>
+<li>Containing block is actually viewport</li>
+<li>Example with Nav Bar</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="rules-to-remember-absolute-positioning">Rules to Remember: <em>Absolute</em> Positioning &amp; <code>%</code></h3>
+<ul>
+<li>Refers to Ancestor content + the padding.</li>
+<li>Containing block is the closest ancestor which is not <code>position: static;</code><ul>
+<li>Example with slogan and <code>section</code> on main page</li>
+</ul>
+</li>
+</ul>
+<h3 id="rules-to-remember-relative-staic-positioning">Rules to Remember: <em>Relative</em> / <em>Staic</em> Positioning &amp; <code>%</code></h3>
+<ul>
+<li>Only Ancestor content</li>
+<li>Closest that is block level element</li>
+<li>Example with customer image container</li>
+</ul>
+<h3 id="fixing-the-height-100-issue">Fixing the Height 100% Issue</h3>
+<p><code>&lt;div class="backdrop"&gt;&lt;/div&gt;</code></p>
+<pre><code class="css">.backdrop {
+  position: fixed; /* demo with absolute */
+  display: none; /* hide for now */
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5)
+}
+</code></pre>
+
+<p>Also fixes the margin stacking</p>
+<h3 id="defining-the-font-size-in-the-root-element">Defining the Font Size in the Root Element</h3>
+<pre><code class="css">html {
+  font-size: 75%;
+}
+</code></pre>
+
+<h3 id="using-min-widthmin-height-and-max-widthmax-height">Using <code>min-width</code>/<code>min-height</code> and <code>max-width</code>/<code>max-height</code></h3>
+<ul>
+<li>Modifying customer images</li>
+</ul>
+<pre><code class="css">.testimonial__image-container {
+  max-width: 580px;
+  /* ... */
+}
+</code></pre>
+
+<h3 id="working-with-rem-and-em">Working with <code>rem</code> and <code>em</code></h3>
+<ul>
+<li>Based on font-size</li>
+<li><code>2em</code> in example calculates to 40px</li>
+<li>Modify project to make font-size more dynamic with thes units</li>
+</ul>
+<pre><code class="css">/* customers.css */
+.testimonial {
+  font-size: 1.2em;
+  /* ... */
+}
+
+.testimonial__name {
+  font-size: 2em;
+  /* ... */
+}
+
+.testimonial__subtitle {
+  font-size: 1.1em;
+  /* ... */
+}
+</code></pre>
+
+<ul>
+<li><code>em</code> inherits previous sizes</li>
+<li>Can get out of control easily, careful</li>
+<li><code>rem</code> for root<ul>
+<li>Switch all above to <code>rem</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="adding-rem-to-additional-properties">Adding <code>rem</code> to Additional Properties</h3>
+<pre><code class="css">.testimonial {
+  font-size: 1.2rem;
+  /* ... */
+}
+
+.testimonial:first-of-type {
+  margin-top: 6rem;
+}
+
+.testimonial__info {
+  padding: 0.9rem;
+  /* ... */
+}
+
+.testimonial__name {
+  margin: 0.2rem;
+  /* ... */
+}
+
+.testimonial__text {
+  margin: 0.2rem;
+}
+</code></pre>
+
+<ul>
+<li>Not recommended to use <code>rem</code> of <code>box-shadow</code> here</li>
+</ul>
+<h3 id="finishing-rem">Finishing <code>rem</code></h3>
+<p>Modifying packages.css</p>
+<pre><code class="css">main {
+  padding-top: 2rem;
+}
+
+.package {
+  margin: 1rem 0;
+  /* ... */
+}
+
+.package a {
+  padding: 2rem;
+  /* ... */
+}
+
+.package__badge {
+  margin: 1.2rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  /* ... */
+}
+
+.package__info {
+  padding: 1rem;
+  font-size: 1.2rem;
+  /* ... */
+}
+</code></pre>
+
+<ul>
+<li>Use rest of given code</li>
+</ul>
+<h3 id="understanding-the-viewport-units-vw-and-vh">Understanding the Viewport Units <code>vw</code> and <code>vh</code></h3>
+<ul>
+<li>Modify shared.css:<ul>
+<li>Also have <code>vmin</code> &amp; <code>vmax</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">.backdrop {
+  width: 100vw;
+  height: 100vh;
+  /* ... */
+}
+</code></pre>
+
+<ul>
+<li>Modify main.css as well:</li>
+</ul>
+<pre><code class="css">#product-overview {
+  /* changed bottom to 70% below */
+  background: linear-gradient(to top, rgba(80, 68, 18, 0.6) 10%, transparent),
+    url('images/freedom.jpg') left 10% bottom 70% / cover no-repeat border-box,
+    #ff1b68;
+  /* ... */
+  width: 100vw;
+  height: 33vh;
+  /* ... */
+}
+</code></pre>
+
+<h3 id="windows-viewport-units-and-scrollbars">Windows, Viewport Units and Scrollbars</h3>
+<p><code>vw</code> in Windows does not include scrollbars, can use <code>width: 100%;</code> and other solutions</p>
+<h3 id="choosing-the-right-unit">Choosing the Right Unit</h3>
+<ul>
+<li>Which Unit Should I Choose?</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Property</th>
+<th align="center">"Recommended" Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>font-size (root element)</code></td>
+<td align="center"><code>%</code>, <code>-</code></td>
+</tr>
+<tr>
+<td align="center"><code>font-size</code></td>
+<td align="center"><code>rem (em =&gt; Children only)</code></td>
+</tr>
+<tr>
+<td align="center"><code>padding</code> <strong><code>border</code></strong> <code>margin</code></td>
+<td align="center"><code>rem</code> <strong><code>px</code></strong> <code>rem</code></td>
+</tr>
+<tr>
+<td align="center"><code>width</code> <code>height</code></td>
+<td align="center"><code>%</code> <code>vw</code> <code>%</code> <code>vh</code></td>
+</tr>
+<tr>
+<td align="center"><code>top</code> <code>bottom</code></td>
+<td align="center"><code>%</code> <code>%</code></td>
+</tr>
+<tr>
+<td align="center"><code>left</code> <code>right</code></td>
+<td align="center"><code>%</code> <code>%</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="using-auto-to-center-elements">Using <code>auto</code> to Center Elements</h3>
+<ul>
+<li><code>margin: auto;</code> only works for block level elements with an explicitly assigned width though</li>
+</ul>
+<h3 id="cleaning-up-our-code">Cleaning Up our Code</h3>
+<ul>
+<li>One modification in packages.css:</li>
+</ul>
+<pre><code class="css">.background {
+  /* ... */
+  width: 100vw;
+  height: 100vh;
+}
+</code></pre>
+
+<h3 id="understanding-property-notations">Understanding Property Notations</h3>
+<ul>
+<li>In Javascript, etc. using <code>border-radius</code> equates to <code>borderRadius</code> (Camel Case)</li>
+</ul>
+<h2 id="11-adding-and-styling-forms">11. Adding and Styling Forms</h2>
+<h3 id="advanced-attribute-selectors">Advanced Attribute Selectors</h3>
+<p><img alt="Advanced Attribute Selectors" src="../img/css-adv-att-selectors.JPG" title="Advanced Attribute Selectors" /></p>
+<h2 id="13-adding-flexbox-to-our-project">13. Adding FlexBox to our Project</h2>
+<h3 id="13-introduction">13. Introduction</h3>
+<ol>
+<li>The Flex-Container</li>
+<li>Main Axis vs. Cross Axis</li>
+<li>The Flex Items</li>
+</ol>
+<h3 id="how-we-could-improve-our-project">How we Could Improve our Project</h3>
+<ul>
+<li>Get rid of <code>display: inline-block;</code> declarations and fix other small issues</li>
+</ul>
+<h3 id="understanding-flexbox">Understanding Flexbox</h3>
+<ul>
+<li>Change the way elements are displayed</li>
+<li>Need the <code>display:</code> property<ul>
+<li>Assign flex: <code>display: flex;</code></li>
+</ul>
+</li>
+<li>We create a flex container this way<ul>
+<li>Parent = Flex container<ul>
+<li>Can apply various properties:<ul>
+<li><code>flex-flow:</code></li>
+<li><code>justify-content:</code></li>
+<li><code>align-content:</code></li>
+<li><code>align-items:</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Children = Flex Items<ul>
+<li>Can apply various properties:<ul>
+<li><code>order:</code></li>
+<li><code>flex:</code></li>
+<li><code>align-self:</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-a-flex-container">Creating a Flex Container</h3>
+<ul>
+<li>Using demo code for theory</li>
+<li>Start by just adding <code>display: flex;</code><ul>
+<li>Now in a row</li>
+<li>Elements are using entire height available in the parent</li>
+<li>Height defined by element with largest height, 300px in this case</li>
+<li>All items in container are now flex items</li>
+</ul>
+</li>
+<li><code>display: inline-flex;</code> alternative, behaves like inline element, uses size needed for content.<ul>
+<li>The height is still used according to definition of the 4th element</li>
+</ul>
+</li>
+</ul>
+<h3 id="using-flex-direction-and-flex-wrap">Using <code>flex-direction</code> and <code>flex-wrap</code></h3>
+<ul>
+<li>Apply <code>flex-direction: row;</code> (default behavior)</li>
+<li>Apply <code>flex-wrap: nowrap;</code> (default behavior)<ul>
+<li>Change to <code>wrap</code></li>
+<li>Now the height will change, while width will decrease/increase as needed</li>
+</ul>
+</li>
+<li>Change direction to <code>column</code><ul>
+<li>Now behaves like we expect block level elements to</li>
+<li>Elements with no width defined will change even less than needed by content</li>
+<li>Also have <code>column-reverse</code> and <code>row-reverse</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="understanding-the-importance-of-main-axis-and-cross-axis">Understanding the Importance of Main Axis and Cross Axis</h3>
+<ul>
+<li>Starting point for main axis is top left corner of element or website, to the top right</li>
+<li>Cross axis has same starting point, goes down to bottom left corner</li>
+<li><code>row-reverse</code> flips main axis, for example<ul>
+<li>Cross axis starts in right top corner, always has same starting point</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Main Axis vs Cross Axis" src="../img/cssFlexAxees.JPG" title="Main Axis vs Cross Axis" /></p>
+<h3 id="working-with-align-items-and-justify-content">Working with <code>align-items</code> and <code>justify-content</code></h3>
+<ul>
+<li>
+<p>First, can do <code>flex-flow:</code> shorthand to do both <code>flex-direction</code> and <code>flex-wrap</code></p>
+<ul>
+<li>For example: <code>flex-flow: row wrap;</code></li>
+</ul>
+</li>
+<li>
+<p><code>align-items: stretch;</code></p>
+<ul>
+<li>Default value</li>
+<li>Height always follow maximum height</li>
+</ul>
+</li>
+<li>Change to <code>align-items: center;</code><ul>
+<li>Centered along cross-axis</li>
+<li>Different behavior when <code>column</code> flex instead of <code>row</code></li>
+</ul>
+</li>
+<li>Change to <code>align-items: flex-start;</code><ul>
+<li>Aligned to start of cross axis</li>
+<li>Can also use <code>flex-end;</code></li>
+</ul>
+</li>
+<li>What about main axis?<ul>
+<li>Can use <code>justify-content: center;</code> for example, to center along main axis</li>
+</ul>
+</li>
+</ul>
+<h4 id="justify-content-defines-poisition-of-flex-elements-along-main-axis"><strong>Justify Content</strong> defines poisition of flex elements along <em>main axis</em></h4>
+<h4 id="align-items-defines-poisition-of-flex-elements-along-cross-axis"><strong>Align Items</strong> defines poisition of flex elements along <em>cross axis</em></h4>
+<ul>
+<li>Using value <code>baseline</code> for <code>align-content</code>, aligns to baseline of actual content</li>
+</ul>
+<h3 id="and-what-about-align-content">And What About <code>align-content</code></h3>
+<ul>
+<li><code>align-content</code> allows us to align items along the cross axis<ul>
+<li>Use values such as <code>space-between</code>, <code>center</code></li>
+<li>Aligns a flex-containers lines within the flex container when there is <em>extra space in the cross-axis</em></li>
+<li>Similar to how <code>justify-content</code> aligns individual items within the main axis</li>
+</ul>
+</li>
+</ul>
+<h3 id="improving-navigation-bar-with-flexbox">Improving Navigation Bar with Flexbox</h3>
+<p>Turn main header into flex-container and improve</p>
+<pre><code class="css">.main-header {
+  /*  */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* can now remove .main-header &gt; div {...} */
+/* ... */
+.main-header__brand {
+  /* can remove two below: */
+  display: inline-block;
+  vertical-align: middle;
+}
+/* need to change image height now */
+.main-header__brand img {
+  height: 2.5rem;
+  vertical-align: middle;
+}
+/* ... */
+.main-nav__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.main-nav__item {
+  margin: 0 1rem;
+}
+/* ... */
+@media (min-width: 40rem) {
+  .toggle-button {
+    display: none;
+  }
+
+  .main-nav {
+    /* display: inline-block;
+    text-align: right;
+    width: calc(100% - 44px);
+    vertical-align: middle; */
+    display: flex;
+  }
+}
+</code></pre>
+
+<h3 id="working-on-the-mobile-navigation-bar">Working on the Mobile Navigation Bar</h3>
+<pre><code class="css">.mobile-nav__items {
+  /* ... */
+  /* text-align: center; */
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+</code></pre>
+
+<h3 id="improving-the-footer">Improving the Footer</h3>
+<pre><code class="css">.main-footer__links {
+  /*  */
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-footer__link {
+  /* display: block; */
+  margin: 0.5rem 0;
+}
+/* ... */
+@media (min-width: 40rem) {
+  .main-footer__link {
+    /* display: inline-block; */
+    margin: 0 1rem;
+  }
+
+  .main-footer__links {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+</code></pre>
+
+<h3 id="improving-plans-and-features">Improving Plans and Features</h3>
+<ul>
+<li>Plans</li>
+</ul>
+<pre><code class="css">@media (min-width: 40rem) {
+  .plan__list {
+    width: 100%;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .plan {
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    width: 30%;
+    min-width: 13rem;
+    max-width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 28rem;
+  }
+
+  .plan--highlighted {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    height: 30rem;
+    z-index: 50;
+  }
+}
+</code></pre>
+
+<ul>
+<li>Features</li>
+</ul>
+<pre><code class="css">@media (min-width: 40rem) {
+  .key-feature {
+    /* display: inline-block; */
+    /* vertical-align: top; */
+    width: 30%;
+    max-width: 25rem;
+  }
+
+  .key-feature__list {
+    display: flex;
+    justify-content: center;
+  }
+}
+</code></pre>
+
+<h3 id="adding-flexbox-to-customers-page">Adding Flexbox to Customers Page</h3>
+<pre><code class="css">@media (min-width: 40rem) {
+  .testimonial {
+    margin: 3rem auto;
+    max-width: 1500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .testimonial__image-container {
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    width: 66%;
+  }
+
+  .testimonial__info {
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    width: 30%;
+  }
+}
+</code></pre>
+
+<h3 id="using-the-order-property-for-a-flex-item">Using the <code>order</code> Property for a Flex Item</h3>
+<ul>
+<li>Changing the order of elements</li>
+<li>Default value is <code>order: 1;</code></li>
+</ul>
+<pre><code class="css">.item-4 {
+  /*  */
+  order: 1;
+}
+</code></pre>
+
+<ul>
+<li>The bigger number, the later it will be positioned in the order<ul>
+<li>opposite for negative values (earlier in order)</li>
+</ul>
+</li>
+</ul>
+<h3 id="working-with-align-self">Working with <code>align-self</code></h3>
+<ul>
+<li><code>align-self</code> allows for positioning a single flex item along cross axis, overwriting default alignment<ul>
+<li>i.e. <code>align-self: flex-end;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="understanding-flex-grow">Understanding <code>flex-grow</code></h3>
+<ul>
+<li>Default is <code>flex-grow: 0;</code><ul>
+<li>Elements will grow given the fraction of the space given</li>
+<li>Adjusts to remaining space</li>
+<li>Two elements with <code>flex-grow: 1;</code> will divide remaining space by two</li>
+<li>Giving an element flex-grow larger than 0 means it will take up all the space available</li>
+</ul>
+</li>
+</ul>
+<h3 id="applying-flex-shrink">Applying <code>flex-shrink</code></h3>
+<ul>
+<li>Default is <code>flex-shrink: 1;</code><ul>
+<li>Defines behavior when width is decreased, or remaining space</li>
+<li>Given <code>0</code>, element will not shrink below predefined width</li>
+</ul>
+</li>
+<li>Define <em>if</em> an element is allowed to shrink, and how much more one element is allowed to shrink when compared with another</li>
+</ul>
+<h3 id="comparing-flex-basis-vs-width-and-height">Comparing <code>flex-basis</code> vs <code>width</code> and <code>height</code></h3>
+<ul>
+<li>
+<p><code>flex-basis</code> defines size of an element depending on main axis</p>
+<ul>
+<li><code>auto</code> will fallback to a width/height given depending on flex direction</li>
+<li>Can use percentage values</li>
+<li>Always refers to main axis</li>
+<li>Can only be applied to flex items</li>
+</ul>
+</li>
+<li>
+<p>Shorthand for <code>flex-grow, flex-grow, flex-shrink</code></p>
+</li>
+<li><code>flex: 0 1 auto;</code></li>
+</ul>
+<h2 id="14-using-the-css-grid">14. Using the CSS Grid</h2>
+<h3 id="what-is-the-css-grid">What is the CSS Grid</h3>
+<p><img alt="CSS Grid" src="../img/css-grid.JPG" title="CSS Grid" /></p>
+<ul>
+<li>Not supported by older browsers</li>
+</ul>
+<h3 id="turning-a-container-into-a-grid">Turning a Container into a Grid</h3>
+<pre><code class="css">.container {
+  margin: 20px;
+  display: grid;
+}
+</code></pre>
+
+<h3 id="defining-columns-and-rows">Defining Columns and Rows</h3>
+<ul>
+<li>On <code>.container</code><ul>
+<li><code>grid-template-columns: 200px 150px 20% 1fr;</code><ul>
+<li>Defines 4 columns</li>
+</ul>
+</li>
+<li><code>grid-template-rows: 5rem 2.5rem;</code><ul>
+<li>Defines 2 rows</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="positioning-child-elements-in-a-grid">Positioning Child Elements in a Grid</h3>
+<ul>
+<li>On inner element:<ul>
+<li>For columns<ul>
+<li><code>grid-column-start: 3;</code></li>
+<li><code>grid-column-end: 5;</code></li>
+</ul>
+</li>
+<li>For rows<ul>
+<li><code>grid-row-start: 1;</code></li>
+<li><code>grid-row-end: 3;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="using-element-sizing-repeat-and-minmax">Using <code>element-sizing</code>, <code>repeat</code> and <code>minmax</code></h3>
+<ul>
+<li>Use <code>auto</code> to size element only as big as it needs to be, or as much as content r</li>
+<li>Filly empty spaceequires<ul>
+<li><em>If</em> no height defined</li>
+</ul>
+</li>
+<li>Equally sized columns<ul>
+<li>Using <code>repeat</code> function</li>
+<li><code>25% 25% 25% 25%;</code> --&gt; <code>repeat(4, 25%);</code></li>
+</ul>
+</li>
+<li>Certain minimum and maximum height<ul>
+<li>Using <code>minmax</code></li>
+<li><code>grid-template-rows: 5rem minmax(10px, 200px);</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="advanced-element-positioning">Advanced Element Positioning</h3>
+<ul>
+<li>Can use <code>span</code> to occupy certain number of cells<ul>
+<li><code>grid-column-end: span 3;</code></li>
+</ul>
+</li>
+<li>Also can use negative values for positioning<ul>
+<li><code>grid-column-start: 1;</code></li>
+<li><code>grid-column-end: -1;</code><ul>
+<li>One column from the right, the end. In other words, should take an entire row.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Can force an overlap.<ul>
+<li>Grid will always try to avoid overlap, but can explicitly force it</li>
+<li>Can use <code>z-index</code> here to define overlap</li>
+</ul>
+</li>
+</ul>
+<h3 id="working-with-named-lines">Working with Named Lines</h3>
+<pre><code class="css">.container {
+  /* ... */
+  grid-template-rows: [row-1-start] 5rem [row-1-end row-2-start] minmax(10px, 200px) [row-2-end row-3-start] 100px [row-3-end];
+}
+/* ... */
+.el3 {
+  /* ... */
+  grid-row-start: row-1-start;
+  grid-row-end: row-2-end;
+}
+</code></pre>
+
+<h3 id="understanding-column-and-row-shorthands">Understanding Column and Row Shorthands</h3>
+<ul>
+<li>Summarize column or row start/end<ul>
+<li><code>grid-column: 1 / -1;</code></li>
+<li><code>grid-row: row-2-start / span 1;</code></li>
+</ul>
+</li>
+<li>Or both:</li>
+</ul>
+<pre><code class="css">.el3 {
+  /* ... */
+  /* grid-column-start: 2;
+  grid-column-end: span 3;
+  grid-row-start: row-1-start;
+  grid-row-end: row-2-end; */
+  grid-area: row-1-start / 2 / row-2-end / span 3;
+}
+</code></pre>
+
+<h3 id="working-with-gaps">Working with Gaps</h3>
+<ul>
+<li>Define a gap<ul>
+<li><code>grid-column-gap: 20px;</code></li>
+<li><code>grid-row-gap: 10px;</code></li>
+<li>Or same with shorthand:<ul>
+<li><code>grid-gap: 10px 20px;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>Obsolete according to editor?</em></p>
+<h3 id="adding-named-template-areas">Adding Named Template Areas</h3>
+<ul>
+<li>Can divide grid into areas which you assign names to<ul>
+<li>Reference the area:<ul>
+<li><code>grid-area: header;</code></li>
+<li>Define the grid names:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">.container {
+  /* ... */
+  grid-template-areas:
+    'header header header header'
+    'side side main main'
+    'footer footer footer footer';
+}
+</code></pre>
+
+<h2 id="15-transforming-elements-with-css-transforms">15. Transforming Elements with CSS Transforms</h2>
+<h2 id="16-transistions-and-animations-in-css">16. Transistions and Animations in CSS</h2>
+<h2 id="17-writing-future-proof-css-code">17. Writing Future-Proof CSS Code</h2>
+<h2 id="18-introducing-sass">18. Introducing Sass</h2>
+<h2 id="19-course-roundup">19. Course Roundup</h2>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mean/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mean/" class="btn btn-xs btn-link">
+        MEAN
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../js/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../js/" class="btn btn-xs btn-link">
+        Javascript
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

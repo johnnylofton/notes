@@ -85,10 +85,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav">
-      <a href="../mern/" class="btn btn-xs btn-default pull-left">
+      <a href="../react/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../mern/" class="btn btn-xs btn-link">
-        MERN
+        Previous</a><a href="../react/" class="btn btn-xs btn-link">
+        React
       </a>
     </div>
     
@@ -390,14 +390,18 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <h4 id="cloud-deployment-manager">Cloud Deployment Manager</h4>
 <ul>
-<li>All pieces needed included in template</li>
+<li>All pieces needed included in template<ul>
 <li>Can customize</li>
+</ul>
+</li>
 </ul>
 <h4 id="gcp-marketplace">GCP Marketplace</h4>
 <ul>
 <li>aka Cloud Launcher</li>
-<li>A partner and open-source marketplace</li>
+<li>A partner and open-source marketplace<ul>
 <li>Buying completed things</li>
+</ul>
+</li>
 </ul>
 <h3 id="key-building-blocks">Key Building Blocks</h3>
 <ul>
@@ -640,9 +644,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>No PuTTY!</li>
 </ul>
 </li>
+<li>Automatic SSH key management</li>
 </ul>
 </li>
-<li>Automatic SSH key management</li>
 <li>5 GB of persistent storage</li>
 <li>Easy-access to preinstalled tools<ul>
 <li>gcloud, bq, kubectl, docker, npm/node, pip/python, ruby, vim, emacs, bash, etc.</li>
@@ -741,7 +745,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Especially in the real world.</li>
 </ul>
 </li>
-<li>Critical skills for both real world and exam questions        </li>
+<li>Critical skills for both real world and exam questions</li>
 </ul>
 </li>
 </ul>
@@ -774,26 +778,44 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <h2 id="8-basic-services">8. Basic Services</h2>
 <h3 id="gcs-google-cloud-storage">GCS: Google Cloud Storage</h3>
-<p><a href="https://cloud.google.com/storage/docs/access-control/making-data-public">Making Data Public</a>
-- Log into GCP Console with <em>user</em> account
-    - From now on, just assume this
-    - Only use admin account when we need it
-- Create a new project
-    - Generally, new <em>thing</em>, new <strong>project</strong>
-    - Also link to billing
-- Navigate to <strong>Storage</strong> in navigation list
-    - Can pin to top
-- Create a Bucket
-    - Set up region/multi-region, labels, keys
-- Edit permissions to set up public access to file.
-    - User - "allUsers" - Reader
-- <em>Objects</em> <strong>not</strong> <em>files</em>
-- Command line alternative methods for actions
-    - Example rename an object:
-        - <code>gsutil mv -p gs://storage-lab-console-panda/README-cloudshell.txt gs://storage-lab-console-panda/README-cloudshell.txt</code>
-- Cannot change location or location-type after bucket creation
-- Can edit bucket permissions
-    - Add allUsers as Storage Object Viewer to essentially create a <em>public bucket</em>, which, for security reasons, is <strong><em>not advised</em></strong></p>
+<p><a href="https://cloud.google.com/storage/docs/access-control/making-data-public">Making Data Public</a></p>
+<ul>
+<li>Log into GCP Console with <em>user</em> account<ul>
+<li>From now on, just assume this</li>
+<li>Only use admin account when we need it</li>
+</ul>
+</li>
+<li>Create a new project<ul>
+<li>Generally, new <em>thing</em>, new <strong>project</strong></li>
+<li>Also link to billing</li>
+</ul>
+</li>
+<li>Navigate to <strong>Storage</strong> in navigation list<ul>
+<li>Can pin to top</li>
+</ul>
+</li>
+<li>Create a Bucket<ul>
+<li>Set up region/multi-region, labels, keys</li>
+</ul>
+</li>
+<li>Edit permissions to set up public access to file.<ul>
+<li>User - "allUsers" - Reader</li>
+</ul>
+</li>
+<li><em>Objects</em> <strong>not</strong> <em>files</em></li>
+<li>Command line alternative methods for actions<ul>
+<li>Example rename an object:<ul>
+<li><code>gsutil mv -p gs://storage-lab-console-panda/README-cloudshell.txt gs://storage-lab-console-panda/README-cloudshell.txt</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cannot change location or location-type after bucket creation</li>
+<li>Can edit bucket permissions<ul>
+<li>Add allUsers as Storage Object Viewer to essentially create a <em>public bucket</em>, which, for security reasons, is <strong><em>not advised</em></strong></li>
+</ul>
+</li>
+</ul>
 <h3 id="gcs-via-gsutil-in-command-line">GCS via gsutil in Command Line</h3>
 <ul>
 <li><code>gcloud config list</code></li>
@@ -1049,7 +1071,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><code>gcloud compute instances create myhappyvm -h</code></li>
 <li><code>gcloud compute instances create myhappyvm --help</code></li>
 <li><code>gcloud compute machine-types list</code></li>
-<li>Filter: <ul>
+<li>Filter:<ul>
 <li><code>gcloud topic filters</code></li>
 <li><code>gcloud compute machine-types list --filter="NAME:f1-micro"</code></li>
 <li><code>gcloud compute machine-types list --filter="NAME:f1-micro AND ZONE~us-west"</code></li>
@@ -1320,7 +1342,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<h4 id="data-flow-in-action">Data Flow in Action:</h4>
+<h4 id="data-flow-in-action">Data Flow in Action</h4>
 <p><img alt="dataFlow" src="../img/data-flow.jpg" title="data flow" /></p>
 <h3 id="gce-gcs-challenge-lab-demo">GCE-GCS Challenge Lab Demo</h3>
 <ul>
@@ -1862,7 +1884,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h4 id="creating-the-vpc">Creating the VPC</h4>
 <p><a href="https://cloud.google.com/vpc/docs/vpc">VPC Overview Docs</a></p>
 <ul>
-<li>Create custom VPC </li>
+<li>Create custom VPC</li>
 </ul>
 <h4 id="creating-the-custom-iam-role-service-account">Creating the Custom IAM Role &amp; Service Account</h4>
 <p><a href="https://cloud.google.com/iam/docs/understanding-custom-roles">Understanding IAM Custom Roles</a></p>
@@ -2435,9 +2457,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Developer or app concern with <code>name</code></li>
 <li>Control loop in PVC Subsystem checking API Server for new PVC objects, any time it sees one, actions it.</li>
 </ul>
-<h3 id="demo_1">Demo</h3>
 <h2 id="19-from-code-to-kubernetes">19. From Code to Kubernetes</h2>
-<h3 id="big-picture_1">Big Picture</h3>
+<h3 id="big-picture-19">Big Picture (19)</h3>
 <ul>
 <li>Kubernetes object that references the image &amp; code<ul>
 <li>Object options<ul>
@@ -2461,7 +2482,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ol>
-<h3 id="demo_2">Demo</h3>
+<h3 id="demo-19">Demo (19)</h3>
 <ol>
 <li>Code on repo</li>
 <li>Dockerfile (list of instructions to build a docker image)</li>
@@ -2503,11 +2524,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
 </ul>
 <h2 id="21-kubernetes-auto-scaling-apps">21. Kubernetes Auto-scaling Apps</h2>
-<h3 id="big-picture_2">Big Picture</h3>
+<h3 id="big-picture-21">Big Picture (21)</h3>
 <ul>
 <li>Demand goes up, spin up more pods or maybe more nodes.</li>
 <li>Demand goes down, turn them off</li>
-<li>Elaboration<ul>
+<li>
+<p>Elaboration</p>
+<ul>
 <li>Demand (or load) can be a lot of things<ul>
 <li>CPU &amp; memory obvious</li>
 <li>Can be messages in queue</li>
@@ -2519,7 +2542,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>To automatically add more <em>pods</em> we have the <strong>horizontal pod auto-scaler</strong></li>
 </ul>
 </li>
-<li>Load increases on app</li>
+<li>
+<p>Load increases on app</p>
+</li>
 <li>Add more pod replicas</li>
 <li>If clusters are full and there aren't any nodes with enough capacity to take new pods then those pods moves to pending.</li>
 <li>
@@ -2542,8 +2567,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 <li>Pod scaling out rather than up.</li>
-<li>Automatic after initial setup</li>
-<li>Define HPA like any other resource in the API</li>
+<li>
+<p>Automatic after initial setup</p>
+</li>
+<li>
+<p>Define HPA like any other resource in the API</p>
+</li>
 <li>Tell it which deployment to work on (One-to-One)</li>
 <li>Set target utilization<ul>
 <li>By percentage</li>
@@ -2593,7 +2622,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <ul>
 <li>Focus on access to the API server and in particular the role based access control bits.</li>
 </ul>
-<h3 id="big-picture_3">Big Picture</h3>
+<h3 id="big-picture-22">Big Picture (22)</h3>
 <ul>
 <li>API centric<ul>
 <li>Means everything in the cluster revolves around the API server</li>
@@ -2840,7 +2869,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Comparable to AWS Lambda functions</li>
 </ul>
 <p><img alt="Cloud Functions" src="../img/cloudFunctions.jpg" title="Cloud Functions" /></p>
-<h3 id="storage_1">Storage</h3>
+<h3 id="storage-services">Storage Services</h3>
 <h4 id="local-ssds">Local SSDs</h4>
 <ul>
 <li><a href="https://cloud.google.com/compute/docs/disks/#localssds">Local SSDs</a></li>
@@ -3226,7 +3255,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Comparable to AWS CloudFormation, HashiCorp Terraform</li>
 </ul>
 <p><img alt="Stackdriver Profiler" src="../img/stackdriverProfiler.jpg" title="Stackdriver Profiler" /></p>
-<h4 id="cloud-deployment-manager_1">Cloud Deployment Manager</h4>
+<h4 id="cloud-deployment-manager-rundown">Cloud Deployment Manager Rundown</h4>
 <ul>
 <li><a href="https://cloud.google.com/deployment-manager/">Cloud Deployment Manager</a></li>
 <li>Comparable to AWS CloudFormation, HashiCorp Terraform</li>
@@ -3292,7 +3321,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="Log Processing" src="../img/logProcessing.jpg" title="Log Processing" /></p>
 <h4 id="live-streaming"><a href="https://gcp.solutions/diagram/Live%20Streaming">Live Streaming</a></h4>
 <p><img alt="Live Streaming" src="../img/liveStreaming.jpg" title="Live Streaming" /></p>
-<h4 id="shopping-cart-analysis"><a href="">Shopping Cart Analysis</a></h4>
+<h4 id="shopping-cart-analysis">Shopping Cart Analysis</h4>
 <p><img alt="Shopping Cart Analysis" src="../img/shoppingCartAnalysis.jpg" title="Shopping Cart Analysis" /></p>
 
   <br>
@@ -3306,10 +3335,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav">
-      <a href="../mern/" class="btn btn-xs btn-default pull-left">
+      <a href="../react/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../mern/" class="btn btn-xs btn-link">
-        MERN
+        Previous</a><a href="../react/" class="btn btn-xs btn-link">
+        React
       </a>
     </div>
     
