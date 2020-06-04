@@ -4,16 +4,16 @@
 
 - Web Browsers
 - Applications
-  - Desktop - Electron
-  - Mobile - Cordova
-  - Server - Node.js
+    - Desktop - Electron
+    - Mobile - Cordova
+    - Server - Node.js
 - History / Versions
-  - 1995 - Created
-  - 1997 - Standardizing
-  - 1999 - ECMAScript 3
-  - 2009 - ECMAScript 5
-  - 2015 ECMAScript 2015 (ES6)
-    - Yearly updates since
+    - 1995 - Created
+    - 1997 - Standardizing
+    - 1999 - ECMAScript 3
+    - 2009 - ECMAScript 5
+    - 2015 ECMAScript 2015 (ES6)
+          - Yearly updates since
 
 ---
 
@@ -22,23 +22,23 @@
 ### Constants - variable that **cannot** change
 
 - `const`
-  - Must be initiated - `const x = 2`
+    - Must be initiated - `const x = 2`
 
 ### Variable Declarations
 
 - `let`
-  - Cannot be called before declared
-  - Has [block scoping](http://www.benmvp.com/learning-es6-block-level-scoping-let-const/)
+    - Cannot be called before declared
+    - Has [block scoping](http://www.benmvp.com/learning-es6-block-level-scoping-let-const/)
 - `var`
-  - undefined before declaration
+    - undefined before declaration
 
 ### Rest Parameters
 
 - The *rest* or remaining parameters
-  - Must be last argument
-  - `function x(z, ...y)`
-    - `z` - named parameter
-    - `...y` - rest parameter, as array
+    - Must be last argument
+    - `function x(z, ...y)`
+        - `z` - named parameter
+        - `...y` - rest parameter, as array
 
 ### Destructuring Arrays
 
@@ -129,9 +129,9 @@ typeof(NaN);            // 'number'
 
 ### Logical (Boolean) operators
 
-- `&&`  - AND
-- `||`  - OR
-- `!`   - NOT, convert to bool, flip
+- `&&`    - AND
+- `||`    - OR
+- `!`     - NOT, convert to bool, flip
 
 ### Relational Operators
 
@@ -143,7 +143,7 @@ typeof(NaN);            // 'number'
 
 - `?` used in shorthand `if`
 - `condition ? exprIfTrue : exprIfFalse`
-  - ex: `console.log((5>4) ? 'yes' : 'no');   // yes`
+    - ex: `console.log((5>4) ? 'yes' : 'no');   // yes`
 
 ### Assignment Operators
 
@@ -261,13 +261,13 @@ console.log(o.getId.apply(newCar, ['id: ']))
 #### Bind
 
 - Make copy of a function and change context / `this` value.
-  - `let newFn = o.getId.bind(newCar);`
+    - `let newFn = o.getId.bind(newCar);`
 
 ### Arrow Functions
 
 - Function declarations
-  - Arrow function symbol: `=>`
-  - `let getId = () => 123; //no params`
+    - Arrow function symbol: `=>`
+    - `let getId = () => 123; //no params`
 - More examples
 
 ```javascript
@@ -349,7 +349,7 @@ Car.prototype.start = function() {
 ```
 
 - Expanding Objects using Prototypes
-  - Give new functionality to objects
+    - Give new functionality to objects
 
 ```javascript
 String.prototype.hello = function() {
@@ -430,7 +430,7 @@ let car = new Car();
 ### Methods
 
 - No function keyword needed
-  - Example within class `Car`
+    - Example within class `Car`
 
     ```javascript
     identify(params) {
@@ -457,9 +457,9 @@ class Car extends Vehicle {
 ### Creating and Importing a Module
 
 - Create & Export
-  - `export class Car { ... }`
+    - `export class Car { ... }`
 - Import
-  - `import { Car } from './models/car.js'`
+    - `import { Car } from './models/car.js'`
 
 ---
 
@@ -472,26 +472,26 @@ class Car extends Vehicle {
 
 - Global object
 - Properties
-  - document
-  - location
-  - console
-  - innerHeight
-  - innerWidth
-  - pageXOffset
-  - pageYOffset
+    - document
+    - location
+    - console
+    - innerHeight
+    - innerWidth
+    - pageXOffset
+    - pageYOffset
 - Methods
-  - alert()
-  - back()
-  - confirm()
+    - alert()
+    - back()
+    - confirm()
 - Events
-  - ( not common )
+    - ( not common )
 - gGlobal object, must refer when dealing with modules
 
 ### Timers
 
 - fire asynchronously
-  - `setTimeout(); // once`
-  - `setInterval(); // repeatedly`
+    - `setTimeout(); // once`
+    - `setInterval(); // repeatedly`
 
     ```javascript
     let timeoutId = setTimeout(function() {
@@ -509,14 +509,14 @@ class Car extends Vehicle {
 ### Location object
 
 - Properties
-  - href (URL)
-  - hostname
-  - port
-  - pathname
-  - search
+    - href (URL)
+    - hostname
+    - port
+    - pathname
+    - search
 - Methods
-  - assign()
-  - reload()
+    - assign()
+    - reload()
 ex: `location.href` or `document.location.href`
 
 ---
@@ -524,27 +524,27 @@ ex: `location.href` or `document.location.href`
 ### Document Object
 
 - Properties
-  - body
-  - forms
-  - links
+    - body
+    - forms
+    - links
 - Methods
-  - createElement()
-  - createEvent()
-  - getElementById()
-  - getElementsByClassName()
+    - createElement()
+    - createEvent()
+    - getElementById()
+    - getElementsByClassName()
 - Events
-  - onload
-  - onclick
-  - onKeypress
+    - onload
+    - onclick
+    - onKeypress
 
 ---
 
 ### Selecting DOM Elements
 
 - Common:
-  - `document.getElementById('elementId');`
-  - `document.getElementByClassName('className');`
-  - `document.getElementByTagName('tagName');`
+    - `document.getElementById('elementId');`
+    - `document.getElementByClassName('className');`
+    - `document.getElementByTagName('tagName');`
 
 ### Modifying DOM Elements
 
@@ -592,7 +592,7 @@ ex: `location.href` or `document.location.href`
     ```
 
 - Creating a Promise
-  - Temporary holder for a value you will retrieve after asynchronous call
+    - Temporary holder for a value you will retrieve after asynchronous call
 
     ```javascript
     let promise = new Promise (
@@ -655,7 +655,7 @@ ex: `location.href` or `document.location.href`
 ### Preventing Form Submission
 
 - Form -> .js -> Server
-  - submit event
+    - submit event
 
     ```javascript
     let form = document.getElementById('user-form');
@@ -714,15 +714,15 @@ post, data to object levels from form
 
 - Files from 3rd party servers
 - Addressing XSS attacks
-  - CSP: Content Security Policy
-    - Use HTTP Header: Content-Security-Policy
-  - CORS: Cross Origin Resource Sharing
-    - Use HTTP Header:
-      - Access-Control-Allow-Origin
+    - CSP: Content Security Policy
+        - Use HTTP Header: Content-Security-Policy
+    - CORS: Cross Origin Resource Sharing
+        - Use HTTP Header:
+              - Access-Control-Allow-Origin
 
 ### Building Your Application for Production
 
 - Minimizing bundle file
-  - `npm run dev`
-  - `npm run build`
-  - dist folder, files for server
+    - `npm run dev`
+    - `npm run build`
+    - dist folder, files for server

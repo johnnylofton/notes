@@ -218,13 +218,13 @@ Based on Udemy Course [Google Certified Associate Cloud Engineer Collection](htt
 #### Cloud Deployment Manager
 
 - All pieces needed included in template
-  - Can customize
+    - Can customize
 
 #### GCP Marketplace
 
 - aka Cloud Launcher
 - A partner and open-source marketplace
-  - Buying completed things
+    - Buying completed things
 
 ### Key Building Blocks
 
@@ -270,7 +270,6 @@ Based on Udemy Course [Google Certified Associate Cloud Engineer Collection](htt
 - Identity and Security Products
     - Cloud Identity
     - Cloud IAM
-
 
 ## 6. Account Setup
 
@@ -399,7 +398,7 @@ Based on Udemy Course [Google Certified Associate Cloud Engineer Collection](htt
         - No need for local terminal
             - Chromebook (+)
             - No PuTTY!
-      - Automatic SSH key management
+        - Automatic SSH key management
     - 5 GB of persistent storage
     - Easy-access to preinstalled tools
         - gcloud, bq, kubectl, docker, npm/node, pip/python, ruby, vim, emacs, bash, etc.
@@ -453,7 +452,7 @@ Based on Udemy Course [Google Certified Associate Cloud Engineer Collection](htt
         - Higlights potential issues
     - Requirements and options not always clear
         - Especially in the real world.
-    - Critical skills for both real world and exam questions        
+    - Critical skills for both real world and exam questions
 
 ### Update Course Lab Files
 
@@ -482,6 +481,7 @@ Based on Udemy Course [Google Certified Associate Cloud Engineer Collection](htt
 ### GCS: Google Cloud Storage
 
 [Making Data Public](https://cloud.google.com/storage/docs/access-control/making-data-public)
+
 - Log into GCP Console with *user* account
     - From now on, just assume this
     - Only use admin account when we need it
@@ -497,9 +497,7 @@ Based on Udemy Course [Google Certified Associate Cloud Engineer Collection](htt
 - *Objects* **not** *files*
 - Command line alternative methods for actions
     - Example rename an object:
-        - `
-gsutil mv -p gs://storage-lab-console-panda/README-cloudshell.txt gs://storage-lab-console-panda/README-cloudshell.txt
-`
+        - `gsutil mv -p gs://storage-lab-console-panda/README-cloudshell.txt gs://storage-lab-console-panda/README-cloudshell.txt`
 - Cannot change location or location-type after bucket creation
 - Can edit bucket permissions
     - Add allUsers as Storage Object Viewer to essentially create a *public bucket*, which, for security reasons, is ***not advised***
@@ -560,7 +558,6 @@ gsutil mv -p gs://storage-lab-console-panda/README-cloudshell.txt gs://storage-l
 - [Lab Script Commands](https://github.com/ACloudGuru/gcp-cloud-engineer/blob/master/compute-labs/first-vm.txt)
 
 ### Rundown on gcloud
-
 
 - The `gcloud` command
 - Overview
@@ -624,12 +621,12 @@ gsutil mv -p gs://storage-lab-console-panda/README-cloudshell.txt gs://storage-l
 
 #### Configurations Analogy
 
-Action | Directory | Configuration
---- | --- | ---
-**Make New** | `mkdir newdir` | `gcloud config configurations create newconfig`
-**Switch To** | `cd newdir` | `gcloud config configurations activate newconfig`
-**List Contents** | `ls` | `gcloud config list`
-**List Non-Active** | `ls ~/newdir` | `gcloud --configuration=newconfig config list` *OR* `gcloud config configurations describe newconfig`
+| Action              | Directory      | Configuration                                                                                         |
+| ------------------- | -------------- | ----------------------------------------------------------------------------------------------------- |
+| **Make New**        | `mkdir newdir` | `gcloud config configurations create newconfig`                                                       |
+| **Switch To**       | `cd newdir`    | `gcloud config configurations activate newconfig`                                                     |
+| **List Contents**   | `ls`           | `gcloud config list`                                                                                  |
+| **List Non-Active** | `ls ~/newdir`  | `gcloud --configuration=newconfig config list` *OR* `gcloud config configurations describe newconfig` |
 
 ### GCE In and Out
 
@@ -659,7 +656,7 @@ Action | Directory | Configuration
         - `gcloud compute instances create myhappyvm -h`
         - `gcloud compute instances create myhappyvm --help`
         - `gcloud compute machine-types list`
-        - Filter: 
+        - Filter:
             - `gcloud topic filters`
             - `gcloud compute machine-types list --filter="NAME:f1-micro"`
             - `gcloud compute machine-types list --filter="NAME:f1-micro AND ZONE~us-west"`
@@ -833,7 +830,7 @@ Action | Directory | Configuration
         - Check CPU graph
         - Check logs bucket
 
-#### Data Flow in Action:
+#### Data Flow in Action
 
 ![dataFlow](img/data-flow.jpg "data flow")
 
@@ -1024,15 +1021,16 @@ Action | Directory | Configuration
             - No impact on project IAM
 
 #### Billing IAM Roles
+
 [Overview of Billing Access Control](https://cloud.google.com/billing/docs/how-to/billing-access)
 
-|Role|Purpose|Scope
-|:--:|:--:|:--:|
-|Billing Account Creator|Create new self-serve billing accounts.|Org|
-|Billing Account Administrator|Manage billing accounts (but not create them).|Billing Account|
-|Billing Account User|Link projects to billing accounts.|Billing Account|
-|Billing Account Viewer|View Billing accoun tcost information and transactions|Billing Account|
-|Project Billing Manager|Link/unlink the project to/from a billing account.|Project|
+|             Role              |                        Purpose                         |      Scope      |
+| :---------------------------: | :----------------------------------------------------: | :-------------: |
+|    Billing Account Creator    |        Create new self-serve billing accounts.         |       Org       |
+| Billing Account Administrator |     Manage billing accounts (but not create them).     | Billing Account |
+|     Billing Account User      |           Link projects to billing accounts.           | Billing Account |
+|    Billing Account Viewer     | View Billing accoun tcost information and transactions | Billing Account |
+|    Project Billing Manager    |   Link/unlink the project to/from a billing account.   |     Project     |
 
 - Monthly Invoiced Billing
     - [Invoiced Billing](https://cloud.google.com/billing/docs/how-to/invoiced-billing)
@@ -1050,21 +1048,21 @@ Action | Directory | Configuration
 - SMB Centralized
     - Scenario: Small-to-medium enterprise:
 
-|User type|Billing activities|Billing Cloud IAM roles
-|:--:|:--:|:--:|
-|CEO|Manage payment instrument; View and approve invoices.|Billing Account Administrator|
-|CTO|Set budget alerts; View Spend; Create new billable projects|Billing Account Administrator;Project Creator.|
-|Development teams|None|None|
+|     User type     |                     Billing activities                      |            Billing Cloud IAM roles             |
+| :---------------: | :---------------------------------------------------------: | :--------------------------------------------: |
+|        CEO        |    Manage payment instrument; View and approve invoices.    |         Billing Account Administrator          |
+|        CTO        | Set budget alerts; View Spend; Create new billable projects | Billing Account Administrator;Project Creator. |
+| Development teams |                            None                             |                      None                      |
 
 - SMB Delegated
     - Scenario: Small-to-medium enterprise with preference for delegated authority
 
-|User type|Billing activities|Billing Cloud IAM roles
-|:--:|:--:|:--:|
-|CEO|Manage payment instrument; Delegate authority|Billing Account Administrator|
-|CFO|Set budget alerts; View spend|Billing Account Administrator|
-|Accounts Payable|View and approve invoices|Billing Account Viewer|
-|Development teams|Create new billable projects|Billing Account User; Project Creator|
+|     User type     |              Billing activities               |        Billing Cloud IAM roles        |
+| :---------------: | :-------------------------------------------: | :-----------------------------------: |
+|        CEO        | Manage payment instrument; Delegate authority |     Billing Account Administrator     |
+|        CFO        |         Set budget alerts; View spend         |     Billing Account Administrator     |
+| Accounts Payable  |           View and approve invoices           |        Billing Account Viewer         |
+| Development teams |         Create new billable projects          | Billing Account User; Project Creator |
 
 ## 12. Networking
 
@@ -1143,8 +1141,8 @@ Action | Directory | Configuration
 
 ### Routing: Among Resources (VPC)
 
-
 #### Getting data from one resource to another
+
 - VPC (**global**) is Virtual Private Cloud - Your private SDN space in GCP
     - Not just resource-to-resource - Also manages the doors to outside & peers.
 - Subnets (**regional**) create logical spaces to contain resources
@@ -1188,7 +1186,7 @@ Action | Directory | Configuration
 
 [VPC Overview Docs](https://cloud.google.com/vpc/docs/vpc)
 
-- Create custom VPC 
+- Create custom VPC
 
 #### Creating the Custom IAM Role & Service Account
 
@@ -1586,11 +1584,9 @@ Action | Directory | Configuration
 - Developer or app concern with `name`
 - Control loop in PVC Subsystem checking API Server for new PVC objects, any time it sees one, actions it.
 
-### Demo
-
 ## 19. From Code to Kubernetes
 
-### Big Picture
+### Big Picture (19)
 
 - Kubernetes object that references the image & code
     - Object options
@@ -1606,7 +1602,7 @@ Action | Directory | Configuration
 3. Kubernetes
     - Rolls image as Kubernetes deployment or other object
 
-### Demo
+### Demo (19)
 
 1. Code on repo
 2. Dockerfile (list of instructions to build a docker image)
@@ -1639,7 +1635,7 @@ Action | Directory | Configuration
 
 ## 21. Kubernetes Auto-scaling Apps
 
-### Big Picture
+### Big Picture (21)
 
 - Demand goes up, spin up more pods or maybe more nodes.
 - Demand goes down, turn them off
@@ -1651,6 +1647,7 @@ Action | Directory | Configuration
     - Generally speaking, if demand goes up we add more pods, but if nodes in the cluster are full, you can't add more pods and need to add more nodes first.
     - To automatically add more *nodes* we have the **cluster auto-scaler**
     - To automatically add more *pods* we have the **horizontal pod auto-scaler**
+
 1. Load increases on app
 2. Add more pod replicas
 3. If clusters are full and there aren't any nodes with enough capacity to take new pods then those pods moves to pending.
@@ -1668,6 +1665,7 @@ Action | Directory | Configuration
     - Etc
 - Pod scaling out rather than up.
 - Automatic after initial setup
+
 1. Define HPA like any other resource in the API
 2. Tell it which deployment to work on (One-to-One)
 3. Set target utilization
@@ -1679,7 +1677,7 @@ Action | Directory | Configuration
 
 - Declaratively!
 
-### Cluster Autoscaler Theory 
+### Cluster Autoscaler Theory
 
 - Tied to underlying cloud platform
 - Build cluster with autoscaling enabled
@@ -1704,7 +1702,7 @@ Action | Directory | Configuration
 
 - Focus on access to the API server and in particular the role based access control bits.
 
-### Big Picture
+### Big Picture (22)
 
 - API centric
     - Means everything in the cluster revolves around the API server
@@ -1863,7 +1861,7 @@ Action | Directory | Configuration
 
 ![Kubernetes Engine](img/kubernetesEngine.jpg "Kubernetes Engine")
 
-#### App Engine (GAE) 
+#### App Engine (GAE)
 
 - [App Engine (GAE)](https://cloud.google.com/appengine/)
 - Comparable to AWS Elastic Beanstalk or Heroku
@@ -1877,7 +1875,7 @@ Action | Directory | Configuration
 
 ![Cloud Functions](img/cloudFunctions.jpg "Cloud Functions")
 
-### Storage
+### Storage Services
 
 #### Local SSDs
 
@@ -1906,7 +1904,6 @@ Action | Directory | Configuration
 - Comparable to Amazon S3 or Amazon Glacier
 
 ![Cloud Storage](img/cloudStorage.jpg "Cloud Storage")
-
 
 ### Databases
 
@@ -2334,7 +2331,7 @@ Action | Directory | Configuration
 
 ![Stackdriver Profiler](img/stackdriverProfiler.jpg "Stackdriver Profiler")
 
-#### Cloud Deployment Manager
+#### Cloud Deployment Manager Rundown
 
 - [Cloud Deployment Manager](https://cloud.google.com/deployment-manager/)
 - Comparable to AWS CloudFormation, HashiCorp Terraform
@@ -2419,6 +2416,6 @@ Action | Directory | Configuration
 
 ![Live Streaming](img/liveStreaming.jpg "Live Streaming")
 
-#### [Shopping Cart Analysis]()
+#### Shopping Cart Analysis
 
 ![Shopping Cart Analysis](img/shoppingCartAnalysis.jpg "Shopping Cart Analysis")
