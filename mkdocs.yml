@@ -9,4 +9,5 @@ nav:
   - MERN: mern.md
   - React: react.md
   - Google Cloud: gcloud.md
+  - Power BI: powerBI.md
 theme: windmill-dark
