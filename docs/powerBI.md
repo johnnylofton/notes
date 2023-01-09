@@ -1,4 +1,7 @@
 # Power BI
+
+![PowerBI vs Excel](img/powerBIvsExcel.jpeg "PowerBI vs Excel")
+
 ## Power BI Desktop
 - Attached Project Files
   - Data source settings
