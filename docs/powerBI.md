@@ -1,6 +1,6 @@
 # Power BI
 
-![PowerBI vs Excel](img/powerBIvsExcel.jpeg "PowerBI vs Excel")
+![PowerBI vs Excel](img/powerBIvsExcel.JPG "PowerBI vs Excel")
 
 ## Power BI Desktop
 - Attached Project Files
