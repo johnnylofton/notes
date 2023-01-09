@@ -172,15 +172,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<pre><code class="html">&lt;section style=style=&quot;background: #ff1b68;&quot;&gt;
+<pre><code class="language-html">&lt;section style=style=&quot;background: #ff1b68;&quot;&gt;
     &lt;h1&gt;Get the freedom you deserve!&lt;/h1&gt;
 &lt;/section&gt;
 </code></pre>
-
 <ul>
 <li>Doesn't scale well, makes it difficult to read.</li>
 </ul>
-<h3 id="23-understanding-the-ltstylegt-tag-and-creating-a-css-file">2.3 Understanding the <code>&lt;style&gt;</code> Tag and Creating a <code>.css</code> file</h3>
+<h3 id="23-understanding-the-style-tag-and-creating-a-css-file">2.3 Understanding the <code>&lt;style&gt;</code> Tag and Creating a <code>.css</code> file</h3>
 <ul>
 <li>Can use <code>&lt;style&gt;</code> tag in <code>&lt;head&gt;</code> part of the HTML<ul>
 <li>Need to use <em>selectors</em></li>
@@ -188,7 +187,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<pre><code class="html">&lt;head&gt;
+<pre><code class="language-html">&lt;head&gt;
     &lt;style&gt;
         section {
             background: #ff1b68;
@@ -196,7 +195,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     &lt;/style&gt;
 &lt;/head&gt;
 </code></pre>
-
 <ul>
 <li>Can use an external style sheet<ul>
 <li><code>main.css</code></li>
@@ -209,29 +207,26 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<pre><code class="css">section {
+<pre><code class="language-css">section {
     background: #ff1b68;
 }
 </code></pre>
-
 <ul>
 <li>Have to explicitly tell include the file</li>
 </ul>
-<pre><code class="html">&lt;head&gt;
+<pre><code class="language-html">&lt;head&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;main.css&quot;&gt;
 &lt;head&gt;
 </code></pre>
-
 <h3 id="24-applying-additional-styles-and-importing-google-fonts">2.4 Applying Additional Styles and Importing Google Fonts</h3>
 <ul>
 <li>Changing more properties:</li>
 </ul>
-<pre><code class="css">h1 {
+<pre><code class="language-css">h1 {
     color: white;
     font-family: sans-serif;
 }
 </code></pre>
-
 <ul>
 <li>Given set of preinstalled font families, but can use Google Fonts for others<ul>
 <li>Get import link</li>
@@ -239,12 +234,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 </li>
 </ul>
-<pre><code class="css">h1 {
+<pre><code class="language-css">h1 {
   color: white;
   font-family: 'Anton', sans-serif;
 }
 </code></pre>
-
 <h3 id="25-theory-time-selectors">2.5 Theory Time - Selectors</h3>
 <ul>
 <li>More about Selectors</li>
@@ -301,15 +295,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Modify index.html and main.css</p>
 </li>
 </ul>
-<pre><code class="html">&lt;section id=&quot;product-overview&quot;&gt;
+<pre><code class="language-html">&lt;section id=&quot;product-overview&quot;&gt;
     &lt;h1&gt;Get the freedom you deserve!&lt;/h1&gt;
 &lt;/section&gt;
 &lt;section id=&quot;plans&quot;&gt;
     &lt;h1 class=&quot;section-title&quot;&gt;Choose Your Plan&lt;/h1&gt;
 &lt;/section&gt;
 </code></pre>
-
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: #ff1b68;
 }
 
@@ -322,7 +315,6 @@ h1 {
   color: #2ddf5c;
 }
 </code></pre>
-
 <h3 id="understanding-the-cascading-style-and-specificity">Understanding the "Cascading" Style and Specificity</h3>
 <ul>
 <li>Both <code>h1</code> and <code>.section-title</code> selectors apply</li>
@@ -379,11 +371,10 @@ h1 {
 <li>An element also inherits some styles of the parent element.</li>
 <li>Add in a global rule</li>
 </ul>
-<pre><code class="css">body {
+<pre><code class="language-css">body {
   font-family: 'Montserrat', sans-serif;
 }
 </code></pre>
-
 <ul>
 <li>Any direct selector has higher specificity and will overwrite inheritance if it defines the same property as parent</li>
 </ul>
@@ -545,7 +536,7 @@ h1 {
 <li>The layers are the Box Model</li>
 </ul>
 <h3 id="understanding-the-box-model">Understanding the Box Model</h3>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: #ff1b68;
   /* below added */
   padding: 20px;
@@ -553,15 +544,13 @@ h1 {
   margin: 20px;
 }
 </code></pre>
-
 <h3 id="understanding-margin-collapsing-and-removing-default-margins">Understanding Margin Collapsing and Removing Default Margins</h3>
-<pre><code class="css">body {
+<pre><code class="language-css">body {
   font-family: 'Montserrat', sans-serif;
   /* below added */
   margin: 0;
 }
 </code></pre>
-
 <ul>
 <li>Margin Collapsing<ul>
 <li>Margins between elements are collapsed to one margin, bigger one "wins"</li>
@@ -578,7 +567,7 @@ h1 {
 </ul>
 <p><img alt="shorthand" src="../img/css-shorthands.JPG" title="CSS Shorthand Properties" /></p>
 <h3 id="applying-shorthands-in-practice">Applying Shorthands in Practice</h3>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: #ff1b68;
   padding: 20px;
   /* border-style: solid;
@@ -588,7 +577,6 @@ h1 {
   margin: 20px;
 }
 </code></pre>
-
 <ul>
 <li>Can see splitting up in Dev-tools</li>
 </ul>
@@ -596,12 +584,11 @@ h1 {
 <ul>
 <li>Set width to 100%</li>
 </ul>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: #ff1b68;
   width: 100%;
 }
 </code></pre>
-
 <ul>
 <li>Default behavior here anyway<ul>
 <li><code>section</code>, like <code>div</code> or <code>h1</code> elements are block elements<ul>
@@ -618,13 +605,12 @@ h1 {
 <p>Heigh to 100%</p>
 </li>
 </ul>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: #ff1b68;
   width: 700px;
   height: 100%;
 }
 </code></pre>
-
 <ul>
 <li>Uses <em>available</em> height<ul>
 <li><em>Relative</em> height of 100%</li>
@@ -635,7 +621,7 @@ h1 {
 <ul>
 <li>Height &amp; Width</li>
 </ul>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: #ff1b68;
   width: 100%;
   height: 528px;
@@ -644,7 +630,6 @@ h1 {
   margin: 10px;
 }
 </code></pre>
-
 <ul>
 <li>Now have total width and height bigger than we specified</li>
 <li>All elements by default have a certain way of calculating width and height.<ul>
@@ -652,12 +637,11 @@ h1 {
 </ul>
 </li>
 </ul>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   /* added: */
   box-sizing: border-box;
 }
 </code></pre>
-
 <ul>
 <li>Now width and height include padding and border.<ul>
 <li>Height property setting now takes these into account</li>
@@ -672,16 +656,15 @@ h1 {
 </ul>
 </li>
 </ul>
-<pre><code class="css">* {
+<pre><code class="language-css">* {
   box-sizing: border-box;
 }
 </code></pre>
-
 <h3 id="adding-the-header-to-our-project">Adding the Header to our Project</h3>
 <ul>
 <li>Add and modify header code</li>
 </ul>
-<pre><code class="html">&lt;header class=&quot;main-header&quot;&gt;
+<pre><code class="language-html">&lt;header class=&quot;main-header&quot;&gt;
     &lt;div&gt;
         &lt;a href=&quot;index.html&quot;&gt;
             uHost
@@ -702,27 +685,24 @@ h1 {
     &lt;/nav&gt;
 &lt;/header&gt;
 </code></pre>
-
 <ul>
 <li>Add to main.css</li>
 </ul>
-<pre><code class="css">.main-header {
+<pre><code class="language-css">.main-header {
   width: 100%;
   background-color: #2ddf5c;
   padding: 8px 16px;
 }
 </code></pre>
-
 <h3 id="understanding-the-display-property">Understanding the Display Property</h3>
 <ul>
 <li>Add class to <code>nav</code>, <code>ul</code> and all <code>li</code> elements</li>
 <li>Use certain way of writing classes, BEM (Block element modifier)</li>
 </ul>
-<pre><code class="html">&lt;nav class=&quot;main-nav&quot;&gt;
+<pre><code class="language-html">&lt;nav class=&quot;main-nav&quot;&gt;
     &lt;ul class=&quot;main-nav__items&quot;&gt;
         &lt;li class=&quot;main-nav__item&quot;&gt;
 </code></pre>
-
 <ul>
 <li>Inline and block elements<ul>
 <li><code>display: block</code> and <code>display: none</code><ul>
@@ -733,12 +713,11 @@ h1 {
 </li>
 <li>Modify main.css</li>
 </ul>
-<pre><code class="css">.main-nav__item {
+<pre><code class="language-css">.main-nav__item {
   display: inline-block;
 }
 
 </code></pre>
-
 <ul>
 <li>Can still style list items like block elements, but now displayed like inline elements now</li>
 </ul>
@@ -746,7 +725,7 @@ h1 {
 <ul>
 <li>Modify main.css</li>
 </ul>
-<pre><code class="css">.main-header &gt; div {
+<pre><code class="language-css">.main-header &gt; div {
   display: inline-block;
 }
 
@@ -762,7 +741,6 @@ h1 {
   list-style: none;
 }
 </code></pre>
-
 <h3 id="understanding-an-unexpected-inline-block-behavior">Understanding an Unexpected <code>inline-block</code> Behavior</h3>
 <ul>
 <li>Empty whitespace is added as extra inline element</li>
@@ -779,7 +757,7 @@ h1 {
 </li>
 <li>Modify main.css &amp; change</li>
 </ul>
-<pre><code class="css">.main-header &gt; div {
+<pre><code class="language-css">.main-header &gt; div {
   display: inline-block;
   vertical-align: middle; /* added */
 }
@@ -798,9 +776,8 @@ h1 {
   vertical-align: middle; /* added */
 }
 </code></pre>
-
 <h3 id="styling-anchor-tags">Styling Anchor Tags</h3>
-<pre><code class="css">.main-nav__item {
+<pre><code class="language-css">.main-nav__item {
   display: inline-block;
   margin: 0 16px;
 }
@@ -810,12 +787,11 @@ h1 {
   color: #0e4f1f;
 }
 </code></pre>
-
 <h3 id="adding-pseudo-classes">Adding Pseudo Classes</h3>
 <ul>
 <li>Modifying main.css, using pseudo classes:</li>
 </ul>
-<pre><code class="css">.main-nav__item a:hover {
+<pre><code class="language-css">.main-nav__item a:hover {
   color: white;
 }
 
@@ -823,7 +799,6 @@ h1 {
   color: white;
 }
 </code></pre>
-
 <h3 id="theory-time-pseudo-classes-and-pseudo-elements">Theory Time- Pseudo Classes and Pseudo Elements</h3>
 <ul>
 <li>
@@ -847,7 +822,7 @@ h1 {
 <p>Examples:</p>
 </li>
 </ul>
-<pre><code class="css">.main-nav__item a::after {
+<pre><code class="language-css">.main-nav__item a::after {
   content: &quot; (Link)&quot;;
   color: red;
 }
@@ -857,21 +832,19 @@ p::first-letter {
   font-size: 20px;
 }
 </code></pre>
-
 <h3 id="grouping-rules">Grouping Rules</h3>
 <ul>
 <li>Modify main.css</li>
 </ul>
-<pre><code class="css">.main-nav__item a:hover, .main-nav__item a:active {
+<pre><code class="language-css">.main-nav__item a:hover, .main-nav__item a:active {
     color: white;
 }
 </code></pre>
-
 <h3 id="working-with-font-weight-and-border">Working with <code>font-weight</code> and <code>border</code></h3>
 <ul>
 <li>Modifying main.css:</li>
 </ul>
-<pre><code class="css">.main-nav__item a {
+<pre><code class="language-css">.main-nav__item a {
   text-decoration: none;
   color: #0e4f1f;
   font-weight: bold;
@@ -883,15 +856,13 @@ p::first-letter {
   border-bottom: 5px solid white;
 }
 </code></pre>
-
 <h3 id="adding-and-styling-a-cta-button">Adding and Styling a CTA-Button</h3>
 <ul>
 <li>Call to Action button</li>
 </ul>
-<pre><code class="html">&lt;li class=&quot;main-nav__item main-nav__item--cta&quot;&gt;
+<pre><code class="language-html">&lt;li class=&quot;main-nav__item main-nav__item--cta&quot;&gt;
 </code></pre>
-
-<pre><code class="css">.main-nav__item--cta a {
+<pre><code class="language-css">.main-nav__item--cta a {
   color: white;
   background: #ff1b68;
   padding: 8px 16px;
@@ -905,19 +876,17 @@ p::first-letter {
   border: none;
 }
 </code></pre>
-
 <h3 id="adding-a-background-image-to-our-project">Adding a Background Image to our Project</h3>
 <ul>
 <li>Modifying main.css</li>
 </ul>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: url(&quot;freedom.jpg&quot;);
   width: 100%;
   height: 528px;
   padding: 10px;
 }
 </code></pre>
-
 <h3 id="properties-worth-to-remember">Properties Worth to Remember</h3>
 <p><img alt="properties" src="/img/css-properties-to-rem.JPG" title="CSS Properties Worth to Remember" /></p>
 <h2 id="4-more-on-selectors-and-css-features">4. More on Selectors and CSS Features</h2>
@@ -987,14 +956,13 @@ p::first-letter {
 </li>
 </ul>
 <h3 id="not-using-important">(Not) using <code>!important</code></h3>
-<pre><code class="css">div {
+<pre><code class="language-css">div {
   color: red !important;
   /*
     overwrites specifity and all other selectors
   */
 }
 </code></pre>
-
 <p>Do <strong>NOT</strong> use, bad practice</p>
 <h3 id="selecting-the-opposite-with-not">Selecting the Opposite with <code>:not()</code></h3>
 <p>Excludes selectors</p>
@@ -1011,7 +979,7 @@ p::first-letter {
 <p>Add class to each article plan
 <code>&lt;article class="plan"&gt;</code></p>
 <p>Add CSS</p>
-<pre><code class="css">.section-title {
+<pre><code class="language-css">.section-title {
   color: #2ddf5c;
   text-align: center; /* added */
 }
@@ -1026,22 +994,20 @@ p::first-letter {
   vertical-align: middle;
 }
 </code></pre>
-
 <h3 id="working-on-the-recommended-plan">Working on the Recommended Plan</h3>
 <p>Add article class and modify title</p>
 <p><code>&lt;article class="plan plan--hightlighted"&gt;</code></p>
 <p><code>&lt;h1 class="plan__annotation"&gt;RECOMMENDED&lt;/h1&gt;</code></p>
 <p>Modify <code>main.css</code>, introducting new <code>box-shadow</code> and <code>rgb()</code>/<code>rbga()</code> color function</p>
-<pre><code class="css">.plan--hightlighted {
+<pre><code class="language-css">.plan--hightlighted {
   background: #19b84c;
   color: white;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 </code></pre>
-
 <h3 id="styling-the-badge-with-border-radius">Styling the Badge with <code>border-radius</code></h3>
 <p>Can use border-radius to round the corners</p>
-<pre><code class="css">.plan__annotation {
+<pre><code class="language-css">.plan__annotation {
   background: white;
   color: #19b84c;
   padding: 8px;
@@ -1049,29 +1015,26 @@ p::first-letter {
   border-radius: 8px;
 }
 </code></pre>
-
 <h3 id="styling-our-list">Styling our List</h3>
 <p>Get rid of margin and padding from all <code>ul</code></p>
 <p><code>&lt;ul class="plan__features"&gt;</code></p>
-<pre><code class="css">.plan__features {
+<pre><code class="language-css">.plan__features {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 </code></pre>
-
 <p>Adjust individual list items</p>
 <p><code>&lt;li class="plan__feature"&gt;</code></p>
-<pre><code class="css">.plan__feature {
+<pre><code class="language-css">.plan__feature {
   margin: 8px 0;
 }
 </code></pre>
-
 <h3 id="working-on-the-title-and-the-price-of-our-packages">Working on the Title and the Price of our Packages</h3>
 <p>New Classes</p>
 <p><code>&lt;h1 class="plan__title"&gt;FREE&lt;/h1&gt;</code></p>
 <p><code>&lt;h2 class="plan__price"&gt;$0/month&lt;/h2&gt;</code></p>
-<pre><code class="css">/* main.css */
+<pre><code class="language-css">/* main.css */
 .plan__title {
   color: #0e4f1f;
 }
@@ -1088,12 +1051,11 @@ p::first-letter {
   color: #0e4f1f;
 }
 </code></pre>
-
 <h3 id="improving-our-action-button">Improving our Action Button</h3>
 <p>Add class</p>
 <p><code>&lt;button class="button"&gt;CHOOSE PLAN&lt;/button&gt;</code></p>
 <p>Styling, using <code>inherit</code> for font</p>
-<pre><code class="css">.button {
+<pre><code class="language-css">.button {
   background: #0e4f1f;
   color: white;
   font: inherit;
@@ -1110,14 +1072,12 @@ p::first-letter {
   color: #0e4f1f;
 }
 </code></pre>
-
 <h3 id="understanding-outlines">Understanding Outlines</h3>
 <p>Comparable to border but is not part of box model, can use on focus active pseudo property</p>
-<pre><code class="css">.button:focus {
+<pre><code class="language-css">.button:focus {
   outline: none;
 }
 </code></pre>
-
 <h3 id="presenting-the-core-features-to-the-user">Presenting the Core Features to the User</h3>
 <p>Add new given HTML section</p>
 <h3 id="styling-the-headline-of-the-core-features-section">Styling the Headline of the Core Features Section</h3>
@@ -1125,7 +1085,7 @@ p::first-letter {
 <p><code>&lt;section id="key-features"&gt;</code></p>
 <p><code>&lt;h1 class="section-title"&gt;Many Good Reasons to Stick Around&lt;/h1&gt;</code></p>
 <p>Styling</p>
-<pre><code class="css">#key-features {
+<pre><code class="language-css">#key-features {
   background: #ff1b68;
   margin-top: 80px;
   padding: 16px;
@@ -1136,7 +1096,6 @@ p::first-letter {
   margin: 32px;
 }
 </code></pre>
-
 <h3 id="preparing-the-content-of-the-key-feature-area">Preparing the Content of the Key Feature Area</h3>
 <p>Add classes</p>
 <p><code>&lt;ul class="key-feature__list"&gt;</code></p>
@@ -1144,7 +1103,7 @@ p::first-letter {
 <p><code>&lt;p class="key-feature__description"&gt;Lightning Fast CDN&lt;/p&gt;</code></p>
 <p><code>&lt;div class="key-feature__image"&gt;&lt;/div&gt;</code></p>
 <p>Styling</p>
-<pre><code class="css">.key-feature__list {
+<pre><code class="language-css">.key-feature__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1173,14 +1132,13 @@ p::first-letter {
   font-size: 20px;
 }
 </code></pre>
-
 <h3 id="adding-the-footer">Adding the Footer</h3>
 <p>Add given new html code, assign classes</p>
 <p><code>&lt;footer class="main-footer"&gt;</code></p>
 <p><code>&lt;ul class="main-footer__links"&gt;</code></p>
 <p><code>&lt;li class="main-footer__link"&gt;</code></p>
 <p>Styling</p>
-<pre><code class="css">.main-footer {
+<pre><code class="language-css">.main-footer {
   background: black;
   padding: 32px;
   margin-top: 48px;
@@ -1207,7 +1165,6 @@ p::first-letter {
   color: #ccc;
 }
 </code></pre>
-
 <h3 id="adding-packages-page">Adding Packages Page</h3>
 <p>Reuse everything but what's in <code>&lt;main&gt;</code></p>
 <p><code>./packages/index.html</code></p>
@@ -1218,7 +1175,7 @@ p::first-letter {
 <p>Add classes</p>
 <p><code>&lt;section class="package"&gt;</code></p>
 <p>Styling</p>
-<pre><code class="css">main {
+<pre><code class="language-css">main {
   padding-top: 32px;
 }
 
@@ -1236,7 +1193,6 @@ p::first-letter {
   padding: 32px;
 }
 </code></pre>
-
 <h3 id="styling-our-package-boxes">Styling our Package Boxes</h3>
 <p>Add classes</p>
 <p><code>&lt;h1 class="package__title"&gt;</code></p>
@@ -1247,7 +1203,7 @@ p::first-letter {
 <p><code>&lt;section class="package" id="free"&gt;</code></p>
 <p><code>&lt;section class="package" id="premium"&gt;</code></p>
 <p>Styling</p>
-<pre><code class="css">.package:hover,
+<pre><code class="language-css">.package:hover,
 .package:active {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   border-color: #ff5454;
@@ -1273,11 +1229,10 @@ p::first-letter {
   color: #bbb;
 }
 </code></pre>
-
 <h3 id="adding-float-to-our-package">Adding "float" to our Package</h3>
 <p>Overwrite default positioning and tell browser to push element to left or right of page. Not great for moving block style elements.</p>
 <p>Add properties</p>
-<pre><code class="css">#free {
+<pre><code class="language-css">#free {
   background: rgba(234, 252, 237, 0.95);
   float: right;
   border-right: none;
@@ -1285,43 +1240,38 @@ p::first-letter {
   text-align: right;
 }
 </code></pre>
-
 <p>Need clearfix to fix float.</p>
 <p><code>&lt;div class="clearfix"&gt;&lt;/div&gt;</code></p>
-<pre><code class="css">.clearfix {
+<pre><code class="language-css">.clearfix {
   clear: both;
 }
 </code></pre>
-
 <h3 id="fixing-the-hover-effect">Fixing the Hover Effect</h3>
 <p>Specificity border rule overrides, because of ID selector</p>
 <p>Simple fix with redundant code</p>
-<pre><code class="css">#free:hover,
+<pre><code class="language-css">#free:hover,
 #free:active {
     border-left-color: #ff5454;
 }
 </code></pre>
-
 <p>An alternative fix, only on <em>very very</em> rare occasions, using <code>!important</code></p>
-<pre><code class="css">.package:hover,
+<pre><code class="language-css">.package:hover,
 .package:active {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   border-color: #ff5454 !important;
 }
 </code></pre>
-
 <p><strong><em>NOT RECOMMENDED!</em></strong></p>
 <h3 id="adding-final-touches">Adding Final Touches</h3>
 <p>On main page, add class</p>
 <p><code>&lt;div class="plan__list"&gt;</code></p>
 <p>Styling</p>
-<pre><code class="css">.plan__list {
+<pre><code class="language-css">.plan__list {
   width: 80%;
   margin: auto;
   text-align: center;
 }
 </code></pre>
-
 <h2 id="6-positioning-elements-with-css">6. Positioning Elements with CSS</h2>
 <h3 id="6-introduction">6. Introduction</h3>
 <p><strong>Positioning</strong> - How to change the position of Elements</p>
@@ -1357,20 +1307,19 @@ p::first-letter {
 <ul>
 <li>Removed from document flow</li>
 </ul>
-<pre><code class="css">.parent .child-1 {
+<pre><code class="language-css">.parent .child-1 {
   position: fixed;
   width: 400px;
   top: 100px;
 }
 </code></pre>
-
 <ul>
 <li>Now applied</li>
 <li>Use <code>top: 0;</code> and <code>margin: 0;</code> to see <em>context</em></li>
 <li>Now has viewport for the positioning context</li>
 <li>Example navbar:</li>
 </ul>
-<pre><code class="css">.parent .child-1 {
+<pre><code class="language-css">.parent .child-1 {
   position: fixed;
   width: 100%;
   top: 0;
@@ -1379,7 +1328,6 @@ p::first-letter {
   box-sizing: border-box;
 }
 </code></pre>
-
 <ul>
 <li>Can apply positioning no matter if it's a block level element or inline element</li>
 </ul>
@@ -1387,7 +1335,7 @@ p::first-letter {
 <ul>
 <li>Modify <code>main-header</code></li>
 </ul>
-<pre><code class="css">.main-header {
+<pre><code class="language-css">.main-header {
   width: 100%;
   position: fixed;
   top: 0;
@@ -1396,7 +1344,6 @@ p::first-letter {
   padding: 8px 16px;
 }
 </code></pre>
-
 <h3 id="using-position-to-add-a-background-image">Using <code>position</code> to Add a Background Image</h3>
 <p>Add <code>div</code> for background: <code>&lt;div class="background"&gt;&lt;/div&gt;</code> (in between header and beginning of body)</p>
 <p>For image, add property <code>background</code></p>
@@ -1408,14 +1355,13 @@ p::first-letter {
 </ul>
 </li>
 </ul>
-<pre><code class="css">.background {
+<pre><code class="language-css">.background {
   background: url('../images/plans-background.jpg');
   width: 100%;
   height: 100%;
   position: fixed;
 }
 </code></pre>
-
 <h3 id="understanding-the-z-index">Understanding the Z-Index</h3>
 <ul>
 <li>Were able to position along axis, now need <code>z-index</code></li>
@@ -1428,24 +1374,22 @@ p::first-letter {
 </li>
 <li>Now can add to background:</li>
 </ul>
-<pre><code class="css">.background {
+<pre><code class="language-css">.background {
   /* ... */
   z-index: -1;
 }
 </code></pre>
-
 <h3 id="adding-a-badge-to-our-package">Adding a Badge to our Package</h3>
 <p>Add badge on 'Plus' package</p>
 <p><code>&lt;h2 class="package__badge"&gt;RECOMMENDED&lt;/h2&gt;</code></p>
 <p>Styling:</p>
-<pre><code class="css">.package__badge {
+<pre><code class="language-css">.package__badge {
   position: fixed;
   top: 0;
   left: 0;
   margin: 20px;
 }
 </code></pre>
-
 <ul>
 <li>Problem here is, the position context is the viewport, and that's not what we want here.<ul>
 <li>Change to <code>absolute</code><ul>
@@ -1467,15 +1411,14 @@ p::first-letter {
 </ul>
 </li>
 </ul>
-<pre><code class="css">.package {
+<pre><code class="language-css">.package {
   /* ... */
   position: relative;
 }
 </code></pre>
-
 <h3 id="styling-and-positioning-our-badge-with-absolute-and-relative">Styling and Positioning our Badge with <code>absolute</code> and <code>relative</code></h3>
 <p>Adjust package badge styling</p>
-<pre><code class="css">.package__badge {
+<pre><code class="language-css">.package__badge {
   position: absolute;
   top: 0;
   right: 0;
@@ -1486,7 +1429,6 @@ p::first-letter {
   padding: 8px;
 }
 </code></pre>
-
 <p>Also on <code>.main-header</code>: <code>z-index: 1;</code>, to keep package from going over navbar</p>
 <h3 id="diving-deeper-into-relative-positioning">Diving Deeper into Relative Positioning</h3>
 <ul>
@@ -1657,7 +1599,7 @@ p::first-letter {
 </li>
 </ul>
 <h3 id="using-the-background-shorthand-on-our-project">Using the <code>background</code> Shorthand on our Project</h3>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: url('freedom.jpg') left 10% bottom 20% / cover no-repeat
     border-box;
   width: 100%;
@@ -1667,24 +1609,22 @@ p::first-letter {
   position: relative;
 }
 </code></pre>
-
 <p><code>border-box</code> at end applies to origin and clip, can give two separate values</p>
 <h3 id="styling-images">Styling Images</h3>
-<pre><code class="html">&lt;a href=&quot;index.html&quot; class=&quot;main-header__brand&quot;&gt;
+<pre><code class="language-html">&lt;a href=&quot;index.html&quot; class=&quot;main-header__brand&quot;&gt;
   &lt;img
     src=&quot;./images/uhost-icon.png&quot;
     alt=&quot;uHost - Your favorite hosting company&quot;
   /&gt;
 &lt;/a&gt;
 </code></pre>
-
 <ul>
 <li>Need to adjust size</li>
 <li>Default behavior is if you enter an image tag and you point to an image, then the default height and width of the original image will be used, regardless of the surrounding element</li>
 <li>Setting height on image elemnt as percentage dont respect surrounding container due to it being an inline element</li>
 <li>Must set <code>display: inline-block;</code></li>
 </ul>
-<pre><code class="css">.main-header__brand {
+<pre><code class="language-css">.main-header__brand {
   color: #0e4f1f;
   text-decoration: none;
   font-weight: bold;
@@ -1699,11 +1639,10 @@ p::first-letter {
   /* width: 100%; */
 }
 </code></pre>
-
 <h3 id="adding-the-customers-page-to-our-website">Adding the Customers Page to our Website</h3>
 <p>Add given code and fix links</p>
 <h3 id="working-on-the-image-layout">Working on the Image Layout</h3>
-<pre><code class="css">.testimonial__image-container {
+<pre><code class="language-css">.testimonial__image-container {
   width: 65%;
   display: inline-block;
   vertical-align: middle;
@@ -1723,7 +1662,6 @@ p::first-letter {
   width: 30%;
 }
 </code></pre>
-
 <h3 id="understanding-linear-gradients">Understanding Linear Gradients</h3>
 <ul>
 <li>Treated as images</li>
@@ -1795,13 +1733,12 @@ p::first-letter {
 </li>
 <li>Modify main.css background</li>
 </ul>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   background: linear-gradient(to top, rgba(80, 68, 18, 0.6) 10%, transparent), url('./images/freedom.jpg') left 10% bottom 20% / cover no-repeat
     border-box, #ff1b68;
     /* ... */
 }
 </code></pre>
-
 <h3 id="understanding-filters">Understanding Filters</h3>
 <ul>
 <li>Can change look of an element by applying filters</li>
@@ -1812,7 +1749,7 @@ p::first-letter {
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">MDN CSS filter Reference</a></li>
 <li>Modify packages.css:</li>
 </ul>
-<pre><code class="css">.background {
+<pre><code class="language-css">.background {
   background: url('../images/plans-background.jpg') center/cover;
   filter: grayscale(40%);
   width: 100%;
@@ -1821,7 +1758,6 @@ p::first-letter {
   z-index: -1;
 }
 </code></pre>
-
 <ul>
 <li>Not supported in IE</li>
 </ul>
@@ -1995,7 +1931,7 @@ p::first-letter {
 </ul>
 <h3 id="fixing-the-height-100-issue">Fixing the Height 100% Issue</h3>
 <p><code>&lt;div class="backdrop"&gt;&lt;/div&gt;</code></p>
-<pre><code class="css">.backdrop {
+<pre><code class="language-css">.backdrop {
   position: fixed; /* demo with absolute */
   display: none; /* hide for now */
   top: 0;
@@ -2006,31 +1942,28 @@ p::first-letter {
   background: rgba(0,0,0,0.5)
 }
 </code></pre>
-
 <p>Also fixes the margin stacking</p>
 <h3 id="defining-the-font-size-in-the-root-element">Defining the Font Size in the Root Element</h3>
-<pre><code class="css">html {
+<pre><code class="language-css">html {
   font-size: 75%;
 }
 </code></pre>
-
 <h3 id="using-min-widthmin-height-and-max-widthmax-height">Using <code>min-width</code>/<code>min-height</code> and <code>max-width</code>/<code>max-height</code></h3>
 <ul>
 <li>Modifying customer images</li>
 </ul>
-<pre><code class="css">.testimonial__image-container {
+<pre><code class="language-css">.testimonial__image-container {
   max-width: 580px;
   /* ... */
 }
 </code></pre>
-
 <h3 id="working-with-rem-and-em">Working with <code>rem</code> and <code>em</code></h3>
 <ul>
 <li>Based on font-size</li>
 <li><code>2em</code> in example calculates to 40px</li>
 <li>Modify project to make font-size more dynamic with thes units</li>
 </ul>
-<pre><code class="css">/* customers.css */
+<pre><code class="language-css">/* customers.css */
 .testimonial {
   font-size: 1.2em;
   /* ... */
@@ -2046,7 +1979,6 @@ p::first-letter {
   /* ... */
 }
 </code></pre>
-
 <ul>
 <li><code>em</code> inherits previous sizes</li>
 <li>Can get out of control easily, careful</li>
@@ -2056,7 +1988,7 @@ p::first-letter {
 </li>
 </ul>
 <h3 id="adding-rem-to-additional-properties">Adding <code>rem</code> to Additional Properties</h3>
-<pre><code class="css">.testimonial {
+<pre><code class="language-css">.testimonial {
   font-size: 1.2rem;
   /* ... */
 }
@@ -2079,13 +2011,12 @@ p::first-letter {
   margin: 0.2rem;
 }
 </code></pre>
-
 <ul>
 <li>Not recommended to use <code>rem</code> of <code>box-shadow</code> here</li>
 </ul>
 <h3 id="finishing-rem">Finishing <code>rem</code></h3>
 <p>Modifying packages.css</p>
-<pre><code class="css">main {
+<pre><code class="language-css">main {
   padding-top: 2rem;
 }
 
@@ -2112,7 +2043,6 @@ p::first-letter {
   /* ... */
 }
 </code></pre>
-
 <ul>
 <li>Use rest of given code</li>
 </ul>
@@ -2123,17 +2053,16 @@ p::first-letter {
 </ul>
 </li>
 </ul>
-<pre><code class="css">.backdrop {
+<pre><code class="language-css">.backdrop {
   width: 100vw;
   height: 100vh;
   /* ... */
 }
 </code></pre>
-
 <ul>
 <li>Modify main.css as well:</li>
 </ul>
-<pre><code class="css">#product-overview {
+<pre><code class="language-css">#product-overview {
   /* changed bottom to 70% below */
   background: linear-gradient(to top, rgba(80, 68, 18, 0.6) 10%, transparent),
     url('images/freedom.jpg') left 10% bottom 70% / cover no-repeat border-box,
@@ -2144,7 +2073,6 @@ p::first-letter {
   /* ... */
 }
 </code></pre>
-
 <h3 id="windows-viewport-units-and-scrollbars">Windows, Viewport Units and Scrollbars</h3>
 <p><code>vw</code> in Windows does not include scrollbars, can use <code>width: 100%;</code> and other solutions</p>
 <h3 id="choosing-the-right-unit">Choosing the Right Unit</h3>
@@ -2193,13 +2121,12 @@ p::first-letter {
 <ul>
 <li>One modification in packages.css:</li>
 </ul>
-<pre><code class="css">.background {
+<pre><code class="language-css">.background {
   /* ... */
   width: 100vw;
   height: 100vh;
 }
 </code></pre>
-
 <h3 id="understanding-property-notations">Understanding Property Notations</h3>
 <ul>
 <li>In Javascript, etc. using <code>border-radius</code> equates to <code>borderRadius</code> (Camel Case)</li>
@@ -2334,7 +2261,7 @@ p::first-letter {
 </ul>
 <h3 id="improving-navigation-bar-with-flexbox">Improving Navigation Bar with Flexbox</h3>
 <p>Turn main header into flex-container and improve</p>
-<pre><code class="css">.main-header {
+<pre><code class="language-css">.main-header {
   /*  */
   display: flex;
   align-items: center;
@@ -2378,9 +2305,8 @@ p::first-letter {
   }
 }
 </code></pre>
-
 <h3 id="working-on-the-mobile-navigation-bar">Working on the Mobile Navigation Bar</h3>
-<pre><code class="css">.mobile-nav__items {
+<pre><code class="language-css">.mobile-nav__items {
   /* ... */
   /* text-align: center; */
   display: flex;
@@ -2389,9 +2315,8 @@ p::first-letter {
   align-items: center;
 }
 </code></pre>
-
 <h3 id="improving-the-footer">Improving the Footer</h3>
-<pre><code class="css">.main-footer__links {
+<pre><code class="language-css">.main-footer__links {
   /*  */
   /* text-align: center; */
   display: flex;
@@ -2416,12 +2341,11 @@ p::first-letter {
   }
 }
 </code></pre>
-
 <h3 id="improving-plans-and-features">Improving Plans and Features</h3>
 <ul>
 <li>Plans</li>
 </ul>
-<pre><code class="css">@media (min-width: 40rem) {
+<pre><code class="language-css">@media (min-width: 40rem) {
   .plan__list {
     width: 100%;
     /* text-align: center; */
@@ -2449,11 +2373,10 @@ p::first-letter {
   }
 }
 </code></pre>
-
 <ul>
 <li>Features</li>
 </ul>
-<pre><code class="css">@media (min-width: 40rem) {
+<pre><code class="language-css">@media (min-width: 40rem) {
   .key-feature {
     /* display: inline-block; */
     /* vertical-align: top; */
@@ -2467,9 +2390,8 @@ p::first-letter {
   }
 }
 </code></pre>
-
 <h3 id="adding-flexbox-to-customers-page">Adding Flexbox to Customers Page</h3>
-<pre><code class="css">@media (min-width: 40rem) {
+<pre><code class="language-css">@media (min-width: 40rem) {
   .testimonial {
     margin: 3rem auto;
     max-width: 1500px;
@@ -2491,18 +2413,16 @@ p::first-letter {
   }
 }
 </code></pre>
-
 <h3 id="using-the-order-property-for-a-flex-item">Using the <code>order</code> Property for a Flex Item</h3>
 <ul>
 <li>Changing the order of elements</li>
 <li>Default value is <code>order: 1;</code></li>
 </ul>
-<pre><code class="css">.item-4 {
+<pre><code class="language-css">.item-4 {
   /*  */
   order: 1;
 }
 </code></pre>
-
 <ul>
 <li>The bigger number, the later it will be positioned in the order<ul>
 <li>opposite for negative values (earlier in order)</li>
@@ -2558,12 +2478,11 @@ p::first-letter {
 <li>Not supported by older browsers</li>
 </ul>
 <h3 id="turning-a-container-into-a-grid">Turning a Container into a Grid</h3>
-<pre><code class="css">.container {
+<pre><code class="language-css">.container {
   margin: 20px;
   display: grid;
 }
 </code></pre>
-
 <h3 id="defining-columns-and-rows">Defining Columns and Rows</h3>
 <ul>
 <li>On <code>.container</code><ul>
@@ -2633,7 +2552,7 @@ p::first-letter {
 </li>
 </ul>
 <h3 id="working-with-named-lines">Working with Named Lines</h3>
-<pre><code class="css">.container {
+<pre><code class="language-css">.container {
   /* ... */
   grid-template-rows: [row-1-start] 5rem [row-1-end row-2-start] minmax(10px, 200px) [row-2-end row-3-start] 100px [row-3-end];
 }
@@ -2644,7 +2563,6 @@ p::first-letter {
   grid-row-end: row-2-end;
 }
 </code></pre>
-
 <h3 id="understanding-column-and-row-shorthands">Understanding Column and Row Shorthands</h3>
 <ul>
 <li>Summarize column or row start/end<ul>
@@ -2654,7 +2572,7 @@ p::first-letter {
 </li>
 <li>Or both:</li>
 </ul>
-<pre><code class="css">.el3 {
+<pre><code class="language-css">.el3 {
   /* ... */
   /* grid-column-start: 2;
   grid-column-end: span 3;
@@ -2663,7 +2581,6 @@ p::first-letter {
   grid-area: row-1-start / 2 / row-2-end / span 3;
 }
 </code></pre>
-
 <h3 id="working-with-gaps">Working with Gaps</h3>
 <ul>
 <li>Define a gap<ul>
@@ -2688,7 +2605,7 @@ p::first-letter {
 </ul>
 </li>
 </ul>
-<pre><code class="css">.container {
+<pre><code class="language-css">.container {
   /* ... */
   grid-template-areas:
     'header header header header'
@@ -2696,7 +2613,6 @@ p::first-letter {
     'footer footer footer footer';
 }
 </code></pre>
-
 <h2 id="15-transforming-elements-with-css-transforms">15. Transforming Elements with CSS Transforms</h2>
 <h2 id="16-transistions-and-animations-in-css">16. Transistions and Animations in CSS</h2>
 <h2 id="17-writing-future-proof-css-code">17. Writing Future-Proof CSS Code</h2>
@@ -2737,7 +2653,7 @@ p::first-letter {
 </div>
 
 <footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
 </footer>
 
 </body>

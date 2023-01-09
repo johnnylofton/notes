@@ -189,7 +189,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <ul>
 <li>Basic backend server setup</li>
 </ul>
-<pre><code class="javascript">// backend/server.js
+<pre><code class="language-javascript">// backend/server.js
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -243,7 +243,6 @@ app.post('/product', (req, res, next) =&gt; {
 
 app.listen(5000); // start Node + Express server on port 5000
 </code></pre>
-
 <h5 id="frontend">Frontend</h5>
 <ul>
 <li>Components<ul>
@@ -310,7 +309,7 @@ app.listen(5000); // start Node + Express server on port 5000
 </li>
 <li>Example: </li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 
 const App = () =&gt; {
   return &lt;h1&gt;A React App!&lt;/h1&gt;;
@@ -319,16 +318,14 @@ const App = () =&gt; {
 
 export default App;
 </code></pre>
-
 <ul>
 <li>Similar example:</li>
 </ul>
-<pre><code class="javascript">const App = () =&gt; {
+<pre><code class="language-javascript">const App = () =&gt; {
   return &lt;h1 title=&quot;it works!&quot;&gt;Hello!&lt;/h1&gt;;
   // similar to React.createElement('h1', {title: 'it works!'}, &quot;Hello!&quot;);
 };
 </code></pre>
-
 <h3 id="understanding-components">Understanding Components</h3>
 <ul>
 <li>All about Components</li>
@@ -340,13 +337,12 @@ export default App;
 </li>
 <li>Previous example as a class:</li>
 </ul>
-<pre><code class="javascript">class App extends React.Component {
+<pre><code class="language-javascript">class App extends React.Component {
   render() {
       return &lt;h1 title=&quot;it works!&quot;&gt;Hello! This is ReactJS!&lt;/h1&gt;;
   }
 }
 </code></pre>
-
 <ul>
 <li>We'll only be using functional in this course<ul>
 <li>Just a regular javascript function in the end<ul>
@@ -369,7 +365,7 @@ export default App;
 </li>
 <li>GoalList component example:</li>
 </ul>
-<pre><code class="javascript">// src/components/GoalList.js
+<pre><code class="language-javascript">// src/components/GoalList.js
 import React from 'react';
 
 import './GoalList.css';
@@ -386,8 +382,7 @@ const GoalList = () =&gt; {
 
 export default GoalList;
 </code></pre>
-
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 import React from 'react';
 
 import GoalList from './components/GoalList';
@@ -402,7 +397,6 @@ const App = () =&gt; {
 
 export default App;
 </code></pre>
-
 <h3 id="using-props-to-pass-data-between-components">Using Props to pass Data between Components</h3>
 <ul>
 <li>Pass data from component to component with a concept called <strong><em>props</em></strong></li>
@@ -416,7 +410,7 @@ export default App;
 <li>Must also use unique key</li>
 <li>GoalList Example:</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 
 const App = () =&gt; {
   const courseGoals = [
@@ -433,8 +427,7 @@ const App = () =&gt; {
 
 export default App;
 </code></pre>
-
-<pre><code class="javascript">// src/components/GoalList.js
+<pre><code class="language-javascript">// src/components/GoalList.js
 import React from 'react';
 
 import './GoalList.css';
@@ -451,7 +444,6 @@ const GoalList = props =&gt; {
 
 export default GoalList;
 </code></pre>
-
 <h3 id="handling-events">Handling Events</h3>
 <ul>
 <li>React component <strong>must</strong> return JSX</li>
@@ -476,7 +468,7 @@ export default GoalList;
 <li>Can use this to pass a prop onto NewGoal in App.js, which holds pointer to a function.</li>
 <li>Example so far:</li>
 </ul>
-<pre><code class="javascript">// src/components/NewGoal/NewGoal.js
+<pre><code class="language-javascript">// src/components/NewGoal/NewGoal.js
 import React from 'react';
 
 import './NewGoal.css';
@@ -501,8 +493,7 @@ const NewGoal = props =&gt; {
 
 export default NewGoal;
 </code></pre>
-
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 import React from 'react';
 
 import GoalList from './components/GoalList/GoalList';
@@ -530,7 +521,6 @@ const App = () =&gt; {
 
 export default App;
 </code></pre>
-
 <h3 id="working-with-state">Working with "State"</h3>
 <ul>
 <li>Need to explicitly tell React when to update UI<ul>
@@ -546,7 +536,7 @@ export default App;
 <li>Pass <code>courseGoals</code> array into <code>useState()</code></li>
 <li>Updated App.js:</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 import React, { useState } from 'react';
 
 import GoalList from './components/GoalList/GoalList';
@@ -573,7 +563,6 @@ const App = () =&gt; {
 
 export default App;
 </code></pre>
-
 <h3 id="more-on-state">More on State</h3>
 <ul>
 <li>State is a <strong>crucial</strong> concept in React</li>
@@ -609,7 +598,7 @@ export default App;
 </li>
 <li>Updated NewGoal.js:</li>
 </ul>
-<pre><code class="javascript">// src/components/NewGoal/NewGoal.js
+<pre><code class="language-javascript">// src/components/NewGoal/NewGoal.js
 import React, { useState } from 'react';
 
 import './NewGoal.css';
@@ -642,7 +631,6 @@ const NewGoal = props =&gt; {
 
 export default NewGoal;
 </code></pre>
-
 <h2 id="5-reactjs-building-the-frontend">5. React.js - Building the Frontend</h2>
 <h3 id="introduction">Introduction</h3>
 <ol>
@@ -671,7 +659,6 @@ shared/-|
         |- pages/
         |- components/
 </code></pre>
-
 <ul>
 <li>Install third party routing package<ul>
 <li><code>npm i --save react-router-dom</code></li>
@@ -685,7 +672,7 @@ shared/-|
 <li>Use <code>Switch</code> to not redirect if able to find a path</li>
 <li>App.js so far:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import Users from './user/pages/Users';
@@ -709,13 +696,12 @@ const App = () =&gt; {
 
 export default App;
 </code></pre>
-
 <h3 id="adding-a-userslist-page-component">Adding a UsersList Page / Component</h3>
 <h4 id="wiring-up-user-components">Wiring up User components</h4>
 <ul>
 <li>User.js so far:</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/User.js
+<pre><code class="language-javascript">// src/user/pages/User.js
 import React from 'react';
 
 import UsersList from '../components/UsersList';
@@ -736,11 +722,10 @@ const Users = () =&gt; {
 
 export default Users;
 </code></pre>
-
 <ul>
 <li>UsersList.js so far:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 
 import UserItem from './UserItem';
 import './UsersList.css';
@@ -771,11 +756,10 @@ const UsersList = props =&gt; {
 
 export default UsersList;
 </code></pre>
-
 <ul>
 <li>UserItem.js so far:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 
 import './UserItem.css';
 
@@ -783,7 +767,6 @@ const UserItem = props =&gt; {};
 
 export default UserItem;
 </code></pre>
-
 <h3 id="adding-a-useritem-component">Adding a UserItem Component</h3>
 <ul>
 <li>
@@ -793,7 +776,7 @@ export default UserItem;
 <p>UserItem.js so far:</p>
 </li>
 </ul>
-<pre><code class="javascript">// src/user/components/UserItem.js
+<pre><code class="language-javascript">// src/user/components/UserItem.js
 import React from 'react';
 
 import './UserItem.css';
@@ -816,13 +799,12 @@ const UserItem = props =&gt; {
 
 export default UserItem;
 </code></pre>
-
 <h3 id="styling-our-app-more-components">Styling our App &amp; More Components</h3>
 <ul>
 <li>Use Avatar.js &amp; Avatar.css and Card.js &amp; Card.css provided for styling.</li>
 <li>Updated UserItem.js:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Avatar from '../../shared/components/UIElements/Avatar';
@@ -851,7 +833,6 @@ const UserItem = props =&gt; {
 
 export default UserItem;
 </code></pre>
-
 <h3 id="presentational-vs-stateful-components">Presentational vs Stateful Components</h3>
 <ul>
 <li>Presentational<ul>
@@ -873,7 +854,7 @@ export default UserItem;
 </ul>
 </li>
 </ul>
-<pre><code class="javascript">// src/share/components/Navigation/MainHeader.js
+<pre><code class="language-javascript">// src/share/components/Navigation/MainHeader.js
 import React from 'react';
 
 import './MainHeader.css';
@@ -884,8 +865,7 @@ const MainHeader = props =&gt; {
 
 export default MainHeader;
 </code></pre>
-
-<pre><code class="javascript">// src/share/components/Navigation/MainNavigation.js
+<pre><code class="language-javascript">// src/share/components/Navigation/MainNavigation.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -910,9 +890,8 @@ const MainNavigation = props =&gt; {
 
 export default MainNavigation;
 </code></pre>
-
 <h3 id="adding-navlinks">Adding Navlinks</h3>
-<pre><code class="javascript">// src/shared/components/Navigation/NavLinks.js
+<pre><code class="language-javascript">// src/shared/components/Navigation/NavLinks.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -937,7 +916,6 @@ const NavLinks = props =&gt; {
 
 export default NavLinks;
 </code></pre>
-
 <ul>
 <li>Then insert in MainNavigation <code>&lt;nav&gt;&lt;NavLinks /&gt;&lt;/nav&gt;</code></li>
 </ul>
@@ -955,7 +933,7 @@ export default NavLinks;
 </li>
 <li>SideDrawer.js so far:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import { Link } from 'react-router-dom';
 
 import MainHeader from './MainHeader';
@@ -991,14 +969,13 @@ const MainNavigation = props =&gt; {
 
 export default MainNavigation;
 </code></pre>
-
 <h3 id="understanding-portals">Understanding Portals</h3>
 <ul>
 <li>Portals in React allows us to project/render a component in a different place than it would normally be rendered.</li>
 <li>Add <code>&lt;div id="drawer-hook"&gt;&lt;/div&gt;</code> into index.html, in body just after no script. This is where SideDrawer will be rendered.</li>
 <li>SideDrawer.js so far:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './SideDrawer.css';
@@ -1011,7 +988,6 @@ const SideDrawer = props =&gt; {
 
 export default SideDrawer;
 </code></pre>
-
 <ul>
 <li>Drawer still always visible, no animation.</li>
 </ul>
@@ -1020,7 +996,7 @@ export default SideDrawer;
 <li>Add <code>&lt;div id="backdrop-hook"&gt;&lt;/div&gt;</code> into index.html, just before drawer hook.</li>
 <li>Backdrop.js</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './Backdrop.css';
@@ -1034,11 +1010,10 @@ const Backdrop = props =&gt; {
 
 export default Backdrop;
 </code></pre>
-
 <ul>
 <li>SideDrawer.js so far:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './SideDrawer.css';
@@ -1051,7 +1026,6 @@ const SideDrawer = props =&gt; {
 
 export default SideDrawer;
 </code></pre>
-
 <h3 id="animating-the-sidedrawer">Animating the Sidedrawer</h3>
 <ul>
 <li>Install third party library<ul>
@@ -1060,7 +1034,7 @@ export default SideDrawer;
 </li>
 <li>SideDrawer.js:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
@@ -1084,11 +1058,10 @@ const SideDrawer = props =&gt; {
 
 export default SideDrawer;
 </code></pre>
-
 <ul>
 <li>MainNavigation.js</li>
 </ul>
-<pre><code class="javascript">import React, { useState } from 'react';
+<pre><code class="language-javascript">import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import MainHeader from './MainHeader';
@@ -1136,12 +1109,11 @@ const MainNavigation = props =&gt; {
 
 export default MainNavigation;
 </code></pre>
-
 <h3 id="rendering-user-places-using-dynamic-route-segments">Rendering User Places &amp; Using Dynamic Route Segments</h3>
 <ul>
 <li>PlaceItem.js so far:</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceItem.js
+<pre><code class="language-javascript">// src/places/components/PlaceItem.js
 import React from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
@@ -1171,11 +1143,10 @@ const PlaceItem = props =&gt; {
 
 export default PlaceItem;
 </code></pre>
-
 <ul>
 <li>PlaceList.js so far:</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceList.js
+<pre><code class="language-javascript">// src/places/components/PlaceList.js
 import React from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
@@ -1251,11 +1222,10 @@ const PlaceList = props =&gt; {
 
 export default PlaceList;
 </code></pre>
-
 <ul>
 <li>UserPlaces.js so far:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UserPlaces.js
+<pre><code class="language-javascript">// src/places/pages/UserPlaces.js
 import React from 'react';
 
 import PlaceList from '../components/PlaceList';
@@ -1295,11 +1265,10 @@ const UserPlaces = () =&gt; {
 
 export default UserPlaces;
 </code></pre>
-
 <ul>
 <li>In App.js:</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 import UserPlaces from './places/pages/UserPlaces';
 
 // in MainNavigation:
@@ -1307,12 +1276,11 @@ import UserPlaces from './places/pages/UserPlaces';
   &lt;UserPlaces /&gt;
 &lt;/Route&gt;
 </code></pre>
-
 <h3 id="getting-route-params">Getting Route Params</h3>
 <ul>
 <li>Using <code>useParams()</code></li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UserPlaces.js
+<pre><code class="language-javascript">// src/places/pages/UserPlaces.js
 import { useParams } from 'react-router-dom';
 // ...
 const UserPlaces = () =&gt; {
@@ -1321,12 +1289,11 @@ const UserPlaces = () =&gt; {
   return &lt;PlaceList items={loadedPlaces} /&gt;;
 };
 </code></pre>
-
 <h3 id="adding-custom-buttons">Adding Custom Buttons</h3>
 <ul>
 <li>Using provided Button.js:</li>
 </ul>
-<pre><code class="javascript">// src/shared/components/FormElements/Button.js
+<pre><code class="language-javascript">// src/shared/components/FormElements/Button.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -1371,23 +1338,21 @@ const Button = props =&gt; {
 
 export default Button;
 </code></pre>
-
 <ul>
 <li>Use in PlaceItem.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceItem.js
+<pre><code class="language-javascript">// src/places/components/PlaceItem.js
 &lt;div className='place-item__actions'&gt;
   &lt;Button inverse&gt;VIEW ON MAP&lt;/Button&gt;
   &lt;Button to={`/places/${props.id}`}&gt;EDIT&lt;/Button&gt;
   &lt;Button danger&gt;DELETE&lt;/Button&gt;
 &lt;/div&gt;
 </code></pre>
-
 <h3 id="adding-a-modal">Adding a Modal</h3>
 <ul>
 <li>Modal.js:</li>
 </ul>
-<pre><code class="javascript">// src/shared/components/UIElements/Modal.js
+<pre><code class="language-javascript">// src/shared/components/UIElements/Modal.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
@@ -1437,11 +1402,10 @@ const Modal = props =&gt; {
 
 export default Modal;
 </code></pre>
-
 <ul>
 <li>In PlaceItem.js</li>
 </ul>
-<pre><code class="javascript">src/places/components/PlaceItem.js
+<pre><code class="language-javascript">src/places/components/PlaceItem.js
 import React, { useState } from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
@@ -1493,7 +1457,6 @@ const PlaceItem = props =&gt; {
 
 export default PlaceItem;
 </code></pre>
-
 <h3 id="rendering-a-map-with-google-maps">Rendering a Map with Google Maps</h3>
 <ul>
 <li>Will need Google Maps SDK<ul>
@@ -1505,7 +1468,7 @@ export default PlaceItem;
 </li>
 <li>Also utilize <code>useRef</code> &amp; <code>useEffect</code></li>
 </ul>
-<pre><code class="javascript">// src/shared/components/UIElements/Map.js
+<pre><code class="language-javascript">// src/shared/components/UIElements/Map.js
 import React, { useRef, useEffect } from 'react';
 
 import './Map.css';
@@ -1535,12 +1498,11 @@ const Map = props =&gt; {
 
 export default Map;
 </code></pre>
-
 <h3 id="adding-a-custom-form-input-component">Adding a Custom Form Input Component</h3>
 <ul>
 <li>NewPlace.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/NewPlace.js
+<pre><code class="language-javascript">// src/places/pages/NewPlace.js
 import React from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -1562,11 +1524,10 @@ const NewPlace = () =&gt; {
 
 export default NewPlace;
 </code></pre>
-
 <ul>
 <li>Input.js:</li>
 </ul>
-<pre><code class="javascript">// src/shared/components/FormElements/Input.js
+<pre><code class="language-javascript">// src/shared/components/FormElements/Input.js
 import React from 'react';
 
 import './Input.css';
@@ -1589,13 +1550,12 @@ const Input = props =&gt; {
 
 export default Input;
 </code></pre>
-
 <h3 id="managing-state-in-the-input-component">Managing State in the Input Component</h3>
 <ul>
 <li>Utilizing <code>useReducer</code></li>
 <li>Input.js:</li>
 </ul>
-<pre><code class="javascript">// src/shared/components/FormElements/Input.js
+<pre><code class="language-javascript">// src/shared/components/FormElements/Input.js
 import React, { useReducer } from 'react';
 
 import './Input.css';
@@ -1655,11 +1615,10 @@ const Input = props =&gt; {
 
 export default Input;
 </code></pre>
-
 <ul>
 <li>NewPlace.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/NewPlace.js
+<pre><code class="language-javascript">// src/places/pages/NewPlace.js
 import React from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -1681,22 +1640,20 @@ const NewPlace = () =&gt; {
 
 export default NewPlace;
 </code></pre>
-
 <h3 id="adding-input-validation">Adding Input Validation</h3>
 <ul>
 <li>Use provided validators</li>
 <li>in NewPlace.js:</li>
 </ul>
-<pre><code class="javascript">&lt;Input
+<pre><code class="language-javascript">&lt;Input
 // ...
 validators={[VALIDATOR_REQUIRE()]}
 &gt;
 </code></pre>
-
 <ul>
 <li>in Input.js:</li>
 </ul>
-<pre><code class="javascript">import React, { useReducer } from 'react';
+<pre><code class="language-javascript">import React, { useReducer } from 'react';
 
 import { validate } from '../../util/validators';
 import './Input.css';
@@ -1776,12 +1733,11 @@ const Input = props =&gt; {
 
 export default Input;
 </code></pre>
-
 <h3 id="sharing-input-values-adding-multiple-inputs">Sharing Input Values &amp; Adding Multiple Inputs</h3>
 <ul>
 <li>Utilizing <code>useEffect</code> in Input.js:</li>
 </ul>
-<pre><code class="javascript">// in Input component:
+<pre><code class="language-javascript">// in Input component:
   const { id, onInput } = props;
   const { value, isValid } = inputState;
 
@@ -1789,11 +1745,10 @@ export default Input;
     onInput(id, value, isValid);
   }, [id, value, isValid, onInput]);
 </code></pre>
-
 <ul>
 <li>And Utilizing <code>useCallback</code>, to avoid infinite loop, in NewPlace.js:</li>
 </ul>
-<pre><code class="javascript">import React, { useCallback } from 'react';
+<pre><code class="language-javascript">import React, { useCallback } from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from '../../shared/util/validators';
@@ -1829,12 +1784,11 @@ const NewPlace = () =&gt; {
 
 export default NewPlace;
 </code></pre>
-
 <h3 id="managing-form-wide-state">Managing Form-wide State</h3>
 <ul>
 <li>NewPlace.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/NewPlace.js
+<pre><code class="language-javascript">// src/places/pages/NewPlace.js
 import React, { useCallback, useReducer } from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -1915,11 +1869,10 @@ const NewPlace = () =&gt; {
 
 export default NewPlace;
 </code></pre>
-
 <ul>
 <li>Input.js</li>
 </ul>
-<pre><code class="javascript">// src/shared/components/FormElements/Input.js
+<pre><code class="language-javascript">// src/shared/components/FormElements/Input.js
 import React, { useCallback, useReducer } from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -2000,12 +1953,11 @@ const NewPlace = () =&gt; {
 
 export default NewPlace;
 </code></pre>
-
 <h3 id="finishing-the-add-place-form">Finishing the "Add Place" Form</h3>
 <ul>
 <li>In NewPlace.js, add address input field &amp; submit handler:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/NewPlace.js
+<pre><code class="language-javascript">// src/places/pages/NewPlace.js
 // in NewPlace:
   const placeSubmitHandler = event =&gt; {
     event.preventDefault();
@@ -2045,12 +1997,11 @@ export default NewPlace;
     &lt;/form&gt;
   );
 </code></pre>
-
 <h3 id="starting-work-on-the-update-place-page">Starting Work on the "Update Place" Page</h3>
 <ul>
 <li>UpdatePlace.js</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -2109,7 +2060,6 @@ const UpdatePlace = () =&gt; {
 
 export default UpdatePlace;
 </code></pre>
-
 <ul>
 <li>Also add new route in App.js:<ul>
 <li><code>&lt;Route path='/places/:placeId'&gt;
@@ -2122,13 +2072,12 @@ export default UpdatePlace;
 <ul>
 <li>Update <code>useReducer()</code> in Input.js:</li>
 </ul>
-<pre><code class="javascript">const [inputState, dispatch] = useReducer(inputReducer, {
+<pre><code class="language-javascript">const [inputState, dispatch] = useReducer(inputReducer, {
   value: props.value || '',
   isTouched: false,
   isValid: props.valid || false
 });
 </code></pre>
-
 <ul>
 <li>Rename NewPlace.css to PlaceForm.css, update imports and add class name (place-form) to form in UpdatePlace.js</li>
 </ul>
@@ -2145,7 +2094,7 @@ export default UpdatePlace;
 <p>NewPlace.js</p>
 </li>
 </ul>
-<pre><code class="javascript">// src/places/pages/NewPlace.js
+<pre><code class="language-javascript">// src/places/pages/NewPlace.js
 import React from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
@@ -2217,11 +2166,10 @@ const NewPlace = () =&gt; {
 
 export default NewPlace;
 </code></pre>
-
 <ul>
 <li>form-hook.js:</li>
 </ul>
-<pre><code class="javascript">// src/shared/hooks/form-hook.js
+<pre><code class="language-javascript">// src/shared/hooks/form-hook.js
 import { useCallback, useReducer } from 'react';
 
 const formReducer = (state, action) =&gt; {
@@ -2266,11 +2214,10 @@ export const useForm = (initialInputs, initialFormValidity) =&gt; {
   return [formState, inputHandler];
 };
 </code></pre>
-
 <ul>
 <li>Also UpdatePlace.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+<pre><code class="language-javascript">// src/places/pages/UpdatePlace.js
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -2374,12 +2321,11 @@ const UpdatePlace = () =&gt; {
 
 export default UpdatePlace;
 </code></pre>
-
 <h3 id="adjusting-the-form-hook">Adjusting the Form Hook</h3>
 <ul>
 <li>In <code>useForm()</code></li>
 </ul>
-<pre><code class="javascript">// src/shared/hooks/form-hook.js
+<pre><code class="language-javascript">// src/shared/hooks/form-hook.js
 // ...
   const setFormData = useCallback((inputData, formValidity) =&gt; {
     dispatch({
@@ -2391,11 +2337,10 @@ export default UpdatePlace;
 
   return [formState, inputHandler, setFormData];
 </code></pre>
-
 <ul>
 <li>Use temporary fix in UpdatePlace.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+<pre><code class="language-javascript">// src/places/pages/UpdatePlace.js
 // imports...
 const DUMMY_PLACES = [/* ... */];
 
@@ -2456,19 +2401,17 @@ const UpdatePlace = () =&gt; {
 
 export default UpdatePlace;
 </code></pre>
-
 <h3 id="fixing-minor-issues">Fixing Minor Issues</h3>
 <ul>
 <li>Fix up Share Button on PlaceList.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceList.js
+<pre><code class="language-javascript">// src/places/components/PlaceList.js
 &lt;Button to='/places/new'&gt;Share Place&lt;/Button&gt;
 </code></pre>
-
 <ul>
 <li>Error on attempted navigate to place that doesn't exist</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceList.js
+<pre><code class="language-javascript">// src/places/components/PlaceList.js
 // putting setFormData in if check:
 if (identifiedPlace) {
   setFormData({
@@ -2483,11 +2426,10 @@ if (identifiedPlace) {
   }, true);
 }
 </code></pre>
-
 <ul>
 <li>Wrap "Could not find place!" in Card for better styling:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+<pre><code class="language-javascript">// src/places/pages/UpdatePlace.js
 if (!identifiedPlace) {
   return (
     &lt;div className='center'&gt;
@@ -2498,12 +2440,11 @@ if (!identifiedPlace) {
   );
 }
 </code></pre>
-
 <h3 id="showing-a-deletion-warning">Showing a Deletion Warning</h3>
 <ul>
 <li>PlaceItem.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceItem.js
+<pre><code class="language-javascript">// src/places/components/PlaceItem.js
 import React, { useState } from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
@@ -2589,12 +2530,11 @@ const PlaceItem = props =&gt; {
 
 export default PlaceItem;
 </code></pre>
-
 <h3 id="adding-an-auth-page-login-form">Adding an "Auth" Page &amp; Login Form</h3>
 <ul>
 <li>Auth.js:</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import Button from '../../shared/components/FormElements/Button';
 import Input from '../../shared/components/FormElements/Input';
 import Card from '../../shared/components/UIElements/Card';
@@ -2659,12 +2599,11 @@ const Auth = () =&gt; {
 
 export default Auth;
 </code></pre>
-
 <h3 id="adding-signup-switch-mode-button">Adding Signup + "Switch Mode" Button</h3>
 <ul>
 <li>Auth.js updated with "Switch Mode"</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 // imports...
 const Auth = () =&gt; {
   const [isLoginMode, setIsLoginMode] = useState(true);
@@ -2722,21 +2661,19 @@ const Auth = () =&gt; {
     &lt;/Card&gt;
 }
 </code></pre>
-
 <ul>
 <li>Add additional condition in form-hook.js <code>for</code> loop:</li>
 </ul>
-<pre><code class="javascript">// src/shared/hooks/form-hook.js/formReducer()
+<pre><code class="language-javascript">// src/shared/hooks/form-hook.js/formReducer()
 if (!state.inputs[inputId]) {
   continue;
 }
 </code></pre>
-
 <h3 id="adding-auth-context-for-app-wide-state-management">Adding Auth Context for App-wide State Management</h3>
 <ul>
 <li>Context for passing data between components without having to use props</li>
 </ul>
-<pre><code class="javascript">// src/shared/context/auth-context.js
+<pre><code class="language-javascript">// src/shared/context/auth-context.js
 import { createContext } from 'react';
 
 export const AuthContext = createContext({
@@ -2745,11 +2682,10 @@ export const AuthContext = createContext({
   logout: () =&gt; {}
 });
 </code></pre>
-
 <ul>
 <li>Wrap where context should be available, in this case, the entire App:</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 // ...imports
 import { AuthContext } from './shared/context/auth-context';
 
@@ -2797,12 +2733,11 @@ const App = () =&gt; {
 
 export default App;
 </code></pre>
-
 <h3 id="listening-to-context-changes">Listening to Context Changes</h3>
 <ul>
 <li>Use in NavLinks.js:</li>
 </ul>
-<pre><code class="javascript">// src/shared/Navvigation/NavLinks.js
+<pre><code class="language-javascript">// src/shared/Navvigation/NavLinks.js
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -2841,12 +2776,11 @@ const NavLinks = props =&gt; {
 
 export default NavLinks;
 </code></pre>
-
 <h3 id="adding-authenticated-unauthenticated-routes">Adding Authenticated &amp; Unauthenticated Routes</h3>
 <ul>
 <li>In Auth.js:</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 // ...imports
 import { AuthContext } from '../../shared/context/auth-context';
 
@@ -2860,11 +2794,10 @@ const Auth = () =&gt; {
   };
 };
 </code></pre>
-
 <ul>
 <li>Refactor App.js &amp; Routes</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 // ...imports
 const App = () =&gt; {
   // ...
@@ -2917,12 +2850,11 @@ const App = () =&gt; {
   );
 };
 </code></pre>
-
 <h3 id="more-auth-context-usage">More Auth Context Usage</h3>
 <ul>
 <li>Hide Edit &amp; Delete buttons on PlaceItem:</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceItem.js
+<pre><code class="language-javascript">// src/places/components/PlaceItem.js
 // after view on map place-item action
 {auth.isLoggedIn &amp;&amp; (
   &lt;Button to={`/places/${props.id}`}&gt;EDIT&lt;/Button&gt;
@@ -2933,11 +2865,10 @@ const App = () =&gt; {
   &lt;/Button&gt;
 )}
 </code></pre>
-
 <ul>
 <li>Add Logout button to NavLinks:</li>
 </ul>
-<pre><code class="javascript">// src/shared/components/Navigation/NavLinks.js
+<pre><code class="language-javascript">// src/shared/components/Navigation/NavLinks.js
 // after auth button
 {auth.isLoggedIn &amp;&amp; (
   &lt;li&gt;
@@ -2945,7 +2876,6 @@ const App = () =&gt; {
   &lt;/li&gt;
 )}
 </code></pre>
-
 <h2 id="7-nodejs-and-expressjs-building-our-rest-api">7. Node.js and Express.js - Building our REST API</h2>
 <h3 id="intro">Intro</h3>
 <ol>
@@ -2962,15 +2892,13 @@ npm i --save body-parser express
 npm i --save-dev nodemon
 touch app.js
 </code></pre>
-
 <h3 id="implementing-basic-routing">Implementing Basic Routing</h3>
 <pre><code>mkdir routes
 cd ./routes
 touch place-routes.js
 touch users-routes.js
 </code></pre>
-
-<pre><code class="javascript">// backend/routes/places-routes.js
+<pre><code class="language-javascript">// backend/routes/places-routes.js
 const express = require('express');
 
 const router = express.Router();
@@ -2982,8 +2910,7 @@ router.get('/', (req, res, next) =&gt; {
 
 module.exports = router;
 </code></pre>
-
-<pre><code class="javascript">// backend/app.js
+<pre><code class="language-javascript">// backend/app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -2995,7 +2922,6 @@ app.use(placesRoutes);
 
 app.listen(5000);
 </code></pre>
-
 <h3 id="adding-place-specific-routes">Adding Place-Specific Routes</h3>
 <ul>
 <li>Limit filter to <code>placesRoutes</code><ul>
@@ -3008,7 +2934,7 @@ app.listen(5000);
 </li>
 <li>Modify GET in places-routes:</li>
 </ul>
-<pre><code class="javascript">// backend/routes/places-routes.js
+<pre><code class="language-javascript">// backend/routes/places-routes.js
 router.get('/:pid', (req, res, next) =&gt; {
   const placeId = req.params.pid // { pid: 'p1' }
   const place = DUMMY_PLACES.find(p =&gt; {
@@ -3017,12 +2943,11 @@ router.get('/:pid', (req, res, next) =&gt; {
   res.json({ place });
 });
 </code></pre>
-
 <h3 id="getting-a-place-by-user-id">Getting a Place by User ID</h3>
 <ul>
 <li>Order matters in these routes!</li>
 </ul>
-<pre><code class="javascript">// backend/routes/places-routes
+<pre><code class="language-javascript">// backend/routes/places-routes
 router.get('/user/:uid', (req, res, next) =&gt; {
   const userId = req.params.uid;
 
@@ -3032,12 +2957,11 @@ router.get('/user/:uid', (req, res, next) =&gt; {
   res.json({ place });
 });
 </code></pre>
-
 <h3 id="handling-errors">Handling Errors</h3>
 <ul>
 <li>Catching in place-routes.js:</li>
 </ul>
-<pre><code class="javascript">// backend/routes/places-routes.js
+<pre><code class="language-javascript">// backend/routes/places-routes.js
 router.get('/:pid', (req, res, next) =&gt; {
   const placeId = req.params.pid; // { pid: 'p1' }
   const place = DUMMY_PLACES.find(p =&gt; {
@@ -3069,11 +2993,10 @@ router.get('/user/:uid', (req, res, next) =&gt; {
   res.json({ place });
 });
 </code></pre>
-
 <ul>
 <li>Modifying app.js:</li>
 </ul>
-<pre><code class="javascript">// backend/app.js
+<pre><code class="language-javascript">// backend/app.js
 // after /api/places route
 app.use((error, req, res, next) =&gt; {
   if (res.headerSent) {
@@ -3084,12 +3007,11 @@ app.use((error, req, res, next) =&gt; {
     .json({ message: error.message || 'An unknown error ocurred!' });
 });
 </code></pre>
-
 <h3 id="adding-our-own-error-model">Adding our own Error Model</h3>
 <ul>
 <li>HttpError class:</li>
 </ul>
-<pre><code class="javascript">// backend/models/http-error.js
+<pre><code class="language-javascript">// backend/models/http-error.js
 class HttpError extends Error {
     constructor(message, errorCode) {
         super(message); // Add a &quot;message&quot; property
@@ -3099,7 +3021,6 @@ class HttpError extends Error {
 
 module.exports = HttpError;
 </code></pre>
-
 <ul>
 <li>Modify places-routes.js:<ul>
 <li><code>const error = new HttpError('Could not find a place for the provided id.', 404);</code></li>
@@ -3114,7 +3035,7 @@ module.exports = HttpError;
 </li>
 <li>Refactor:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controller/js
+<pre><code class="language-javascript">// backend/controllers/places-controller/js
 const HttpError = require('../models/http-error');
 
 const DUMMY_PLACES = [
@@ -3132,8 +3053,7 @@ const getPlaceByUserId = (req, res, next) =&gt; {
 exports.getPlaceById = getPlaceById;
 exports.getPlaceByUserId = getPlaceByUserId;
 </code></pre>
-
-<pre><code class="javascript">// backend/routes/places-routes.js
+<pre><code class="language-javascript">// backend/routes/places-routes.js
 const express = require('express');
 
 const placesControllers = require('../controllers/places-controllers');
@@ -3146,7 +3066,6 @@ router.get('/user/:uid', placesControllers.getPlaceByUserId);
 
 module.exports = router;
 </code></pre>
-
 <h3 id="adding-a-post-route-and-using-postman">Adding a POST Route and Using Postman</h3>
 <ul>
 <li>Add new route in places-routes.js:<ul>
@@ -3159,7 +3078,7 @@ module.exports = router;
 </li>
 <li>createPlace route:</li>
 </ul>
-<pre><code class="javascript">const createPlace = (req, res, next) =&gt; {
+<pre><code class="language-javascript">const createPlace = (req, res, next) =&gt; {
   const { title, description, coordinates, address, creator } = req.body;
 
   const createdPlace = {
@@ -3177,7 +3096,6 @@ module.exports = router;
 
 exports.createPlace = createPlace;
 </code></pre>
-
 <ul>
 <li>Use Postman to test</li>
 <li>Use uuid package to generate unique ids<ul>
@@ -3197,12 +3115,11 @@ exports.createPlace = createPlace;
 <ul>
 <li>Add a catch-all route <em>after</em> other routes to handle unwanted routes</li>
 </ul>
-<pre><code class="javascript">app.use((req, res, next) =&gt; {
+<pre><code class="language-javascript">app.use((req, res, next) =&gt; {
   const error = new HttpError('Could not find this route.', 404);
   throw error;
 });
 </code></pre>
-
 <h3 id="adding-patch-routes-to-update-places">Adding Patch Routes to Update Places</h3>
 <ul>
 <li>Add the new route for updating places:<ul>
@@ -3211,7 +3128,7 @@ exports.createPlace = createPlace;
 </li>
 <li>Create the route in controllers:</li>
 </ul>
-<pre><code class="javascript">const updatePlace = (req, res, next) =&gt; {
+<pre><code class="language-javascript">const updatePlace = (req, res, next) =&gt; {
   const { title, description } = req.body;
   const placeId = req.params.pid;
 
@@ -3227,7 +3144,6 @@ exports.createPlace = createPlace;
 
 exports.updatePlace = updatePlace;
 </code></pre>
-
 <h3 id="deleting-places">Deleting Places</h3>
 <ul>
 <li>Add the new route for deleting places:<ul>
@@ -3236,7 +3152,7 @@ exports.updatePlace = updatePlace;
 </li>
 <li>Create the route in controllers:</li>
 </ul>
-<pre><code class="javascript">const deletePlace = (req, res, next) =&gt; {
+<pre><code class="language-javascript">const deletePlace = (req, res, next) =&gt; {
   const placeId = req.params.pid;
   // need to declare DUMMY_PLACES with let instead of const!
   DUMMY_PLACES = DUMMY_PLACES.filter(p =&gt; p.id !== placeId);
@@ -3245,7 +3161,6 @@ exports.updatePlace = updatePlace;
 
 exports.deletePlace = deletePlace;
 </code></pre>
-
 <h3 id="finalizing-the-get-places-by-user-id-resource">Finalizing the "Get Places by User ID" Resource</h3>
 <ul>
 <li>Fix getPlaceByUserId to get multiple places for user</li>
@@ -3255,7 +3170,7 @@ exports.deletePlace = deletePlace;
 <ul>
 <li>User Controllers:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/users-controllers.js
+<pre><code class="language-javascript">// backend/controllers/users-controllers.js
 const uuid = require('uuid/v4');
 
 const HttpError = require('../models/http-error');
@@ -3312,11 +3227,10 @@ exports.getUsers = getUsers;
 exports.signup = signup;
 exports.login = login;
 </code></pre>
-
 <ul>
 <li>Users Routes:</li>
 </ul>
-<pre><code class="javascript">// backend/routes/users-routes.js
+<pre><code class="language-javascript">// backend/routes/users-routes.js
 const express = require('express');
 
 const usersControllers = require('../controllers/users-controllers');
@@ -3331,7 +3245,6 @@ router.post('/login', usersControllers.login);
 
 module.exports = router;
 </code></pre>
-
 <ul>
 <li>Add to app.js:<ul>
 <li><code>app.use('/api/users', usersRoutes); // =&gt; /api/users/ ...</code> </li>
@@ -3351,7 +3264,7 @@ module.exports = router;
 <p>For Create Place <em>route</em>:</p>
 </li>
 </ul>
-<pre><code class="javascript">// ...imports
+<pre><code class="language-javascript">// ...imports
 const { check } = require('express-validator');
 // ...
 router.post(
@@ -3369,11 +3282,10 @@ router.post(
 );
 // ...
 </code></pre>
-
 <ul>
 <li>For Create Place <em>controller</em>:</li>
 </ul>
-<pre><code class="javascript">// ...imports
+<pre><code class="language-javascript">// ...imports
 const { validationResult } = require('express-validator');
 // ...
 const createPlace = (req, res, next) =&gt; {
@@ -3386,12 +3298,11 @@ const createPlace = (req, res, next) =&gt; {
 }
 // ...
 </code></pre>
-
 <h3 id="validating-patch-requests-and-user-routes">Validating Patch Requests and User Routes</h3>
 <ul>
 <li>For Update Place <em>route</em>:</li>
 </ul>
-<pre><code class="javascript">router.patch(
+<pre><code class="language-javascript">router.patch(
   '/:pid',
   [
     check('title')
@@ -3402,7 +3313,6 @@ const createPlace = (req, res, next) =&gt; {
   placesControllers.updatePlace
 );
 </code></pre>
-
 <ul>
 <li>
 <p>For Update Place <em>controller</em>, can use same logic as in createPlace above</p>
@@ -3411,7 +3321,7 @@ const createPlace = (req, res, next) =&gt; {
 <p>For User Signup <em>route</em></p>
 </li>
 </ul>
-<pre><code class="javascript">// ...imports
+<pre><code class="language-javascript">// ...imports
 const { check } = require('express-validator');
 // ...
 router.post(
@@ -3429,7 +3339,6 @@ router.post(
 );
 // ...
 </code></pre>
-
 <ul>
 <li>For User Signup <em>controller</em>, use similar logic as update and create place</li>
 </ul>
@@ -3441,7 +3350,7 @@ router.post(
 </li>
 <li>location.js:</li>
 </ul>
-<pre><code class="javascript">// backend/util/location.js
+<pre><code class="language-javascript">// backend/util/location.js
 const axios = require('axios');
 
 const HttpError = require('../models/http-error');
@@ -3472,11 +3381,10 @@ const getCoordsforAddress = async address =&gt; {
 
 module.exports = getCoordsforAddress;
 </code></pre>
-
 <ul>
 <li>Modify create Place in controller:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers.js
+<pre><code class="language-javascript">// backend/controllers/places-controllers.js
 // ...
 const createPlace = async (req, res, next) =&gt; {
   const errors = validationResult(req);
@@ -3498,7 +3406,6 @@ const createPlace = async (req, res, next) =&gt; {
 }
 // ...
 </code></pre>
-
 <h2 id="9-connecting-the-backend-to-the-database-mongodb-and-mongoose">9. Connecting the Backend to the Database MongoDB and Mongoose</h2>
 <ol>
 <li>Defining our Mongoose Models</li>
@@ -3509,7 +3416,7 @@ const createPlace = async (req, res, next) =&gt; {
 <ul>
 <li><code>npm i --save mongoose</code></li>
 </ul>
-<pre><code class="javascript">// backend/app.js
+<pre><code class="language-javascript">// backend/app.js
 // ...
 mongoose
   .connect('mongodb://localhost:27017/react-training')
@@ -3521,12 +3428,11 @@ mongoose
     console.log(err);
   });
 </code></pre>
-
 <h3 id="creating-the-place-schema-and-model">Creating the Place Schema and Model</h3>
 <ul>
 <li>place.js:</li>
 </ul>
-<pre><code class="javascript">// backend/models/place.js
+<pre><code class="language-javascript">// backend/models/place.js
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -3545,12 +3451,11 @@ const placeSchema = new Schema({
 
 module.exports = mongoose.model('Place', placeSchema);
 </code></pre>
-
 <h3 id="creating-and-storing-documents-in-the-database">Creating and Storing Documents in the Database</h3>
 <ul>
 <li>Modifying create place controller</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers
+<pre><code class="language-javascript">// backend/controllers/places-controllers
 const createPlace = async (req, res, next) =&gt; {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -3591,12 +3496,11 @@ const createPlace = async (req, res, next) =&gt; {
   res.status(201).json({ place: createdPlace });
 };
 </code></pre>
-
 <h3 id="getting-places-by-the-placeid">Getting Places by the PlaceID</h3>
 <ul>
 <li>Get place by ID controller:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers.js
+<pre><code class="language-javascript">// backend/controllers/places-controllers.js
 // ...
 const getPlaceById = async (req, res, next) =&gt; {
   const placeId = req.params.pid; // { pid: 'p1' }
@@ -3624,12 +3528,11 @@ const getPlaceById = async (req, res, next) =&gt; {
 };
 // ...
 </code></pre>
-
 <h3 id="getting-places-by-the-userid">Getting Places by the UserID</h3>
 <ul>
 <li>Get place by User ID controller:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers.js
+<pre><code class="language-javascript">// backend/controllers/places-controllers.js
 // ...
 const getPlacesByUserId = async (req, res, next) =&gt; {
   const userId = req.params.uid;
@@ -3657,12 +3560,11 @@ const getPlacesByUserId = async (req, res, next) =&gt; {
 };
 // ...
 </code></pre>
-
 <h3 id="updating-places">Updating Places</h3>
 <ul>
 <li>Update place controller:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers.js
+<pre><code class="language-javascript">// backend/controllers/places-controllers.js
 // ...
 const updatePlace = async (req, res, next) =&gt; {
   const errors = validationResult(req);
@@ -3701,12 +3603,11 @@ const updatePlace = async (req, res, next) =&gt; {
 };
 // ...
 </code></pre>
-
 <h3 id="deleting-places_1">Deleting Places</h3>
 <ul>
 <li>Delete Places controller:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers
+<pre><code class="language-javascript">// backend/controllers/places-controllers
 // ...
 const deletePlace = async (req, res, next) =&gt; {
   const placeId = req.params.pid;
@@ -3736,7 +3637,6 @@ const deletePlace = async (req, res, next) =&gt; {
 };
 // ...
 </code></pre>
-
 <h3 id="how-users-and-places-are-related">How Users and Places are Related</h3>
 <ul>
 <li>One place belongs to exactly one user</li>
@@ -3750,7 +3650,7 @@ const deletePlace = async (req, res, next) =&gt; {
 </ul>
 </li>
 </ul>
-<pre><code class="javascript">// backend/models/user.js
+<pre><code class="language-javascript">// backend/models/user.js
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
@@ -3768,12 +3668,11 @@ userSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('User', userSchema);
 </code></pre>
-
 <h3 id="using-the-user-model-for-signup">Using the User Model for Signup</h3>
 <ul>
 <li>Modifying user controllers:</li>
 </ul>
-<pre><code class="javascript">const signup = async (req, res, next) =&gt; {
+<pre><code class="language-javascript">const signup = async (req, res, next) =&gt; {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(
@@ -3825,12 +3724,11 @@ module.exports = mongoose.model('User', userSchema);
   res.status(201).json({ user: createdUser.toObject({ getters: true }) });
 };
 </code></pre>
-
 <h3 id="adding-the-user-login">Adding the User Login</h3>
 <ul>
 <li>Modifying users controller</li>
 </ul>
-<pre><code class="javascript">const login = async (req, res, next) =&gt; {
+<pre><code class="language-javascript">const login = async (req, res, next) =&gt; {
   const { email, password } = req.body;
 
   let existingUser;
@@ -3857,12 +3755,11 @@ module.exports = mongoose.model('User', userSchema);
   res.json({ message: 'Logged In!' });
 };
 </code></pre>
-
 <h3 id="getting-users">Getting Users</h3>
 <ul>
 <li>Modifying users controller</li>
 </ul>
-<pre><code class="javascript">const getUsers = async (req, res, next) =&gt; {
+<pre><code class="language-javascript">const getUsers = async (req, res, next) =&gt; {
   let users;
   try {
     users = await User.find({}, '-password');
@@ -3876,7 +3773,6 @@ module.exports = mongoose.model('User', userSchema);
   res.json({ users: users.map(user =&gt; user.toObject({ getters: true })) });
 };
 </code></pre>
-
 <h3 id="adding-the-relation-between-places-and-users">Adding the Relation between Places and Users</h3>
 <ul>
 <li>
@@ -3894,7 +3790,7 @@ module.exports = mongoose.model('User', userSchema);
 <p>Modify users controller</p>
 </li>
 </ul>
-<pre><code class="javascript">// ...
+<pre><code class="language-javascript">// ...
 const signup = async (req, res, next) =&gt; {
   // ...
   const { name, email, password } = req.body;
@@ -3911,13 +3807,12 @@ const signup = async (req, res, next) =&gt; {
 }
 // ...
 </code></pre>
-
 <h3 id="creating-places-and-adding-it-to-a-user">Creating Places and Adding it to a User</h3>
 <ul>
 <li>Using session and transaction</li>
 <li>Modifying Places controller:</li>
 </ul>
-<pre><code class="javascript">const createPlace = async (req, res, next) =&gt; {
+<pre><code class="language-javascript">const createPlace = async (req, res, next) =&gt; {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(
@@ -3983,13 +3878,12 @@ const signup = async (req, res, next) =&gt; {
   res.status(201).json({ place: createdPlace });
 };
 </code></pre>
-
 <h3 id="deleting-places-removing-it-from-the-user">Deleting Places &amp; Removing it from the User</h3>
 <ul>
 <li>Modifying delete place in places controllers:</li>
 <li>Using <code>populate()</code></li>
 </ul>
-<pre><code class="javascript">const deletePlace = async (req, res, next) =&gt; {
+<pre><code class="language-javascript">const deletePlace = async (req, res, next) =&gt; {
   const placeId = req.params.pid;
 
   let place;
@@ -4026,12 +3920,11 @@ const signup = async (req, res, next) =&gt; {
   res.status(200).json({ message: 'Deleted place.' });
 };
 </code></pre>
-
 <h3 id="getting-places-an-alternative">Getting Places - An Alternative</h3>
 <ul>
 <li>Modifying get place by user id in places controllers:</li>
 </ul>
-<pre><code class="javascript">const getPlacesByUserId = async (req, res, next) =&gt; {
+<pre><code class="language-javascript">const getPlacesByUserId = async (req, res, next) =&gt; {
   const userId = req.params.uid;
 
   // let places;
@@ -4058,7 +3951,6 @@ const signup = async (req, res, next) =&gt; {
   res.json({ places: userWithPlaces.places.map(place =&gt; place.toObject({ getters: true })) });
 };
 </code></pre>
-
 <h2 id="10-connecting-the-reactjs-frontend-to-the-backend">10. Connecting the React.js Frontend to the Backend</h2>
 <h3 id="introduction_1">Introduction</h3>
 <ol>
@@ -4070,7 +3962,7 @@ const signup = async (req, res, next) =&gt; {
 <ul>
 <li>Modifying Auth.js on Frontend</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 // ...
 const Auth = () =&gt; {
 // ...
@@ -4105,7 +3997,6 @@ const Auth = () =&gt; {
 }
 // ...
 </code></pre>
-
 <h3 id="handling-cors-errors">Handling CORS Errors</h3>
 <ul>
 <li>Cross Origin Resource Sharing (CORS)<ul>
@@ -4116,7 +4007,7 @@ const Auth = () =&gt; {
 </li>
 <li>Modifying app.js in backend:</li>
 </ul>
-<pre><code class="javascript">// backend/app.js
+<pre><code class="language-javascript">// backend/app.js
 // ...
 app.use(bodyParser.json());
 
@@ -4131,12 +4022,11 @@ app.use((req, res, next) =&gt; {
 });
 // ...
 </code></pre>
-
 <h3 id="getting-started-with-error-handling">Getting Started with Error Handling</h3>
 <ul>
 <li>Modify Auth.js:</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 // ...
 // these components are provided in the course
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
@@ -4190,13 +4080,12 @@ const Auth = () =&gt; {
 
 export default Auth;
 </code></pre>
-
 <h3 id="proper-error-handling-in-the-frontend">Proper Error Handling in the Frontend</h3>
 <ul>
 <li>Technically no error in <code>fetch()</code> when getting back a 400ish or 500ish error code.</li>
 <li>Modifying Auth.js</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 // ...
 const Auth = () =&gt; {
 // ...
@@ -4252,12 +4141,11 @@ const Auth = () =&gt; {
 
 export default Auth;
 </code></pre>
-
 <h3 id="sending-a-login-request">Sending a Login Request</h3>
 <ul>
 <li>Duplicating signup but with small changes, in Auth.js:</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 // ...
 const Auth = () =&gt; {
 // ...
@@ -4297,12 +4185,11 @@ const Auth = () =&gt; {
 
 export default Auth;
 </code></pre>
-
 <h3 id="gettig-users-with-a-get-request">Gettig Users with a GET Request</h3>
 <ul>
 <li>Modify Users.js:</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/User.js
+<pre><code class="language-javascript">// src/user/pages/User.js
 import React, { useEffect, useState } from 'react';
 
 import UsersList from '../components/UsersList';
@@ -4354,7 +4241,6 @@ const Users = () =&gt; {
 
 export default Users;
 </code></pre>
-
 <ul>
 <li>And line in UsersList.js<ul>
 <li><code>placeCount={user.places.length}</code></li>
@@ -4365,7 +4251,7 @@ export default Users;
 <ul>
 <li>http-hook.js so far:</li>
 </ul>
-<pre><code class="javascript">// src/shared/hooks/http-hook.js
+<pre><code class="language-javascript">// src/shared/hooks/http-hook.js
 import { useState, useCallback, useRef, useEffect } from 'react';
 
 export const useHttpClient = () =&gt; {
@@ -4416,12 +4302,11 @@ export const useHttpClient = () =&gt; {
   return { isLoading, error, sendRequest, clearError };
 };
 </code></pre>
-
 <h3 id="improving-the-custom-http-hook">Improving the Custom HTTP Hook</h3>
 <ul>
 <li>Use in Auth.js:</li>
 </ul>
-<pre><code class="javascript">// ...
+<pre><code class="language-javascript">// ...
 import { useHttpClient } from '../../shared/hooks/http-hook';
 // ...
 const Auth = () =&gt; {
@@ -4466,11 +4351,10 @@ const Auth = () =&gt; {
 
 export default Auth;
 </code></pre>
-
 <ul>
 <li>Also small changes to http-hook.js:</li>
 </ul>
-<pre><code class="javascript">// end of try block:
+<pre><code class="language-javascript">// end of try block:
 setIsLoading(false);
   return responseData;
 } catch (err) {
@@ -4479,7 +4363,6 @@ setIsLoading(false);
   throw err;
 }
 </code></pre>
-
 <h3 id="using-the-http-hook-to-get-users">Using the HTTP Hook to GET Users</h3>
 <ul>
 <li>Modify Users.js<ul>
@@ -4487,7 +4370,7 @@ setIsLoading(false);
 </ul>
 </li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Users.js
+<pre><code class="language-javascript">// src/user/pages/Users.js
 import React, { useEffect, useState } from 'react';
 
 import UsersList from '../components/UsersList';
@@ -4527,12 +4410,11 @@ const Users = () =&gt; {
 
 export default Users;
 </code></pre>
-
 <h3 id="adding-places-post">Adding Places (POST)</h3>
 <ul>
 <li>Modifying NewPlace.js</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/NewPlace.js
+<pre><code class="language-javascript">// src/places/pages/NewPlace.js
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 // ...
@@ -4622,11 +4504,10 @@ const NewPlace = () =&gt; {
 
 export default NewPlace;
 </code></pre>
-
 <ul>
 <li>Modifying users-controllers.js, auth-context.js, Auth.js, and App.js to supply a userId</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/users-controllers.js
+<pre><code class="language-javascript">// backend/controllers/users-controllers.js
 // ...
 const login = async (req, res, next) =&gt; {
   // ...
@@ -4638,8 +4519,7 @@ const login = async (req, res, next) =&gt; {
 };
 
 </code></pre>
-
-<pre><code class="javascript">// src/shared/context/auth-content.js
+<pre><code class="language-javascript">// src/shared/context/auth-content.js
 export const AuthContext = createContext({
   isLoggedIn: false,
   userId: null,
@@ -4648,8 +4528,7 @@ export const AuthContext = createContext({
 });
 
 </code></pre>
-
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 // ...
 import { AuthContext } from '../../shared/context/auth-context';
 // ...
@@ -4675,8 +4554,7 @@ const Auth = () =&gt; {
 };
 
 </code></pre>
-
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 // ...
 const App = () =&gt; {
   // ...
@@ -4706,12 +4584,11 @@ const App = () =&gt; {
 };
 // ...
 </code></pre>
-
 <h3 id="loading-places-by-user-id">Loading Places by User ID</h3>
 <ul>
 <li>Modify UserPlaces.js</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UserPlaces.js
+<pre><code class="language-javascript">// src/places/pages/UserPlaces.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -4754,11 +4631,10 @@ const UserPlaces = () =&gt; {
 export default UserPlaces;
 
 </code></pre>
-
 <ul>
 <li>Modify PlaceList.js</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceList.js
+<pre><code class="language-javascript">// src/places/components/PlaceList.js
 // ...
     &lt;PlaceItem
           image={place.image}
@@ -4766,12 +4642,11 @@ export default UserPlaces;
         /&gt;
 // ...
 </code></pre>
-
 <h3 id="updating-places_1">Updating Places</h3>
 <ul>
 <li>Modifying UpdatePlace.js</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+<pre><code class="language-javascript">// src/places/pages/UpdatePlace.js
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -4907,20 +4782,18 @@ const UpdatePlace = () =&gt; {
 
 export default UpdatePlace;
 </code></pre>
-
 <h3 id="deleting-places_2">Deleting Places</h3>
 <ul>
 <li>Modifying PlaceList.js, PlaceItem.js &amp; UserPlaces.js</li>
 </ul>
-<pre><code class="javascript">// src/places/components/PlaceList.js
+<pre><code class="language-javascript">// src/places/components/PlaceList.js
 // ...
         &lt;PlaceItem
           // ...
           onDelete={props.onDeletePlace}
         /&gt;
 </code></pre>
-
-<pre><code class="javascript">// src/places/components/PlaceItem.js
+<pre><code class="language-javascript">// src/places/components/PlaceItem.js
 // ...
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import './PlaceItem.css';
@@ -4954,8 +4827,7 @@ const PlaceItem = props =&gt; {
 };
 // ...
 </code></pre>
-
-<pre><code class="javascript">// src/places/pages/UserPlaces.js
+<pre><code class="language-javascript">// src/places/pages/UserPlaces.js
 // ...
   const placeDeletedHandler = deletedPlaceId =&gt; {
     setLoadedPlaces(prevPlaces =&gt;
@@ -4966,14 +4838,12 @@ const PlaceItem = props =&gt; {
         &lt;PlaceList items={loadedPlaces} onDeletePlace={placeDeletedHandler} /&gt;
   // ...
 </code></pre>
-
 <h3 id="fixing-navlinks-and-my-places">Fixing NavLinks and "My Places"</h3>
 <ul>
 <li>Modify NavLinks.js</li>
 </ul>
-<pre><code class="javascript">          &lt;NavLink to={`/${auth.userId}/places`}&gt;MY PLACES&lt;/NavLink&gt;
+<pre><code class="language-javascript">          &lt;NavLink to={`/${auth.userId}/places`}&gt;MY PLACES&lt;/NavLink&gt;
 </code></pre>
-
 <h3 id="final-adjustments">Final Adjustments</h3>
 <ul>
 <li>Modify Auth.js minimum password length to 6 to be consistent with backend</li>
@@ -4990,7 +4860,7 @@ const PlaceItem = props =&gt; {
 <ul>
 <li>ImageUpload.js so far:</li>
 </ul>
-<pre><code class="javascript">import React, { useRef } from 'react';
+<pre><code class="language-javascript">import React, { useRef } from 'react';
 
 import './ImageUpload.css';
 import Button from './Button';
@@ -5030,7 +4900,6 @@ const ImageUpload = props =&gt; {
 
 export default ImageUpload;
 </code></pre>
-
 <ul>
 <li>Add field to Auth.js, just after name:<ul>
 <li><code>{!isLoginMode &amp;&amp; &lt;ImageUpload center id='image' /&gt;}</code> </li>
@@ -5041,7 +4910,7 @@ export default ImageUpload;
 <ul>
 <li>Modifying Auth.js</li>
 </ul>
-<pre><code class="javascript">// ...
+<pre><code class="language-javascript">// ...
 if (!isLoginMode) {
   setFormData(
     {
@@ -5072,18 +4941,16 @@ if (!isLoginMode) {
 )}
 // ...
 </code></pre>
-
 <h3 id="on-the-backend-using-multer-to-save-files">On the Backend: Using Multer to Save Files</h3>
 <p><code>npm i --save multer</code></p>
 <ul>
 <li>Starting on file-upload middleware</li>
 <li>Modifying users routes:</li>
 </ul>
-<pre><code class="javascript">// backend/routes/users-routes.js
+<pre><code class="language-javascript">// backend/routes/users-routes.js
   '/signup',
   fileUpload.single('image'),
 </code></pre>
-
 <h3 id="filtering-files-on-the-backend-images-only">Filtering Files on the Backend (Images Only!)</h3>
 <ul>
 <li>
@@ -5096,7 +4963,7 @@ if (!isLoginMode) {
 <p>File Upload middleware final</p>
 </li>
 </ul>
-<pre><code class="javascript">// backend/middleware/file-upload.js
+<pre><code class="language-javascript">// backend/middleware/file-upload.js
 const multer = require('multer');
 const uuid = require('uuid');
 
@@ -5126,12 +4993,11 @@ const fileUpload = multer({
 
 module.exports = fileUpload;
 </code></pre>
-
 <h3 id="wiring-frontend-and-backend-up">Wiring Frontend and Backend up</h3>
 <ul>
 <li>Modify Auth.js</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 const authSubmitHandler = async event =&gt; {
   event.preventDefault();
 
@@ -5155,12 +5021,11 @@ const authSubmitHandler = async event =&gt; {
   }
 };
 </code></pre>
-
 <h3 id="connecting-users-to-images">Connecting Users to Images</h3>
 <ul>
 <li>Modifying app.js for rollback of image upload on error</li>
 </ul>
-<pre><code class="javascript">// backend/app.js
+<pre><code class="language-javascript">// backend/app.js
 app.use((error, req, res, next) =&gt; {
   if (req.file) {
     fs.unlink(req.file.path, err =&gt; {
@@ -5170,11 +5035,10 @@ app.use((error, req, res, next) =&gt; {
   // ...
 });
 </code></pre>
-
 <ul>
 <li>Link to User</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/users-controllers.js
+<pre><code class="language-javascript">// backend/controllers/users-controllers.js
 // ...
   const createdUser = new User({
     name,
@@ -5187,24 +5051,22 @@ app.use((error, req, res, next) =&gt; {
   });
 // ...
 </code></pre>
-
 <h3 id="serving-images-statically">Serving Images Statically</h3>
 <ul>
 <li>Modifying app.js in backend</li>
 </ul>
-<pre><code class="javascript">// backend/app.js
+<pre><code class="language-javascript">// backend/app.js
 // ...
 app.use(bodyParser.json());
 
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 // ...
 </code></pre>
-
 <h3 id="uploading-images-for-new-places">Uploading Images for New Places</h3>
 <ul>
 <li>Modify NewPlace.js</li>
 </ul>
-<pre><code class="javascript">// ...
+<pre><code class="language-javascript">// ...
 import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 // ...
 
@@ -5253,11 +5115,10 @@ const NewPlace = () =&gt; {
   );
 };
 </code></pre>
-
 <ul>
 <li>Modifying places routes</li>
 </ul>
-<pre><code class="javascript">// backend/routes/places-routes.js
+<pre><code class="language-javascript">// backend/routes/places-routes.js
 // ...
 const fileUpload = require('../middleware/file-upload');
 // ...
@@ -5267,11 +5128,10 @@ router.post(
   // ...
 )
 </code></pre>
-
 <ul>
 <li>Modify places controllers</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers.js
+<pre><code class="language-javascript">// backend/controllers/places-controllers.js
   const createdPlace = new Place({
     title,
     description,
@@ -5283,20 +5143,18 @@ router.post(
     creator
   });
 </code></pre>
-
 <ul>
 <li>Modify PlaceItem.js:</li>
 </ul>
-<pre><code class="javascript">&lt;div className='place-item__image'&gt;
+<pre><code class="language-javascript">&lt;div className='place-item__image'&gt;
   &lt;img src={`http://192.168.2.2:5000/${props.image}`} alt={props.title} /&gt;
 &lt;/div&gt;
 </code></pre>
-
 <h3 id="deleting-images-when-places-get-deleted">Deleting Images When Places Get Deleted</h3>
 <ul>
 <li>Modifying places controllers</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places.controllers.js
+<pre><code class="language-javascript">// backend/controllers/places.controllers.js
 const fs = require('fs')
 // ...
 const deletePlace = async (req, res, next) =&gt; {
@@ -5312,7 +5170,6 @@ const deletePlace = async (req, res, next) =&gt; {
   });
 };
 </code></pre>
-
 <h2 id="12-adding-authentication">12. Adding Authentication</h2>
 <h3 id="introduction_3">Introduction</h3>
 <ol>
@@ -5333,7 +5190,7 @@ const deletePlace = async (req, res, next) =&gt; {
 <p>Utilize in signup user controller</p>
 </li>
 </ul>
-<pre><code class="javascript">// backend/controllers/users-controllers/signup()
+<pre><code class="language-javascript">// backend/controllers/users-controllers/signup()
 const bcrypt = require('bcryptjs');
 // ...
 let hashedPassword;
@@ -5353,12 +5210,11 @@ const createdUser = new User({
   // ...
 });
 </code></pre>
-
 <h3 id="logging-users-in-with-hashed-passwords">Logging Users In (with Hashed Passwords)</h3>
 <ul>
 <li>Utilize in login user controller</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/users-controllers/login()
+<pre><code class="language-javascript">// backend/controllers/users-controllers/login()
 let isValidPassword = false;
 try {
   isValidPassword = await bcrypt.compare(password, existingUser.password);
@@ -5380,7 +5236,6 @@ if (!isValidPassword) {
 
 res.json({ /* ... */})
 </code></pre>
-
 <h3 id="generating-tokens-jwt-on-the-backend">Generating Tokens (JWT) on the Backend</h3>
 <ul>
 <li>With jsonwebtoken<ul>
@@ -5389,7 +5244,7 @@ res.json({ /* ... */})
 </li>
 <li>Utilize in login user controller</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/users-controllers.js
+<pre><code class="language-javascript">// backend/controllers/users-controllers.js
 const jwt = require('jsonwebtoken');
 // ...
 const signup = async (req, res, next) =&gt; {
@@ -5433,12 +5288,11 @@ const login = async (req, res, next) =&gt; {
   res.json({ userId: existingUser.id, email: existingUser.email, token: token });
 };
 </code></pre>
-
 <h3 id="backend-route-protection-with-auth-middleware">Backend Route Protection with Auth Middleware</h3>
 <ul>
 <li>Use in header, through middleware:</li>
 </ul>
-<pre><code class="javascript">// backend/middleware/check-auth.js
+<pre><code class="language-javascript">// backend/middleware/check-auth.js
 const jwt = require('jsonwebtoken');
 
 const HttpError = require('../models/http-error');
@@ -5458,11 +5312,10 @@ module.exports = (req, res, next) =&gt; {
   }
 };
 </code></pre>
-
 <ul>
 <li>Remember, order is important with routes, top to bottom!</li>
 </ul>
-<pre><code class="javascript">// backend/routes/places-routes.js
+<pre><code class="language-javascript">// backend/routes/places-routes.js
 // ...
 const checkAuth = require('../middleware/check-auth');
 // ...
@@ -5470,20 +5323,18 @@ router.get('/user/:uid', placesControllers.getPlacesByUserId);
 
 router.use(checkAuth);
 </code></pre>
-
 <h3 id="using-and-attaching-jwt-tokens-in-react">Using and Attaching JWT (Tokens) in React</h3>
 <ul>
 <li>Modify auth login in Auth.js</li>
 </ul>
-<pre><code class="javascript">// src/user/pages/Auth.js
+<pre><code class="language-javascript">// src/user/pages/Auth.js
 // in BOTH login &amp; signup modes:
 auth.login(responseData.userId, responseData.token);
 </code></pre>
-
 <ul>
 <li>Modify in App.js</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 const App = () =&gt; {
   const [token, setToken] = useState(false);
   // ...
@@ -5514,11 +5365,10 @@ const App = () =&gt; {
     &lt;/ AuthContext.Provider&gt;
   );
 </code></pre>
-
 <ul>
 <li>Also modify the auth context</li>
 </ul>
-<pre><code class="javascript">// src/shared/context/auth-context.js
+<pre><code class="language-javascript">// src/shared/context/auth-context.js
 import { createContext } from 'react';
 
 export const AuthContext = createContext({
@@ -5529,20 +5379,18 @@ export const AuthContext = createContext({
   logout: () =&gt; {}
 });
 </code></pre>
-
 <ul>
 <li>Add token to header on new place request</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/NewPlace.js
+<pre><code class="language-javascript">// src/places/pages/NewPlace.js
 await sendRequest('http://192.168.2.2:5000/api/places', 'POST', formData, {
   Authorization: 'Bearer ' + auth.token
 });
 </code></pre>
-
 <ul>
 <li>Handling OPTIONS Request</li>
 </ul>
-<pre><code class="javascript">// backend/middleware/check-auth.js
+<pre><code class="language-javascript">// backend/middleware/check-auth.js
 module.exports = (req, res, next) =&gt; {
   if (req.method === 'OPTIONS') {
     return next();
@@ -5550,31 +5398,28 @@ module.exports = (req, res, next) =&gt; {
   // ...
 };
 </code></pre>
-
 <h3 id="using-tokens-to-update-and-delete-places">Using Tokens to Update and Delete Places</h3>
 <ul>
 <li>Modifying UpdatePlace.js</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+<pre><code class="language-javascript">// src/places/pages/UpdatePlace.js
 // add auth header to update(patch) request:
 { 'Content-Type': 'application/json', Authorization: 'Bearer ' + auth.token }
 </code></pre>
-
 <ul>
 <li>Set up for delete in PlaceItem.js:</li>
 </ul>
-<pre><code class="javascript">// src/places/pages/UpdatePlace.js
+<pre><code class="language-javascript">// src/places/pages/UpdatePlace.js
 // in confirm delete handler:
 'DELETE',
 null,
 { Authorization: 'Bearer ' + auth.token }
 </code></pre>
-
 <h3 id="adding-authorization">Adding Authorization</h3>
 <ul>
 <li>On the backend, updating places:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers.js
+<pre><code class="language-javascript">// backend/controllers/places-controllers.js
 // in updatePlace():
 if (place.creator.toString() !== req.userData.userId) {
   const error = new HttpError('You are not allowed to edit this place.', 401);
@@ -5584,12 +5429,11 @@ if (place.creator.toString() !== req.userData.userId) {
 place.title = title;
 // ...
 </code></pre>
-
 <h3 id="authorization-on-delete-places">Authorization on "Delete Places"</h3>
 <ul>
 <li>On the backend, deleting places:</li>
 </ul>
-<pre><code class="javascript">// backend/controllers/places-controllers.js
+<pre><code class="language-javascript">// backend/controllers/places-controllers.js
 // in deletePlace():
 if (place.creator.id !== req.userData.userId) {
   const error = new HttpError('You are not allowed to edit this place.', 401);
@@ -5598,13 +5442,12 @@ if (place.creator.id !== req.userData.userId) {
 
 const imagePath = place.image;
 </code></pre>
-
 <h3 id="storing-the-token-in-the-browser-storage">Storing the Token in the Browser Storage</h3>
 <ul>
 <li>Have Token survive page reloads by storing in browser's local storage</li>
 <li>Modify App.js on frontend:</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 const login = useCallback((uid, token) =&gt; {
   setToken(token);
   localStorage.setItem(
@@ -5617,12 +5460,11 @@ const login = useCallback((uid, token) =&gt; {
   setUserId(uid);
 }, []);
 </code></pre>
-
 <h3 id="adding-auto-login-basic-version">Adding Auto-Login (Basic Version)</h3>
 <ul>
 <li>By utilizing useEffect in App.js:</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 const logout = useCallback(() =&gt; {
   setToken(null);
   setUserId(null);
@@ -5636,12 +5478,11 @@ useEffect(() =&gt; {
   }
 }, [login]);
 </code></pre>
-
 <h3 id="managing-the-token-expiration-date">Managing the Token Expiration Date</h3>
 <ul>
 <li>Modify App.js:</li>
 </ul>
-<pre><code class="javascript">const login = useCallback((uid, token, expirationDate) =&gt; {
+<pre><code class="language-javascript">const login = useCallback((uid, token, expirationDate) =&gt; {
   setToken(token);
   setUserId(uid);
   const tokenExpirationDate =
@@ -5672,12 +5513,11 @@ useEffect(() =&gt; {
   }
 }, [login]);
 </code></pre>
-
 <h3 id="finished-auto-login-auto-logout">Finished Auto-Login &amp; Auto Logout</h3>
 <ul>
 <li>Set up logout timer in App.js with another useEffect</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 // ...
 let logoutTimer;
 
@@ -5701,12 +5541,11 @@ const App = () =&gt; {
   }, [token, logout, tokenExpirationDate]);
 };
 </code></pre>
-
 <h3 id="creating-a-custom-authentication-hook">Creating a Custom Authentication Hook</h3>
 <ul>
 <li>Move auth logic from App.js to custom hook</li>
 </ul>
-<pre><code class="javascript">// src/shared/hooks/auth-hook.js
+<pre><code class="language-javascript">// src/shared/hooks/auth-hook.js
 import { useState, useCallback, useEffect } from 'react';
 
 let logoutTimer;
@@ -5769,11 +5608,10 @@ export const useAuth = () =&gt; {
   return { token, login, logout, userId };
 };
 </code></pre>
-
 <ul>
 <li>App.js final</li>
 </ul>
-<pre><code class="javascript">import React from 'react';
+<pre><code class="language-javascript">import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -5849,17 +5687,15 @@ const App = () =&gt; {
 
 export default App;
 </code></pre>
-
 <h3 id="general-app-improvements">General App Improvements</h3>
 <ul>
 <li>Modify places controllers to get creator from userData instead of req body</li>
 </ul>
-<pre><code class="javascript">const createdPlace = new Place({
+<pre><code class="language-javascript">const createdPlace = new Place({
   // ...
   creator: req.userData.userId
 });
 </code></pre>
-
 <h2 id="13-application-deployment">13. Application Deployment</h2>
 <h3 id="introduction_4">Introduction</h3>
 <ol>
@@ -5880,7 +5716,7 @@ export default App;
 <ul>
 <li>Utilizing nodemon</li>
 </ul>
-<pre><code class="json">// backend/nodemon.json
+<pre><code class="language-json">// backend/nodemon.json
 {
   &quot;env&quot;: {
     &quot;DB_URL&quot;: &quot;mongodb://localhost:27017/react-training&quot;,
@@ -5890,7 +5726,6 @@ export default App;
   }
 }
 </code></pre>
-
 <h3 id="environment-variables-in-react-apps">Environment Variables in React Apps</h3>
 <ul>
 <li>Achieved with <code>.env</code> file in root folder<ul>
@@ -5902,15 +5737,13 @@ export default App;
 REACT_APP_BACKEND_URL=http://192.168.2.2:5000/api
 REACT_APP_ASSET_URL=http://192.168.2.2:5000
 </code></pre>
-
-<pre><code class="html">&lt;!-- how to replace in index.html for google api key: --&gt;
+<pre><code class="language-html">&lt;!-- how to replace in index.html for google api key: --&gt;
 &lt;script
   src=&quot;https://maps.googleapis.com/maps/api/js?key=%REACT_APP_GOOGLE_API_KEY%&quot;
   async
   defer
 &gt;&lt;/script&gt;
 </code></pre>
-
 <ul>
 <li>Replace all instances of localhost, 192.168.2.2, etc with React env variables<ul>
 <li><code>${process.env.REACT_APP_BACKEND_URL}</code></li>
@@ -5940,7 +5773,7 @@ REACT_APP_ASSET_URL=http://192.168.2.2:5000
 <li>Prevent loading code that is not needed yet (lazy loading)</li>
 <li>Modify App.js</li>
 </ul>
-<pre><code class="javascript">// src/App.js
+<pre><code class="language-javascript">// src/App.js
 import React, { Suspense } from 'react';
 
 // import Users from './user/pages/Users';
@@ -5971,7 +5804,6 @@ const Auth = React.lazy(() =&gt; import('./user/pages/Auth'));
   &lt;/main&gt;
 &lt;/Router&gt;
 </code></pre>
-
 <h3 id="understanding-possible-deployment-alternatives">Understanding Possible Deployment Alternatives</h3>
 <ul>
 <li>Two main options<ul>
@@ -6051,7 +5883,7 @@ const Auth = React.lazy(() =&gt; import('./user/pages/Auth'));
 <li>Copy build folder into a backend/public/ folder</li>
 <li>After routes in app.js, serve public folder statically (comment out error for not found routes)</li>
 </ul>
-<pre><code class="javascript">// ...
+<pre><code class="language-javascript">// ...
 app.use('/api/users', usersRoutes); // =&gt; /api/users/ ...
 
 app.use(express.static(path.join('public')));
@@ -6063,11 +5895,10 @@ app.use(express.static(path.join('public')));
 
 // ...
 </code></pre>
-
 <ul>
 <li>Then move to top and create catch-all route:</li>
 </ul>
-<pre><code class="javascript">app.use('/uploads/images', express.static(path.join('uploads', 'images')));
+<pre><code class="language-javascript">app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 app.use(express.static(path.join('public')));
 
 // ...
@@ -6078,7 +5909,6 @@ app.use((req, res, next) =&gt; {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 </code></pre>
-
 <ul>
 <li>Now we can deploy it (heroku)</li>
 </ul>
@@ -6125,7 +5955,7 @@ app.use((req, res, next) =&gt; {
 </div>
 
 <footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
 </footer>
 
 </body>

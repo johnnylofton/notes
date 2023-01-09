@@ -151,7 +151,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <ul>
 <li>Assign values in array to variables</li>
 </ul>
-<pre><code class="javascript">let carIds = [1, 2, 5];
+<pre><code class="language-javascript">let carIds = [1, 2, 5];
 let [car1, car2, car3] = carIds;
 // with rest parameters:
 let car1, remainingCars;
@@ -159,33 +159,29 @@ let car1, remainingCars;
 // log
 // 1 [2, 5]
 </code></pre>
-
 <h3 id="destructuring-objects">Destructuring Objects</h3>
 <ul>
 <li><code>{ }</code> instead of <code>[ ]</code> for objects</li>
 </ul>
-<pre><code class="javascript">let car = { id: 5000, style: &quot;convertible&quot; }
+<pre><code class="language-javascript">let car = { id: 5000, style: &quot;convertible&quot; }
 let { id, style } = car;
 // log
 // 5000, convertible
 </code></pre>
-
 <ul>
 <li>Put destructuring in <code>( )</code> if variables already declared</li>
 </ul>
-<pre><code class="javascript">let id, style;
+<pre><code class="language-javascript">let id, style;
 ({id, style} = car);
 </code></pre>
-
 <h3 id="spread-syntax">Spread Syntax</h3>
 <ul>
 <li>Take array, spread out elements for parameters</li>
 <li>Similar to rest syntax, does the opposite</li>
 </ul>
-<pre><code class="javascript">let carIds = [100, 300, 500];
+<pre><code class="language-javascript">let carIds = [100, 300, 500];
 startCars(...carIds);
 </code></pre>
-
 <ul>
 <li>Can iterate through <strong>arrays</strong> <em>and</em> <strong>strings</strong></li>
 </ul>
@@ -193,7 +189,7 @@ startCars(...carIds);
 <ul>
 <li>Returns a <strong>string</strong></li>
 </ul>
-<pre><code class="javascript">typeof(1);              // 'number'
+<pre><code class="language-javascript">typeof(1);              // 'number'
 typeof(true);           // 'boolean'
 typeof('Hello')         // 'string'
 typeof(function() {});  // 'function'
@@ -203,7 +199,6 @@ typeof(undefined)       // 'undefined'
 typeof(NaN);            // 'number'
 // NaN - not a number
 </code></pre>
-
 <h3 id="common-type-conversions">Common Type Conversions</h3>
 <ul>
 <li>Convert to string - <code>foo.toString();</code></li>
@@ -292,7 +287,7 @@ typeof(NaN);            // 'number'
 <li>IIFE's - Immediately Invoked Function Expression</li>
 <li>ex:</li>
 </ul>
-<pre><code class="javascript">(function () {
+<pre><code class="language-javascript">(function () {
     console.log('in function');
 })();
 // can return values this way
@@ -305,13 +300,12 @@ let app = (function () {
 console.log(app);
 // [Function: app]
 </code></pre>
-
 <h3 id="closures">Closures</h3>
 <ul>
 <li>Keeping a function, it's variables and nested function in scope</li>
 <li>ex:</li>
 </ul>
-<pre><code class="javascript">let app = (function() {
+<pre><code class="language-javascript">let app = (function() {
     let carId = 123;
     let getId = function() {
         return carId;
@@ -323,13 +317,12 @@ console.log(app);
 console.log(app.getId());
 // 123
 </code></pre>
-
 <h3 id="the-this-keyword">The <strong>this</strong> keyword</h3>
 <ul>
 <li>Context for the function</li>
 <li>ex:</li>
 </ul>
-<pre><code class="javascript">let o = {
+<pre><code class="language-javascript">let o = {
     carId: 123,
     getId: function() {
         return this.carId;
@@ -339,7 +332,6 @@ console.log(o.getId());
 // 123
 
 </code></pre>
-
 <ul>
 <li>Context can change, ie <code>this</code> value can change</li>
 </ul>
@@ -348,7 +340,7 @@ console.log(o.getId());
 <li>Change values of <code>this</code> to change the object which is the context of the function</li>
 <li>With previous example:</li>
 </ul>
-<pre><code class="javascript">// call ex:
+<pre><code class="language-javascript">// call ex:
 let newCar = { carId: 456 };
 console.log(o.getId.call(newCar)); //456
 // apply ex
@@ -360,7 +352,6 @@ getId: function (prefix) {
 console.log(o.getId.apply(newCar, ['id: ']))
 // ID: 456
 </code></pre>
-
 <ul>
 <li>Call and apply similar, except <em>apply</em> accepts array of args</li>
 </ul>
@@ -380,7 +371,7 @@ console.log(o.getId.apply(newCar, ['id: ']))
 </li>
 <li>More examples</li>
 </ul>
-<pre><code class="javascript">let getId = prefix =&gt; prefix + 123;
+<pre><code class="language-javascript">let getId = prefix =&gt; prefix + 123;
 console.log(getId('ID: '));         // ID: 123
 
 let getId = (prefix, suffix) =&gt; prefix + 123 + suffix;
@@ -395,7 +386,6 @@ let getId = (prefix, suffix) =&gt; {
 // use with underscore:
 let getId = _ =&gt; 123;
 </code></pre>
-
 <blockquote>
 <p>Arrow functions do <strong>NOT</strong> have their own <code>this</code> value. <code>this</code> refers to enclosing context</p>
 </blockquote>
@@ -403,12 +393,11 @@ let getId = _ =&gt; 123;
 <ul>
 <li>ex:</li>
 </ul>
-<pre><code class="javascript">let trackCar = function(carId, city='NY') {
+<pre><code class="language-javascript">let trackCar = function(carId, city='NY') {
     // using backticks for interpreting variables
     console.log(`Tracking ${carId} in ${city}.`);
 }
 </code></pre>
-
 <ul>
 <li>Like other defaults, must be on right side.</li>
 <li>Default overwritten if defined.</li>
@@ -419,21 +408,19 @@ let getId = _ =&gt; 123;
 <ul>
 <li>Examples</li>
 </ul>
-<pre><code class="javascript">function Car() { }          // capitalized name as convention`
+<pre><code class="language-javascript">function Car() { }          // capitalized name as convention`
 let car = new Car();
 </code></pre>
-
-<pre><code class="javascript">function Car(id) {
+<pre><code class="language-javascript">function Car(id) {
     this.carId = id;
 }
 let car = new Car(123);
 console.log(car.carId);     // 123
 </code></pre>
-
 <ul>
 <li>Method: function run on an object</li>
 </ul>
-<pre><code class="javascript">function Car(id) {
+<pre><code class="language-javascript">function Car(id) {
     this.carId = id;
     this.start = function () {
         console.log('Start: ' + this.carId);
@@ -442,37 +429,33 @@ console.log(car.carId);     // 123
 let vehicle = new Car(123);
 vehicle.start();            // Start: 123
 </code></pre>
-
 <hr />
 <h3 id="prototypes">Prototypes</h3>
-<pre><code class="javascript">// using previous example
+<pre><code class="language-javascript">// using previous example
 Car.prototype.start = function() {
     console.log('Start: ' + this.carId);
 }   // single copy, instead of one function for each object
 </code></pre>
-
 <ul>
 <li>Expanding Objects using Prototypes<ul>
 <li>Give new functionality to objects</li>
 </ul>
 </li>
 </ul>
-<pre><code class="javascript">String.prototype.hello = function() {
+<pre><code class="language-javascript">String.prototype.hello = function() {
     return this.toString() + ' Hello';
 };
 console.log('foo'.hello());     // foo Hello
 </code></pre>
-
 <h3 id="javascript-object-notation-json">Javascript Object Notation (JSON)</h3>
-<pre><code class="javascript">let car = {
+<pre><code class="language-javascript">let car = {
     id: 123,
     style: 'convertible'
 };
 console.log(JSON.stringify(car));
 // { &quot;id&quot;: 123, &quot;style&quot;: &quot;convertible&quot; }
 </code></pre>
-
-<pre><code class="javascript">// Array to JSON
+<pre><code class="language-javascript">// Array to JSON
 let carIds = [
     { carId: 123 },
     { carId: 456 },
@@ -485,11 +468,10 @@ let jsonIn = [{ &quot;carId&quot;: 123 }, { &quot;carId&quot;: 456 }, { &quot;ca
 let carIds = JSON.parse(jsonIn);
 // log: [ { carId: 123 }, { carId: 456 }, { carId: 789 } ]
 </code></pre>
-
 <hr />
 <h3 id="array-iteration">Array Iteration</h3>
 <p>Examples:</p>
-<pre><code class="javascript">carIds.foreach(car =&gt; console.log(car));
+<pre><code class="language-javascript">carIds.foreach(car =&gt; console.log(car));
 carIds.foreach((car, index) =&gt; console.log(car, index));
 
 //  only some elements
@@ -501,16 +483,14 @@ let result = carIds.every(car =&gt; car.carId &gt; 0);    // true
 // retrieve first instance matching condition
 let car = carIds.find(car =&gt; car.carId &gt; 500);
 </code></pre>
-
 <hr />
 <h2 id="classes-and-modules">Classes and Modules</h2>
 <ul>
 <li>Class Basics</li>
 </ul>
-<pre><code class="javascript">class Car { };
+<pre><code class="language-javascript">class Car { };
 let car = new Car();
 </code></pre>
-
 <h3 id="constructors-and-properties">Constructors and properties</h3>
 <ul>
 <li>
@@ -541,7 +521,7 @@ identify(params) {
 <ul>
 <li>Example:</li>
 </ul>
-<pre><code class="javascript">class Car extends Vehicle {
+<pre><code class="language-javascript">class Car extends Vehicle {
     constructor() {
         super();    // refers back to parent Vehicle
     }
@@ -550,7 +530,6 @@ identify(params) {
     }
 }
 </code></pre>
-
 <h3 id="creating-and-importing-a-module">Creating and Importing a Module</h3>
 <ul>
 <li>Create &amp; Export<ul>
@@ -777,14 +756,13 @@ let form = document.getElementById('user-form');</p>
 </li>
 </ul>
 <h3 id="accessing-form-fields">Accessing Form Fields</h3>
-<pre><code class="javascript">form.addEventListener('submit', event =&gt; {
+<pre><code class="language-javascript">form.addEventListener('submit', event =&gt; {
     let user = form.elements['user'];
     let avatarFile = form.elements['avatar-file'];
 
     console.log(user.value, avatarFile.value);
 });
 </code></pre>
-
 <h3 id="showing-validation-errors">Showing Validation Errors</h3>
 <p><code>javascript
   let userError = document.getElementById('user-error');
@@ -874,7 +852,7 @@ let form = document.getElementById('user-form');</p>
 </div>
 
 <footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
 </footer>
 
 </body>

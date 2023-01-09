@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Power BI - Notes</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Power BI", url: "#_top", children: [
+              {title: "Power BI Desktop", url: "#power-bi-desktop" },
+              {title: "Query Editor", url: "#query-editor" },
+              {title: "Data Model: Data \u0026amp; Relationship View", url: "#data-model-data-relationship-view" },
+              {title: "Creating Visuals in the Report View", url: "#creating-visuals-in-the-report-view" },
+              {title: "Taking Project to the Cloud with Power BI Pro (Service)", url: "#taking-project-to-the-cloud-with-power-bi-pro-service" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../gcloud/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../gcloud/" class="btn btn-xs btn-link">
+        Google Cloud
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="power-bi">Power BI</h1>
+<p><img alt="PowerBI vs Excel" src="../img/powerBIvsExcel.JPG" title="PowerBI vs Excel" /></p>
+<h2 id="power-bi-desktop">Power BI Desktop</h2>
+<ul>
+<li>Attached Project Files</li>
+<li>Data source settings</li>
+<li>Power BI Desktop Workflow</li>
+<li>Data Preparation<ul>
+<li>Query Editor</li>
+</ul>
+</li>
+<li>Data Modeling<ul>
+<li>Data View</li>
+<li>Relationship View</li>
+</ul>
+</li>
+<li>Data Visualization<ul>
+<li>Report View</li>
+</ul>
+</li>
+<li>Data Model Interface</li>
+<li>Query Editor Interface</li>
+</ul>
+<h2 id="query-editor">Query Editor</h2>
+<ul>
+<li>Connecting Power BI Desktop to Source Files</li>
+<li>Transform Data</li>
+<li>New Source</li>
+<li>Keeping &amp; Removing Rows</li>
+<li>Remove Top Rows</li>
+<li>Table Settings</li>
+<li>Remove Alternate Rows<ul>
+<li>Patterns</li>
+</ul>
+</li>
+<li>Keep Range of Rows</li>
+<li>Use First Row as Headers</li>
+<li>Working with Filters</li>
+<li>Search will exclude those not listed</li>
+<li>Remove Empty Rows</li>
+<li>Can save without applying queries/apply later</li>
+<li>Appending Queries</li>
+<li>Column amount and names must be equal in initial queries</li>
+<li>Working with Columns</li>
+<li>Choose Columns</li>
+<li>Replacing Values</li>
+<li>Formatting Data &amp; Handling Formatting Errors</li>
+<li>Detect Data Type</li>
+<li>Error Query Group, fixed with replace values</li>
+<li>Pivoting and Unpivoting</li>
+<li>Attribute-Value pairing</li>
+<li>Unpivoting - Attribute(Name)-Value become separate columns</li>
+<li>Pivoting - Separate Columns become Attribute(Name)-Value Pairs</li>
+<li>Splitting Columns</li>
+<li>By number of characters, delimiter, positions<ul>
+<li>Delimiter is removed</li>
+</ul>
+</li>
+<li>Creating Groups and Cleaning Up</li>
+<li>Group by folder</li>
+<li>Reorder columns, sorting by column</li>
+<li>Star Schema</li>
+<li>Dim Tables - Multiple<ul>
+<li>Products, Time, Customers, Sales Point</li>
+</ul>
+</li>
+<li>Fact Table<ul>
+<li>Sales</li>
+<li>IDs from each Dim Table</li>
+</ul>
+</li>
+<li>Using Star Schema in Project</li>
+<li>Population-Combined to Fact Population table</li>
+<li>DIM Region</li>
+<li>DIM Age</li>
+<li>Query Duplicates vs References</li>
+<li>Reference depends on Source</li>
+<li>Duplicate copies initial query</li>
+<li>Creating DIM-Region Table and Removing Duplicates</li>
+<li>Reference of population-combined</li>
+<li>Creating Tables Manually</li>
+<li>Edit Source</li>
+<li>Merging Queries</li>
+<li>Column in common</li>
+<li>Join Kind</li>
+<li>Common ID</li>
+<li>Outer Join<ul>
+<li>Left, Full, Right</li>
+</ul>
+</li>
+<li>Anti Join<ul>
+<li>Left, Right</li>
+<li>Not found</li>
+</ul>
+</li>
+<li>Inner Join<ul>
+<li>Found in both</li>
+</ul>
+</li>
+<li>Merging Queries Applied</li>
+<li>Inner Join, select Region Name only in expanded, don't use prefix </li>
+<li>DIM-Age Table</li>
+<li>Age group from population-combined</li>
+<li>Index column from 1</li>
+<li>Understanding "Extract"</li>
+<li>Different in Transform and Add Column ribbons</li>
+<li>Conditional Columns</li>
+<li>If-Else chain</li>
+<li>Creating FACT-Table</li>
+<li>Reference of population-combined utilizing age and country IDs instead</li>
+<li>Basic Math Operations</li>
+<li>Transform (Number Column)</li>
+<li>Performance Optimization</li>
+<li>Enable Load (right-click query)<ul>
+<li>Choosing what is loaded in Data Model</li>
+</ul>
+</li>
+</ul>
+<h2 id="data-model-data-relationship-view">Data Model: Data &amp; Relationship View</h2>
+<ul>
+<li>Understanding Relationships</li>
+<li>Data Modeling<ul>
+<li>Data View</li>
+<li>Relationship View</li>
+</ul>
+</li>
+<li>Cardinality: Many-to-One &amp; One-To-One</li>
+<li>One-to-Many (1:*)</li>
+<li>Many-to-One (*:1)<ul>
+<li>Each Customer unique</li>
+<li>Each Customer can have multiple Orders</li>
+</ul>
+</li>
+<li>One-to-One<ul>
+<li>Passport to Person</li>
+</ul>
+</li>
+<li>Cross Filter Direction &amp; Many-to-Many</li>
+<li>Connector table, need two to communicate</li>
+<li>Cross filter direction to Both<ul>
+<li>Feed info both ways</li>
+</ul>
+</li>
+<li>Understanding Active Properties</li>
+<li>Deactivate relationship</li>
+<li>New relationships will be inactive by default if one already exists</li>
+<li>M-Language vs DAX (Data Analysis Expressions)</li>
+<li>One Tool - Two Languages</li>
+<li>M<ul>
+<li>Description</li>
+<li>Power Query Formula Language</li>
+<li>Data Transformation</li>
+<li>Where to Apply</li>
+<li>Data Preparation</li>
+<li>Before Data Model</li>
+</ul>
+</li>
+<li>DAX<ul>
+<li>Description</li>
+<li>Data Analysis Expression Language</li>
+<li>Analytical Data Calculations</li>
+<li>Comparable to Excel Functions</li>
+<li>Where to Apply</li>
+<li>Create Insights</li>
+<li>In Data Model</li>
+</ul>
+</li>
+<li>M vs DAX - A Practical Example</li>
+<li>M is logic behind query editor<ul>
+<li>Advanced Editor</li>
+<li>Custom columns</li>
+</ul>
+</li>
+<li>DAX<ul>
+<li>Data view &gt; Table Tools &gt; New column</li>
+<li>Using default functions such as Concatenate</li>
+<li>Nesting functions within another</li>
+</ul>
+</li>
+<li>DAX Basics</li>
+<li><a href="https://docs.microsoft.com/en-us/dax/">DAX Reference</a></li>
+<li>Syntax: <code>Formula = ...</code></li>
+<li>Data Types: String, Number</li>
+<li>Operators: +, -</li>
+<li>Functions: <code>CONCATENATE()</code></li>
+<li>Advanced<ul>
+<li>DAX Statements</li>
+<li>Define, Evaluate, Order By, VAR = DAX Queries</li>
+</ul>
+</li>
+<li>DAX Syntax - Core Rules</li>
+<li><code>Total Population = SUM(FactPopulation [Population Count])</code><ul>
+<li>Formula Name</li>
+<li>Capital Letters</li>
+<li>Space</li>
+<li>SUM is DAX function, parenthesus</li>
+<li>Table Reference</li>
+<li>Capital Letters</li>
+<li>No Space</li>
+<li>Column Reference</li>
+<li>Square Brackets (always required)</li>
+<li>Capital Letters</li>
+<li>No Space</li>
+</ul>
+</li>
+<li>Supported DAX Data Types</li>
+<li>String (Text)</li>
+<li>Whole &amp; Decimal Numbers</li>
+<li>Boolean</li>
+<li>Date/Time</li>
+<li>Currency</li>
+<li>Blank (NA)</li>
+<li>DAX Operators</li>
+<li>Arithmetic<ul>
+<li>+, -, *, /, ^</li>
+</ul>
+</li>
+<li>Comparison<ul>
+<li>=, ==, &gt;, &lt;, &gt;=, &lt;=, &lt;&gt; (not equal)</li>
+</ul>
+</li>
+<li>Logical<ul>
+<li>&amp;&amp;</li>
+<li>||</li>
+<li>IN (multiple conditions)</li>
+</ul>
+</li>
+<li>Text concat.<ul>
+<li>&amp;</li>
+</ul>
+</li>
+<li>DAX Core Functions</li>
+<li>Text<ul>
+<li><code>CONCATENATE("X, "Y")</code></li>
+</ul>
+</li>
+<li>Information<ul>
+<li><code>ISNUMBER(2020)</code> (true)</li>
+</ul>
+</li>
+<li>Logical<ul>
+<li><code>IF([Population]&gt;100000, "Big", "Small")</code></li>
+</ul>
+</li>
+<li>Math<ul>
+<li><code>ROUND(352.867,2)</code></li>
+</ul>
+</li>
+<li>Statistical<ul>
+<li><code>AVERAGE(Dim-Fact[Population])</code></li>
+</ul>
+</li>
+<li>Filter<ul>
+<li><code>FILTER(Dim-Fact[Year]=2020)</code></li>
+</ul>
+</li>
+<li>Date &amp; Time<ul>
+<li><code>CALENDAR(DATE(2000,01,01),DATE(2020,12,31))</code></li>
+</ul>
+</li>
+<li>CALENDAR Function</li>
+<li><code>Calendar = CALENDAR(DATE(1990,01,01),DATE(2020,12,31))</code></li>
+<li><code>DateQuarter = [Date].Quarter</code></li>
+<li>Applying DAX Basics</li>
+<li><code>TotalRevenue = [RevenueProductA]+[RevenueProductB]</code></li>
+<li><code>ProfitMargin = 1-(DIVIDE([TotalCost],[TotalRevenue],0))</code></li>
+<li>IF and RELATED</li>
+<li><code>DayRating = IF([ProfitMargin]&gt;0.65,"Good Day","Bad Day")</code></li>
+<li>RELATED has to have relationship</li>
+<li><code>TotalUnitsSold = RELATED(UnitsSold[UnitsSoldProductA])+RELATED(UnitsSold[UnitsSoldProductB])</code></li>
+<li>Calculated Columns vs Measures</li>
+<li>Calculated Column<ul>
+<li>Perform an operation that generates results for each row of your table.</li>
+</ul>
+</li>
+<li>Measure<ul>
+<li>Return a single result of a calculation or an aggregated value (e.g. Averages)</li>
+</ul>
+</li>
+<li>First Measure</li>
+<li><code>TotalPopulation = SUM([Population])</code></li>
+<li><code>AveragePopulation = AVERAGE([Population])</code></li>
+<li>CALCULATE &amp; FILTER</li>
+<li><code>FILTER = (&lt;table&gt;, &lt;filter&gt;)</code></li>
+<li><code>CALCULATE = (&lt;expression&gt;, &lt;filter1&gt;, &lt;filter2&gt;)</code></li>
+<li>Applying CALCULATE and FILTER in Measures</li>
+<li><code>FemalePopulation = FILTER('FACT-Population',[Gender]="Female")</code></li>
+<li>Need aggregation for filter</li>
+<li><code>FemalePopulationFilter = CALCULATE(SUM([Population]),FILTER('FACT-Population',[Gender]="Female"))</code></li>
+<li><code>FemalePopulation = CALCULATE(SUM([Population]),'FACT-Population'[Gender]="Female",'FACT-Population'[Year]=2020)</code></li>
+<li>Creating Measures with Measures</li>
+<li><code>MalePopulationFilter = CALCULATE(SUM([Population]),FILTER('FACT-Population',[Gender]="Male"))</code></li>
+<li>Remove year filter from FemalePopulationFilter</li>
+<li><code>ShareFemalePop = [FemalePopulationFilter]/[TotalPopulation]</code></li>
+<li>Data Category</li>
+<li>Country, Continent, etc</li>
+</ul>
+<h2 id="creating-visuals-in-the-report-view">Creating Visuals in the Report View</h2>
+<ul>
+<li>Basic Visual Concepts</li>
+<li>Value area<ul>
+<li>Population</li>
+</ul>
+</li>
+<li>Legend<ul>
+<li>Country Specific data</li>
+</ul>
+</li>
+<li>Tooltip<ul>
+<li>Age category</li>
+</ul>
+</li>
+<li>Visuals &amp; Reports</li>
+<li>Data/Drill (discussed later)</li>
+<li>Format <ul>
+<li>Align, etc</li>
+</ul>
+</li>
+<li>View tab<ul>
+<li>Positioning, etc</li>
+</ul>
+</li>
+<li>Visualizations column<ul>
+<li>Has different charts, etc</li>
+</ul>
+</li>
+<li>Elements<ul>
+<li>Text, buttons, images</li>
+</ul>
+</li>
+<li>Creating First Visuals</li>
+<li>Fields column, areas</li>
+<li>Line chart<ul>
+<li>Population by Year, Region</li>
+</ul>
+</li>
+<li>Stacked column chart<ul>
+<li>Population by Region</li>
+</ul>
+</li>
+<li>Tooltips &amp; Interactions</li>
+<li>Add further info</li>
+<li>Hovering over charts for details</li>
+<li>Add ShareFemalePop percentage calculation to tool-tip</li>
+<li>Selecting similar filter, axis affects all charts</li>
+<li>Format &gt; Edit Interactions</li>
+<li>interactions can specify how visuals interact with one another with filtering, highlights</li>
+<li>Filter specifics on top of visual</li>
+<li>Hierarchies &amp; Drill Mode</li>
+<li>Multiple axis</li>
+<li>Sequence of different detail levels for data</li>
+<li>Right click &gt; create hierarchy</li>
+<li>Drill down specific parts of hierarchy<ul>
+<li>Activate/Deactivate</li>
+</ul>
+</li>
+<li>Data Colors &amp; Conditional Formatting</li>
+<li>Format &gt; Data colors<ul>
+<li>Different depending on chart</li>
+<li>Conditional, based on sum (f(x) button)</li>
+</ul>
+</li>
+<li>Formatting Report Pages</li>
+<li>General formatting options when no visuals selected</li>
+<li>Formatting Visuals</li>
+<li>General formatting options when a visual(s) selected</li>
+<li>Format painter to apply formatting from one to another</li>
+<li>Report Themes</li>
+<li>View &gt; Themes</li>
+<li>The Slicer</li>
+<li>Using FACT-Population Year</li>
+<li>Affects other visuals</li>
+<li>Default Summarization &amp; Sorting</li>
+<li>Arrow by value Population, Sum by default</li>
+<li>Sort x-axis</li>
+<li>Treemaps &amp; Tables</li>
+<li>Another Slicer by Region Name</li>
+<li>Another Slicer by Age-Category</li>
+<li>Treemap Population by Country (Details)</li>
+<li>Syncing Slicers</li>
+<li>Prompt on copy</li>
+<li>View &gt; Sync Slicers</li>
+<li>Filter Types (Visual, Page &amp; Report)</li>
+<li>Filter column with no visual selected<ul>
+<li>Report level &gt; Filter by year</li>
+<li>Page level &gt; Filter by Region</li>
+<li>Visual level &gt; Top N by Population</li>
+</ul>
+</li>
+<li>Working with (Multi) Row Cards</li>
+<li>Cards with multiple rows, applying filters, more data</li>
+<li>Combined Visuals &amp; Waterfalls</li>
+<li>Secondary values; adds second y-axis</li>
+<li>Can tailor in formatting</li>
+<li>Combine line and column charts</li>
+<li>Waterfall, category, breakdown, values</li>
+<li>Custom Visuals</li>
+<li>Import, AppSource</li>
+</ul>
+<h2 id="taking-project-to-the-cloud-with-power-bi-pro-service">Taking Project to the Cloud with Power BI Pro (Service)</h2>
+<ul>
+<li>Power BI Pro </li>
+<li>Single User scenario<ul>
+<li>Publish to access from other devices</li>
+</ul>
+</li>
+<li>Organization<ul>
+<li>Publish to Power BI pro</li>
+<li>Accessible by others using workspaces</li>
+</ul>
+</li>
+<li>Service vs. Pro vs. Premium</li>
+<li>Power BI Pro Interface</li>
+<li>Navigation, settings, Apps, Get Data</li>
+<li>Workspaces</li>
+<li>Publish report, datasets, dashboard to your workspace and can share.</li>
+<li>Connecting Power BI Pro &amp; Power BI Desktop</li>
+<li>Sign in to publish</li>
+<li>Get data from local file</li>
+<li>Report and Dataset imported</li>
+<li>Datasets</li>
+<li>Different in course, similar to Power BI Desktop?</li>
+<li>Reports</li>
+<li>Creation additional</li>
+<li>Can create new pbix file based on report created in Power BI Pro</li>
+<li>Dashboards</li>
+<li>Create tiles</li>
+<li>Pin tiles to dashboard</li>
+<li>My Workspace</li>
+<li>Lineage view</li>
+<li>Quick Insights</li>
+<li>Refreshing Data with Gateways</li>
+<li>Personal Gateway for local files</li>
+<li>Standard Gateway for server data</li>
+<li>Data source settings</li>
+<li>Setup gateway</li>
+<li>Refresh and scheduled refresh</li>
+<li>Sharing Data From My Workspace</li>
+<li>Can't share datasets</li>
+<li>Share link, to email</li>
+<li>Access menu<ul>
+<li>Read access</li>
+</ul>
+</li>
+<li>Collaboration Workspaces</li>
+<li>Create New Workspace</li>
+<li>Settings, Access menus in Workspace</li>
+<li>Workspaces vs Apps vs Content Packs</li>
+<li>Apps -&gt; Content Packs<ul>
+<li>Share Dataset, Report, Dashboard</li>
+</ul>
+</li>
+<li>Publishing an App</li>
+<li>Premade apps</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../gcloud/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../gcloud/" class="btn btn-xs btn-link">
+        Google Cloud
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
