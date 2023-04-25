@@ -8,6 +8,7 @@ nav:
   - Angular: 'ng.md'
   - MERN: 'mern.md'
   - React: 'react.md'
+  - Vue: 'vue.md'
   - Google Cloud: 'gcloud.md'
   - Power BI: 'powerBI.md'
 theme: windmill-dark

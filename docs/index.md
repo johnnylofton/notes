@@ -24,5 +24,9 @@ These notes were written in parallel with progress in various technology courses
     - Notes based on Udemy Course [React, NodeJS, Express & MongoDB - The MERN Fullstack Guide](https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide)
 - React
     - Notes based on Udemy Course [React - The Complete Guide (incl. Hooks, React Router, Redux)](https://www.udemy.com/course/react-the-complete-guide-incl-redux)
+- Vue - The Complete Guide
+    - Notes based on Udemy Course [Vue - The Complete Guide (incl. Router & Composition API)](https://www.udemy.com/course/vuejs-2-the-complete-guide/)
 - Google Cloud Platform
     - Based on Udemy Course [Google Certified Associate Cloud Engineer Collection](https://www.udemy.com/google-certified-associate-cloud-engineer)
+- Power BI
+    - Based on Udemy Course [Microsoft Power BI - The Practical Guide](https://www.udemy.com/course/powerbi-complete-introduction/)
