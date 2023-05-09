@@ -34,6 +34,7 @@
         var pageToc = [
           {title: "Vue - The Complete Guide", url: "#_top", children: [
               {title: "1. Getting Started", url: "#1-getting-started" },
+              {title: "Basics \u0026amp; Core Concepts - DOM Interaction with Vue", url: "#basics-core-concepts-dom-interaction-with-vue" },
           ]},
         ];
 
@@ -85,6 +86,436 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="vue-the-complete-guide">Vue - The Complete Guide</h1>
 <p>Notes based on Udemy Course <a href="https://www.udemy.com/course/vuejs-2-the-complete-guide/">Vue - The Complete Guide (incl. Router &amp; Composition API)</a></p>
 <h2 id="1-getting-started">1. Getting Started</h2>
+<h3 id="what-is-vuejs">What is Vue.js?</h3>
+<ul>
+<li>A Javascript framwork that makes building interactive and reactive web frontends (= browser-side web applications) easier.</li>
+</ul>
+<h3 id="different-ways-of-utilizing-vue">Different Ways of Utilizing Vue</h3>
+<ul>
+<li>Control parts of HTML pages or entire pages<ul>
+<li>Widget approach on a multi-page application<ul>
+<li>Some pages are still rendered on and served by a backend server</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Can also be used to control the entire frontend of a web application<ul>
+<li>Single-Page-Applicaton Approach.<ul>
+<li>Server sends only one HTML page, thereafter Vue takes over and controls the UI</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="building-a-first-app-with-just-javascript">Building a First App with just Javascript</h3>
+<ul>
+<li>Append item to a list.</li>
+</ul>
+<pre><code class="language-javascript">const buttonEl = document.querySelector('button');
+const inputEl = document.querySelector('input');
+const listEl = document.querySelector('ul');
+
+function addGoal() {
+    const enteredValue = inputEl.value;
+    const listItemEl = document.createElement('li');
+    listItemEl.textContent = enteredValue;
+    listEl.appendChild(listItemEl);
+}
+
+buttonEl.addEventListener('click', addGoal);
+</code></pre>
+<h3 id="re-building-the-app-with-vue">Re-building the App with Vue</h3>
+<ul>
+<li>Using Vue from CDN</li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;A First App&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;goal&quot;&gt;Goal&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;goal&quot; v-model=&quot;enteredValue&quot; /&gt;
+        &lt;button v-on:click=&quot;addGoal&quot;&gt;Add Goal&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;ul&gt;
+        &lt;li v-for=&quot;goal in goals&quot;&gt;{{ goal }}&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-javascript">Vue.createApp({
+   data() {
+    return {
+        goals: [],
+        enteredValue: ''
+    };
+   } ,
+   methods: {
+    addGoal() {
+        this.goals.push(this.enteredValue);
+    }
+   }
+}).mount('#app');
+</code></pre>
+<h3 id="course-content">Course Content</h3>
+<ul>
+<li>Basics - <em>Small Demos/Mini Projects</em><ul>
+<li>Core Syntax</li>
+<li>Templates</li>
+<li>Directives</li>
+<li>Data</li>
+<li>Methods</li>
+<li>Computed Properties</li>
+<li>Watchers</li>
+</ul>
+</li>
+<li>Intermediate - <em>Bigger Course Projects</em><ul>
+<li>Components</li>
+<li>Component Communication</li>
+<li>Behind the Scenes</li>
+<li>Forms</li>
+<li>HTTP</li>
+<li>Routing</li>
+<li>Animations</li>
+</ul>
+</li>
+<li>Advanced - <em>Assignments &amp; Challenges</em><ul>
+<li>Vuex</li>
+<li>Authentication</li>
+<li>Deployment &amp; Optimizations</li>
+<li>Composition API</li>
+<li>Re-using Code</li>
+</ul>
+</li>
+</ul>
+<h2 id="basics-core-concepts-dom-interaction-with-vue">Basics &amp; Core Concepts - DOM Interaction with Vue</h2>
+<h3 id="creating-and-connecting-vue-app-instances">Creating and Connecting Vue App Instances</h3>
+<ul>
+<li>If we control a HTML element with Vue, we'll also control all child elements of that element</li>
+</ul>
+<pre><code class="language-html">&lt;section id=&quot;user-goal&quot;&gt;
+  &lt;h2&gt;My Course Goal&lt;/h2&gt;
+  &lt;p&gt;&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+        courseGoal: 'Test!'
+    };
+  },
+});
+
+app.mount('#user-goal');
+</code></pre>
+<h3 id="interpolation-and-data-binding">Interpolation and Data Binding</h3>
+<ul>
+<li>Reference properties that are part of the object</li>
+</ul>
+<pre><code class="language-html">&lt;section id=&quot;user-goal&quot;&gt;
+  &lt;h2&gt;My Course Goal&lt;/h2&gt;
+  &lt;p&gt;{{ courseGoal }}&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<h3 id="binding-attributes-with-the-v-bind-directive">Binding Attributes with the "v-bind" Directive</h3>
+<ul>
+<li>The <code>{{ }}</code> syntax is only available between opening and closing HTML tags<ul>
+<li>Passing dynamic value to an attribute, use Vue binding syntax, a directive</li>
+<li>V-bind is a reserved name detected and understood by Vue</li>
+<li>All built-in directives start with <code>v-</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+        courseGoal: 'Test!',
+        vueLink: 'https://vuejs.org/'
+    };
+  },
+});
+
+app.mount('#user-goal');
+</code></pre>
+<pre><code class="language-html">&lt;p&gt;Learn more &lt;a v-bind:href=&quot;vueLink&quot;&gt;about Vue&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="understanding-methods-in-vue-apps">Understanding "methods" in Vue apps</h3>
+<ul>
+<li>Methods allow to define functions that execute when something happens<ul>
+<li>When you call them or a user event such as a click occurs</li>
+<li>Takes an object, full of methods</li>
+<li><code>methods</code> is reserved term, such as <code>data</code></li>
+<li>All properties defined in methods object need to be functions</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+      courseGoal: 'Test!',
+      vueLink: 'https://vuejs.org/',
+    };
+  },
+  methods: {
+    outputGoal() {
+      const randomNumber = Math.random();
+      if (randomNumber &lt; 0.5) {
+        return 'Learn Vue!';
+      } else {
+        return 'Master Vue!';
+      }
+    },
+  },
+});
+
+app.mount('#user-goal');
+</code></pre>
+<pre><code class="language-html">&lt;section id=&quot;user-goal&quot;&gt;
+  &lt;h2&gt;My Course Goal&lt;/h2&gt;
+  &lt;p&gt;{{ outputGoal() }}&lt;/p&gt;
+  &lt;p&gt;Learn more &lt;a v-bind:href=&quot;vueLink&quot;&gt;about Vue&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<h3 id="working-with-data-inside-of-a-vue-app">Working with Data inside of a Vue app</h3>
+<ul>
+<li>Referencing data in methods<ul>
+<li>Vue packages data into the app object</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+      courseGoalA: 'Test A!',
+      courseGoalB: 'Test B!',
+      vueLink: 'https://vuejs.org/',
+    };
+  },
+  methods: {
+    outputGoal() {
+      const randomNumber = Math.random();
+      if (randomNumber &lt; 0.5) {
+        return this.courseGoalA;
+      } else {
+        return this.courseGoalB;
+      }
+    },
+  },
+});
+
+app.mount('#user-goal');
+</code></pre>
+<h3 id="outputting-raw-html-content-with-v-html">Outputting Raw HTML Content with v-html</h3>
+<ul>
+<li>Using <code>v-html</code></li>
+</ul>
+<pre><code class="language-javascript">...
+courseGoalB: '&lt;h2&gt;Test B!&lt;/h2&gt;',
+...
+</code></pre>
+<pre><code class="language-html">...
+&lt;p v-html=&quot;outputGoal()&quot;&gt;&lt;/p&gt;
+...
+</code></pre>
+<h3 id="a-first-summary">A First Summary</h3>
+<ul>
+<li>Controlling section with Vue<ul>
+<li>And all child elements</li>
+</ul>
+</li>
+<li>CSS Selector for mount</li>
+<li>Data-binding</li>
+<li>Interpolation syntax in HTML</li>
+<li><code>v-bind</code> &amp; <code>v-html</code></li>
+<li><code>data</code> &amp; <code>methods</code> options<ul>
+<li><code>data</code> returns object</li>
+<li><code>methods</code> returns functions you can call</li>
+</ul>
+</li>
+<li>Declarative approach<ul>
+<li>Define the goal, define the template</li>
+<li>Mark what is dynamic</li>
+<li>Updates the DOM</li>
+</ul>
+</li>
+</ul>
+<h3 id="event-binding">Event-binding</h3>
+<ul>
+<li>React to user input, events</li>
+<li><code>v-on</code> directive for adding event listeners<ul>
+<li>Takes event as argument after colon</li>
+<li>i.e <code>v-on:click</code></li>
+<li>All default events, mouseenter, mouseleave, etc</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-html">&lt;section id=&quot;events&quot;&gt;
+  &lt;h2&gt;Events in Action&lt;/h2&gt;
+  &lt;button v-on:click=&quot;counter++&quot;&gt;Add&lt;/button&gt;
+  &lt;button v-on:click=&quot;counter--&quot;&gt;Reduce&lt;/button&gt;
+  &lt;p&gt;Result: {{ counter }}&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+      counter: 0,
+    };
+  },
+});
+
+app.mount('#events');
+</code></pre>
+<h3 id="events-and-methods">Events and Methods</h3>
+<ul>
+<li>Moving logic out of HTML and into the Javascript code</li>
+<li>Can <em>point</em> to function, as opposed to calling it <ul>
+<li><code>&lt;button v-on:click="add"&gt;Add&lt;/button&gt;</code> instead of <code>&lt;button v-on:click="add()"&gt;Add&lt;/button&gt;</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-html">&lt;section id=&quot;events&quot;&gt;
+  &lt;h2&gt;Events in Action&lt;/h2&gt;
+  &lt;button v-on:click=&quot;add&quot;&gt;Add&lt;/button&gt;
+  &lt;button v-on:click=&quot;reduce&quot;&gt;Reduce&lt;/button&gt;
+  &lt;p&gt;Result: {{ counter }}&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+      counter: 0,
+    };
+  },
+  methods: {
+    add() {
+      this.counter++;
+    },
+    reduce() {
+      this.counter--;
+    },
+  },
+});
+
+app.mount('#events');
+</code></pre>
+<h3 id="working-with-event-arguments">Working with Event Arguments</h3>
+<ul>
+<li>Add and Reduce by other numbers<ul>
+<li>Passing arguments</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">methods: {
+    add(num) {
+      this.counter = this.counter + num;
+    },
+    reduce(num) {
+      this.counter = this.counter - num;
+    },
+  },
+</code></pre>
+<pre><code class="language-html">&lt;button v-on:click=&quot;add(10)&quot;&gt;Add 10&lt;/button&gt;
+&lt;button v-on:click=&quot;reduce(5)&quot;&gt;Reduce 5&lt;/button&gt;
+</code></pre>
+<h3 id="using-the-native-event-object">Using the Native Event Object</h3>
+<ul>
+<li>Utilizing default event object</li>
+</ul>
+<pre><code class="language-html">&lt;input type=&quot;text&quot;v-on:input=&quot;setName&quot;&gt;
+&lt;p&gt;Your Name: {{ name }}&lt;/p&gt;
+</code></pre>
+<pre><code class="language-javascript">methods: {
+  setName(event) {
+    this.name = event.target.value;
+  },
+  ...
+},
+</code></pre>
+<ul>
+<li>Accessing the event object<ul>
+<li>Default if pointing, need to state parameter with other args<ul>
+<li><code>v-on:input="setName"</code></li>
+<li><code>v-on:input="setName($event, 'Last Name')"</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="exploring-event-modifiers">Exploring Event Modifiers</h3>
+<ul>
+<li>Using form, input, and button<ul>
+<li>Dealing with button press default behavior to send HTTP request</li>
+<li>Can do <code>event.preventDefault();</code> but there's another way with event modifier</li>
+</ul>
+</li>
+<li>Can do prevent, right click only, key modifiers, etc</li>
+</ul>
+<pre><code class="language-html">&lt;section id=&quot;events&quot;&gt;
+  &lt;h2&gt;Events in Action&lt;/h2&gt;
+  &lt;button v-on:click=&quot;add(10)&quot;&gt;Add 10&lt;/button&gt;
+  &lt;button v-on:click.right=&quot;reduce(5)&quot;&gt;Reduce 5&lt;/button&gt;
+  &lt;p&gt;Result: {{ counter }}&lt;/p&gt;
+  &lt;input
+    type=&quot;text&quot;
+    v-on:input=&quot;setName($event, 'Lofton')&quot;
+    v-on:keyup.enter=&quot;confirmInput&quot;
+  /&gt;
+  &lt;p&gt;Your Name: {{ confirmedName }}&lt;/p&gt;
+  &lt;form v-on:submit.prevent=&quot;submitForm&quot;&gt;
+    &lt;input type=&quot;text&quot; /&gt;
+    &lt;button&gt;Sign Up&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt;
+</code></pre>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+      counter: 0,
+      name: '',
+      confirmedName: '',
+    };
+  },
+  methods: {
+    confirmInput() {
+      this.confirmedName = this.name;
+    },
+    submitForm() {
+      alert('Submitted!');
+    },
+    setName(event, lastName) {
+      this.name = event.target.value + ' ' + lastName;
+    },
+    add(num) {
+      this.counter = this.counter + num;
+    },
+    reduce(num) {
+      this.counter = this.counter - num;
+    },
+  },
+});
+
+app.mount('#events');
+</code></pre>
+<h3 id="locking-content-with-v-once">Locking Content with v-once</h3>
+<ul>
+<li>Some data that changes but want to preserve initial state<ul>
+<li>Utilizing <code>v-once</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-html">&lt;p v-once&gt;Starting Counter: {{ counter }}&lt;/p&gt;
+&lt;p&gt;Result: {{ counter }}&lt;/p&gt;
+</code></pre>
 
   <br>
     
