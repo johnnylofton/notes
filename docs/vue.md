@@ -120,6 +120,8 @@ Vue.createApp({
 </section>
 ```
 
+- Anything that's part of the object you return in *data* can now be used in your Vue-controlled HTML part
+
 ```javascript
 const app = Vue.createApp({
   data() {
@@ -428,3 +430,165 @@ app.mount('#events');
 <p>Result: {{ counter }}</p>
 ```
 
+### Data Binding + Event Binding = Two-Way Binding
+
+- Resetting input with button
+```html
+<input type="text" v-on:input="setName($event, 'Lofton')">
+<button>Reset Input</button>
+<p>Your Name: {{ name }}</p>
+```
+```javascript
+methods: {
+  setName(event, lastName) {
+    this.name = event.target.value + ' ' + lastName;
+  },
+  ...
+  resetInput() {
+    this.name = ''
+  },
+},
+```
+- Bind name to input
+    - `<input type="text" v-bind:value="name" v-on:input="setName($event, 'Lofton')">`
+- Set button to execute method on click
+    - `<button v-on:click="resetInput">Reset Input</button>`
+- With last name this causes issues so remove.
+    - `this.name = event.target.value;`
+- Shortcut for when you bind the value and listen to input changes
+    - Using `v-model` as shortcut for `v-bind value v-on:input`
+        - `<input type="text" v-model="name">`
+        - This is two way binding, communicating in both ways, listening to an event coming out of input element and writing it back
+
+### Methods used for Data Binding: How it Works
+
+#### What we know (thus far)
+- DOM Interaction, Templates & Data Binding
+- Event Handling
+- Next:
+  - Advanced Relativity
+
+
+- Outputting Full Name
+  - `<p>Your Name: {{ outputFullName() }}</p>`
+```html
+<p>Your Name: {{ outputFullName() }}</p>
+```
+- Checking if name is empty before returning.
+```javascript
+methods: {
+    outputFullName() {
+      if (this.name === '') {
+        return '';
+      }
+      return this.name + ' ' + 'Lofton';
+    },
+}
+```
+
+- This way is not ideal, behind the scenes when counter is change Vue attempts to find where counter is used in order to update the page automatically. When method is called, it is re-executed on page whenever anything changes because Vue does not know what the method does.
+  - Any non-event bound method will be re-executed by Vue when anything on the page changes.
+  - Not a bug, this is how Vue works. Methods are not the best solution for outputting some dynamically calculated value such as this.
+
+### Introducing Computed Properties
+
+- Data, Methods, and Computed
+- Computed Properties are essentially like methods with one difference.
+  - Vue will be aware of their dependencies and only reexecutes them if one of the dependencies is changed.
+  - Should name your computed methods like data properties as they are used like such.
+  - Point to it in HTML, as Vue will call it for you (`fullname` instead of `fullname()`)
+  - Computed property value is cached and only recalculate and reevaluate it if the property changes, in this case `name`
+  
+```javascript
+computed: {
+    fullname() {
+      console.log('Running Again...');
+      if (this.name === '') {
+        return '';
+      }
+      return this.name + ' ' + 'Lofton';
+    },
+  },
+```
+```html
+<p>Your Name: {{ fullname }}</p>
+```
+
+### Working with Watchers
+
+- Watcher is basically a function you can tell Vue to execute when one of it's properties has changed.
+  - Sounds like computed properties, and can use those instead but this might not be the way you want to do it.
+  - Side note, don't want to have a name clash, i.e. a data property and a computed property both named `fullname`.
+  - `watch` expects an object, similar to computed and methods.
+    - Can use the same name for a watcher, `name() {}`
+    - They work this way, connection is set up by repeating another data or computed property name in a watcher method and it will automatically executed by Vue when a property by that name changes.
+    - We don't return anything, because the watcher won't be used in the HTML code to use a return value.
+    - Run logic that should be executed when `name` changes.
+    - `this.name` not needed, as watcher function automatically gets last value of watched property as an argument.
+      - Can also access old value if needed. `name(newValue, oldValue {...};)`
+- Example with two watchers to reflect full name:
+```javascript
+watch: {
+    name(value) {
+      if (value === '') {
+        this.fullname = '';
+      } else {
+        this.fullname = value + ' ' + this.lastName;
+      }
+    },
+    lastName(value) {
+      if (value === '') {
+        this.fullname = '';
+      } else {
+        this.fullname = this.name + ' ' + value;
+      }
+    },
+  },
+```
+- However, can do this more simply (less code) with computed:
+```javascript
+computed: {
+    fullname() {
+      console.log('Running Again...');
+      if (this.name === '' || this.lastName === '') {
+        return '';
+      }
+      return this.name + ' ' + this.lastName;
+    },
+  },
+```
+- So why use watchers?
+  - Change when something specific happens. For example, when counter is greater than 50, reset it.
+  - Run logic that might update a data property, but not always.
+```javascript
+watch: {
+    counter(value) {
+      if (value > 50) {
+        this.counter = 0;
+      }
+    },
+}
+```
+- Example use cases
+  - HTML Requests to send if certain data changes
+  - Timers if certain data changes
+- Watcher useful for some code that maybe updates some data property in reaction to a data property changing.
+- In comparison, Computed is good if you want to calculate some output dynamically.
+
+### Methods vs Computed Properties vs Watchers
+
+
+
+### v-bind and v-on Shorthands
+
+### Dynamic Styling with Inline Styles
+
+### Adding CSS Classes Dynamically
+
+### Classes & Computed Properties
+
+### Dynamic Classes: Array Syntax
+
+### Module Summary
+
+## Rendering Conditional Content & Lists
