@@ -35,6 +35,8 @@
           {title: "Vue - The Complete Guide", url: "#_top", children: [
               {title: "1. Getting Started", url: "#1-getting-started" },
               {title: "Basics \u0026amp; Core Concepts - DOM Interaction with Vue", url: "#basics-core-concepts-dom-interaction-with-vue" },
+              {title: "Rendering Conditional Content \u0026amp; Lists", url: "#rendering-conditional-content-lists" },
+              {title: "- We need to implement logic to end the game, in the event of monster health or player health below 0, or both, resulting in a draw.", url: "#-we-need-to-implement-logic-to-end-the-game-in-the-event-of-monster-health-or-player-health-below-0-or-both-resulting-in-a-draw" },
           ]},
         ];
 
@@ -207,6 +209,9 @@ buttonEl.addEventListener('click', addGoal);
   &lt;p&gt;&lt;/p&gt;
 &lt;/section&gt;
 </code></pre>
+<ul>
+<li>Anything that's part of the object you return in <em>data</em> can now be used in your Vue-controlled HTML part</li>
+</ul>
 <pre><code class="language-javascript">const app = Vue.createApp({
   data() {
     return {
@@ -516,6 +521,621 @@ app.mount('#events');
 <pre><code class="language-html">&lt;p v-once&gt;Starting Counter: {{ counter }}&lt;/p&gt;
 &lt;p&gt;Result: {{ counter }}&lt;/p&gt;
 </code></pre>
+<h3 id="data-binding-event-binding-two-way-binding">Data Binding + Event Binding = Two-Way Binding</h3>
+<ul>
+<li>Resetting input with button</li>
+</ul>
+<pre><code class="language-html">&lt;input type=&quot;text&quot; v-on:input=&quot;setName($event, 'Lofton')&quot;&gt;
+&lt;button&gt;Reset Input&lt;/button&gt;
+&lt;p&gt;Your Name: {{ name }}&lt;/p&gt;
+</code></pre>
+<pre><code class="language-javascript">methods: {
+  setName(event, lastName) {
+    this.name = event.target.value + ' ' + lastName;
+  },
+  ...
+  resetInput() {
+    this.name = ''
+  },
+},
+</code></pre>
+<ul>
+<li>Bind name to input<ul>
+<li><code>&lt;input type="text" v-bind:value="name" v-on:input="setName($event, 'Lofton')"&gt;</code></li>
+</ul>
+</li>
+<li>Set button to execute method on click<ul>
+<li><code>&lt;button v-on:click="resetInput"&gt;Reset Input&lt;/button&gt;</code></li>
+</ul>
+</li>
+<li>With last name this causes issues so remove.<ul>
+<li><code>this.name = event.target.value;</code></li>
+</ul>
+</li>
+<li>Shortcut for when you bind the value and listen to input changes<ul>
+<li>Using <code>v-model</code> as shortcut for <code>v-bind value v-on:input</code><ul>
+<li><code>&lt;input type="text" v-model="name"&gt;</code></li>
+<li>This is two way binding, communicating in both ways, listening to an event coming out of input element and writing it back</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="methods-used-for-data-binding-how-it-works">Methods used for Data Binding: How it Works</h3>
+<h4 id="what-we-know-thus-far">What we know (thus far)</h4>
+<ul>
+<li>DOM Interaction, Templates &amp; Data Binding</li>
+<li>Event Handling</li>
+<li>Next:</li>
+<li>
+<p>Advanced Relativity</p>
+</li>
+<li>
+<p>Outputting Full Name</p>
+</li>
+<li><code>&lt;p&gt;Your Name: {{ outputFullName() }}&lt;/p&gt;</code></li>
+</ul>
+<pre><code class="language-html">&lt;p&gt;Your Name: {{ outputFullName() }}&lt;/p&gt;
+</code></pre>
+<ul>
+<li>Checking if name is empty before returning.</li>
+</ul>
+<pre><code class="language-javascript">methods: {
+    outputFullName() {
+      if (this.name === '') {
+        return '';
+      }
+      return this.name + ' ' + 'Lofton';
+    },
+}
+</code></pre>
+<ul>
+<li>This way is not ideal, behind the scenes when counter is change Vue attempts to find where counter is used in order to update the page automatically. When method is called, it is re-executed on page whenever anything changes because Vue does not know what the method does.</li>
+<li>Any non-event bound method will be re-executed by Vue when anything on the page changes.</li>
+<li>Not a bug, this is how Vue works. Methods are not the best solution for outputting some dynamically calculated value such as this.</li>
+</ul>
+<h3 id="introducing-computed-properties">Introducing Computed Properties</h3>
+<ul>
+<li>Data, Methods, and Computed</li>
+<li>Computed Properties are essentially like methods with one difference.</li>
+<li>Vue will be aware of their dependencies and only reexecutes them if one of the dependencies is changed.</li>
+<li>Should name your computed methods like data properties as they are used like such.</li>
+<li>Point to it in HTML, as Vue will call it for you (<code>fullname</code> instead of <code>fullname()</code>)</li>
+<li>Computed property value is cached and only recalculate and reevaluate it if the property changes, in this case <code>name</code></li>
+</ul>
+<pre><code class="language-javascript">computed: {
+    fullname() {
+      console.log('Running Again...');
+      if (this.name === '') {
+        return '';
+      }
+      return this.name + ' ' + 'Lofton';
+    },
+  },
+</code></pre>
+<pre><code class="language-html">&lt;p&gt;Your Name: {{ fullname }}&lt;/p&gt;
+</code></pre>
+<h3 id="working-with-watchers">Working with Watchers</h3>
+<ul>
+<li>Watcher is basically a function you can tell Vue to execute when one of it's properties has changed.</li>
+<li>Sounds like computed properties, and can use those instead but this might not be the way you want to do it.</li>
+<li>Side note, don't want to have a name clash, i.e. a data property and a computed property both named <code>fullname</code>.</li>
+<li><code>watch</code> expects an object, similar to computed and methods.<ul>
+<li>Can use the same name for a watcher, <code>name() {}</code></li>
+<li>They work this way, connection is set up by repeating another data or computed property name in a watcher method and it will automatically executed by Vue when a property by that name changes.</li>
+<li>We don't return anything, because the watcher won't be used in the HTML code to use a return value.</li>
+<li>Run logic that should be executed when <code>name</code> changes.</li>
+<li><code>this.name</code> not needed, as watcher function automatically gets last value of watched property as an argument.</li>
+<li>Can also access old value if needed. <code>name(newValue, oldValue {...};)</code></li>
+</ul>
+</li>
+<li>Example with two watchers to reflect full name:</li>
+</ul>
+<pre><code class="language-javascript">watch: {
+    name(value) {
+      if (value === '') {
+        this.fullname = '';
+      } else {
+        this.fullname = value + ' ' + this.lastName;
+      }
+    },
+    lastName(value) {
+      if (value === '') {
+        this.fullname = '';
+      } else {
+        this.fullname = this.name + ' ' + value;
+      }
+    },
+  },
+</code></pre>
+<ul>
+<li>However, can do this more simply (less code) with computed:</li>
+</ul>
+<pre><code class="language-javascript">computed: {
+    fullname() {
+      console.log('Running Again...');
+      if (this.name === '' || this.lastName === '') {
+        return '';
+      }
+      return this.name + ' ' + this.lastName;
+    },
+  },
+</code></pre>
+<ul>
+<li>So why use watchers?</li>
+<li>Change when something specific happens. For example, when counter is greater than 50, reset it.</li>
+<li>Run logic that might update a data property, but not always.</li>
+</ul>
+<pre><code class="language-javascript">watch: {
+    counter(value) {
+      if (value &gt; 50) {
+        this.counter = 0;
+      }
+    },
+}
+</code></pre>
+<ul>
+<li>Example use cases</li>
+<li>HTML Requests to send if certain data changes</li>
+<li>Timers if certain data changes</li>
+<li>Watcher useful for some code that maybe updates some data property in reaction to a data property changing.</li>
+<li>In comparison, Computed is good if you want to calculate some output dynamically.</li>
+</ul>
+<h3 id="methods-vs-computed-properties-vs-watchers">Methods vs Computed Properties vs Watchers</h3>
+<ul>
+<li>Methods</li>
+<li>Use with event binding <em>OR</em> data binding.</li>
+<li>Data binding: Method is executed for every "re-render" cycle of the component.</li>
+<li>Use for events or data that really needs to be re-evaluated all the time.</li>
+<li>Computed</li>
+<li>Use with data binding</li>
+<li>Computed properties are only re-evaluated if one of their "used values" changed.</li>
+<li>Use for data that depends on other data.</li>
+<li>Watch</li>
+<li>Not used directly in template.</li>
+<li>Allows you to run any code in reaction to some changed data (e.g. send HTTP request, etc.)</li>
+<li>Use for any non-data update you want to make.</li>
+</ul>
+<h3 id="v-bind-and-v-on-shorthands">v-bind and v-on Shorthands</h3>
+<ul>
+<li><code>v-on</code> Shorthand</li>
+<li>Using <code>@</code> in place of <code>v-on:</code></li>
+<li><code>&lt;button v-on:click="add(10)"&gt;Add 10&lt;/button&gt;</code> --&gt; <code>&lt;button @click="add(10)"&gt;Add 10&lt;/button&gt;</code></li>
+<li><code>v-bind</code> Shorthand</li>
+<li>Omit the <code>v-bind</code>, use only <code>:</code></li>
+<li><code>&lt;input type="text" v-bind:value="..." v-model="name" /&gt;</code> --&gt; <code>&lt;input type="text" :value="..." v-model="name" /&gt;</code></li>
+<li><code>:attributeName</code> shorthand for <code>v-bind</code>, <code>@eventName</code> shorthand for <code>v-on</code></li>
+</ul>
+<h3 id="dynamic-styling-with-inline-styles">Dynamic Styling with Inline Styles</h3>
+<ul>
+<li>Using Vue to change styling dynamically via inline using v-bind and this special style binding syntax.</li>
+</ul>
+<pre><code class="language-html">&lt;section id=&quot;styling&quot;&gt;
+  &lt;div
+    class=&quot;demo&quot;
+    :style=&quot;{borderColor: boxASelected ? 'red' : '#ccc'}&quot;
+    @click=&quot;boxSelected('A')&quot;
+  &gt;&lt;/div&gt;
+  &lt;div class=&quot;demo&quot; @click=&quot;boxSelected('B')&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;demo&quot; @click=&quot;boxSelected('C')&quot;&gt;&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+      boxASelected: false,
+      boxBSelected: false,
+      boxCSelected: false,
+    };
+  },
+  methods: {
+    boxSelected(box) {
+      if (box === 'A') {
+        this.boxASelected = true;
+      } else if (box === 'B') {
+        this.boxBSelected = true;
+      } else if (box === 'C') {
+        this.boxCSelected = true;
+      }
+    },
+  },
+});
+
+app.mount('#styling');
+</code></pre>
+<h3 id="adding-css-classes-dynamically">Adding CSS Classes Dynamically</h3>
+<ul>
+<li>Inline styles not used very often since they overrule all other styles.</li>
+<li>In modern development and CSS inline is rarely used.</li>
+<li>We can bind CSS classes dynamically using <code>v-bind</code></li>
+</ul>
+<pre><code class="language-html">&lt;div
+  :class=&quot;boxASelected ? 'demo active' : 'demo'&quot;
+  @click=&quot;boxSelected('A')&quot;
+&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>However, not optimal as this is difficult to read, more classes will make this even more difficult.</li>
+<li>Vue supports a special syntax for class attribute if binding with <code>v-bind</code>.</li>
+</ul>
+<pre><code class="language-html">&lt;div
+  :class=&quot;{demo: true, active: boxASelected}&quot;
+  @click=&quot;boxSelected('A')&quot;
+&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>Same behavior but more readible and maintainable.</li>
+<li>Can simplify this further, demo is always true and can be moved into a normal class attribute.</li>
+</ul>
+<pre><code class="language-html">&lt;div
+  class=&quot;demo&quot;
+  :class=&quot;{active: boxASelected}&quot;
+  @click=&quot;boxSelected('A')&quot;
+&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>Dynamically bound class will be evaluated by Vue and merge it with the hard-coded class.</li>
+<li>We can also alter our methods to create a toggle as opposed to always making it active by assigning opposite value instead of true.</li>
+<li><code>this.boxASelected = !this.boxASelected;</code></li>
+</ul>
+<h3 id="classes-computed-properties">Classes &amp; Computed Properties</h3>
+<ul>
+<li>We can also utilize computed properties here for our styles.</li>
+<li>Preferable as having logic in HTML is suboptimal, although previous example with class-binding was sufficient.</li>
+<li>Sufficent because of single line logic, for more complex dynamic class code computed is likely the better option.</li>
+</ul>
+<pre><code class="language-html">&lt;div class=&quot;demo&quot; :class=&quot;boxAClasses&quot; @click=&quot;boxSelected('A')&quot;&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-javascript">computed: {
+  boxAClasses() {
+    return { active: this.boxASelected };
+  },
+},
+</code></pre>
+<h3 id="dynamic-classes-array-syntax">Dynamic Classes: Array Syntax</h3>
+<ul>
+<li>Another syntax supported by view for multiple class assignments by working with one dynamic class assignment.</li>
+<li>Passing an array.</li>
+</ul>
+<pre><code class="language-html">&lt;div :class=&quot;['demo', { active: boxBSelected }]&quot; @click=&quot;boxSelected('B')&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>With computed: </p>
+<pre><code class="language-html">&lt;div :class=&quot;['demo', boxBClasses]&quot; @click=&quot;boxSelected('B')&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="module-summary">Module Summary</h3>
+<ul>
+<li>DOM &amp; Templates</li>
+<li>Vue can be used to define the goal instead of the steps (-&gt; <strong>declarative</strong> approach).</li>
+<li><strong>Connect</strong> Vue to HTML via "<strong>mount</strong>": Vue <strong>then renders the real DOM</strong> based on the connected template.</li>
+<li>Data &amp; Event Bindings</li>
+<li>You can <strong>bind data</strong> via interpolation (<strong>{{ }}</strong>) or the <strong>v-bind</strong> ("<strong>:</strong>") directive.</li>
+<li>You <strong>listen for events</strong> via <strong>v-on</strong> ("<strong>@</strong>")</li>
+<li>Reactivity</li>
+<li>Vue updates the real DOM for you when bound data changes.</li>
+<li><strong>Computed properties</strong> and <strong>watchers</strong> allow you to reach to data changes.</li>
+<li>Styling</li>
+<li>Dynamic CSS class and inline style bindings are supported by Vue</li>
+<li>Vue offers multiple <strong>special syntaxes</strong> (object-based, array-based) for efficient bindings.</li>
+</ul>
+<h2 id="rendering-conditional-content-lists">Rendering Conditional Content &amp; Lists</h2>
+<h3 id="module-introduction">Module Introduction</h3>
+<ul>
+<li>Conditional Content &amp; Lists</li>
+<li>Rendering more ...sometimes</li>
+<li>Module Content</li>
+<li>Rendering Content with Conditions</li>
+<li>Outputting Lists of Data</li>
+<li>A First Look Behind the Scenes</li>
+</ul>
+<h4 id="understanding-the-problem">Understanding the Problem</h4>
+<ul>
+<li>Dummy list into a growing &amp; shrinking dynamic list.</li>
+<li>Message showing no goals added yet.</li>
+</ul>
+<p>Starting Vue app:</p>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return { goals: [] };
+  },
+});
+
+app.mount('#user-goals');
+</code></pre>
+<ul>
+<li>If the array is empty, the unordered list should not be shown (not part of the DOM), instead paragraph should be shown.</li>
+<li>If we do have goals, show the unordered list and do not show paragraph.</li>
+<li>Conditional rendering will accomplish this.</li>
+<li>Common use case: loading spinner shown while waiting for data to arrive.</li>
+</ul>
+<h4 id="rendering-content-conditionally">Rendering Content Conditionally</h4>
+<ul>
+<li>Show list if we do have goals, if not only show paragraph.</li>
+<li>Directive just for this purpose: <code>v-if</code></li>
+<li>Similar to <code>if</code> statement in javascript.<ul>
+<li><code>&lt;p v-if="goals.length === 0"&gt;...&lt;/p&gt;</code></li>
+</ul>
+</li>
+<li>Bind our input, create method to add goals, data property for the entered goal value, click listener on button.</li>
+</ul>
+<h4 id="v-if-v-else-and-v-else-if">v-if, v-else, and v-else-if</h4>
+<ul>
+<li>More on <code>v-if</code></li>
+<li>Can have any expression that evaluates to truthy or falsy value, just as regular <code>if</code> statement, can combine with <code>&amp;&amp;</code> (and) or <code>||</code> (or).</li>
+<li>Can point to computed or data property, or even a method as long as it evaluates to boolean value.</li>
+<li>Vue offers another directive to use in conjunction with <code>v-if</code>: <code>v-else</code><ul>
+<li><code>v-else</code> has to be used on an element that comes directly after one with <code>v-if</code>, or <em>direct neighbor element</em></li>
+<li>Additionally, <code>v-else-if</code> offered in similar way.</li>
+</ul>
+</li>
+<li>These conditionals are not simply about showing/hiding things on the page, it's about whether or not they are included in the DOM, so more of attaching/re-attaching.</li>
+</ul>
+<pre><code class="language-javascript">const app = Vue.createApp({
+  data() {
+    return {
+      enteredGoalValue: '',
+      goals: [],
+    };
+  },
+  methods: {
+    addGoal() {
+      this.goals.push(this.enteredGoalValue);
+    },
+  },
+});
+
+app.mount('#user-goals');
+</code></pre>
+<pre><code class="language-html">&lt;section id=&quot;user-goals&quot;&gt;
+  &lt;h2&gt;My course goals&lt;/h2&gt;
+  &lt;input type=&quot;text&quot; v-model=&quot;enteredGoalValue&quot; /&gt;
+  &lt;button @click=&quot;addGoal&quot;&gt;Add Goal&lt;/button&gt;
+  &lt;p v-if=&quot;goals.length === 0&quot;&gt;
+    No goals have been added yet - please start adding some!
+  &lt;/p&gt;
+  &lt;ul v-else&gt;
+    &lt;li&gt;Goal&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;
+</code></pre>
+<h4 id="using-v-show-instead-of-v-if">Using v-show Instead Of v-if</h4>
+<ul>
+<li>An alternative to <code>v-if</code>: <code>v-show</code></li>
+<li><code>v-show</code> doesn't work together with <code>v-if</code>, <code>v-else</code>, <code>v-else-if</code>, it's standalone so if you have multiple alternatives, multiple <code>v-show</code>s are needed</li>
+<li><code>&lt;p v-show="goals.length === 0"&gt;...&lt;/p&gt;</code></li>
+<li>What does <code>v-show</code> do then?</li>
+<li>Big difference is that <code>v-show</code> adds the <code>display: none</code> style to the element, so it is still in the DOM</li>
+<li>Which approach is better?</li>
+<li>Cost performance associated with adding/removing elements</li>
+<li>A bunch of non-needed elements in the DOM also not ideal</li>
+<li>Rule of thumb: typically use <code>v-if</code> and only fall back to <code>v-show</code> if you have an element which visibility status changes alot.</li>
+<li>For example, a button that toggles an element.</li>
+</ul>
+<h4 id="rendering-lists-of-data">Rendering Lists of Data</h4>
+<ul>
+<li>Need to output a list of content, a common thing in web apps, and Vue offers a tool to do just that: <code>v-for</code></li>
+<li>As with <code>v-if</code> being similar to <code>if</code> statements in javascript, <code>v-for</code> is similar to <code>for</code> loops in javascript.<ul>
+<li><code>goal</code> of <code>goals</code> in JS, use <code>in</code> keyword with Vue</li>
+</ul>
+</li>
+<li><code>&lt;li v-for="goal in goals"&gt;{{ goal }}&lt;/li&gt;</code></li>
+<li>Has to be inside the element, similar to how the constant in a <code>for</code> loop is only available within it.</li>
+<li>Vue adds them to the DOM in an efficient way, by only adding the new list item and leaving unchanged list items alone. It does not re-render the entire list every time an item is added or removed.</li>
+</ul>
+<h4 id="diving-deeper-into-v-for">Diving Deeper Into v-for</h4>
+<h5 id="other-ways-of-utilizing-v-for">Other ways of utilizing <code>v-for</code>:</h5>
+<ul>
+<li>You can get the index of item in array</li>
+<li><code>v-for="(goal, index) in goals"</code></li>
+<li>Then, use like goal: <code>{{ index }}</code></li>
+<li>You can loop through objects</li>
+<li><code>v-for="value in {name: 'Johnny', age: '30'}"</code></li>
+<li>Output in list text with interpolation: <code>{{ value }}</code></li>
+<li>Can get key name of object property similar to index, or index of property in an object</li>
+<li><code>&lt;li v-for="(value, key, index) in {name: 'Johnny', age: '30'}"&gt;{{ key }}: {{ value }} | {{ index }}&lt;/li&gt;</code></li>
+<li>Can also loop through a range of numbers</li>
+<li><code>&lt;li v-for="num in 10"&gt;{{ num }}&lt;/li&gt;</code></li>
+</ul>
+<h4 id="removing-list-items">Removing List items</h4>
+<ul>
+<li>Add click listener on list item element</li>
+<li>Method for removing items from the list</li>
+<li>Will need identifier for given goal: the index</li>
+</ul>
+<pre><code class="language-html">&lt;li v-for=&quot;(goal, index) in goals&quot; @click=&quot;removeGoal(index)&quot;&gt;
+  {{ goal }} - {{ index }}
+&lt;/li&gt;
+</code></pre>
+<pre><code class="language-javascript">methods: {
+    ...
+    removeGoal(idx) {
+      this.goals.splice(idx, 1);
+    },
+  },
+</code></pre>
+<h4 id="lists-keys">Lists &amp; Keys</h4>
+<ul>
+<li>Put goal and index in paragraph element and add input to list element for this example:</li>
+<li><code>&lt;p&gt;{{ goal }} - {{ index }}&lt;/p&gt;</code> and <code>&lt;input type="text" @click.stop /&gt;</code> within the <code>li</code> element</li>
+<li>When deleting a list item and text is in the input, strange behavior. Deleting first goal deleted the input text in the second.</li>
+<li>Vue updates the list when you add and remove items, renders the list in the real DOM and updates it as required.</li>
+<li>Attempts to do this in a optimized way for performance, thus elements are reused.</li>
+<li>The content of the second element is moved into the first, to keep from rerendering the entire list or delete the first element and move them around.<ul>
+<li>Just the dynamic content is moved around</li>
+<li>This is why we lose the input we have on the second element when the content of the second element is moved to the old first elements DOM element.</li>
+</ul>
+</li>
+<li>Generally, reusing elements is good and efficient, but sometimes elements need to be able to be told apart.</li>
+<li>Simple extra attribute that is not a default HTML attribute for use on elements using <code>v-for</code></li>
+<li><code>key=""</code> allows you to give an element a unique identifier</li>
+<li>Good habit and practice to always use on <code>v-for</code> elements even if not needed.</li>
+<li><code>key</code> wants a unique identification criteria for every item<ul>
+<li>Bind it to dynamic value</li>
+<li>Index won't work here, doesn't belong to goal content</li>
+<li>Unique keys likely already associated with items in database, they can be used for this purpose.</li>
+</ul>
+</li>
+<li>Helps Vue tell elements apart</li>
+<li>Using goal text as key: <code>&lt;li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)"&gt;</code></li>
+</ul>
+<h4 id="module-summary_1">Module Summary</h4>
+<ul>
+<li>Conditional Content</li>
+<li><strong>v-if</strong> (and <strong>v-show</strong>) allows you to render content <strong>only if a certain condition is met</strong></li>
+<li>v-if can be combined with <strong>v-else</strong> and <strong>v-else-if</strong> (only on direct sibling elements)</li>
+<li>Lists</li>
+<li>v-for can be used to render multiple elements dynamically</li>
+<li>v-for can be used with arrays, objects, and ranges (numbers)</li>
+<li>v-for Variations</li>
+<li>You can extract <strong>values</strong>, values and <strong>indexes</strong> or values, <strong>keys</strong> and indexes.</li>
+<li>If you need v-for and v-if, <strong>DON"T use them on the same element.</strong> Use a wrapper with v-if instead.</li>
+<li>Keys</li>
+<li>Vue <strong>re-uses DOM elements</strong> to optimize performance --&gt; This can lead to bugs if elements contain state</li>
+<li>Bind the <strong>key</strong> attribute to a unique value to help Vue identify elements that belong to list content</li>
+</ul>
+<h3 id="course-project-the-monster-slayer-game">Course Project: The Monster Slayer Game</h3>
+<h4 id="module-introduction_1">Module Introduction</h4>
+<ul>
+<li>Practicing core knowledge from last modules into Project</li>
+<li>Data-binding</li>
+<li>Interpolation</li>
+<li><code>v-bind</code></li>
+<li>Event binding with <code>v-on</code></li>
+<li>Output lists of data with <code>v-for</code></li>
+<li>Conditional content with <code>v-if</code></li>
+</ul>
+<h4 id="project-setup-first-methods">Project Setup &amp; First Methods</h4>
+<ul>
+<li>Starting HTML</li>
+</ul>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Monster Slayer&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;div id=&quot;game&quot;&gt;
+    &lt;section id=&quot;monster&quot; class=&quot;container&quot;&gt;
+      &lt;h2&gt;Monster Health&lt;/h2&gt;
+      &lt;div class=&quot;healthbar&quot;&gt;
+        &lt;div class=&quot;healthbar__value&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section id=&quot;player&quot; class=&quot;container&quot;&gt;
+      &lt;h2&gt;Your Health&lt;/h2&gt;
+      &lt;div class=&quot;healthbar&quot;&gt;
+        &lt;div class=&quot;healthbar__value&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section id=&quot;controls&quot;&gt;
+      &lt;button&gt;ATTACK&lt;/button&gt;
+      &lt;button&gt;SPECIAL ATTACK&lt;/button&gt;
+      &lt;button&gt;HEAL&lt;/button&gt;
+      &lt;button&gt;SURRENDER&lt;/button&gt;
+    &lt;/section&gt;
+    &lt;section id=&quot;log&quot; class=&quot;container&quot;&gt;
+      &lt;h2&gt;Battle Log&lt;/h2&gt;
+      &lt;ul&gt;&lt;/ul&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<ul>
+<li>Top to bottom, beginning with "Attack"</li>
+<li>First time calling a method within the Vue app configuration itself.</li>
+<li>Javascript:</li>
+</ul>
+<pre><code class="language-javascript">function getRandomValue(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const app = Vue.createApp({
+  data() {
+    return {
+      playerHealth: 100,
+      monsterHealth: 100,
+    };
+  },
+  methods: {
+    attackMonster() {
+      const attackValue = getRandomValue(5, 12);
+      this.monsterHealth -= attackValue;
+      this.attackPlayer();
+    },
+    attackPlayer() {
+      const attackValue = getRandomValue(8, 15);
+      this.playerHealth -= attackValue;
+    },
+  },
+});
+
+app.mount('#game');
+</code></pre>
+<ul>
+<li>Next, connecting to our HTML</li>
+</ul>
+<h4 id="updating-the-health-bars">Updating the Health Bars</h4>
+<ul>
+<li>Click listener on our attack button</li>
+<li><code>&lt;button @click="attackMonster"&gt;ATTACK&lt;/button&gt;</code></li>
+<li>Adjusting the health bars by binding style and changing width.</li>
+<li>Monster: <code>&lt;div class="healthbar__value" :style="{width: monsterHealth + '%'}"&gt;</code><ul>
+<li>Player health done similarly.</li>
+</ul>
+</li>
+<li>Make this more lean with computed properties, then refernce that in style bind<ul>
+<li><code>&lt;div class="healthbar__value" :style="playerBarStyles"&gt;</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">computed: {
+  monsterBarStyles() {
+    return { width: this.monsterHealth + '%' };
+  },
+  playerBarStyles() {
+    return { width: this.playerHealth + '%' };
+  },
+},
+</code></pre>
+<h4 id="adding-a-special-attack">Adding a "Special Attack"</h4>
+<ul>
+<li>Implement "Special Attach" as a similar method to attack</li>
+<li>Same method as regular attack, but change min, max to 10, 25.</li>
+<li>While having more attack value, should not be available all the time, only every 3 rounds.</li>
+<li>Keeping track of rounds with additional data property <code>currentRound</code> beginning at 0, increment with every player attack (monster attack occurs in same round).</li>
+<li>Bind disabled to whether <code>currentRound</code> is divisable by 3.<ul>
+<li><code>&lt;button :disabled="currentRound % 3 !== 0" @click="specialAttackMonster"&gt;</code></li>
+</ul>
+</li>
+<li>Outsource logic to Vue config in a computed property.<ul>
+<li><code>mayUseSpecialAttack() { return this.currentRound % 3 !== 0; }</code></li>
+<li><code>&lt;button :disabled="mayUseSpecialAttack" @click="specialAttackMonster"&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="adding-a-heal-functionality">Adding a "Heal" Functionality</h4>
+<ul>
+<li>Implement as a method</li>
+<li>However, should not heal above 100 health, so include <code>if</code> check</li>
+<li>This should also count as a round in the game.</li>
+<li>Monster should attack as well since this is a round.</li>
+</ul>
+<pre><code class="language-javascript">healPlayer() {
+  this.currentRound++;
+  const healValue = getRandomValue(8, 20);
+  if (this.playerHealth + healValue &gt; 100) {
+    this.playerHealth = 100;
+  } else {
+    this.playerHealth += healValue;
+  }
+  this.attackPlayer();
+},
+</code></pre>
+<ul>
+<li>Attach click listener</li>
+<li><code>&lt;button @click="healPlayer"&gt;HEAL&lt;/button&gt;</code></li>
+</ul>
+<h4 id="adding-a-game-over-screen">Adding a "Game Over Screen"</h4>
+<h2 id="-we-need-to-implement-logic-to-end-the-game-in-the-event-of-monster-health-or-player-health-below-0-or-both-resulting-in-a-draw">- We need to implement logic to end the game, in the event of monster health or player health below 0, or both, resulting in a draw.</h2>
+<h3 id="introducing-components">Introducing Components</h3>
+<h3 id="moving-to-a-better-development-setup-workflow-with-the-vue-cli">Moving to a Better Development Setup &amp; Workflow with the Vue CLI</h3>
 
   <br>
     
