@@ -577,18 +577,460 @@ watch: {
 
 ### Methods vs Computed Properties vs Watchers
 
-
+- Methods
+  - Use with event binding *OR* data binding.
+  - Data binding: Method is executed for every "re-render" cycle of the component.
+  - Use for events or data that really needs to be re-evaluated all the time.
+- Computed
+  - Use with data binding
+  - Computed properties are only re-evaluated if one of their "used values" changed.
+  - Use for data that depends on other data.
+- Watch
+  - Not used directly in template.
+  - Allows you to run any code in reaction to some changed data (e.g. send HTTP request, etc.)
+  - Use for any non-data update you want to make.
 
 ### v-bind and v-on Shorthands
 
+- `v-on` Shorthand
+  - Using `@` in place of `v-on:`
+  - `<button v-on:click="add(10)">Add 10</button>` --> `<button @click="add(10)">Add 10</button>`
+- `v-bind` Shorthand
+  - Omit the `v-bind`, use only `:`
+  - `<input type="text" v-bind:value="..." v-model="name" />` --> `<input type="text" :value="..." v-model="name" />`
+- `:attributeName` shorthand for `v-bind`, `@eventName` shorthand for `v-on`
+
 ### Dynamic Styling with Inline Styles
+
+- Using Vue to change styling dynamically via inline using v-bind and this special style binding syntax.
+
+```html
+<section id="styling">
+  <div
+    class="demo"
+    :style="{borderColor: boxASelected ? 'red' : '#ccc'}"
+    @click="boxSelected('A')"
+  ></div>
+  <div class="demo" @click="boxSelected('B')"></div>
+  <div class="demo" @click="boxSelected('C')"></div>
+</section>
+```
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      boxASelected: false,
+      boxBSelected: false,
+      boxCSelected: false,
+    };
+  },
+  methods: {
+    boxSelected(box) {
+      if (box === 'A') {
+        this.boxASelected = true;
+      } else if (box === 'B') {
+        this.boxBSelected = true;
+      } else if (box === 'C') {
+        this.boxCSelected = true;
+      }
+    },
+  },
+});
+
+app.mount('#styling');
+```
 
 ### Adding CSS Classes Dynamically
 
+- Inline styles not used very often since they overrule all other styles.
+- In modern development and CSS inline is rarely used.
+- We can bind CSS classes dynamically using `v-bind`
+
+```html
+<div
+  :class="boxASelected ? 'demo active' : 'demo'"
+  @click="boxSelected('A')"
+></div>
+```
+
+- However, not optimal as this is difficult to read, more classes will make this even more difficult.
+  - Vue supports a special syntax for class attribute if binding with `v-bind`.
+
+```html
+<div
+  :class="{demo: true, active: boxASelected}"
+  @click="boxSelected('A')"
+></div>
+```
+
+- Same behavior but more readible and maintainable.
+  - Can simplify this further, demo is always true and can be moved into a normal class attribute.
+```html
+<div
+  class="demo"
+  :class="{active: boxASelected}"
+  @click="boxSelected('A')"
+></div>
+```
+- Dynamically bound class will be evaluated by Vue and merge it with the hard-coded class.
+- We can also alter our methods to create a toggle as opposed to always making it active by assigning opposite value instead of true.
+  - `this.boxASelected = !this.boxASelected;`
+
 ### Classes & Computed Properties
+
+- We can also utilize computed properties here for our styles.
+- Preferable as having logic in HTML is suboptimal, although previous example with class-binding was sufficient.
+  - Sufficent because of single line logic, for more complex dynamic class code computed is likely the better option.
+
+```html
+<div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
+```
+```javascript
+computed: {
+  boxAClasses() {
+    return { active: this.boxASelected };
+  },
+},
+```
 
 ### Dynamic Classes: Array Syntax
 
+- Another syntax supported by view for multiple class assignments by working with one dynamic class assignment.
+  - Passing an array.
+```html
+<div :class="['demo', { active: boxBSelected }]" @click="boxSelected('B')"></div>
+```
+With computed: 
+```html
+<div :class="['demo', boxBClasses]" @click="boxSelected('B')"></div>
+```
+
 ### Module Summary
 
+- DOM & Templates
+  - Vue can be used to define the goal instead of the steps (-> **declarative** approach).
+  - **Connect** Vue to HTML via "**mount**": Vue **then renders the real DOM** based on the connected template.
+- Data & Event Bindings
+  - You can **bind data** via interpolation (**{{ }}**) or the **v-bind** ("**:**") directive.
+  - You **listen for events** via **v-on** ("**@**")
+- Reactivity
+  - Vue updates the real DOM for you when bound data changes.
+  - **Computed properties** and **watchers** allow you to reach to data changes.
+- Styling
+  - Dynamic CSS class and inline style bindings are supported by Vue
+  - Vue offers multiple **special syntaxes** (object-based, array-based) for efficient bindings.
+
 ## Rendering Conditional Content & Lists
+
+### Module Introduction
+
+- Conditional Content & Lists
+  - Rendering more ...sometimes
+- Module Content
+  - Rendering Content with Conditions
+  - Outputting Lists of Data
+  - A First Look Behind the Scenes
+
+#### Understanding the Problem
+
+- Dummy list into a growing & shrinking dynamic list.
+- Message showing no goals added yet.
+
+Starting Vue app:
+```javascript
+const app = Vue.createApp({
+  data() {
+    return { goals: [] };
+  },
+});
+
+app.mount('#user-goals');
+```
+
+- If the array is empty, the unordered list should not be shown (not part of the DOM), instead paragraph should be shown.
+- If we do have goals, show the unordered list and do not show paragraph.
+- Conditional rendering will accomplish this.
+  - Common use case: loading spinner shown while waiting for data to arrive.
+
+#### Rendering Content Conditionally
+
+- Show list if we do have goals, if not only show paragraph.
+- Directive just for this purpose: `v-if`
+  - Similar to `if` statement in javascript.
+    - `<p v-if="goals.length === 0">...</p>`
+- Bind our input, create method to add goals, data property for the entered goal value, click listener on button.
+
+#### v-if, v-else, and v-else-if
+
+- More on `v-if`
+  - Can have any expression that evaluates to truthy or falsy value, just as regular `if` statement, can combine with `&&` (and) or `||` (or).
+  - Can point to computed or data property, or even a method as long as it evaluates to boolean value.
+  - Vue offers another directive to use in conjunction with `v-if`: `v-else`
+    - `v-else` has to be used on an element that comes directly after one with `v-if`, or *direct neighbor element*
+    - Additionally, `v-else-if` offered in similar way.
+- These conditionals are not simply about showing/hiding things on the page, it's about whether or not they are included in the DOM, so more of attaching/re-attaching.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      enteredGoalValue: '',
+      goals: [],
+    };
+  },
+  methods: {
+    addGoal() {
+      this.goals.push(this.enteredGoalValue);
+    },
+  },
+});
+
+app.mount('#user-goals');
+```
+```html
+<section id="user-goals">
+  <h2>My course goals</h2>
+  <input type="text" v-model="enteredGoalValue" />
+  <button @click="addGoal">Add Goal</button>
+  <p v-if="goals.length === 0">
+    No goals have been added yet - please start adding some!
+  </p>
+  <ul v-else>
+    <li>Goal</li>
+  </ul>
+</section>
+```
+
+#### Using v-show Instead Of v-if
+
+- An alternative to `v-if`: `v-show`
+  - `v-show` doesn't work together with `v-if`, `v-else`, `v-else-if`, it's standalone so if you have multiple alternatives, multiple `v-show`s are needed
+  - `<p v-show="goals.length === 0">...</p>`
+- What does `v-show` do then?
+  - Big difference is that `v-show` adds the `display: none` style to the element, so it is still in the DOM
+- Which approach is better?
+  - Cost performance associated with adding/removing elements
+  - A bunch of non-needed elements in the DOM also not ideal
+- Rule of thumb: typically use `v-if` and only fall back to `v-show` if you have an element which visibility status changes alot.
+  - For example, a button that toggles an element.
+
+#### Rendering Lists of Data
+
+- Need to output a list of content, a common thing in web apps, and Vue offers a tool to do just that: `v-for`
+  - As with `v-if` being similar to `if` statements in javascript, `v-for` is similar to `for` loops in javascript.
+    - `goal` of `goals` in JS, use `in` keyword with Vue
+  - `<li v-for="goal in goals">{{ goal }}</li>`
+  - Has to be inside the element, similar to how the constant in a `for` loop is only available within it.
+  - Vue adds them to the DOM in an efficient way, by only adding the new list item and leaving unchanged list items alone. It does not re-render the entire list every time an item is added or removed.
+
+#### Diving Deeper Into v-for
+
+##### Other ways of utilizing `v-for`:
+- You can get the index of item in array
+  - `v-for="(goal, index) in goals"`
+  - Then, use like goal: `{{ index }}`
+- You can loop through objects
+  - `v-for="value in {name: 'Johnny', age: '30'}"`
+  - Output in list text with interpolation: `{{ value }}`
+  - Can get key name of object property similar to index, or index of property in an object
+  - `<li v-for="(value, key, index) in {name: 'Johnny', age: '30'}">{{ key }}: {{ value }} | {{ index }}</li>`
+- Can also loop through a range of numbers
+  - `<li v-for="num in 10">{{ num }}</li>`
+
+#### Removing List items
+
+- Add click listener on list item element
+- Method for removing items from the list
+  - Will need identifier for given goal: the index
+
+```html
+<li v-for="(goal, index) in goals" @click="removeGoal(index)">
+  {{ goal }} - {{ index }}
+</li>
+```
+```javascript
+methods: {
+    ...
+    removeGoal(idx) {
+      this.goals.splice(idx, 1);
+    },
+  },
+```
+
+#### Lists & Keys
+
+- Put goal and index in paragraph element and add input to list element for this example:
+  - `<p>{{ goal }} - {{ index }}</p>` and `<input type="text" @click.stop />` within the `li` element
+- When deleting a list item and text is in the input, strange behavior. Deleting first goal deleted the input text in the second.
+- Vue updates the list when you add and remove items, renders the list in the real DOM and updates it as required.
+  - Attempts to do this in a optimized way for performance, thus elements are reused.
+  - The content of the second element is moved into the first, to keep from rerendering the entire list or delete the first element and move them around.
+    - Just the dynamic content is moved around
+    - This is why we lose the input we have on the second element when the content of the second element is moved to the old first elements DOM element.
+  - Generally, reusing elements is good and efficient, but sometimes elements need to be able to be told apart.
+- Simple extra attribute that is not a default HTML attribute for use on elements using `v-for`
+  - `key=""` allows you to give an element a unique identifier
+  - Good habit and practice to always use on `v-for` elements even if not needed.
+  - `key` wants a unique identification criteria for every item
+    - Bind it to dynamic value
+    - Index won't work here, doesn't belong to goal content
+    - Unique keys likely already associated with items in database, they can be used for this purpose.
+  - Helps Vue tell elements apart
+- Using goal text as key: `<li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">`
+
+#### Module Summary
+
+- Conditional Content
+  - **v-if** (and **v-show**) allows you to render content **only if a certain condition is met**
+  - v-if can be combined with **v-else** and **v-else-if** (only on direct sibling elements)
+- Lists
+  - v-for can be used to render multiple elements dynamically
+  - v-for can be used with arrays, objects, and ranges (numbers)
+- v-for Variations
+  - You can extract **values**, values and **indexes** or values, **keys** and indexes.
+  - If you need v-for and v-if, **DON"T use them on the same element.** Use a wrapper with v-if instead.
+- Keys
+  - Vue **re-uses DOM elements** to optimize performance --> This can lead to bugs if elements contain state
+  - Bind the **key** attribute to a unique value to help Vue identify elements that belong to list content
+
+### Course Project: The Monster Slayer Game
+
+#### Module Introduction
+
+- Practicing core knowledge from last modules into Project
+  - Data-binding
+  - Interpolation
+  - `v-bind`
+  - Event binding with `v-on`
+  - Output lists of data with `v-for`
+  - Conditional content with `v-if`
+
+#### Project Setup & First Methods
+
+- Starting HTML
+```html
+<body>
+  <header>
+    <h1>Monster Slayer</h1>
+  </header>
+  <div id="game">
+    <section id="monster" class="container">
+      <h2>Monster Health</h2>
+      <div class="healthbar">
+        <div class="healthbar__value"></div>
+      </div>
+    </section>
+    <section id="player" class="container">
+      <h2>Your Health</h2>
+      <div class="healthbar">
+        <div class="healthbar__value"></div>
+      </div>
+    </section>
+    <section id="controls">
+      <button>ATTACK</button>
+      <button>SPECIAL ATTACK</button>
+      <button>HEAL</button>
+      <button>SURRENDER</button>
+    </section>
+    <section id="log" class="container">
+      <h2>Battle Log</h2>
+      <ul></ul>
+    </section>
+  </div>
+</body>
+```
+
+- Top to bottom, beginning with "Attack"
+- First time calling a method within the Vue app configuration itself.
+- Javascript:
+
+```javascript
+function getRandomValue(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const app = Vue.createApp({
+  data() {
+    return {
+      playerHealth: 100,
+      monsterHealth: 100,
+    };
+  },
+  methods: {
+    attackMonster() {
+      const attackValue = getRandomValue(5, 12);
+      this.monsterHealth -= attackValue;
+      this.attackPlayer();
+    },
+    attackPlayer() {
+      const attackValue = getRandomValue(8, 15);
+      this.playerHealth -= attackValue;
+    },
+  },
+});
+
+app.mount('#game');
+```
+- Next, connecting to our HTML
+
+#### Updating the Health Bars
+
+- Click listener on our attack button
+  - `<button @click="attackMonster">ATTACK</button>`
+- Adjusting the health bars by binding style and changing width.
+  - Monster: `<div class="healthbar__value" :style="{width: monsterHealth + '%'}">`
+    - Player health done similarly.
+  - Make this more lean with computed properties, then refernce that in style bind
+    - `<div class="healthbar__value" :style="playerBarStyles">`
+
+```javascript
+computed: {
+  monsterBarStyles() {
+    return { width: this.monsterHealth + '%' };
+  },
+  playerBarStyles() {
+    return { width: this.playerHealth + '%' };
+  },
+},
+```
+
+#### Adding a "Special Attack"
+
+- Implement "Special Attach" as a similar method to attack
+  - Same method as regular attack, but change min, max to 10, 25.
+  - While having more attack value, should not be available all the time, only every 3 rounds.
+  - Keeping track of rounds with additional data property `currentRound` beginning at 0, increment with every player attack (monster attack occurs in same round).
+  - Bind disabled to whether `currentRound` is divisable by 3.
+    - `<button :disabled="currentRound % 3 !== 0" @click="specialAttackMonster">`
+  - Outsource logic to Vue config in a computed property.
+    - `mayUseSpecialAttack() { return this.currentRound % 3 !== 0; }`
+    - `<button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">`
+
+#### Adding a "Heal" Functionality
+
+- Implement as a method
+  - However, should not heal above 100 health, so include `if` check
+  - This should also count as a round in the game.
+  - Monster should attack as well since this is a round.
+```javascript
+healPlayer() {
+  this.currentRound++;
+  const healValue = getRandomValue(8, 20);
+  if (this.playerHealth + healValue > 100) {
+    this.playerHealth = 100;
+  } else {
+    this.playerHealth += healValue;
+  }
+  this.attackPlayer();
+},
+```
+- Attach click listener
+  - `<button @click="healPlayer">HEAL</button>`
+
+#### Adding a "Game Over Screen"
+
+- We need to implement logic to end the game, in the event of monster health or player health below 0, or both, resulting in a draw.
+- 
+
+### Introducing Components
+### Moving to a Better Development Setup & Workflow with the Vue CLI
