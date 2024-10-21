@@ -1030,7 +1030,48 @@ healPlayer() {
 #### Adding a "Game Over Screen"
 
 - We need to implement logic to end the game, in the event of monster health or player health below 0, or both, resulting in a draw.
-- 
+- Way to keep track of health without repeating code
+  - Watcher is good for this purpose
+- Using `if` checks in watchers, check for draw, or player/monster lost
+- Then, display a message on the screen, and use conditional content (`v-if`)
+- We will use a data property, winner, initially set as null to determine winner
+  - Set to 'draw', 'monster', or 'player'
+
+```javascript
+watch: {
+  playerHealth(value) {
+    if (value <= 0 && this.monsterHealth <= 0) {
+      // a draw
+      this.winner = 'draw';
+    } else if (value <= 0) {
+      // player lost
+      this.winner = 'monster';
+    }
+  },
+  monsterHealth(value) {
+    if (value <= 0 && this.playerHealth <= 0) {
+      // draw
+      this.winner = 'draw';
+    } else if (value <= 0) {
+      // monster lost
+      this.winner = 'player';
+    }
+  },
+},
+```
+```html
+<!-- between healthbars & controls -->
+<section class="container" v-if="winner">
+  <h2>Game Over!</h2>
+  <h3 v-if="winner === 'monster'">You lost!</h3>
+  <h3 v-else-if="winner === 'player'">You won!</h3>
+  <h3 v-else>It's a draw!</h3>
+</section>
+```
+
+#### Finishing the Core Functionality
+
+
 
 ### Introducing Components
 ### Moving to a Better Development Setup & Workflow with the Vue CLI
