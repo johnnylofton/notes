@@ -1071,6 +1071,497 @@ watch: {
 
 #### Finishing the Core Functionality
 
+- Start by fixing healthbars
+  - Can adjust our computed style properties to reflect 0% when game is over.
+  - Enter `if` checks to return 0% width if below 0.
+```javascript
+computed: {
+    // ...
+    playerBarStyles() {
+        if (this.playerHealth < 0) {
+        return { width: '0%' };
+        }
+        return { width: this.playerHealth + '%' };
+    },
+    // ...
+},
+```
+
+- Restarting the game
+  - Add a button to start new game.
+  - Method to reset our parameters, health, round, winner.
+```html
+<button @click="startGame">Start New Game</button>
+```
+```javascript
+methods: {
+    startGame() {
+      this.playerHealth = 100;
+      this.monsterHealth = 100;
+      this.winner = null;
+      this.currentRound = 0;
+    },
+},
+```
+
+- Implementing Surrender button
+  - Simply set winner to monster with method, click listener on button
+```html
+<button @click="surrender">SURRENDER</button>
+```
+```javascript
+methods: {
+    // ...
+    surrender() {
+      this.winner = 'winner';
+    },
+  },
+```
+
+- If game is over, controls should not be given.
+  - Since controls section is neighboring our game over section, we can link the `v-if` check with a `v-else`
+  - `<section id="controls" v-if="!winner">`
+
+#### Adding a Battle Log
+
+- Messages of which actions occurred
+  - Begin with new method
+    - Parameters of who, what, and value.
+  - Then a data property of log messages as an empty array
+    - We can also set to empty array in start game method
+    - Add our logs to the *beginning* of the array, so latest is on top (`unshift`)
+    - Logs will be an object.
+      - `actionBy`, `actionType`, and `actionValue`
+- Output into Battle Log unordered list using `v-for`
+- Complete finished Game: 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Monster Slayer</h1>
+    </header>
+    <div id="game">
+      <section class="container"><h2>Round: {{ currentRound }}</h2></section>
+      <section id="monster" class="container">
+        <h2>Monster Health</h2>
+        <div class="healthbar">
+          <div class="healthbar__value" :style="monsterBarStyles"></div>
+        </div>
+      </section>
+      <section id="player" class="container">
+        <h2>Your Health</h2>
+        <div class="healthbar">
+          <div class="healthbar__value" :style="playerBarStyles"></div>
+        </div>
+      </section>
+      <section class="container" v-if="winner">
+        <h2>Game Over</h2>
+        <h3 v-if="winner === 'monster'">You lost!</h3>
+        <h3 v-else-if="winner === 'player'">You won!</h3>
+        <h3 v-else>It's a draw!</h3>
+        <button @click="startGame">Start New Game</button>
+      </section>
+      <section id="controls" v-if="!winner">
+        <button @click="attackMonster">ATTACK</button>
+        <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">
+          SPECIAL ATTACK
+        </button>
+        <button @click="healPlayer">HEAL</button>
+        <button @click="surrender">SURRENDER</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Battle Log</h2>
+        <ul>
+          <li v-for="logMessage in logMessages">
+            <span
+              :class="{'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster'}"
+              >{{ logMessage.actionBy === 'player' ? 'Player' :
+              'Monster'}}</span
+            >
+            <span v-if="logMessage.actionType === 'heal'">
+              heals himself for
+              <span class="log--heal">{{ logMessage.actionValue }}</span>
+            </span>
+            <span v-else>
+              attacks and deals
+              <span class="log--damage">{{ logMessage.actionValue }}</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
+```
+
+```javascript
+function getRandomValue(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const app = Vue.createApp({
+  data() {
+    return {
+      playerHealth: 100,
+      monsterHealth: 100,
+      currentRound: 0,
+      winner: null,
+      logMessages: [],
+    };
+  },
+  computed: {
+    monsterBarStyles() {
+      if (this.monsterHealth < 0) {
+        return { width: '0%' };
+      }
+      return { width: this.monsterHealth + '%' };
+    },
+    playerBarStyles() {
+      if (this.playerHealth < 0) {
+        return { width: '0%' };
+      }
+      return { width: this.playerHealth + '%' };
+    },
+    mayUseSpecialAttack() {
+      return this.currentRound % 3 !== 0;
+    },
+  },
+  watch: {
+    playerHealth(value) {
+      if (value <= 0 && this.monsterHealth <= 0) {
+        // a draw
+        this.winner = 'draw';
+      } else if (value <= 0) {
+        // player lost
+        this.winner = 'monster';
+      }
+    },
+    monsterHealth(value) {
+      if (value <= 0 && this.playerHealth <= 0) {
+        // a draw
+        this.winner = 'draw';
+      } else if (value <= 0) {
+        // monster lost
+        this.winner = 'player';
+      }
+    },
+  },
+  methods: {
+    startGame() {
+      this.playerHealth = 100;
+      this.monsterHealth = 100;
+      this.winner = null;
+      this.currentRound = 0;
+      this.logMessages = [];
+    },
+    attackMonster() {
+      this.currentRound++;
+      const attackValue = getRandomValue(5, 12);
+      this.monsterHealth -= attackValue;
+      this.addLogMessage('player', 'attack', attackValue);
+      this.attackPlayer();
+    },
+    attackPlayer() {
+      const attackValue = getRandomValue(8, 15);
+      this.playerHealth -= attackValue;
+      this.addLogMessage('monster', 'attack', attackValue);
+    },
+    specialAttackMonster() {
+      this.currentRound++;
+      const attackValue = getRandomValue(10, 25);
+      this.monsterHealth -= attackValue;
+      this.addLogMessage('player', 'attack', attackValue);
+      this.attackPlayer();
+    },
+    healPlayer() {
+      this.currentRound++;
+      const healValue = getRandomValue(8, 20);
+      if (this.playerHealth + healValue > 100) {
+        this.playerHealth = 100;
+      } else {
+        this.playerHealth += healValue;
+      }
+      this.addLogMessage('player', 'heal', healValue);
+      this.attackPlayer();
+    },
+    surrender() {
+      this.winner = 'winner';
+    },
+    addLogMessage(who, what, value) {
+      this.logMessages.unshift({
+        actionBy: who,
+        actionType: what,
+        actionValue: value,
+      });
+    },
+  },
+});
+
+app.mount('#game');
+```
+
+### Vue: Behind the Scenes
+
+#### Module Introduction
+
+- Extra behind-the-scenes knowledge to work with it better.
+- How Vue Works
+  - Understanding "Virtual DOM" & DOM Updating
+
+#### An Introduction to Vue's Reactivity
+
+- Simple Vue App
+  - Current input and message
+  - Methods to save input and set text
+  - Event bindings, interpolation, and click listener
+```html
+<section id="app">
+  <h2>How Vue Works</h2>
+  <input type="text" @input="saveInput">
+  <button @click="setText">Set Text</button>
+  <p>{{ message }}</p>
+</section>
+```
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      currentUserInput: '',
+      message: 'Vue is great!',
+    };
+  },
+  methods: {
+    saveInput(event) {
+      this.currentUserInput = event.target.value;
+    },
+    setText() {
+      this.message = this.currentUserInput;
+    },
+  },
+});
+
+app.mount('#app');
+```
+
+- Part of the page, what the user sees, updated by Vue
+- Built-in reactivity
+- Turns your data object into a reactive data object by wrapping properties with Javascript feature known as proxies
+  - Proxies notify when a new value is set
+
+#### Vue Reactivity: A Deep Dive
+
+- Proxy functionality in Javascript that Vue utilizes
+- Vanilla Javascript (no Vue involved):
+```javascript
+let message = 'Hello!';
+let longMessage = message + ' World!';
+console.log(longMessage);
+message = 'Hello!!!!';
+console.log(longMessage);
+```
+- Output is still 'Hello! World!' because Javascript by default is not reactive.
+  - In other words, the 'calculation', adding of the two strings, is not executed again because we changed it.
+- Vue has a built-in mechanism to be aware when message changed.
+  - This utilizes Javascript Proxies
+- Proxy wraps an object, the first argument, and takes an object of handlers as it's second argument.
+  - Handler utilizes `set()` which takes 3 arguments (set trap)
+  - `target`  - object that was wrapped
+  - `key`     - property which the value was set to
+  - `value`   - value that was set
+  - Our setter function is triggered whenever a property is set to a new value on this proxy.
+    - We can find out which property it is, what the new value is, and the original object we wrapped.
+- This is a simplification of what Vue does under the hood.
+
+```javascript
+const data = {
+  message: 'Hello!',
+  longMessage: 'Hello! World!',
+};
+
+const handler = {
+  set(target, key, value) {
+    if (key === 'message') {
+      target.longMessage = value + ' World!';
+    }
+    target.message = value;
+  },
+};
+
+const proxy = new Proxy(data, handler);
+
+proxy.message = 'Hello!!!!';
+console.log(proxy.longMessage);
+```
+
+#### One App vs Multiple Apps
+
+- You can have multiple apps per page (app that is mounted)
+- They are separate, can't use data from a different app
+  - Each Vue app works standalone
+- Separate apps if they are independant
+
+#### Understanding Templates
+
+- Should not control the same HTML part with different apps
+- Can't use one app to control multiple different parts.
+- Not HTML part, but *template*
+- By mounting your app to a certain place in the DOM, in the HTML code, you make that part of the HTML code the template of that Vue app.
+- Different ways of defining a template of your app
+  - Most common, convienent one, writing HTML code and mounting application to it
+  - Not the only way to add a template.
+    - Using the `template` option to define it manually.
+    - Still need to mount so Vue knows where to display the template.
+
+```javascript
+const app2 = Vue.createApp({
+  template: `
+    <p>{{ favoriteMeal }}</p>
+  `,
+  data() {
+    return {
+      favoriteMeal: 'Pizza!',
+    };
+  },
+});
+
+app2.mount('#app2');
+```
+
+#### Working with Refs
+
+- Different ways of getting a value out of such an input element
+  - `<input type="text" @input="saveInput" />`
+  - So far, listening to input, with every keystroke `saveInput` is fired
+    - In `saveInput` method, current value is saved to property.
+  - Can also utilize this with `v-model` as before
+    - `<input type="text" v-model="currentUserInput" />`
+- Vue has a feature that allows you to retreive values from DOM elements when you need them instead of all the time.
+  - Using the `ref` attribute
+    - Similar to `key`, it is a non-default HTML attribute
+    - Assign a value, a string identifier of your choice.
+    - Vue detects `ref`s  and stores them internally
+      - Basically memorizes that you want access to this element
+    - Can access this with `this.$refs`
+      - All Vue provided properties start with `$`
+      - Is an object with key-value pairs where the keys are the `ref` identifiers.
+    - If we console log `this.$refs.userText`, we get the element
+    - If we `console.dir(ths.$refs.userText)` we can see the Javascript object representation of the input element, with all the properties that it has.
+      - For example, contains the `value` property.
+      - Object we're logging essentially the same as the `event.target`
+    - Now, with this, we are not doing it with every keystroke but instead when `setText` is emitted, when the button is clicked
+    - The input is not logged with every keystroke
+
+```html
+<input type="text" ref="userText" />
+```
+```javascript
+methods: {
+  saveInput(event) {
+    this.currentUserInput = event.target.value;
+  },
+  setText() {
+    // this.message = this.currentUserInput;
+    this.message = this.$refs.userText.value;
+    // console.dir(this.$refs.userText);
+  },
+},
+```
+
+#### How Vue Updates the DOM
+
+- The built-in reactivity is how Vue detects that an update is needed and where the update is needed.
+- However, Vue performs the update in a performance optimized way.
+- When updating the text in our example, only the paragraph with the text inside of it was updated.
+- Vue utilizes something called the "Virtual DOM" to accomplish this
+- ~~Possible solution: Compare old DOM values with new ones and update accordingly~~
+  - While not as bad as updating the entire screen, still resource intensive to read the entire real DOM all the time. 
+- How Vue Updates the DOM:
+
+| Vue Instance ( our Vue app)                                          | Virtual DOM                                                                                       | Browser DOM (HTML content rendered in the browser)                       |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Stores data, computed properties, methods, ...                       | JS-based DOM which exists only in memory                                                          | Vue-controlled template is rendered in the DOM                           |
+| `title: 'Hello!', text: 'Not the title'`                             | `{el: 'h2', child: 'Hello!'},` ...                                                                | `<h2>Hello!</h2><p>Not the title</p>`                                    |
+| Data and computed properties may change (e.g. because of user input) |                                                                                                   | Updates should be reflected, but Vue should **not** re-render everything |
+| **title: 'Hi there!'**, text: 'Not the title'                        | Updates are made to the **virtual DOM first**, only differences are then rendered to the real DOM | `<h2>Hi there!</h2><p>Not the title</p>` (only updates reflected)        |
+- General overview, Vue has a bunch of optimizations to achieve this in a non-performance intensive way.
+
+#### Vue Instance Lifecycle
+
+![Vue Instance Lifecycle](img/vueInstanceLifecycle.jpg "Vue Instance Lifecycle")
+
+#### Vue App Lifecycle Practice
+
+- We can add the lifecycle hook methods to our app.
+  - Not like `methods` option, but alongside our `data`, `methods`, so on
+- Here we will log to the console, but you could do more such as send an HTTP request, anything you need before create.
+```javascript
+const app = Vue.createApp({
+  data() { /*... */ },
+  methods: { /*... */ },
+  beforeCreate() {
+    console.log('beforeCreate()');
+  },
+});
+```
+- We can use the browser developer tools to create a breakpoint at this log, where we see nothing has been generated to the screen. 
+- Add additional hooks, similar behavior when doing breakpoints until we get to `mounted()`
+  - With `mounted()` and breakpoint we see that we now have content generated on the screen.
+- Doing this further with `beforeUpdate()` and `updated()`, we can see these trigger for data updates, such as setting the text in the paragraph.
+- Testing with `beforeUnmount()` and `unmounted()`, we see that the content does not disappear until we are in `unmounted()`
+  - Unmounting the app is not common, and we have not used the more common case yet, so we configure a timer to unmount after 3 seconds.
+- In reality, most of these hooks we will likely not use, or use sometimes, but this demonstrates the Vue application lifecycle.
+
+
+```javascript
+const app = Vue.createApp({
+  data() { /*... */ },
+  methods: { /*... */ },
+  beforeCreate() {
+    console.log('beforeCreate()');
+  },
+  created() {
+    console.log('created()');
+  },
+  beforeMount() {
+    console.log('beforeMount()');
+  },
+  mounted() {
+    console.log('mounted()');
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate()');
+  },
+  updated() {
+    console.log('updated()');
+  },
+  beforeUnmount() {
+    console.log('beforeUnmount()');
+  },
+  unmounted() {
+    console.log('unmounted()');
+  },
+});
+
+app.mount('#app');
+
+setTimeout(() => {
+  app.unmount();
+}, 3000);
+```
 
 
 ### Introducing Components
