@@ -1563,6 +1563,531 @@ setTimeout(() => {
 }, 3000);
 ```
 
-
 ### Introducing Components
+
+#### Module Introduction
+
+- Understanding Vue Components
+  - Connected Vue Instances
+- Module Content
+  - What & Why
+  - Working with Components
+
+#### Understanding the Problem
+
+- Render list items dynamically with Vue
+- Attempt this with only what we have utilized so far
+
+```html
+<body>
+  <header>
+    <h1>FriendList</h1>
+  </header>
+  <section id="app">
+    <ul>
+      <li v-for="friend in friends" :key="friend.id">
+        <h2>{{ friend.name }}</h2>
+        <button @click="toggleDetails">
+          {{ detailsAreVisible ? 'Hide' : 'Show'}} Details
+        </button>
+        <ul v-if="detailsAreVisible">
+          <li><strong>Phone:</strong> {{ friend.phone }}</li>
+          <li><strong>Email:</strong> {{ friend.email }}</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</body>
+```
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      detailsAreVisible: false,
+      friends: [
+        {
+          id: 'johnny',
+          name: 'Johnny Lofton',
+          phone: '012-345-6789',
+          email: 'jlofton479@gmail.com',
+        },
+        {
+          id: 'julie',
+          name: 'Julie Jones',
+          phone: '987-654-3210',
+          email: 'notAnEmail@address.com',
+        },
+      ],
+    };
+  },
+  methods: {
+    toggleDetails() {
+      this.detailsAreVisible = !this.detailsAreVisible;
+    },
+  },
+});
+
+app.mount('#app');
+```
+
+#### Introducting Components
+
+- Components are great for pieces of HTML, or blocks, which you reuse in certain parts of the page.
+  - With certain functionality that should be enclosed in the HTML block, and specific to it.
+  - Also good for splitting application into smaller pieces
+- Created on an app we created.
+  - `app.component();`
+- Component method needs 2 arguments
+  - Identifier, because **a component is basically like a customer HTML element**
+    - Should always use an identifier that contains a dash to avoid crashing into official built-in HTML elements
+  - Config object just as passed to `createApp`, our `data()`, `methods`, etc.
+- Component is essentially just another app, just an app that belongs to another app.
+  - We are creating another app that is connected to our main app
+- Now we toggle this component specific data with our component specific method
+  - We can also remove them from our main app
+    - There would not be a clash if we kept `detailsAreVisible` since the component is encapselated, and doesn't communicate with the main app.
+
+```javascript
+app.component('friend-contact', {
+  data() {
+    return { detailsAreVisible: false };
+  },
+  methods: {
+    toggleDetails() {
+      this.detailsAreVisible = !this.detailsAreVisible;
+    },
+  },
+});
+```
+
+- How do we use this component?
+  - First, since it is it's own app, it requires a template
+  - It is not mounted, we will use `template` method instead
+    - Other methods of defining templates explored later
+  - Use our entire `<li>` HTML as our template using backticks
+  - For now we will use our first friend object as a data property on our component
+  - Now we can use our component in the HTML code
+    - Remember this is not an HTML element that the browser would know
+- We will be able to use on in the same component with different data that we pass into the component
+- Components help us encapsulate structure, content and logic into smaller reusable pieces
+
+```html
+<body>
+  <header>
+    <h1>FriendList</h1>
+  </header>
+  <section id="app">
+    <ul>
+      <friend-contact></friend-contact>
+      <friend-contact></friend-contact>
+    </ul>
+  </section>
+</body>
+```
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      friends: [
+        {
+          id: 'julie',
+          name: 'Julie Jones',
+          phone: '987-654-3210',
+          email: 'notAnEmail@address.com',
+        },
+      ],
+    };
+  },
+});
+
+app.component('friend-contact', {
+  template: `
+  <li>
+    <h2>{{ friend.name }}</h2>
+    <button @click="toggleDetails">
+      {{ detailsAreVisible ? 'Hide' : 'Show'}} Details
+    </button>
+    <ul v-if="detailsAreVisible">
+      <li><strong>Phone:</strong> {{ friend.phone }}</li>
+      <li><strong>Email:</strong> {{ friend.email }}</li>
+    </ul>
+  </li>
+  `,
+  data() {
+    return {
+      detailsAreVisible: false,
+      friend: {
+        id: 'johnny',
+        name: 'Johnny Lofton',
+        phone: '012-345-6789',
+        email: 'jlofton479@gmail.com',
+      },
+    };
+  },
+  methods: {
+    toggleDetails() {
+      this.detailsAreVisible = !this.detailsAreVisible;
+    },
+  },
+});
+
+app.mount('#app');
+```
+- Some limitations with this setup so far
+  - More code in same file
+  - Templates in string form
+  - Make reusable with different data
+
+#### The Why: Building Complex User Interfaces with Components
+
+- Easier to structure codebase of large apps
+- Splitting code and logic into smaller, reusable pieces.
+
+#### Multiple Vue Apps vs Multiple Components
+
+- Can control parts of (or multiple HTML pages)
+- Use to build **Single Page Applications** (**SPA**s) 
+  - SPA typically with **one "root app"** and **build up user interface with multiple components**
+  - Can use components in cases where you have multiple Vue apps but typically won't use multiple Vue apps if you build one big connected user interface
+- **Vue apps are independent from each other**
+  - Can't really communicate with one another
+- Components do offer communication mechanisms
+
 ### Moving to a Better Development Setup & Workflow with the Vue CLI
+
+#### Module Introduction
+
+- Before digging deeper into components, we need to change the setup we currently have to write out code.
+  - Single javascript file, index, etc, is not scalable.
+- A Better Development Setup with the Vue CLI
+  - Building Vue Apps at Scale
+- Module Content
+  - What is the Vue CLI?
+  - Why do we need it?
+  - How does the CLI work?
+
+#### Why We Need a Development Server
+
+- We Need A Proper (Development) Web Server
+  - "Double-clicking" index.html doesn't run the app under realistic circumstances
+    - We use the `file://` protocol instead of the `https://` protocol
+    - Some (modern JavaScript or Browser) features will not work there
+    - The final, deployedd app with be served via `https://` not via `file://`
+
+#### Why we want a Better Developer Experience
+
+- We Want A Better Developer Experience
+  - Current State
+    - We always need to reload the page whenver we make any change
+    - IDE auto-completion is highly limited
+    - We work in just one file OR we need to handle multiple files with multiple script imports
+  - Wanted State
+    - Saved changes should be auto-detected and page should reload/update
+    - IDE should provide better auto-completion and hints
+    - We should be able to split code into multiple files and export/import via ES Modules
+
+#### Fixing npm run serve (Vue CLI)
+
+- Vue CLI uses NodeJS
+  - If necessary, replace script entry in project's `package.json` before running `npm run serve`
+
+```json
+"scripts": {  
+  "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",  
+  "build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",  
+  "lint": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint"
+},
+```
+
+#### Installing & Using the Vue CLI
+
+- Install NodeJS
+  - Comes with NPM tool
+    - Used to install Vue CLI, other packages
+  - `npm install -g @vue/cli`
+  - Various install options
+  - `npm run serve`
+
+#### Inspecting the Created Project
+
+- Root level
+  - Config files
+    - Packages via `package.json`
+      - Replaces our CDN import script from previously
+  - `node_modules` where our packages, dependencies are installed
+  - `public/` folder contains our client facing files, our pre-configured `index.html` and icon 
+  - `src/` or "source" folder is our active, working directory
+
+#### Inspecting the Vue Code & ".vue" Files
+
+- `main.js` is our main JavaScript file and entry point.
+  - The Vue project, behind the scenes, is configured such that it **loads and runs the main.js file first**
+`main.js`:
+```javascript
+import { createApp } from 'vue'
+import App from './App.vue'
+
+createApp(App).mount('#app')
+```
+
+- We are importing `createApp` from Vue, our package, instead of using global variable
+- Also importing the `App.vue` file, to pass to the function and to mount it
+  - This allows us to write Vue apps and components in a better way
+    - Splitting our template
+    - Script tag
+      - Containing our config object from previously, with new keys
+    - Styles
+- Using a Build Workflow
+  - Our Code
+    - Uses next-gen and Vue-specific Syntax & Features
+  - "Build Step"
+    - Changes code to use standard JS code
+  - Development or Real Server 
+    - Host and run a regular Javascript-based web app
+- Our Vue files work as single file components
+
+#### Adding the "Vetur" Extension to VS Code
+
+- Vetur VS Code extension allows for linting of our code, recognizing of syntax, etc.
+
+#### More on ".vue" Files
+
+- `App.vue` our main *Vue* entry point
+- Given a starting component, `HelloWorld.vue`
+- We will split our code into components
+  - Compose our user interface and the entire Vue app by combining these components
+
+#### A New Vue Project
+
+- Using project from course
+  1. Download zipped file
+  2. Extract
+  3. Run `npm install` (or `npm i`)
+  4. Run `npm run serve`
+
+#### Creating a Basic Vue App
+
+- Create `App.vue` file in our source folder
+  - Add template and script tags
+    - Script tag will contain our Vue app configuration
+    - Here we can add things we have learned.
+
+```html
+<template></template>
+
+<script>
+const app = {
+    data() {},
+    methods: {},
+    computed: {}
+}
+</script>
+```
+
+- We can enter our previous friend logic here (within script tag:)
+```html
+<template></template>
+
+<script>
+const app = {
+  data() {
+    return {
+      friends: [
+        {
+          id: 'johnny',
+          name: 'Johnny Lofton',
+          phone: '012-345-6789',
+          email: 'jlofton479@gmail.com',
+        },
+        {
+          id: 'julie',
+          name: 'Julie Jones',
+          phone: '987-654-3210',
+          email: 'notAnEmail@address.com',
+        },
+      ],
+    };
+  },
+};
+</script>
+```
+
+- We will import our file into our main entry point, `main.js` using default export.
+  - Naming convention typically the same as the file was named.
+- Instead of storing our config in an object, we will use `export` and `default`, modern JavaScript syntax
+- Now define our template
+  - Practice is to not use `index.html` as this is set up for us already
+  - Begin with encased `<template>` tag, normal HTML tag code
+
+`main.js`:
+```javascript
+import { createApp } from 'vue';
+
+import App from './App.vue'
+
+createApp(App).mount('#app');
+```
+
+`App.vue`
+```html
+<template>
+  <section>
+    <h2>My Friends</h2>
+    <ul>
+      <li></li>
+    </ul>
+  </section>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      friends: [
+        {
+          id: 'johnny',
+          name: 'Johnny Lofton',
+          phone: '012-345-6789',
+          email: 'jlofton479@gmail.com',
+        },
+        {
+          id: 'julie',
+          name: 'Julie Jones',
+          phone: '987-654-3210',
+          email: 'notAnEmail@address.com',
+        },
+      ],
+    };
+  },
+};
+</script>
+```
+
+*Moving forward, will be adjusting project to a customer address book instead*
+
+#### Adding a Component
+
+- Convention is to have `components/` folder within our source folder
+  - Create a `CustomerContact.vue` file in this folder.
+- Begin with our `template` and `script` tags similar to the `App.vue` file.
+- We will also `export default` object as done previously
+- Define our template
+
+```html
+<template>
+  <li>
+      <h2>{{ customer.name }}</h2>
+      <button>Show Details</button>
+      <ul>
+          <li><strong>Address:</strong> {{ customer.address }}</li>
+          <li><strong>Phone:</strong> {{ customer.phone }}</li>
+          <li><strong>Email:</strong> {{ customer.email }}</li>
+          <li><strong>Comment:</strong> {{ customer.comment }}</li>
+      </ul>
+  </li>
+</template>
+```
+
+- Define our configuration (within script tag)
+
+```javascript
+export default {
+  data() {
+    return {
+      detailsAreVisible: false,
+      customer: {
+        id: 'johnny',
+        name: 'Johnny Lofton',
+        address: '123 Test Drive, Jonesboro, Arkansas(AR) 72401',
+        phone: '012-345-6789',
+        email: 'jlofton479@gmail.com',
+        comment: 'This is a comment!',
+      },
+    };
+  },
+  methods: {
+    toggleDetails() {
+      this.detailsAreVisible = !this.detailsAreVisible;
+    },
+  },
+};
+```
+
+- Connect our template
+
+```html
+<template>
+  <li>
+    <h2>{{ customer.name }}</h2>
+    <button @click="toggleDetails">Show Details</button>
+    <ul v-if="detailsAreVisible">
+      <li><strong>Address:</strong> {{ customer.address }}</li>
+      <li><strong>Phone:</strong> {{ customer.phone }}</li>
+      <li><strong>Email:</strong> {{ customer.email }}</li>
+      <li><strong>Comment:</strong> {{ customer.comment }}</li>
+    </ul>
+  </li>
+</template>
+```
+
+- Now connect our component where we create our app, in `main.js`
+
+```javascript
+import { createApp } from 'vue';
+
+import App from './App.vue';
+import CustomerContact from './components/CustomerContact.vue';
+
+const app = createApp(App);
+
+app.component('customer-contact', CustomerContact);
+
+app.mount('#app');
+```
+
+- Now we can utilize our `customer-contact` in `App.vue`
+  - For now utilizing one customer item, twice
+
+```html
+<template>
+  <section>
+    <h2>Customers</h2>
+    <ul>
+      <customer-contact></customer-contact>
+      <customer-contact></customer-contact>
+    </ul>
+  </section>
+</template>
+```
+
+#### Adding Styling
+
+- Can add styling within a `<style>` tag, inside our `App.vue` file
+- Later, can lock styles to specific components.
+
+#### A Small Addition
+
+- Make button caption dynamic:
+
+`FriendContact.vue`:
+
+```html
+<button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }} Details</button>
+```
+
+- Add font import to beginning of style section (just after tag beginning)
+
+```html
+<script>
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+/* ... */
+</script>
+```
+
+#### An Alternative Setup - using "npm init" & Volar
+
+1. Use `npm init vue` instead of installing and using the Vue CLI
+2. Use the Volar extension instead of Vetur
+
+### Component Communication
