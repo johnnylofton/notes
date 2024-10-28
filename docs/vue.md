@@ -2091,3 +2091,125 @@ app.mount('#app');
 2. Use the Volar extension instead of Vetur
 
 ### Component Communication
+
+#### Module Introduction
+
+- Component Communication & Re-Usable Components
+  - Gaining Flexibility!
+- Module Content
+  - Building a User Interface with Components
+  - How Component Communication Works
+  - Different Types of Component Communication
+
+#### Introducing "Props" (Parent => Child Communication)
+
+- Create reusable and configurable HTML element with our Components
+- Configure the same component with different data.
+- Props (Properties)
+  - Custom HTML attributes
+  - Pass in attributes 
+    - `<customer-contact name="Johnny">`
+- We want to make Vue aware of the props that we want to accept on our component
+- Using the `props` property
+  - Simplest for as an array
+  - Props entered as strings, and use CamelCase convention
+    - **Convention due to props being JavaScript properties and must have valid JavaScript property names**
+    - **Vue translates into properties with dashes, camel case to kebab case**
+      - *phoneNumber -> phone-number*
+    - In HTML template you should use kebab case notation
+  - Naming rule of thumb:
+    - **HTML -> kebab case**
+    - *Props -> camel case*
+  - Can be referenced with `this`
+    - `this.phoneNumber`
+  - Can be referenced directly in our template like a method or data property
+    - `<h2>{{ name }}</h2>`
+  - Be aware and prevent name clashes
+    - If you define something as a prop, shouldn't use exact same name in your computed or data properties.
+
+`App.vue`:
+```html
+<!-- just template -->
+<template>
+  <section>
+    <header>
+      <h1>Customers</h1>
+    </header>
+    <ul>
+      <customer-contact 
+        name="Johnny Lofton"
+        address="123 Test Drive, Jonesboro, Arkansas(AR) 72401"
+        phone-number="012-345-6789"
+        email-address="jlofton479@gmail.com"
+        comment="This is a comment!"
+        ></customer-contact>
+      <customer-contact></customer-contact>
+    </ul>
+    <p>
+      <button @click="printCustomers">Print</button>
+    </p>
+  </section>
+</template>
+<!-- script, etc -->
+```
+
+`App.vue`:
+<template>
+  <li>
+    <h2>{{ name }}</h2>
+    <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }} Details</button>
+    <ul v-if="detailsAreVisible">
+      <li><strong>Address:</strong> {{ address }}</li>
+      <li><strong>Phone:</strong> {{ phoneNumber }}</li>
+      <li><strong>Email:</strong> {{ emailAddress }}</li>
+      <li><strong>Comment:</strong> {{ comment }}</li>
+    </ul>
+  </li>
+</template>
+
+<script>
+export default {
+  props: [
+    'name',
+    'address',
+    'phoneNumber',
+    'emailAddress',
+    'comment'
+  ],
+  data() {
+    return {
+      detailsAreVisible: false,
+    };
+  },
+  methods: {
+    toggleDetails() {
+      this.detailsAreVisible = !this.detailsAreVisible;
+    },
+  },
+};
+</script>
+```html```
+
+#### Prop Behavior & Changing Props
+
+- Parent-Child Communication
+  - Props faciliate this communication
+- Things to keep in mind when dealing with props
+  - Props stypically hould not be mutated
+    - Using `isFavorite` prop, and changing it with a button press
+      - Error: Unexpected mutation of prop
+    - Vue uses unidirectional data flow
+      - The data should be changed in App, not in the child component.
+      - It should not change the data once it has been passed down
+      - Error because we violate the unidirectional data flow pattern by doing this.
+    - **If** we want to change it, there are two ways 
+      - Let the parent component know that we want to change it
+        - Parent updates data, sends it down
+      - Take received data as initial data, then change inside of child but we are aware we only change it there and that it will not affect the data in the Parent.
+        - This is done with new data property
+          - `friendIsFavorite: this.isFavorite`
+          - Now the data property in the child is using the data passed down as the *initial data*, and can be manipulated after
+            - `this.friendIsFavorite = '1'`
+    - We will have scenarios where we want to be able to change the original data.
+
+#### Validating Props
