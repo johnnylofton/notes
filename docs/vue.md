@@ -2213,3 +2213,360 @@ export default {
     - We will have scenarios where we want to be able to change the original data.
 
 #### Validating Props
+
+- So far, we have used a simple array for our props
+- For more complex components, may want to share more information about your props
+  - So Vue can let you know if you passed incorrect data or forgot a required prop
+- Next we will replace our props array with an object
+  - Most basic information we can provide is the data type
+```javascript
+props: {
+  name: String,
+  address: String,
+  phoneNumber: String,
+  emailAddress: String,
+  comment: String,
+  isFavorite: String,
+},
+```
+- We can expand on this by providing the property an object
+  - In this object, we can add `type` property and more
+    - Specific properties Vue will look for
+  - We can mark them as `required` here as well
+    - Additionally, if we have a prop that is not required we can provide a default value with `default`
+      - Default can also be a function
+  - We can also add a `validator`, which holds a function that should return true or false
+  - Vue will provide warnings depending on the context, such as invalid prop or missing prop
+```javascript
+props: {
+  name: { type: String, required: true },
+  address: { type: String, required: true },
+  phoneNumber: { type: String, required: true },
+  emailAddress: { type: String, required: true },
+  comment: { type: String, required: true },
+  isFavorite: {
+    type: String,
+    required: false,
+    default: '0',
+    validator: (value) => {
+      return value === '1' || value === '0';
+    },
+  },
+},
+```
+
+#### Supported Prop Values
+
+- In general, you can learn all about prop validation in the [official docs](https://v3.vuejs.org/guide/component-props.html).
+- Specifically, the following value types (`type` property) are supported:
+  - String
+  - Number
+  - Boolean
+  - Array
+  - Object
+  - Date
+  - Function
+  - Symbol
+- But `type` can also be any constructor function (built-in ones like `Date` or custome ones).
+
+#### Working with Dynamic Prop Values
+
+- `isFavorite` more appropriate data type here would be boolean
+  - `isFavorite: { type: Boolean, required: false, default: false}` (can remove validator since it is already boolean type)
+- We must then pass true or falso to our component element
+  - Cannot just pass "true" or "false" as this is just text
+  - Must utilize `v-bind` to achieve this
+- We can bind our own props as we would any other HTML attribute
+  - Now we can pass a non-string value
+    - `:is-favorite="true"` (using the : shorthand for `v-bind`)
+  - It is also useful for making the components more dynamic
+- We want to utilize `v-for` again, with our own component, and pass in different data with each loop iteration
+  - We can do this but **must** provide a `key`
+  - *When using `v-for` on a customer component, `key` is required*
+- With this we can dynamically bind and loop through `customers`
+  - Will leave `is-favorite` to expand on later, changing toggle and checks to account for boolean instead of "1" or "0"
+```html
+<customer-contact
+  v-for="customer in customers"
+  :key="customer.id"
+  :name="customer.name"
+  :address="customer.address"
+  :phone-number="customer.phone"
+  :email-address="customer.email"
+  :comment="customer.comment"
+  :is-favorite="true"
+></customer-contact>
+```
+
+#### Emitting Custom Events (Child => Parent Communcation)
+
+- We used props to pass data from our App to the CustomerContact component
+- What about communication from the component to the parent?
+  - Toggle favorite a good example here
+  - First set to `:is-favorite="customer.isFavorite"` so the data comes from our customer, a property on our customer object
+    - Still acts as an initial prop value at this point
+    - When we change it, it is changed in the CustomerContact component, not the inside of our core customer data (the array of objects in `App.vue`)
+- Basically need the opposite of a prop
+  - How does HTML element do this? Emitting events
+  - This is how we will do this for custom components in Vue, by emitting events to let parent know something has happened
+- For example, when `toggleFavorite` is triggered
+- Can do this with a built-in method (Vue built-in methods start with `$`)
+- In this case we will utilize the `$emit()` method, called on the `this` keyword, and we will be able to listen for this in the parent component
+  - `emit` wants at least one argument, the name of the custom event
+    - *Convention here is to always use kebab case*
+      - Different to props, where in the component that receives it we use camel case and only use kebab case for passing in the values
+  - `toggleFavorite() { this.$emit('toggle-favorite'); }`
+  - Can listen to this just as you would clicks on buttons
+    - And bind to any javascript code in the parent, ie a method
+  - (in `customer-contact` tag): `@toggle-favorite="toggleFavoriteStatus"` 
+- Our event should likely carry some data
+  - When we emit, can also pass a second argument (or as many as you want, extras are just data)
+  - Now we need to pass our id down as well and expect it
+  - Now we can emit the ID with our custom event
+    - Will be provided as a first argument to a method that listens to the event
+    - We can accept the id and change it in our customers array with find
+    - Can get rid of our initial data property for `isFavorite` in our customer contact component
+- Now using unidirectional data flow in both directions!
+
+`App.vue`
+```html
+<template>
+  <section>
+    <header>
+      <h1>Customers</h1>
+    </header>
+    <ul>
+      <customer-contact
+        v-for="customer in customers"
+        :key="customer.id"
+        :id="customer.id"
+        :name="customer.name"
+        :address="customer.address"
+        :phone-number="customer.phone"
+        :email-address="customer.email"
+        :comment="customer.comment"
+        :is-favorite="customer.isFavorite"
+        @toggle-favorite="toggleFavoriteStatus"
+      ></customer-contact>
+    </ul>
+    <p>
+      <button @click="printCustomers">Print</button>
+    </p>
+  </section>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      customers: [
+        {
+          id: 'johnny',
+          name: 'Johnny Lofton',
+          address: '123 Test Drive, Jonesboro, Arkansas(AR) 72401',
+          phone: '012-345-6789',
+          email: 'jlofton479@gmail.com',
+          comment: 'This is a comment!',
+          isFavorite: true,
+        },
+        {
+          id: 'blaire',
+          name: 'Blaire Josceline',
+          address: '230 Autumn Oaks Ln, Barboursville, Virginia(VA), 22923',
+          phone: '987-654-3210',
+          email: 'notAnEmail@address.com',
+          comment: '',
+          isFavorite: false,
+        },
+        {
+          id: 'robbie',
+          name: 'Robbie Kenzie',
+          address: '2144 Centennial Rd, Decorah, Iowa(IA), 52101',
+          phone: '',
+          email: '',
+          comment: '',
+        },
+      ],
+    };
+  },
+  methods: {
+    toggleFavoriteStatus(customerId) {
+      const identifiedCustomer = this.customers.find(
+        (customer) => customer.id === customerId
+      );
+      identifiedCustomer.isFavorite = !identifiedCustomer.isFavorite;
+    },
+  },
+};
+</script>
+<!-- styles -->
+```
+`CustomerContact.vue`
+```html
+<template>
+  <li>
+    <h2>{{ name }} {{ isFavorite ? '(Favorite)' : '' }}</h2>
+    <button @click="toggleFavorite">Toggle Favorite</button>
+    <button @click="toggleDetails">
+      {{ detailsAreVisible ? 'Hide' : 'Show' }} Details
+    </button>
+    <ul v-if="detailsAreVisible">
+      <li><strong>Address:</strong> {{ address }}</li>
+      <li><strong>Phone:</strong> {{ phoneNumber }}</li>
+      <li><strong>Email:</strong> {{ emailAddress }}</li>
+      <li><strong>Comment:</strong> {{ comment }}</li>
+    </ul>
+  </li>
+</template>
+
+<script>
+export default {
+  props: {
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    address: { type: String, required: true },
+    phoneNumber: { type: String, required: true },
+    emailAddress: { type: String, required: true },
+    comment: { type: String, required: true },
+    isFavorite: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      detailsAreVisible: false,
+    };
+  },
+  methods: {
+    toggleDetails() {
+      this.detailsAreVisible = !this.detailsAreVisible;
+    },
+    toggleFavorite() {
+      this.$emit('toggle-favorite', this.id);
+    }
+    ,
+  },
+};
+</script>
+```
+
+#### Defining and Validating Custom Events
+
+- Custom events are an important feature of component communication.
+  - Just as with `props` you can define them, let Vue know about the events your component will emit
+    - For `props` this is required, for events it is recommended.
+- Utilizing the `emits` property
+  - Counterpart to `props`, so to say
+  - In `props` you define which `props` the component receives
+  - In `emits` you define the custom events your component will emit
+    - This makes it easier to understand and use the component
+      - `emits: ['toggle-favorite'],` - Basic form
+      - This makes it clear that there definitely is some code in the component which leads to an event with that identifier to be emitted.
+      - Can be expanded on beyond array similar to `props` by specifiying an object instead
+        - Add your emitted events as keys, with a function as configuration
+    - `emits: { 'toggle-favorite': (id) => { } },`
+      - Here we make it obvious that 'toggle-favorite' is an event that should be handled by a function that expects an id
+      - Can add validation here
+    - Not required, but can make things more defined, easier, etc.
+```javascript
+// emits: ['toggle-favorite'], 
+// simpler, basic form above is what we will use, below is the expanded form
+emits: {
+  'toggle-favorite': (id) => {
+    if (id) {
+      return true
+    } else {
+      console.warn('Id is missing~')
+      return false;
+    }
+  }
+},
+```
+
+#### Prop / Event Fallthrough & Binding All Props
+
+- There are two advanced concepts you also should have heard about:
+  - Prop Fallthrough
+  - Binding All Props on a Component
+- Prop Fallthrough
+  - You can set props (and listen to events) on a component which you haven't registered inside of that component.
+-For example:
+
+`BaseButton.vue`
+```html
+<template>  
+  <button>
+    <slot></slot>
+  </button>
+</template>
+  
+<script>export default {}</script>
+```
+
+- This button component (which might exist to set up a button with some default styling) has no special props that would be registered.
+- Yet, you can use it like this:
+
+`<base-button type="submit" @click="doSomething">Click me</base-button>`
+
+- Neither the type prop nor a custom click event are defined or used in the BaseButton component.
+  - Yet, this code would work.
+  - Because Vue has built-in support for prop (and event) "fallthrough".
+- Props and events added on a custom component tag automatically fall through to the root component in the template of that component. In the above example, `type` and `@click` get added to the `<button>` in the BaseButton component.
+- You can get access to these fallthrough props on a built-in `$attrs` property (e.g. `this.$attrs`).
+  - This can be handy to build "utility" or pure presentational components where you don't want to define all props and events individually.
+- You'll see this in action the component course project ("Learning Resources App") later.
+- You can learn more about this behavior [here](https://v3.vuejs.org/guide/component-attrs.html)
+- Binding all Props
+  -There is another built-in feature/ behavior related to props.
+  - If you have this component:
+
+`UserData.vue`
+```html
+<template>
+  <h2>{‌{ firstname }} {‌{ lastname }}</h2>
+</template>
+  
+<script>
+  export default {
+    props: ['firstname', 'lastname']
+  }
+</script>
+```
+- You could use it like this:
+```html
+<template>
+  <user-data :firstname="person.firstname" :lastname="person.lastname"></user-data>
+</template>
+  
+<script>
+  export default {
+    data() {
+      return {
+        person: { firstname: 'Max', lastname: 'Schwarz' }
+      };
+    }
+  }
+</script>
+```
+- But if you have an object which holds the props you want to set as properties, you can also shorten the code a bit:
+```html
+<template>
+  <user-data v-bind="person"></user-data>
+</template>
+  
+<script>
+  export default {
+    data() {
+      return {
+        person: { firstname: 'Max', lastname: 'Schwarz' }
+      };
+    }
+  }
+</script>
+```
+- With `v-bind="person"` you pass all key-value pairs inside of person as props to the component. That of course requires person to be a JavaScript object.
+  - This is purely optional but it's a little convenience feature that could be helpful.
+
+#### 
